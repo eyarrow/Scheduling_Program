@@ -1,6 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="600.0" style="-fx-background-color: #B9D5D1#B9D5D1;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" />
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="600.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox layoutX="2.0" prefHeight="552.0" prefWidth="600.0">
+         <children>
+            <Separator opacity="0.5" prefWidth="200.0" style="-fx-background-color: light grey; -fx-border-color: light grey; -fx-border-width: 4;">
+               <padding>
+                  <Insets top="100.0" />
+               </padding>
+            </Separator>
+            <GridPane prefHeight="506.0" prefWidth="600.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="296.0" minWidth="10.0" prefWidth="221.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="390.0" minWidth="10.0" prefWidth="379.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="112.0" minHeight="7.0" prefHeight="24.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="224.0" minHeight="10.0" prefHeight="207.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@../../images/logo.jpg" />
+                     </image>
+                     <GridPane.margin>
+                        <Insets left="30.0" />
+                     </GridPane.margin>
+                  </ImageView>
+                  <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="10.0" prefWidth="85.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="301.0" minWidth="10.0" prefWidth="294.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="User ID" textFill="WHITE" />
+                        <Label text="Password" textFill="WHITE" GridPane.rowIndex="1" />
+                        <TextField prefHeight="30.0" prefWidth="259.0" style="-fx-border-color: white; -fx-background-color: grey; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-width: 2;" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets right="30.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <Button mnemonicParsing="false" style="-fx-background-color: grey; -fx-border-color: #B6CFCC#B6CFCC; -fx-border-width: 2; -fx-border-radius: 15; -fx-text-fill: white;" text="Sign in" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <PasswordField style="-fx-background-color: grey; -fx-border-color: white; -fx-border-width: 2; -fx-border-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <GridPane.margin>
+                              <Insets right="30.0" />
+                           </GridPane.margin>
+                        </PasswordField>
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="40.0" top="40.0" />
+                     </GridPane.margin>
+                  </GridPane>
+               </children>
+            </GridPane>
+            <Separator opacity="0.5" prefWidth="200.0" style="-fx-background-color: light grey; -fx-border-color: light grey;">
+               <padding>
+                  <Insets bottom="100.0" />
+               </padding>
+            </Separator>
+            <Label text="Zone ID: " textFill="WHITE">
+               <padding>
+                  <Insets bottom="20.0" left="30.0" />
+               </padding>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
