@@ -13,17 +13,18 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="600.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="600.0" style="-fx-background-color: #4c4c4cff#4c4c4cff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.controller.LoginController">
    <children>
       <VBox layoutX="2.0" prefHeight="552.0" prefWidth="600.0">
          <children>
-            <Separator opacity="0.5" prefWidth="200.0" style="-fx-background-color: light grey; -fx-border-color: light grey; -fx-border-width: 4;">
+            <Separator opacity="0.5" prefHeight="135.0" prefWidth="600.0" stylesheets="@../../images/style.css">
                <padding>
                   <Insets top="100.0" />
                </padding>
             </Separator>
-            <GridPane prefHeight="506.0" prefWidth="600.0">
+            <GridPane prefHeight="506.0" prefWidth="600.0" styleClass="dark-background" stylesheets="@../../images/style.css">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="296.0" minWidth="10.0" prefWidth="221.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="390.0" minWidth="10.0" prefWidth="379.0" />
@@ -34,14 +35,6 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
-                     <image>
-                        <Image url="@../../images/logo.jpg" />
-                     </image>
-                     <GridPane.margin>
-                        <Insets left="30.0" />
-                     </GridPane.margin>
-                  </ImageView>
                   <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="10.0" prefWidth="85.0" />
@@ -53,15 +46,18 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="User ID" textFill="WHITE" />
-                        <Label text="Password" textFill="WHITE" GridPane.rowIndex="1" />
-                        <TextField prefHeight="30.0" prefWidth="259.0" style="-fx-border-color: white; -fx-background-color: grey; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-width: 2;" GridPane.columnIndex="1">
+                        <Label styleClass="dark-text-box-label" stylesheets="@../../images/style.css" text="User Name" textFill="WHITE" />
+                        <Label styleClass="dark-text-box-label" stylesheets="@../../images/style.css" text="Password" textFill="#813b3b" GridPane.rowIndex="1" />
+                        <TextField fx:id="textUserID" prefHeight="30.0" prefWidth="259.0" styleClass="dark-text-box" stylesheets="@../../images/style.css" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets right="30.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Button mnemonicParsing="false" style="-fx-background-color: grey; -fx-border-color: #B6CFCC#B6CFCC; -fx-border-width: 2; -fx-border-radius: 15; -fx-text-fill: white;" text="Sign in" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <PasswordField style="-fx-background-color: grey; -fx-border-color: white; -fx-border-width: 2; -fx-border-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Button fx:id="buttonSignIn" mnemonicParsing="false" styleClass="dark-submit-button" stylesheets="@../../images/style.css" text="Sign in" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font></Button>
+                        <PasswordField fx:id="textPassword" styleClass="dark-text-box" stylesheets="@../../images/style.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -74,14 +70,19 @@
                         <Insets bottom="40.0" top="40.0" />
                      </GridPane.margin>
                   </GridPane>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@../../images/LOGO_TRANSPARENT.png" />
+                     </image>
+                  </ImageView>
                </children>
             </GridPane>
-            <Separator opacity="0.5" prefWidth="200.0" style="-fx-background-color: light grey; -fx-border-color: light grey;">
+            <Separator opacity="0.5" prefWidth="200.0" stylesheets="@../../images/style.css">
                <padding>
                   <Insets bottom="100.0" />
                </padding>
             </Separator>
-            <Label text="Zone ID: " textFill="WHITE">
+            <Label fx:id="labelZoneID" styleClass="dark-text-box-label" stylesheets="@../../images/style.css" text="Zone ID: " textFill="WHITE">
                <padding>
                   <Insets bottom="20.0" left="30.0" />
                </padding>
