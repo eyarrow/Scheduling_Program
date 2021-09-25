@@ -34,3 +34,33 @@
 	-fx-background-color: #4c4c4cff;
 }
 
+.nav-bar-top {
+	-fx-background-color: #ffffff;
+	-fx-text-fill: #4c4c4cff;
+	-fx-font-size: 35px;
+	
+}
+
+.nav-bar-left {
+	-fx-background-color: #2F2F3D;
+	-fx-text-fill: #c4bad7fc;
+	-fx-font-size: 16px;
+}
+
+.nav-bar-descrip {
+	-fx-text-fill: #4c4c4cff;
+	-fx-font-size: 14px;
+}
+
+.overview-dashboards {
+	-fx-text-fill: #e62323;
+	-fx-font-size: 70px;
+	
+}
+
+.overview-dashboards-sublabel {
+	-fx-text-fill: #2F2F3D;
+	-fx-font-size: 20px;
+}
+
+
