@@ -173,3 +173,12 @@
 	-fx-font-size: 16px;
 }
 
+.radio-button .radio {
+	-fx-border-color: #4c4c4cff;
+	-fx-background-color: #ffffff;
+	-fx-text-fill: #4c4c4cff;
+	-fx-font-size: 14px;
+	-fx-border-radius: 15px;
+	-fx-border-width: 2px;
+}
+
