@@ -2,14 +2,13 @@ package scheduler.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class CustomerAddController {
+public class AppointmentsDetailController {
 
     @FXML
-    private Button buttonAddNewCustomer;
+    private Button buttonAddNewAppointment;
 
     @FXML
     private Button buttonOverview;
@@ -33,29 +32,41 @@ public class CustomerAddController {
     private Button buttonSearch;
 
     @FXML
-    private Label labelCustomerName;
+    private Label labelAppointmentTitle;
 
     @FXML
-    private TextField textfieldAddress;
+    private Label labelStartTime;
 
     @FXML
-    private TextField textfieldPostalCode;
+    private Label labelAppointmentID;
 
     @FXML
-    private TextField textFieldPhoneNumber;
+    private Label labelContactName;
 
     @FXML
-    private ComboBox<?> comboCountry;
+    private Label labelType;
 
     @FXML
-    private ComboBox<?> comboDivisionID;
+    private Label labelDescription;
+
+    @FXML
+    private Label labelLocation;
+
+    @FXML
+    private Label labelEndTime;
 
     @FXML
     private Label labelCustomerID;
 
     @FXML
-    private Button buttonCancel;
+    private Label labelUserID;
 
     @FXML
-    private Button buttonSave;
+    private Button buttonDelete;
+
+    @FXML
+    private Button buttonModify;
+
+    @FXML
+    private Button buttonReturn;
 }

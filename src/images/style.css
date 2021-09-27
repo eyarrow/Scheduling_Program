@@ -182,3 +182,15 @@
 	-fx-border-width: 2px;
 }
 
+
+.light-date-box  {
+	-fx-background-color: transparent;
+	-fx-border-color: #ada9a9;
+	-fx-background-radius: 15px;
+	-fx-border-radius: 15px;
+	-fx-border-width: 2px;
+	-fx-text-fill: #2F2F3D;
+	-fx-font-size: 16px;
+	
+}
+

@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -15,7 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="753.0" prefWidth="1243.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.controller.CustomersAddController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="753.0" prefWidth="1243.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.controller.AppointmentsModifyController">
    <children>
       <AnchorPane layoutX="245.0" prefHeight="135.0" prefWidth="1003.0" styleClass="nav-bar-top" stylesheets="@../../images/style.css" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="-5.0">
          <children>
@@ -29,7 +30,7 @@
                 <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label styleClass="nav-bar-top" stylesheets="@../../images/style.css" text="CUSTOMERS &gt; Add New">
+                  <Label styleClass="nav-bar-top" stylesheets="@../../images/style.css" text="APPOINTMENTS &gt; Modify">
                      <GridPane.margin>
                         <Insets left="30.0" />
                      </GridPane.margin>
@@ -37,7 +38,7 @@
                         <Insets top="50.0" />
                      </padding>
                   </Label>
-                  <Label styleClass="nav-bar-descrip" stylesheets="@../../images/style.css" text="Click Save to retain your changes. Select Cancel to return to the customer list. " GridPane.rowIndex="1">
+                  <Label styleClass="nav-bar-descrip" stylesheets="@../../images/style.css" text="Click Save to retain your changes. Select Cancel to return to the appointments list. " GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="30.0" />
                      </GridPane.margin>
@@ -53,10 +54,10 @@
                      <children>
                         <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../images/dark-add-person.png" />
+                              <Image url="@../../images/dark-newappointment.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="buttonAddNewCustomer" mnemonicParsing="false" prefHeight="30.0" prefWidth="177.0" styleClass="light-button" stylesheets="@../../images/style.css" text="Add New Customer" GridPane.columnIndex="1" />
+                        <Button fx:id="buttonAddNewAppointment" mnemonicParsing="false" prefHeight="33.0" prefWidth="186.0" styleClass="light-button" stylesheets="@../../images/style.css" text="Add New Appointment" GridPane.columnIndex="1" />
                      </children>
                      <padding>
                         <Insets top="50.0" />
@@ -140,10 +141,10 @@
          <children>
             <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/person-search-dark.png" />
+                  <Image url="@../../images/appointment-search.png" />
                </image>
             </ImageView>
-            <TextField fx:id="textfieldSearch" promptText="Search by Customer ID or Name" styleClass="light-text-box" stylesheets="@../../images/style.css" GridPane.columnIndex="1" />
+            <TextField fx:id="textfieldSearch" promptText="Search by Appointment ID or Customer Name" styleClass="light-text-box" stylesheets="@../../images/style.css" GridPane.columnIndex="1" />
             <Button fx:id="buttonSearch" mnemonicParsing="false" styleClass="light-button" stylesheets="@../../images/style.css" text="Search" GridPane.columnIndex="2">
                <GridPane.margin>
                   <Insets left="20.0" />
@@ -166,7 +167,7 @@
                <children>
                   <VBox prefHeight="571.0" prefWidth="983.0">
                      <children>
-                        <GridPane prefHeight="284.0" prefWidth="650.0">
+                        <GridPane prefHeight="445.0" prefWidth="865.0">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="319.0" minWidth="10.0" prefWidth="178.0" />
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="665.0" minWidth="10.0" prefWidth="665.0" />
@@ -179,26 +180,38 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="Customer ID" />
-                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="Address" GridPane.rowIndex="2" />
-                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="Postal Code" GridPane.rowIndex="3" />
-                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="Phone Number" GridPane.rowIndex="4" />
-                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="Country" GridPane.rowIndex="5" />
-                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="Division ID" GridPane.rowIndex="6" />
-                              <TextField fx:id="textfieldAddress" styleClass="light-text-box" stylesheets="@../../images/style.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <TextField fx:id="textfieldPostalCode" styleClass="light-text-box" stylesheets="@../../images/style.css" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <TextField fx:id="textFieldPhoneNumber" styleClass="light-text-box" stylesheets="@../../images/style.css" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <ComboBox fx:id="comboCountry" prefHeight="26.0" prefWidth="370.0" promptText="Country" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                              <ComboBox fx:id="comboDivisionID" prefHeight="26.0" prefWidth="372.0" promptText="Division ID" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                              <Label fx:id="labelCustomerID" styleClass="customer-detail-values" stylesheets="@../../images/style.css" text="Auto-Generated" GridPane.columnIndex="1">
+                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="Appointment ID" />
+                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="Type" GridPane.rowIndex="2" />
+                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="Title" GridPane.rowIndex="3" />
+                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="Description" GridPane.rowIndex="4" />
+                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="Location" GridPane.rowIndex="5" />
+                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="Start Time" GridPane.rowIndex="7" />
+                              <TextField fx:id="textfieldTitle" styleClass="light-text-box" stylesheets="@../../images/style.css" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="textDescription" styleClass="light-text-box" stylesheets="@../../images/style.css" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label fx:id="labelAppointmentID" styleClass="customer-detail-values" stylesheets="@../../images/style.css" text="00000" GridPane.columnIndex="1">
                                  <padding>
                                     <Insets left="5.0" />
                                  </padding>
                               </Label>
-                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="Name" GridPane.rowIndex="1" />
+                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="Customer Name" GridPane.rowIndex="1" />
                               <TextField fx:id="textFieldName" styleClass="light-text-box" stylesheets="@../../images/style.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="End Time" GridPane.rowIndex="8" />
+                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="Customer ID" GridPane.rowIndex="9" />
+                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="User ID" GridPane.rowIndex="10" />
+                              <ComboBox fx:id="comboType" prefHeight="35.0" prefWidth="664.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="textFieldLocation" styleClass="light-text-box" stylesheets="@../../images/style.css" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="Date" GridPane.rowIndex="6" />
+                              <DatePicker fx:id="dateDatePicker" prefHeight="35.0" prefWidth="662.0" styleClass="light-date-box" stylesheets="@../../images/style.css" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <ComboBox fx:id="comboStartTime" prefHeight="35.0" prefWidth="667.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                              <ComboBox fx:id="comboEndTime" prefHeight="35.0" prefWidth="667.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                              <Label fx:id="labelCustomerID" styleClass="customer-detail-values" stylesheets="@../../images/style.css" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                              <Label fx:id="labelUserID" styleClass="customer-detail-values" stylesheets="@../../images/style.css" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="10" />
                            </children>
                         </GridPane>
                         <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
