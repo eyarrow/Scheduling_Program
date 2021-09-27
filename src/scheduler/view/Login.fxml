@@ -53,7 +53,7 @@
                               <Insets right="30.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Button fx:id="buttonSignIn" mnemonicParsing="false" styleClass="dark-submit-button" stylesheets="@../../images/style.css" text="Sign in" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Button fx:id="buttonSignIn" mnemonicParsing="false" onAction="#onActionLogin" styleClass="dark-submit-button" stylesheets="@../../images/style.css" text="Sign in" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font></Button>

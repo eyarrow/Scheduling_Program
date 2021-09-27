@@ -11,9 +11,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import scheduler.util.dialogueReturnValues;
 import scheduler.util.errorHandling;
 
-import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -37,6 +37,12 @@ public class LoginController implements Initializable {
 
     @FXML
     private Label labelZoneID;
+
+    @FXML
+    void onActionLogin(ActionEvent event) {
+        error.displayDialogue(false, dialogueReturnValues.NO_CONTENT);
+    }
+
 
 
 
