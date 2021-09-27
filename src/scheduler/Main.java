@@ -16,6 +16,14 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    /**
+     * Runs stop application command
+     */
+    @Override
+    public void stop() throws Exception {
+        System.out.println("Exiting the Acme Consulting scheduling program. Goodbye!");
+    }
+
 
     public static void main(String[] args) {
         launch(args);
