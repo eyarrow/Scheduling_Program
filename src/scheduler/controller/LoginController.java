@@ -1,9 +1,7 @@
 package scheduler.controller;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -12,7 +10,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import scheduler.util.dialogueReturnValues;
-import scheduler.util.errorHandling;
+import scheduler.util.dialogueHandling;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -24,7 +22,7 @@ public class LoginController implements Initializable {
     Scene scene;
 
     //Instantiate object declaration for error handling
-    errorHandling error = new errorHandling();
+    dialogueHandling error = new dialogueHandling();
 
     @FXML
     private TextField textUserID;
@@ -40,7 +38,10 @@ public class LoginController implements Initializable {
 
     @FXML
     void onActionLogin(ActionEvent event) {
-        error.displayDialogue(false, dialogueReturnValues.NO_CONTENT);
+        if(error.informationDialogue(dialogueReturnValues.APPOINTMENT_NOTIFICATION, dialogueReturnValues.NO_APPT_NEXT_15MINUTES)) {
+            System.out.println("Mission accomplished!");
+        }
+        //error.displayDialogue(true, dialogueReturnValues.NO_CONTENT);
     }
 
 

@@ -7,7 +7,10 @@ package scheduler.util;
  */
 public enum dialogueReturnValues {
     WRONG_PASSWORD("The username and password combination were not found. Please try again."),
-    NO_CONTENT("Please make sure all fields are populated.");
+    NO_CONTENT("Please make sure all fields are populated."),
+    APPOINTMENT_NOTIFICATION("Appointment Notification"),
+    APPT_NEXT_15MINUTES("You have an appointment coming up in the next 15 minutes"),
+    NO_APPT_NEXT_15MINUTES("You do not have any appointments in the next 15 minutes");
 
     private String message;
 

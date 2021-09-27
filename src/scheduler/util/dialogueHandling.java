@@ -2,10 +2,9 @@ package scheduler.util;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-
 import java.util.Optional;
 
-public class errorHandling {
+public class dialogueHandling {
 
     /**
      *
@@ -16,7 +15,8 @@ public class errorHandling {
      *              in a "Confirmation" dialogue being displayed.
      * @param code  an enum value that will be used to display the correct feedback in the dialogue
      *              box. It is used to insert the appropriate string
-     * @return boolean is set to true if the user responded with "Ok" in the confirmation dialogue.
+     * @return boolean is set to true if the user responded with "Ok" in the confirmation dialogue. A true
+     * value indicates that the user was passed a confirmation dialogue, and pressed the button to proceed.
      * Both error dialogue and cancel responses for a confirmation dialogue will return a false boolean.
      *
      */
@@ -32,6 +32,7 @@ public class errorHandling {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, code.toString());
             alert.setTitle("Please confirm?");
             Optional<ButtonType> result = alert.showAndWait();
+
             if(result.isPresent() && result.get() == ButtonType.OK) {
                 return true;
             }
@@ -41,5 +42,17 @@ public class errorHandling {
         }
 }
 
+public boolean informationDialogue(dialogueReturnValues header, dialogueReturnValues content) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    alert.setTitle("Notification");
+    alert.setHeaderText(header.toString());
+    alert.setContentText(content.toString());
 
-}
+    alert.showAndWait().ifPresent((response -> {
+        if (response == ButtonType.OK) {
+
+        }
+        }));
+
+        return true;
+}}
