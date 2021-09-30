@@ -45,6 +45,18 @@ public abstract class dbOperations {
                 System.out.println("Error:" + e.getMessage());
             }
         }
+
+
+    public static void dbQuery() {
+
     }
+
+    public static void dbUpdate () {
+
+    }
+
+
+
+}
 
 
