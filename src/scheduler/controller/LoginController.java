@@ -21,8 +21,6 @@ public class LoginController implements Initializable {
     Stage stage;
     Scene scene;
 
-    //Instantiate object declaration for error handling
-    dialogueHandling error = new dialogueHandling();
 
     @FXML
     private TextField textUserID;
@@ -38,9 +36,8 @@ public class LoginController implements Initializable {
 
     @FXML
     void onActionLogin(ActionEvent event) {
-        if(error.informationDialogue(dialogueReturnValues.APPOINTMENT_NOTIFICATION, dialogueReturnValues.NO_APPT_NEXT_15MINUTES)) {
-            System.out.println("Mission accomplished!");
-        }
+        dialogueHandling.informationDialogue(dialogueReturnValues.APPOINTMENT_NOTIFICATION, dialogueReturnValues.NO_APPT_NEXT_15MINUTES);
+
         //error.displayDialogue(true, dialogueReturnValues.NO_CONTENT);
     }
 

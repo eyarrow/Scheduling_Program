@@ -4,7 +4,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import java.util.Optional;
 
-public class dialogueHandling {
+public abstract class dialogueHandling {
 
     /**
      *
@@ -20,7 +20,7 @@ public class dialogueHandling {
      * Both error dialogue and cancel responses for a confirmation dialogue will return a false boolean.
      *
      */
-    public boolean displayDialogue(boolean error, dialogueReturnValues code) {
+    public static boolean displayDialogue(boolean error, dialogueReturnValues code) {
         if(error) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
@@ -42,7 +42,7 @@ public class dialogueHandling {
         }
 }
 
-public boolean informationDialogue(dialogueReturnValues header, dialogueReturnValues content) {
+public static boolean informationDialogue(dialogueReturnValues header, dialogueReturnValues content) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
     alert.setTitle("Notification");
     alert.setHeaderText(header.toString());
