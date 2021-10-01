@@ -10,6 +10,7 @@ public abstract class loginAuthentication {
     String password = NULL;
 
     String USER_AUTHENTICATE = "select * from users";
+    //change this to the correct string after testing.
 
     /**
      * Determines if the name and password exist in the application database, and that they match.
@@ -21,7 +22,6 @@ public abstract class loginAuthentication {
     public static boolean authenticateUser (String userName, String password) {
         ResultSet result = dbOperations.dbQuery(USER_AUTHENTICATE);
         return true;
-
     }
 
 

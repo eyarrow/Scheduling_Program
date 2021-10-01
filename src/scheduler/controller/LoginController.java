@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import scheduler.Dao.loginAuthentication;
 import scheduler.util.dialogueReturnValues;
 import scheduler.util.dialogueHandling;
 
@@ -36,7 +37,31 @@ public class LoginController implements Initializable {
 
     @FXML
     void onActionLogin(ActionEvent event) {
-        dialogueHandling.informationDialogue(dialogueReturnValues.APPOINTMENT_NOTIFICATION, dialogueReturnValues.NO_APPT_NEXT_15MINUTES);
+        //Capture user name and password from fields
+        String user = textUserID.getText();
+        String password = textPassword.getText();
+        boolean success = NULL;
+
+        //checks to make sure user and password are not null. Authenticates if values are present
+        //for both fields.
+        if(user == NULL || password == NULL ) {
+            dialogueHandling.displayDialogue(true, dialogueReturnValues.NO_CONTENT);
+        }
+        else {
+            success = loginAuthentication.authenticateUser(user, password);
+
+            if(success) {
+                dialogueHandling.informationDialogue(dialogueReturnValues.APPOINTMENT_NOTIFICATION, dialogueReturnValues.NO_APPT_NEXT_15MINUTES);
+            }
+            else {
+                dialogueHandling.displayDialogue(true, dialogueReturnValues.WRONG_PASSWORD);
+
+            }
+        }
+
+
+
+
 
         //error.displayDialogue(true, dialogueReturnValues.NO_CONTENT);
     }
