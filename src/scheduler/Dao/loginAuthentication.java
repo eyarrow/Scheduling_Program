@@ -23,7 +23,6 @@ public abstract class loginAuthentication {
 
         ResultSet result = dbOperations.dbQuery(USER_AUTHENTICATE);
         if(result.next() == false) {
-            System.out.println("no result to query");
             return false;
         }
         return true;
