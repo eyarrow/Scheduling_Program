@@ -2,6 +2,7 @@ package scheduler.Dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 
 public abstract class dbOperations {
 
@@ -20,7 +21,9 @@ public abstract class dbOperations {
     public static Connection connection;  // Connection Interface
 
 
-
+    /**
+     * Opens a connection to the application database.
+     */
     public static void openConnection()
         {
             try {
@@ -34,7 +37,9 @@ public abstract class dbOperations {
             }
         }
 
-
+    /**
+     * Closes the connection to the application database
+     */
         public static void closeConnection() {
             try {
                 connection.close();
@@ -46,12 +51,22 @@ public abstract class dbOperations {
             }
         }
 
-
-    public static void dbQuery() {
-
+    /**
+     *
+     * Accepts a SQL Query in the form of a string, and sends that to the application database.
+     * @param sqlQuery
+     * @return Result set if the query had results, Null if the query had no results.
+     */
+    public static ResultSet dbQuery(String sqlQuery) {
+        return NULL;
     }
 
-    public static void dbUpdate () {
+    /**
+     *
+     * Accepts a SQL Update statement in the form of a string and sends that to the application database.
+     * @param sqlStatement
+     */
+    public static void dbUpdate (String sqlStatement) {
 
     }
 
