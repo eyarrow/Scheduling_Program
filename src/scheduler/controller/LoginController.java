@@ -14,6 +14,7 @@ import scheduler.util.dialogueReturnValues;
 import scheduler.util.dialogueHandling;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
@@ -36,15 +37,15 @@ public class LoginController implements Initializable {
     private Label labelZoneID;
 
     @FXML
-    void onActionLogin(ActionEvent event) {
+    void onActionLogin(ActionEvent event) throws SQLException {
         //Capture user name and password from fields
         String user = textUserID.getText();
         String password = textPassword.getText();
-        boolean success = NULL;
+        boolean success = false;
 
         //checks to make sure user and password are not null. Authenticates if values are present
         //for both fields.
-        if(user == NULL || password == NULL ) {
+        if(user == "" || password == "" ) {
             dialogueHandling.displayDialogue(true, dialogueReturnValues.NO_CONTENT);
         }
         else {

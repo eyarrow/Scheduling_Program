@@ -4,12 +4,13 @@ import scheduler.util.dbOperations;
 
 import javax.xml.transform.Result;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public abstract class loginAuthentication {
-    String userName = NULL;
-    String password = NULL;
+    String userName = "";
+    String password = "";
 
-    String USER_AUTHENTICATE = "select * from users";
+    static String USER_AUTHENTICATE = "select * from users";
     //change this to the correct string after testing.
 
     /**
@@ -19,7 +20,7 @@ public abstract class loginAuthentication {
      * @return Returns true if the provided username and password match what exists in the database.
      * Returns false if it does not.
      */
-    public static boolean authenticateUser (String userName, String password) {
+    public static boolean authenticateUser (String userName, String password) throws SQLException {
         ResultSet result = dbOperations.dbQuery(USER_AUTHENTICATE);
         return true;
     }

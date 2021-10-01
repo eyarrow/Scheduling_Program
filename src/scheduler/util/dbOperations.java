@@ -72,8 +72,7 @@ public abstract class dbOperations {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
+        return null;
     }
 
     /**
