@@ -27,7 +27,10 @@ public enum dialogueReturnValues {
         this.message = mess;
     }
 
-    //override the .tostring() function for this enum
+    /**
+     * Overrides the .toString() function, so that it returns the string associated with the enumeration.
+     * @return the string associated with the enum code.
+     */
     @Override
     public String toString() {
         return this.message;

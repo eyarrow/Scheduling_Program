@@ -1,8 +1,6 @@
 package scheduler.util;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
+import java.sql.*;
 
 public abstract class dbOperations {
 
@@ -66,8 +64,16 @@ public abstract class dbOperations {
      * @param sqlQuery
      * @return Result set if the query had results, Null if the query had no results.
      */
-    public static ResultSet dbQuery(String sqlQuery) {
-        return NULL;
+    public static ResultSet dbQuery(String sqlQuery) throws SQLException {
+        try {
+            PreparedStatement ps = dbOperations.getConnection().prepareStatement(sqlQuery);
+            ResultSet rs = ps.executeQuery();
+            return rs;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     /**
