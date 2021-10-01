@@ -55,4 +55,18 @@ public static boolean informationDialogue(dialogueReturnValues header, dialogueR
         }));
 
         return true;
-}}
+}
+
+public static boolean checkAuthentication(String username, String password) {
+    //checks to make sure user and password are not null. Authenticates if values are present
+    //for both fields.
+    if(username.isEmpty() || password.isEmpty() ) {
+        dialogueHandling.displayDialogue(true, dialogueReturnValues.NO_CONTENT);
+        return false;
+    }
+    return true;
+}
+
+
+
+}

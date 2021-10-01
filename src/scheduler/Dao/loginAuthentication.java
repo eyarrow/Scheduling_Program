@@ -7,10 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public abstract class loginAuthentication {
-    String userName = "";
-    String password = "";
 
-    static String USER_AUTHENTICATE = "select * from users";
+    //static String USER_AUTHENTICATE = String.format("select * from users where User_Name = '%s' AND Password = '%s'", this.userName, this.password);
     //change this to the correct string after testing.
 
     /**
@@ -21,9 +19,17 @@ public abstract class loginAuthentication {
      * Returns false if it does not.
      */
     public static boolean authenticateUser (String userName, String password) throws SQLException {
+        String USER_AUTHENTICATE = String.format("select * from users where User_Name = '%s' AND Password = '%s'", userName, password);
+
         ResultSet result = dbOperations.dbQuery(USER_AUTHENTICATE);
+        if(result.next() == false) {
+            System.out.println("no result to query");
+            return false;
+        }
         return true;
     }
+
+
 
 
 }

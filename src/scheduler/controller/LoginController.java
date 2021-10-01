@@ -2,7 +2,9 @@ package scheduler.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -10,9 +12,11 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import scheduler.Dao.loginAuthentication;
+import scheduler.model.Scheduler;
 import scheduler.util.dialogueReturnValues;
 import scheduler.util.dialogueHandling;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -37,34 +41,23 @@ public class LoginController implements Initializable {
     private Label labelZoneID;
 
     @FXML
-    void onActionLogin(ActionEvent event) throws SQLException {
+    void onActionLogin(ActionEvent event) throws SQLException, IOException {
         //Capture user name and password from fields
         String user = textUserID.getText();
         String password = textPassword.getText();
         boolean success = false;
 
-        //checks to make sure user and password are not null. Authenticates if values are present
-        //for both fields.
-        if(user == "" || password == "" ) {
-            dialogueHandling.displayDialogue(true, dialogueReturnValues.NO_CONTENT);
-        }
-        else {
-            success = loginAuthentication.authenticateUser(user, password);
-
-            if(success) {
-                dialogueHandling.informationDialogue(dialogueReturnValues.APPOINTMENT_NOTIFICATION, dialogueReturnValues.NO_APPT_NEXT_15MINUTES);
-            }
-            else {
-                dialogueHandling.displayDialogue(true, dialogueReturnValues.WRONG_PASSWORD);
-
-            }
+        //uses error checking to see if the username and password fields are populated.
+        //will break from the function if not, so the user can re-enter information
+        if (dialogueHandling.checkAuthentication(user, password) == false ) {
+           return;
         }
 
+        Scheduler login = new Scheduler();
+        if(login.loginToApplication(user, password) == false ) {
+            return;
+        }
 
-
-
-
-        //error.displayDialogue(true, dialogueReturnValues.NO_CONTENT);
     }
 
 
