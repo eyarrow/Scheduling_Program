@@ -1,4 +1,4 @@
-package scheduler.Dao;
+package scheduler.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -38,6 +38,15 @@ public abstract class dbOperations {
         }
 
     /**
+     *
+     * Returns the current open connection for use in queries
+      * @return the connection to the application database.
+     */
+   public static Connection getConnection() {
+        return connection;
+   }
+
+    /**
      * Closes the connection to the application database
      */
         public static void closeConnection() {
@@ -47,7 +56,7 @@ public abstract class dbOperations {
             }
             catch(Exception e)
             {
-                System.out.println("Error:" + e.getMessage());
+                //do nothing. At this point the program is closing, this is not an actionable error.
             }
         }
 

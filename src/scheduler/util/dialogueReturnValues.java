@@ -6,15 +6,23 @@ package scheduler.util;
  * returns the correct string corresponding to the error code.
  */
 public enum dialogueReturnValues {
+    /** Error messages **/
     WRONG_PASSWORD("The username and password combination were not found. Please try again."),
     NO_CONTENT("Please make sure all fields are populated."),
+
+    /** Notifications **/
     APPOINTMENT_NOTIFICATION("Appointment Notification"),
     APPT_NEXT_15MINUTES("You have an appointment coming up in the next 15 minutes"),
     NO_APPT_NEXT_15MINUTES("You do not have any appointments in the next 15 minutes");
 
     private String message;
 
-    //Constructor for enum with a string parameter
+    /**
+     * Constructor for the dialogueReturnValues enumeration class that accepts a String as a parameter.
+     * The String corresponds to a notification, error, or confirmation message that will be displayed
+     * to the end user.
+     * @param mess is the error, confirmation or notification message.
+     */
     private dialogueReturnValues(String mess) {
         this.message = mess;
     }
