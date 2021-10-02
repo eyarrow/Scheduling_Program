@@ -73,6 +73,26 @@ public class CustomersModifyController implements Initializable {
     private Button buttonSave;
 
     @FXML
+    void onClickAddNewCustomer(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onClickCancel(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onClickSave(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onClickSearchCustomers(ActionEvent event) {
+
+    }
+
+    @FXML
     void onClickAppointments(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("/scheduler/view/AppointmentsOverview.fxml/"));

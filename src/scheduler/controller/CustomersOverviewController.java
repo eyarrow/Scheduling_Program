@@ -70,6 +70,20 @@ public class CustomersOverviewController implements Initializable {
     private TableColumn<?, ?> labelDivisionID;
 
     @FXML
+    void onClickCustomerSearch(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onClickAddNewCustomer(ActionEvent event) throws IOException {
+        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/scheduler/view/CustomersAdd.fxml/"));
+        stage.setScene(new Scene(scene, 1243, 753));
+        stage.setTitle("Acme Consulting : Add Customer");
+        stage.show();
+    }
+
+    @FXML
     void onClickAppointments(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("/scheduler/view/AppointmentsOverview.fxml/"));

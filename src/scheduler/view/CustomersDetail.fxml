@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="753.0" prefWidth="1243.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.controller.CustomersDetailController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="753.0" prefWidth="1243.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.controller.CustomersDetailController">
    <children>
       <AnchorPane layoutX="245.0" prefHeight="135.0" prefWidth="1003.0" styleClass="nav-bar-top" stylesheets="@/images/style.css" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="-5.0">
          <children>
@@ -55,7 +55,7 @@
                               <Image url="@/images/dark-add-person.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="buttonAddNewCustomer" mnemonicParsing="false" prefHeight="30.0" prefWidth="177.0" styleClass="light-button" stylesheets="@/images/style.css" text="Add New Customer" GridPane.columnIndex="1" />
+                        <Button fx:id="buttonAddNewCustomer" mnemonicParsing="false" onAction="#onClickAddNewCustomer" prefHeight="30.0" prefWidth="177.0" styleClass="light-button" stylesheets="@/images/style.css" text="Add New Customer" GridPane.columnIndex="1" />
                      </children>
                      <padding>
                         <Insets top="50.0" />
@@ -143,7 +143,7 @@
                </image>
             </ImageView>
             <TextField fx:id="textfieldSearch" promptText="Search by Customer ID or Name" styleClass="light-text-box" stylesheets="@/images/style.css" GridPane.columnIndex="1" />
-            <Button fx:id="buttonSearch" mnemonicParsing="false" styleClass="light-button" stylesheets="@/images/style.css" text="Search" GridPane.columnIndex="2">
+            <Button fx:id="buttonSearch" mnemonicParsing="false" onAction="#onClickSearchCustomers" styleClass="light-button" stylesheets="@/images/style.css" text="Search" GridPane.columnIndex="2">
                <GridPane.margin>
                   <Insets left="20.0" />
                </GridPane.margin>
@@ -200,17 +200,17 @@
                         </GridPane>
                         <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Button fx:id="buttonDelete" mnemonicParsing="false" style="-fx-border-color: red;" styleClass="light-button" stylesheets="@/images/style.css" text="Delete">
+                              <Button fx:id="buttonDelete" mnemonicParsing="false" onAction="#onClickDelete" style="-fx-border-color: red;" styleClass="light-button" stylesheets="@/images/style.css" text="Delete">
                                  <HBox.margin>
                                     <Insets right="15.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button fx:id="buttonModify" mnemonicParsing="false" styleClass="light-button" stylesheets="@/images/style.css" text="Modify">
+                              <Button fx:id="buttonModify" mnemonicParsing="false" onAction="#onClickModify" styleClass="light-button" stylesheets="@/images/style.css" text="Modify">
                                  <HBox.margin>
                                     <Insets right="15.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button fx:id="buttonReturn" mnemonicParsing="false" styleClass="light-button" stylesheets="@/images/style.css" text="Return to List View" />
+                              <Button fx:id="buttonReturn" mnemonicParsing="false" onAction="#onClickReturnToList" styleClass="light-button" stylesheets="@/images/style.css" text="Return to List View" />
                            </children>
                            <padding>
                               <Insets right="40.0" top="30.0" />

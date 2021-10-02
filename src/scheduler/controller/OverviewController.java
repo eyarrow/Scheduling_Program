@@ -97,7 +97,6 @@ public class OverviewController implements Initializable {
         scene = FXMLLoader.load(getClass().getResource("/scheduler/view/Reports.fxml/"));
         stage.setScene(new Scene(scene, 1243, 753));
         stage.setTitle("Acme Consulting : Reports");
-        //scene.getStylesheets().add( getClass().getResource( "/images/style.css" ).toExternalForm() );
         stage.show();
     }
 
