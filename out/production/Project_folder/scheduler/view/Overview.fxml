@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="753.0" prefWidth="1243.0" style="-fx-background-color: #ffffff;" stylesheets="@../Resources/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.controller.OverviewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="753.0" prefWidth="1243.0" style="-fx-background-color: #ffffff;" stylesheets="@../Resources/style.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.controller.OverviewController">
    <children>
-      <AnchorPane layoutX="245.0" prefHeight="135.0" prefWidth="1003.0" styleClass="nav-bar-top" stylesheets="@../Resources/style.css" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="-5.0">
+      <AnchorPane layoutX="245.0" prefHeight="135.0" prefWidth="1003.0" styleClass="nav-bar-top" stylesheets="@/images/style.css" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="-5.0">
          <children>
             <GridPane layoutX="-2.0" prefHeight="135.0" prefWidth="1003.0">
               <columnConstraints>
@@ -42,16 +42,15 @@
                </children>
             </GridPane>
          </children></AnchorPane>
-      <BorderPane prefHeight="715.0" prefWidth="246.0" styleClass="nav-bar-left" stylesheets="@../../images/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane prefHeight="715.0" prefWidth="246.0" styleClass="nav-bar-left" stylesheets="@/images/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
-                  <Image url="@../../images/LOGO_TRANSPARENT.png" />
-               </image>
-            </ImageView>
+                  <Image url="@/images/LOGO_TRANSPARENT.png" />
+               </image></ImageView>
          </top>
          <center>
-            <GridPane minWidth="-Infinity" styleClass="nav-bar-left" stylesheets="@../../images/style.css" BorderPane.alignment="CENTER">
+            <GridPane minWidth="-Infinity" styleClass="nav-bar-left" stylesheets="@/images/style.css" BorderPane.alignment="CENTER">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="42.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -65,28 +64,28 @@
                   <RowConstraints maxHeight="-Infinity" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="buttonOverview" mnemonicParsing="false" onAction="#onClickOverview" styleClass="nav-bar-left" stylesheets="@../../images/style.css" text="OVERVIEW" GridPane.columnIndex="1" />
-                  <Button fx:id="buttonCustomers" mnemonicParsing="false" onAction="#onClickCustomers" styleClass="nav-bar-left" stylesheets="@../../images/style.css" text="CUSTOMERS" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button fx:id="buttonAppointments" mnemonicParsing="false" onAction="#onClickAppointments" styleClass="nav-bar-left" stylesheets="@../../images/style.css" text="APPOINTMENTS" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button fx:id="buttonReports" mnemonicParsing="false" onAction="#onClickReports" styleClass="nav-bar-left" stylesheets="@../../images/style.css" text="REPORTS" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Button fx:id="buttonOverview" mnemonicParsing="false" onAction="#onClickOverview" styleClass="nav-bar-left" stylesheets="@/images/style.css" text="OVERVIEW" GridPane.columnIndex="1" />
+                  <Button fx:id="buttonCustomers" mnemonicParsing="false" onAction="#onClickCustomers" styleClass="nav-bar-left" stylesheets="@/images/style.css" text="CUSTOMERS" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button fx:id="buttonAppointments" mnemonicParsing="false" onAction="#onClickAppointments" styleClass="nav-bar-left" stylesheets="@/images/style.css" text="APPOINTMENTS" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button fx:id="buttonReports" mnemonicParsing="false" onAction="#onClickReports" styleClass="nav-bar-left" stylesheets="@/images/style.css" text="REPORTS" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                      <image>
-                        <Image url="@../../images/ContactIcon.png" />
+                        <Image url="@/images/ContactIcon.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                      <image>
-                        <Image url="@../../images/calendaricon.png" />
+                        <Image url="@/images/calendaricon.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
                      <image>
-                        <Image url="@../../images/reports.png" />
+                        <Image url="@/images/reports.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/overview.png" />
+                        <Image url="@/images/overview.png" />
                      </image>
                      <GridPane.margin>
                         <Insets />
@@ -94,10 +93,10 @@
                   </ImageView>
                   <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="40.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="5">
                      <image>
-                        <Image url="@../../images/logout.png" />
+                        <Image url="@/images/logout.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="buttonLogout" layoutX="82.0" layoutY="315.0" mnemonicParsing="false" onAction="#onClickLogOut" styleClass="nav-bar-left" stylesheets="@../../images/style.css" text="LOG OUT" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Button fx:id="buttonLogout" layoutX="82.0" layoutY="315.0" mnemonicParsing="false" onAction="#onClickLogOut" styleClass="nav-bar-left" stylesheets="@/images/style.css" text="LOG OUT" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                </children>
                <padding>
                   <Insets left="30.0" top="50.0" />
@@ -105,7 +104,7 @@
             </GridPane>
          </center>
       </BorderPane>
-      <GridPane gridLinesVisible="true" layoutX="245.0" layoutY="135.0" prefHeight="338.0" prefWidth="1003.0" styleClass="overview-dashboards" stylesheets="@../../images/style.css">
+      <GridPane gridLinesVisible="true" layoutX="245.0" layoutY="135.0" prefHeight="338.0" prefWidth="1003.0" styleClass="overview-dashboards" stylesheets="@/images/style.css">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -115,10 +114,10 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0" styleClass="overview-dashboards" stylesheets="@../../images/style.css">
+            <VBox prefHeight="200.0" prefWidth="100.0" styleClass="overview-dashboards" stylesheets="@/images/style.css">
                <children>
-                  <Label fx:id="labelApptToday" styleClass="overview-dashboards" stylesheets="@../../images/style.css" text="0" />
-                  <Label styleClass="overview-dashboards-sublabel" stylesheets="@../../images/style.css" text="Appointments Today" />
+                  <Label fx:id="labelApptToday" styleClass="overview-dashboards" stylesheets="@/images/style.css" text="0" />
+                  <Label styleClass="overview-dashboards-sublabel" stylesheets="@/images/style.css" text="Appointments Today" />
                </children>
                <padding>
                   <Insets left="30.0" top="50.0" />
@@ -126,8 +125,8 @@
             </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                <children>
-                  <Label fx:id="labelAppointTomorrow" styleClass="overview-dashboards" stylesheets="@../../images/style.css" text="0" />
-                  <Label styleClass="overview-dashboards-sublabel" stylesheets="@../../images/style.css" text="Appointments Tomorrow" />
+                  <Label fx:id="labelAppointTomorrow" styleClass="overview-dashboards" stylesheets="@/images/style.css" text="0" />
+                  <Label styleClass="overview-dashboards-sublabel" stylesheets="@/images/style.css" text="Appointments Tomorrow" />
                </children>
                <padding>
                   <Insets left="30.0" top="50.0" />
@@ -135,8 +134,8 @@
             </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
                <children>
-                  <Label fx:id="labelAppointThisWeek" styleClass="overview-dashboards" stylesheets="@../../images/style.css" text="0" />
-                  <Label styleClass="overview-dashboards-sublabel" stylesheets="@../../images/style.css" text="Appointments This Week" />
+                  <Label fx:id="labelAppointThisWeek" styleClass="overview-dashboards" stylesheets="@/images/style.css" text="0" />
+                  <Label styleClass="overview-dashboards-sublabel" stylesheets="@/images/style.css" text="Appointments This Week" />
                </children>
                <padding>
                   <Insets left="30.0" top="50.0" />

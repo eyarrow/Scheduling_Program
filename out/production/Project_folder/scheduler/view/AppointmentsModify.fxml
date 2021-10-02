@@ -16,9 +16,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="753.0" prefWidth="1243.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.controller.AppointmentsModifyController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="753.0" prefWidth="1243.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.controller.AppointmentsModifyController">
    <children>
-      <AnchorPane layoutX="245.0" prefHeight="135.0" prefWidth="1003.0" styleClass="nav-bar-top" stylesheets="@../../images/style.css" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="-5.0">
+      <AnchorPane layoutX="245.0" prefHeight="135.0" prefWidth="1003.0" styleClass="nav-bar-top" stylesheets="@/images/style.css" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="-5.0">
          <children>
             <GridPane layoutX="-2.0" prefHeight="135.0" prefWidth="1003.0">
               <columnConstraints>
@@ -30,7 +30,7 @@
                 <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label styleClass="nav-bar-top" stylesheets="@../../images/style.css" text="APPOINTMENTS &gt; Modify">
+                  <Label styleClass="nav-bar-top" stylesheets="@/images/style.css" text="APPOINTMENTS &gt; Modify">
                      <GridPane.margin>
                         <Insets left="30.0" />
                      </GridPane.margin>
@@ -38,7 +38,7 @@
                         <Insets top="50.0" />
                      </padding>
                   </Label>
-                  <Label styleClass="nav-bar-descrip" stylesheets="@../../images/style.css" text="Click Save to retain your changes. Select Cancel to return to the appointments list. " GridPane.rowIndex="1">
+                  <Label styleClass="nav-bar-descrip" stylesheets="@/images/style.css" text="Click Save to retain your changes. Select Cancel to return to the appointments list. " GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="30.0" />
                      </GridPane.margin>
@@ -54,10 +54,10 @@
                      <children>
                         <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../images/dark-newappointment.png" />
+                              <Image url="@/images/dark-newappointment.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="buttonAddNewAppointment" mnemonicParsing="false" prefHeight="33.0" prefWidth="186.0" styleClass="light-button" stylesheets="@../../images/style.css" text="Add New Appointment" GridPane.columnIndex="1" />
+                        <Button fx:id="buttonAddNewAppointment" mnemonicParsing="false" prefHeight="33.0" prefWidth="186.0" styleClass="light-button" stylesheets="@/images/style.css" text="Add New Appointment" GridPane.columnIndex="1" />
                      </children>
                      <padding>
                         <Insets top="50.0" />
@@ -66,16 +66,16 @@
                </children>
             </GridPane>
          </children></AnchorPane>
-      <BorderPane prefHeight="715.0" prefWidth="246.0" styleClass="nav-bar-left" stylesheets="@../../images/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane prefHeight="715.0" prefWidth="246.0" styleClass="nav-bar-left" stylesheets="@/images/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
-                  <Image url="@../../images/LOGO_TRANSPARENT.png" />
+                  <Image url="@/images/LOGO_TRANSPARENT.png" />
                </image>
             </ImageView>
          </top>
          <center>
-            <GridPane minWidth="-Infinity" styleClass="nav-bar-left" stylesheets="@../../images/style.css" BorderPane.alignment="CENTER">
+            <GridPane minWidth="-Infinity" styleClass="nav-bar-left" stylesheets="@/images/style.css" BorderPane.alignment="CENTER">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="42.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -89,28 +89,28 @@
                   <RowConstraints maxHeight="-Infinity" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="buttonOverview" mnemonicParsing="false" onAction="#onClickOverview" styleClass="nav-bar-left" stylesheets="@../../images/style.css" text="OVERVIEW" GridPane.columnIndex="1" />
-                  <Button fx:id="buttonCustomers" mnemonicParsing="false" onAction="#onClickCustomers" styleClass="nav-bar-left" stylesheets="@../../images/style.css" text="CUSTOMERS" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button fx:id="buttonAppointments" mnemonicParsing="false" onAction="#onClickAppointments" styleClass="nav-bar-left" stylesheets="@../../images/style.css" text="APPOINTMENTS" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button fx:id="buttonReports" mnemonicParsing="false" onAction="#onClickReports" styleClass="nav-bar-left" stylesheets="@../../images/style.css" text="REPORTS" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Button fx:id="buttonOverview" mnemonicParsing="false" onAction="#onClickOverview" styleClass="nav-bar-left" stylesheets="@/images/style.css" text="OVERVIEW" GridPane.columnIndex="1" />
+                  <Button fx:id="buttonCustomers" mnemonicParsing="false" onAction="#onClickCustomers" styleClass="nav-bar-left" stylesheets="@/images/style.css" text="CUSTOMERS" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button fx:id="buttonAppointments" mnemonicParsing="false" onAction="#onClickAppointments" styleClass="nav-bar-left" stylesheets="@/images/style.css" text="APPOINTMENTS" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button fx:id="buttonReports" mnemonicParsing="false" onAction="#onClickReports" styleClass="nav-bar-left" stylesheets="@/images/style.css" text="REPORTS" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                      <image>
-                        <Image url="@../../images/ContactIcon.png" />
+                        <Image url="@/images/ContactIcon.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                      <image>
-                        <Image url="@../../images/calendaricon.png" />
+                        <Image url="@/images/calendaricon.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
                      <image>
-                        <Image url="@../../images/reports.png" />
+                        <Image url="@/images/reports.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/overview.png" />
+                        <Image url="@/images/overview.png" />
                      </image>
                      <GridPane.margin>
                         <Insets />
@@ -118,10 +118,10 @@
                   </ImageView>
                   <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="40.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="5">
                      <image>
-                        <Image url="@../../images/logout.png" />
+                        <Image url="@/images/logout.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="buttonLogout" layoutX="82.0" layoutY="315.0" mnemonicParsing="false" onAction="#onClickLogOut" styleClass="nav-bar-left" stylesheets="@../../images/style.css" text="LOG OUT" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Button fx:id="buttonLogout" layoutX="82.0" layoutY="315.0" mnemonicParsing="false" onAction="#onClickLogOut" styleClass="nav-bar-left" stylesheets="@/images/style.css" text="LOG OUT" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                </children>
                <padding>
                   <Insets left="30.0" top="50.0" />
@@ -141,11 +141,11 @@
          <children>
             <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/appointment-search.png" />
+                  <Image url="@/images/appointment-search.png" />
                </image>
             </ImageView>
-            <TextField fx:id="textfieldSearch" promptText="Search by Appointment ID or Customer Name" styleClass="light-text-box" stylesheets="@../../images/style.css" GridPane.columnIndex="1" />
-            <Button fx:id="buttonSearch" mnemonicParsing="false" styleClass="light-button" stylesheets="@../../images/style.css" text="Search" GridPane.columnIndex="2">
+            <TextField fx:id="textfieldSearch" promptText="Search by Appointment ID or Customer Name" styleClass="light-text-box" stylesheets="@/images/style.css" GridPane.columnIndex="1" />
+            <Button fx:id="buttonSearch" mnemonicParsing="false" styleClass="light-button" stylesheets="@/images/style.css" text="Search" GridPane.columnIndex="2">
                <GridPane.margin>
                   <Insets left="20.0" />
                </GridPane.margin>
@@ -163,7 +163,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <AnchorPane prefHeight="586.0" prefWidth="635.0" stylesheets="@../../images/style.css">
+            <AnchorPane prefHeight="586.0" prefWidth="635.0" stylesheets="@/images/style.css">
                <children>
                   <VBox prefHeight="571.0" prefWidth="983.0">
                      <children>
@@ -186,42 +186,42 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="Appointment ID" />
-                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="Type" GridPane.rowIndex="2" />
-                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="Title" GridPane.rowIndex="3" />
-                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="Description" GridPane.rowIndex="4" />
-                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="Location" GridPane.rowIndex="5" />
-                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="Start Time" GridPane.rowIndex="7" />
-                              <TextField fx:id="textfieldTitle" styleClass="light-text-box" stylesheets="@../../images/style.css" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <TextField fx:id="textDescription" styleClass="light-text-box" stylesheets="@../../images/style.css" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <Label fx:id="labelAppointmentID" styleClass="customer-detail-values" stylesheets="@../../images/style.css" text="00000" GridPane.columnIndex="1">
+                              <Label styleClass="customer-detail-labels" stylesheets="@/images/style.css" text="Appointment ID" />
+                              <Label styleClass="customer-detail-labels" stylesheets="@/images/style.css" text="Type" GridPane.rowIndex="2" />
+                              <Label styleClass="customer-detail-labels" stylesheets="@/images/style.css" text="Title" GridPane.rowIndex="3" />
+                              <Label styleClass="customer-detail-labels" stylesheets="@/images/style.css" text="Description" GridPane.rowIndex="4" />
+                              <Label styleClass="customer-detail-labels" stylesheets="@/images/style.css" text="Location" GridPane.rowIndex="5" />
+                              <Label styleClass="customer-detail-labels" stylesheets="@/images/style.css" text="Start Time" GridPane.rowIndex="7" />
+                              <TextField fx:id="textfieldTitle" styleClass="light-text-box" stylesheets="@/images/style.css" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="textDescription" styleClass="light-text-box" stylesheets="@/images/style.css" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label fx:id="labelAppointmentID" styleClass="customer-detail-values" stylesheets="@/images/style.css" text="00000" GridPane.columnIndex="1">
                                  <padding>
                                     <Insets left="5.0" />
                                  </padding>
                               </Label>
-                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="Customer Name" GridPane.rowIndex="1" />
-                              <TextField fx:id="textFieldName" styleClass="light-text-box" stylesheets="@../../images/style.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="End Time" GridPane.rowIndex="8" />
-                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="Customer ID" GridPane.rowIndex="9" />
-                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="User ID" GridPane.rowIndex="10" />
+                              <Label styleClass="customer-detail-labels" stylesheets="@/images/style.css" text="Customer Name" GridPane.rowIndex="1" />
+                              <TextField fx:id="textFieldName" styleClass="light-text-box" stylesheets="@/images/style.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label styleClass="customer-detail-labels" stylesheets="@/images/style.css" text="End Time" GridPane.rowIndex="8" />
+                              <Label styleClass="customer-detail-labels" stylesheets="@/images/style.css" text="Customer ID" GridPane.rowIndex="9" />
+                              <Label styleClass="customer-detail-labels" stylesheets="@/images/style.css" text="User ID" GridPane.rowIndex="10" />
                               <ComboBox fx:id="comboType" prefHeight="35.0" prefWidth="664.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <TextField fx:id="textFieldLocation" styleClass="light-text-box" stylesheets="@../../images/style.css" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                              <Label styleClass="customer-detail-labels" stylesheets="@../../images/style.css" text="Date" GridPane.rowIndex="6" />
-                              <DatePicker fx:id="dateDatePicker" prefHeight="35.0" prefWidth="662.0" styleClass="light-date-box" stylesheets="@../../images/style.css" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <TextField fx:id="textFieldLocation" styleClass="light-text-box" stylesheets="@/images/style.css" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Label styleClass="customer-detail-labels" stylesheets="@/images/style.css" text="Date" GridPane.rowIndex="6" />
+                              <DatePicker fx:id="dateDatePicker" prefHeight="35.0" prefWidth="662.0" styleClass="light-date-box" stylesheets="@/images/style.css" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                               <ComboBox fx:id="comboStartTime" prefHeight="35.0" prefWidth="667.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                               <ComboBox fx:id="comboEndTime" prefHeight="35.0" prefWidth="667.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                              <Label fx:id="labelCustomerID" styleClass="customer-detail-values" stylesheets="@../../images/style.css" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                              <Label fx:id="labelUserID" styleClass="customer-detail-values" stylesheets="@../../images/style.css" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                              <Label fx:id="labelCustomerID" styleClass="customer-detail-values" stylesheets="@/images/style.css" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                              <Label fx:id="labelUserID" styleClass="customer-detail-values" stylesheets="@/images/style.css" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="10" />
                            </children>
                         </GridPane>
                         <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Button fx:id="buttonCancel" mnemonicParsing="false" style="-fx-border-color: red;" styleClass="light-button" stylesheets="@../../images/style.css" text="Cancel" textFill="#ada9a9">
+                              <Button fx:id="buttonCancel" mnemonicParsing="false" style="-fx-border-color: red;" styleClass="light-button" stylesheets="@/images/style.css" text="Cancel" textFill="#ada9a9">
                                  <HBox.margin>
                                     <Insets right="15.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button fx:id="buttonSave" mnemonicParsing="false" styleClass="light-button" stylesheets="@../../images/style.css" text="Save" />
+                              <Button fx:id="buttonSave" mnemonicParsing="false" styleClass="light-button" stylesheets="@/images/style.css" text="Save" />
                            </children>
                            <padding>
                               <Insets top="30.0" />

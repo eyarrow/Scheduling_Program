@@ -15,11 +15,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="600.0" style="-fx-background-color: #4c4c4cff#4c4c4cff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.controller.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="600.0" style="-fx-background-color: #4c4c4cff#4c4c4cff;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.controller.LoginController">
    <children>
       <VBox layoutX="2.0" prefHeight="552.0" prefWidth="600.0">
          <children>
-            <Separator opacity="0.5" prefHeight="135.0" prefWidth="600.0" stylesheets="@../../images/style.css">
+            <Separator opacity="0.5" prefHeight="135.0" prefWidth="600.0" stylesheets="@/images/style.css">
                <padding>
                   <Insets top="100.0" />
                </padding>
@@ -46,18 +46,18 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label styleClass="dark-text-box-label" stylesheets="@../../images/style.css" text="User Name" textFill="WHITE" />
-                        <Label styleClass="dark-text-box-label" stylesheets="@../../images/style.css" text="Password" textFill="#813b3b" GridPane.rowIndex="1" />
-                        <TextField fx:id="textUserID" prefHeight="30.0" prefWidth="259.0" styleClass="dark-text-box" stylesheets="@../../images/style.css" GridPane.columnIndex="1">
+                        <Label styleClass="dark-text-box-label" stylesheets="@/images/style.css" text="User Name" textFill="WHITE" />
+                        <Label styleClass="dark-text-box-label" stylesheets="@/images/style.css" text="Password" textFill="#813b3b" GridPane.rowIndex="1" />
+                        <TextField fx:id="textUserID" prefHeight="30.0" prefWidth="259.0" styleClass="dark-text-box" stylesheets="@/images/style.css" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets right="30.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Button fx:id="buttonSignIn" mnemonicParsing="false" onAction="#onActionLogin" styleClass="dark-submit-button" stylesheets="@../../images/style.css" text="Sign in" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Button fx:id="buttonSignIn" mnemonicParsing="false" onAction="#onActionLogin" styleClass="dark-submit-button" stylesheets="@/images/style.css" text="Sign in" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font></Button>
-                        <PasswordField fx:id="textPassword" styleClass="dark-text-box" stylesheets="@../../images/style.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <PasswordField fx:id="textPassword" styleClass="dark-text-box" stylesheets="@/images/style.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -72,17 +72,17 @@
                   </GridPane>
                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                      <image>
-                        <Image url="@../../images/LOGO_TRANSPARENT.png" />
+                        <Image url="@/images/LOGO_TRANSPARENT.png" />
                      </image>
                   </ImageView>
                </children>
             </GridPane>
-            <Separator opacity="0.5" prefWidth="200.0" stylesheets="@../../images/style.css">
+            <Separator opacity="0.5" prefWidth="200.0" stylesheets="@/images/style.css">
                <padding>
                   <Insets bottom="100.0" />
                </padding>
             </Separator>
-            <Label fx:id="labelZoneID" styleClass="dark-text-box-label" stylesheets="@../../images/style.css" text="Zone ID: " textFill="WHITE">
+            <Label fx:id="labelZoneID" styleClass="dark-text-box-label" stylesheets="@/images/style.css" text="Zone ID: " textFill="WHITE">
                <padding>
                   <Insets bottom="20.0" left="30.0" />
                </padding>

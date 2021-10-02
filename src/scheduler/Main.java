@@ -16,8 +16,6 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("view/Login.fxml"));
         primaryStage.setTitle("Acme Consulting : Login ");
         primaryStage.setScene(new Scene(root, 600, 552));
-        //root.getStylesheets().add( getClass().getResource( "/images/style.css" ).toExternalForm() );
-        //root.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
         primaryStage.show();
         dbOperations.openConnection();
 
