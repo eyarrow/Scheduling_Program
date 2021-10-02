@@ -25,7 +25,7 @@ public class LoginController implements Initializable {
 
     //JavaFX objects for stage and scene
     Stage stage;
-    Scene scene;
+    Parent scene;
 
 
     @FXML
@@ -56,6 +56,14 @@ public class LoginController implements Initializable {
         Scheduler login = new Scheduler();
         if(login.loginToApplication(user, password) == false ) {
             return;
+        }
+        else {
+            stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+            scene = FXMLLoader.load(getClass().getResource("/scheduler/view/Overview.fxml/"));
+            stage.setScene(new Scene(scene, 1243, 753));
+            stage.setTitle("Acme Consulting : Overview");
+            scene.getStylesheets().add("@.../out/production/Project_folder/images/style.css");
+            stage.show();
         }
 
     }

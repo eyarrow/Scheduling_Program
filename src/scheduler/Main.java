@@ -14,6 +14,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("view/Login.fxml"));
+        //root.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
         primaryStage.setTitle("Acme Consulting : Login ");
         primaryStage.setScene(new Scene(root, 600, 552));
         primaryStage.show();
