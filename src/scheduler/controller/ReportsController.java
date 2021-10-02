@@ -43,6 +43,7 @@ public class ReportsController implements Initializable {
         scene = FXMLLoader.load(getClass().getResource("/scheduler/view/AppointmentsOverview.fxml/"));
         stage.setScene(new Scene(scene, 1243, 753));
         stage.setTitle("Acme Consulting : Appointments Overview");
+        scene.getStylesheets().add( getClass().getResource( "/images/style.css" ).toExternalForm() );
         stage.show();
     }
 
@@ -52,6 +53,7 @@ public class ReportsController implements Initializable {
         scene = FXMLLoader.load(getClass().getResource("/scheduler/view/CustomersOverview.fxml/"));
         stage.setScene(new Scene(scene, 1243, 753));
         stage.setTitle("Acme Consulting : Customers Overview");
+        scene.getStylesheets().add( getClass().getResource( "/images/style.css" ).toExternalForm() );
         stage.show();
     }
 
@@ -61,6 +63,7 @@ public class ReportsController implements Initializable {
         scene = FXMLLoader.load(getClass().getResource("/scheduler/view/Login.fxml/"));
         stage.setScene(new Scene(scene, 600, 552));
         stage.setTitle("Acme Consulting : Login");
+        scene.getStylesheets().add( getClass().getResource( "/images/style.css" ).toExternalForm() );
         stage.show();
     }
 
@@ -70,6 +73,7 @@ public class ReportsController implements Initializable {
         scene = FXMLLoader.load(getClass().getResource("/scheduler/view/Overview.fxml/"));
         stage.setScene(new Scene(scene, 1243, 753));
         stage.setTitle("Acme Consulting : Overview");
+        scene.getStylesheets().add( getClass().getResource( "/images/style.css" ).toExternalForm() );
         stage.show();
     }
 
@@ -79,6 +83,7 @@ public class ReportsController implements Initializable {
         scene = FXMLLoader.load(getClass().getResource("/scheduler/view/Reports.fxml/"));
         stage.setScene(new Scene(scene, 1243, 753));
         stage.setTitle("Acme Consulting : Reports");
+        scene.getStylesheets().add( getClass().getResource( "/images/style.css" ).toExternalForm() );
         stage.show();
     }
 

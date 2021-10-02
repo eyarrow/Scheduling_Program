@@ -62,6 +62,7 @@ public class LoginController implements Initializable {
             scene = FXMLLoader.load(getClass().getResource("/scheduler/view/Overview.fxml/"));
             stage.setScene(new Scene(scene, 1243, 753));
             stage.setTitle("Acme Consulting : Overview");
+            scene.getStylesheets().add( getClass().getResource( "/images/style.css" ).toExternalForm() );
             //scene.getStylesheets().add("@.../out/production/Project_folder/images/style.css");
             stage.show();
         }

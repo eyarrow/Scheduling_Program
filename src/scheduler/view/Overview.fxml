@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="753.0" prefWidth="1243.0" style="-fx-background-color: #ffffff;" stylesheets="@../../images/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.controller.OverviewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="753.0" prefWidth="1243.0" style="-fx-background-color: #ffffff;" stylesheets="@../Resources/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.controller.OverviewController">
    <children>
-      <AnchorPane layoutX="245.0" prefHeight="135.0" prefWidth="1003.0" styleClass="nav-bar-top" stylesheets="@../../images/style.css" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="-5.0">
+      <AnchorPane layoutX="245.0" prefHeight="135.0" prefWidth="1003.0" styleClass="nav-bar-top" stylesheets="@../Resources/style.css" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="-5.0">
          <children>
             <GridPane layoutX="-2.0" prefHeight="135.0" prefWidth="1003.0">
               <columnConstraints>
@@ -26,7 +26,7 @@
                 <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label styleClass="nav-bar-top" stylesheets="@../../images/style.css" text="OVERVIEW">
+                  <Label styleClass="nav-bar-top" stylesheets="@../Resources/style.css" text="OVERVIEW">
                      <GridPane.margin>
                         <Insets left="30.0" />
                      </GridPane.margin>
@@ -34,7 +34,7 @@
                         <Insets top="50.0" />
                      </padding>
                   </Label>
-                  <Label styleClass="nav-bar-descrip" stylesheets="@../../images/style.css" text="Welcome to the Acme Consulting Group's Calendar system. " GridPane.rowIndex="1">
+                  <Label styleClass="nav-bar-descrip" stylesheets="@../Resources/style.css" text="Welcome to the Acme Consulting Group's Calendar system. " GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="30.0" />
                      </GridPane.margin>

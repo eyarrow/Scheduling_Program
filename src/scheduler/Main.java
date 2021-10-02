@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 import scheduler.model.Scheduler;
 import scheduler.util.dbOperations;
 
-public class Main extends Application implements load {
+public class Main extends Application {
 
 
     @Override
@@ -16,16 +16,14 @@ public class Main extends Application implements load {
         Parent root = FXMLLoader.load(getClass().getResource("view/Login.fxml"));
         primaryStage.setTitle("Acme Consulting : Login ");
         primaryStage.setScene(new Scene(root, 600, 552));
-        //root.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
+        //root.getStylesheets().add( getClass().getResource( "/images/style.css" ).toExternalForm() );
+        //root.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
         primaryStage.show();
         dbOperations.openConnection();
 
     }
 
-    @Override
-    public void load(Scene root) {
-        root.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-    }
+
 
 
     public static void main(String[] args) {
