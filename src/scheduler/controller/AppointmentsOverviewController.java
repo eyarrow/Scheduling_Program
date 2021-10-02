@@ -1,6 +1,7 @@
 package scheduler.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
@@ -8,7 +9,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 
-public class AppointmentsOverviewController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class AppointmentsOverviewController implements Initializable {
 
     @FXML
     private Button buttonAddNewAppointment;
@@ -78,5 +82,15 @@ public class AppointmentsOverviewController {
 
     @FXML
     private TableColumn<?, ?> labelUserID;
+
+    /**
+     * Initializes the Appts Overview Controller
+     * @param url
+     * @param resourceBundle
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 
 }

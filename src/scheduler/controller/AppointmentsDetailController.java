@@ -1,11 +1,15 @@
 package scheduler.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class AppointmentsDetailController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class AppointmentsDetailController implements Initializable {
 
     @FXML
     private Button buttonAddNewAppointment;
@@ -69,4 +73,14 @@ public class AppointmentsDetailController {
 
     @FXML
     private Button buttonReturn;
+
+    /**
+     * Initializes the Appts Detail Controller
+     * @param url
+     * @param resourceBundle
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }

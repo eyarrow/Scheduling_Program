@@ -1,12 +1,16 @@
 package scheduler.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
-public class CustomersOverviewController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class CustomersOverviewController implements Initializable {
 
     @FXML
     private Button buttonAddNewCustomer;
@@ -55,4 +59,14 @@ public class CustomersOverviewController {
 
     @FXML
     private TableColumn<?, ?> labelDivisionID;
+
+    /**
+     * Initializes the Customers Overview Controller
+     * @param url
+     * @param resourceBundle
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }

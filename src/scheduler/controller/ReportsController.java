@@ -1,10 +1,14 @@
 package scheduler.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 
-public class ReportsController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class ReportsController implements Initializable {
 
     @FXML
     private ComboBox<?> comboReportType;
@@ -23,4 +27,14 @@ public class ReportsController {
 
     @FXML
     private Button buttonLogout;
+
+    /**
+     * Initializes the Reports Controller
+     * @param url
+     * @param resourceBundle
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }

@@ -1,12 +1,16 @@
 package scheduler.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class CustomersModifyController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class CustomersModifyController implements Initializable {
 
     @FXML
     private Button buttonAddNewCustomer;
@@ -58,4 +62,14 @@ public class CustomersModifyController {
 
     @FXML
     private Button buttonSave;
+
+    /**
+     * Initializes the Customers Modify Controller
+     * @param url
+     * @param resourceBundle
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }
