@@ -13,7 +13,10 @@ public enum dialogueReturnValues {
     /** Notifications **/
     APPOINTMENT_NOTIFICATION("Appointment Notification"),
     APPT_NEXT_15MINUTES("You have an appointment coming up in the next 15 minutes"),
-    NO_APPT_NEXT_15MINUTES("You do not have any appointments in the next 15 minutes");
+    NO_APPT_NEXT_15MINUTES("You do not have any appointments in the next 15 minutes"),
+
+    /** Confirmations **/
+    APPLICATION_EXIT("Are you sure you would like to exit the program?");
 
     private String message;
 
