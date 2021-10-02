@@ -1,11 +1,15 @@
 package scheduler.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class OverviewController {
+
+public class OverviewController implements Initializable {
     @FXML
     private Button buttonOverview;
 
@@ -29,5 +33,15 @@ public class OverviewController {
 
     @FXML
     private Label labelAppointThisWeek;
+
+    /**
+     * Initializes the Overview Controller
+     * @param url
+     * @param resourceBundle
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 
 }
