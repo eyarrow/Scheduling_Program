@@ -52,8 +52,12 @@ public class OverviewController implements Initializable {
     private Label labelAppointThisWeek;
 
     @FXML
-    void onClickAppointments(ActionEvent event) {
-
+    void onClickAppointments(ActionEvent event) throws IOException {
+        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/scheduler/view/AppointmentsOverview.fxml/"));
+        stage.setScene(new Scene(scene, 1243, 753));
+        stage.setTitle("Acme Consulting : Appointments Overview");
+        stage.show();
     }
 
     @FXML
@@ -66,18 +70,30 @@ public class OverviewController implements Initializable {
     }
 
     @FXML
-    void onClickLogOut(ActionEvent event) {
-        logoutMenu();
+    void onClickLogOut(ActionEvent event) throws IOException {
+        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/scheduler/view/Login.fxml/"));
+        stage.setScene(new Scene(scene, 600, 552));
+        stage.setTitle("Acme Consulting : Login");
+        stage.show();
     }
 
     @FXML
-    void onClickOverview(ActionEvent event) {
-
+    void onClickOverview(ActionEvent event) throws IOException {
+        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/scheduler/view/Overview.fxml/"));
+        stage.setScene(new Scene(scene, 1243, 753));
+        stage.setTitle("Acme Consulting : Overview");
+        stage.show();
     }
 
     @FXML
-    void onClickReports(ActionEvent event) {
-
+    void onClickReports(ActionEvent event) throws IOException {
+        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/scheduler/view/Reports.fxml/"));
+        stage.setScene(new Scene(scene, 1243, 753));
+        stage.setTitle("Acme Consulting : Reports");
+        stage.show();
     }
 
     /**
