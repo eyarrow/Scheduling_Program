@@ -5,8 +5,9 @@ package scheduler.model;
  * througout the program.
  *
  */
-public abstract class Customer {
+public class Customer {
     private static int CustomerID;
+    private static String Name;
     private static String Address;
     private static String PostalCode;
     private static String PhoneNumber;
@@ -22,8 +23,9 @@ public abstract class Customer {
      * @param DivID The Division ID as an integer
      * @param Country The country ID as an integer
      */
-    public Customer(int id, String Address, String PostalCode, String phone, int DivID, int Country) {
+    public Customer(int id, String Name, String Address, String PostalCode, String phone, int DivID, int Country) {
         setCustomerID(id);
+        setName(Name);
         setAddress(Address);
         setPostalCode(PostalCode);
         setPhoneNumber(phone);
@@ -145,5 +147,21 @@ public abstract class Customer {
      */
     public static void setCountryID(int countryID) {
         CountryID = countryID;
+    }
+
+    /**
+     * Get the name of the customer
+     * @return string will full name
+     */
+    public static String getName() {
+        return Name;
+    }
+
+    /**
+     * Set name for the customer
+     * @param name is a string that is comprised of full name
+     */
+    public static void setName(String name) {
+        Name = name;
     }
 }

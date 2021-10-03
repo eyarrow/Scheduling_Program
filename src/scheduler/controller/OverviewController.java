@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import scheduler.model.Scheduler;
 import scheduler.util.MainMenuHelper;
 import scheduler.util.dialogueHandling;
 import scheduler.util.dialogueReturnValues;
@@ -107,6 +108,7 @@ public class OverviewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
 
     }
 

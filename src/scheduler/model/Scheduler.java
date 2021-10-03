@@ -8,6 +8,7 @@ import scheduler.util.dialogueReturnValues;
 
 import java.sql.SQLException;
 
+import static scheduler.Dao.daoCustomer.getAllCustomers;
 import static scheduler.Dao.loginAuthentication.authenticateUser;
 
 /**
@@ -39,5 +40,21 @@ public class Scheduler {
             return false;
 
         }
+    }
+
+    /**
+     * Get's a current list of customer's and copies the values over to the ObservableList
+     * allCustomers to be used by the application.
+     */
+    private void retreiveCustomerList() {
+        try {
+            allCustomers = getAllCustomers();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    public static ObservableList<Customer> getAllCustomers() {
+        return allCustomers;
     }
 }

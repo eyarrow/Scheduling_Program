@@ -11,9 +11,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import scheduler.model.Customer;
+import scheduler.model.Scheduler;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class CustomersOverviewController implements Initializable {
@@ -46,28 +49,28 @@ public class CustomersOverviewController implements Initializable {
     private Button buttonSearch;
 
     @FXML
-    private TableView<?> tableAllCustomers;
+    private TableView<Customer> tableAllCustomers;
 
     @FXML
-    private TableColumn<?, ?> labelCustomerID;
+    private TableColumn<Customer, Integer> labelCustomerID;
 
     @FXML
-    private TableColumn<?, ?> labelName;
+    private TableColumn<Customer, String> labelName;
 
     @FXML
-    private TableColumn<?, ?> labelAddress;
+    private TableColumn<Customer, String> labelAddress;
 
     @FXML
-    private TableColumn<?, ?> labelPostalCode;
+    private TableColumn<Customer, String> labelPostalCode;
 
     @FXML
-    private TableColumn<?, ?> labelPhoneNumber;
+    private TableColumn<Customer, String> labelPhoneNumber;
 
     @FXML
-    private TableColumn<?, ?> labelCountry;
+    private TableColumn<Customer, Integer> labelCountry;
 
     @FXML
-    private TableColumn<?, ?> labelDivisionID;
+    private TableColumn<Customer, Integer> labelDivisionID;
 
     @FXML
     void onClickCustomerSearch(ActionEvent event) {
@@ -136,6 +139,10 @@ public class CustomersOverviewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        tableAllCustomers.setItems(Scheduler.getAllCustomers());
+
+        labelCustomerID.setCellValueFactory(CustomerID);
+
 
     }
 }
