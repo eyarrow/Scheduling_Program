@@ -80,7 +80,7 @@ public class Scheduler {
         else {
             result = "Unsuccessful";
         }
-        FileWriter authenticationLog = new FileWriter("login_attempts.txt", true);
+        FileWriter authenticationLog = new FileWriter("login_activity.txt", true);
         PrintWriter pw = new PrintWriter(authenticationLog);
         pw.format("User: '%s', made a login attempt that was %s on %s at %s user's system time. ", user, result, date, time);
         pw.println();
