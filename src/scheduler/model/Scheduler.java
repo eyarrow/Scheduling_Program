@@ -8,7 +8,7 @@ import scheduler.util.dialogueReturnValues;
 
 import java.sql.SQLException;
 
-import static scheduler.Dao.daoCustomer.getAllCustomers;
+import static scheduler.Dao.daoCustomer.*;
 import static scheduler.Dao.loginAuthentication.authenticateUser;
 
 /**
@@ -43,22 +43,32 @@ public class Scheduler {
     }
 
     /**
-     * Get's a current list of customer's and copies the values over to the ObservableList
-     * allCustomers to be used by the application.
+     * Populates the Observable list allCustomers, with all of the customers so that that data
+     * can be used by the UI.
      */
     private static void retreiveCustomerList() {
         try {
-            allCustomers = getAllCustomers();
+            allCustomers = getAllCustomersDAO();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
     }
 
-    public static ObservableList<Customer> getAllCust() {
+    /**
+     * Returns the Observable list of Customers (allCustomers) to the application. Whenever this is run
+     * the Observable list is also updated with the most up to date list of customers using retrieveCustomerList()
+     * @return The Observable list of Customers (allCustomers)
+     */
+    public static ObservableList<Customer> getAllCustomers() {
         //Retrieve an updated version of all the customers
         retreiveCustomerList();
 
         //Return the observable list.
         return allCustomers;
+    }
+
+    public static void addCustomer(Customer C) {
+        allCustomers.add(C);
+        addCustomerDAO(C);
     }
 }

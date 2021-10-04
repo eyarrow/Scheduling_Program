@@ -81,7 +81,13 @@ public abstract class dbOperations {
      * @param sqlStatement
      */
     public static void dbUpdate (String sqlStatement) {
-
+        try {
+            PreparedStatement ps = dbOperations.getConnection().prepareStatement(sqlStatement);
+            ps.executeUpdate();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 

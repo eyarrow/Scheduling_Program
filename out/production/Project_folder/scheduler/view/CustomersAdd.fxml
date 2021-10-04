@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="753.0" prefWidth="1243.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.controller.CustomersAddController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="753.0" prefWidth="1243.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.controller.CustomersAddController">
    <children>
       <AnchorPane layoutX="245.0" prefHeight="135.0" prefWidth="1003.0" styleClass="nav-bar-top" stylesheets="@/images/style.css" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="-5.0">
          <children>
@@ -56,7 +56,6 @@
                               <Image url="@/images/dark-add-person.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="buttonAddNewCustomer" mnemonicParsing="false" prefHeight="30.0" prefWidth="177.0" styleClass="light-button" stylesheets="@/images/style.css" text="Add New Customer" GridPane.columnIndex="1" />
                      </children>
                      <padding>
                         <Insets top="50.0" />
@@ -203,12 +202,12 @@
                         </GridPane>
                         <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Button fx:id="buttonCancel" mnemonicParsing="false" style="-fx-border-color: red;" styleClass="light-button" stylesheets="@/images/style.css" text="Cancel" textFill="#ada9a9">
+                              <Button fx:id="buttonCancel" mnemonicParsing="false" onAction="#onClickCancel" style="-fx-border-color: red;" styleClass="light-button" stylesheets="@/images/style.css" text="Cancel" textFill="#ada9a9">
                                  <HBox.margin>
                                     <Insets right="15.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button fx:id="buttonSave" mnemonicParsing="false" styleClass="light-button" stylesheets="@/images/style.css" text="Save" />
+                              <Button fx:id="buttonSave" mnemonicParsing="false" onAction="#onClickSave" styleClass="light-button" stylesheets="@/images/style.css" text="Save" />
                            </children>
                            <padding>
                               <Insets top="30.0" />

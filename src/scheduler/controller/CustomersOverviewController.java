@@ -140,7 +140,7 @@ public class CustomersOverviewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        tableAllCustomers.setItems(Scheduler.getAllCust());
+        tableAllCustomers.setItems(Scheduler.getAllCustomers());
 
         labelCustomerID.setCellValueFactory(new PropertyValueFactory<>("CustomerID"));
         labelName.setCellValueFactory(new PropertyValueFactory<>("Name"));

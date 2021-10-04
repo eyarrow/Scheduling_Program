@@ -117,6 +117,20 @@ public class CustomersAddController implements Initializable {
         stage.show();
     }
 
+    @FXML
+    void onClickSave(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onClickCancel(ActionEvent event) throws IOException {
+        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/scheduler/view/CustomersOverview.fxml/"));
+        stage.setScene(new Scene(scene, 1243, 753));
+        stage.setTitle("Acme Consulting : Customers Overview");
+        stage.show();
+    }
+
 
     /**
      * Initializes the Customers Add Controller
