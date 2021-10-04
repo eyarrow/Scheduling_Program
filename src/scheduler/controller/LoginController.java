@@ -78,7 +78,8 @@ public class LoginController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        String zoneID = String.format("Zone ID: %s", TimeManagement.returnZoneID());
+
+        String zoneID = String.format("Zone ID: %s", TimeManagement.returnZoneIDString());
         labelZoneID.setText(zoneID);
     }
 }

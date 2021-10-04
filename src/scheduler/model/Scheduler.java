@@ -7,6 +7,7 @@ import scheduler.util.dialogueHandling;
 import scheduler.util.dialogueReturnValues;
 
 import java.sql.SQLException;
+import java.util.TimeZone;
 
 import static scheduler.Dao.daoCustomer.*;
 import static scheduler.Dao.loginAuthentication.authenticateUser;
@@ -15,9 +16,11 @@ import static scheduler.Dao.loginAuthentication.authenticateUser;
  * The Scheduler object manages business layer functionality for the overall application.
  */
 public class Scheduler {
-
+    //Lists to store Observable list of customers and Appointments.
     private static ObservableList<Customer> allCustomers = FXCollections.observableArrayList();
     private static ObservableList<Appointment> allAppointments = FXCollections.observableArrayList();
+
+    private static TimeZone tz;
 
     /**
      * Authenticates a user based on their username and password. Uses the DAO package to handle
