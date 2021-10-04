@@ -12,7 +12,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import scheduler.model.Scheduler;
-import scheduler.util.TimeManagement;
+import scheduler.model.TimeManagement;
 import scheduler.util.dialogueHandling;
 
 import java.io.IOException;

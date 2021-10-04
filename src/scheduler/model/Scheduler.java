@@ -6,7 +6,16 @@ import scheduler.Dao.loginAuthentication;
 import scheduler.util.dialogueHandling;
 import scheduler.util.dialogueReturnValues;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.TimeZone;
 
 import static scheduler.Dao.daoCustomer.*;
@@ -31,18 +40,51 @@ public class Scheduler {
      * it does not.
      * @throws SQLException in case of error
      */
-    public boolean loginToApplication (String username, String password) throws SQLException {
+    public boolean loginToApplication (String username, String password) throws SQLException, IOException {
         boolean success = authenticateUser(username, password);
 
         if(success) {
             dialogueHandling.informationDialogue(dialogueReturnValues.APPOINTMENT_NOTIFICATION, dialogueReturnValues.NO_APPT_NEXT_15MINUTES);
+            logLoginAttempt(username, true);
             return true;
         }
         else {
             dialogueHandling.displayDialogue(true, dialogueReturnValues.WRONG_PASSWORD);
+            logLoginAttempt(username, false);
             return false;
 
         }
+    }
+
+    /**
+     * Writes to the log file whenever a login attempt is made. Writes the following to the log:
+     * Username, date and timestamp, and whether or not the login attempt was successful.
+     * Username is recorded as "Unknown" if the username field was left blank during the login attempt.
+     * @param user
+     * @param success
+     */
+    public void logLoginAttempt(String user, boolean success) throws IOException {
+        //Date date = new Date();
+        //DateFormat formatted = new SimpleDateFormat("yyyy-mm-dd");
+        //String dateString = formatted.format(date);
+        //System.out.println(dateString);
+
+        LocalDate date = LocalDate.now();
+        LocalTime time = LocalTime.now();
+
+
+        String result;
+        if(success) {
+            result = "Successful";
+        }
+        else {
+            result = "Unsuccessful";
+        }
+        FileWriter authenticationLog = new FileWriter("login_attempts.txt", true);
+        PrintWriter pw = new PrintWriter(authenticationLog);
+        pw.format("User: '%s', made a login attempt that was %s on %s at %s user's system time. ", user, result, date, time);
+        pw.println();
+        pw.close();
     }
 
     /**

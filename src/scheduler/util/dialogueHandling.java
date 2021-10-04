@@ -2,6 +2,9 @@ package scheduler.util;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import scheduler.model.Scheduler;
+
+import java.io.IOException;
 import java.util.Optional;
 
 public abstract class dialogueHandling {
@@ -57,11 +60,19 @@ public static boolean informationDialogue(dialogueReturnValues header, dialogueR
         return true;
 }
 
-public static boolean checkAuthentication(String username, String password) {
+public static boolean checkAuthentication(String username, String password) throws IOException {
     //checks to make sure user and password are not null. Authenticates if values are present
     //for both fields.
     if(username.isEmpty() || password.isEmpty() ) {
         dialogueHandling.displayDialogue(true, dialogueReturnValues.NO_CONTENT);
+        Scheduler sched = new Scheduler();
+        if(!username.isEmpty()) {
+            sched.logLoginAttempt(username, false);
+        }
+        else {
+            sched.logLoginAttempt("Unknown", false);
+        }
+
         return false;
     }
     return true;

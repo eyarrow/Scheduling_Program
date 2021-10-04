@@ -1,4 +1,4 @@
-package scheduler.util;
+package scheduler.model;
 
 import java.sql.Time;
 import java.util.Date;
