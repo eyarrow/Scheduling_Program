@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import scheduler.model.Customer;
 import scheduler.model.Scheduler;
@@ -139,9 +140,16 @@ public class CustomersOverviewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        tableAllCustomers.setItems(Scheduler.getAllCustomers());
+        tableAllCustomers.setItems(Scheduler.getAllCust());
 
-        labelCustomerID.setCellValueFactory(CustomerID);
+        labelCustomerID.setCellValueFactory(new PropertyValueFactory<>("CustomerID"));
+        labelName.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        labelAddress.setCellValueFactory(new PropertyValueFactory<>("Address"));
+        labelPostalCode.setCellValueFactory(new PropertyValueFactory<>("PostalCode"));
+        labelPhoneNumber.setCellValueFactory(new PropertyValueFactory<>("PhoneNumber"));
+        labelCountry.setCellValueFactory(new PropertyValueFactory<>("CountryID"));
+        labelDivisionID.setCellValueFactory(new PropertyValueFactory<>("DivisionID"));
+
 
 
     }

@@ -46,7 +46,7 @@ public class Scheduler {
      * Get's a current list of customer's and copies the values over to the ObservableList
      * allCustomers to be used by the application.
      */
-    private void retreiveCustomerList() {
+    private static void retreiveCustomerList() {
         try {
             allCustomers = getAllCustomers();
         } catch (SQLException throwables) {
@@ -54,7 +54,11 @@ public class Scheduler {
         }
     }
 
-    public static ObservableList<Customer> getAllCustomers() {
+    public static ObservableList<Customer> getAllCust() {
+        //Retrieve an updated version of all the customers
+        retreiveCustomerList();
+
+        //Return the observable list.
         return allCustomers;
     }
 }

@@ -16,17 +16,14 @@ public abstract class daoCustomer {
 
     public static ObservableList<Customer> getAllCustomers() throws SQLException {
         ObservableList<Customer> cList = FXCollections.observableArrayList();
-        String ALL_CUSTOMER = "SELECT c.Customer_ID, c.Customer_Name, c.Address, c.Postal_Code, c.Phone, d.Division_ID, r.Country_ID\n" +
-                "FROM CUSTOMERS c\n" +
-                "INNER JOIN first_level_divisions d\n" +
-                "ON c.Division_ID = d.Division_ID\n" +
-                "INNER JOIN countries r\n" +
-                "ON d.Country_ID = r.Country_ID;";
+        String ALL_CUSTOMER = "SELECT c.Customer_ID, c.Customer_Name, c.Address, c.Postal_Code, c.Phone, d.Division_ID, r.Country_ID FROM CUSTOMERS c INNER JOIN first_level_divisions d ON c.Division_ID = d.Division_ID INNER JOIN countries r ON d.Country_ID = r.Country_ID";
+
         ResultSet rs = dbOperations.dbQuery(ALL_CUSTOMER);
+
         try {
             while (rs.next()) {
                 int CustID = rs.getInt("Customer_ID");
-                String name = rs.getNString("Customer_Name");
+                String name = rs.getString("Customer_Name");
                 String address = rs.getString("Address");
                 String postal = rs.getString("Postal_Code");
                 String phone = rs.getString("Phone");
@@ -35,6 +32,7 @@ public abstract class daoCustomer {
 
                 Customer c = new Customer(CustID, name, address, postal, phone, div, country);
                 cList.add(c);
+
             }
         } catch (Exception throwables) {
             throwables.printStackTrace();
