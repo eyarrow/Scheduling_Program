@@ -11,10 +11,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import scheduler.Dao.loginAuthentication;
 import scheduler.model.Scheduler;
-import scheduler.model.TimeManagement;
-import scheduler.util.dialogueReturnValues;
+import scheduler.util.TimeManagement;
 import scheduler.util.dialogueHandling;
 
 import java.io.IOException;
