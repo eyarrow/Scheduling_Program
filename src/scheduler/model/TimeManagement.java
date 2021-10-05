@@ -1,6 +1,7 @@
 package scheduler.model;
 
 import java.sql.Time;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -35,13 +36,16 @@ public abstract class TimeManagement {
      * @return A string in Long format representing the user systems' timezone
      */
     public static String returnZoneIDString() {
-        String tzTime = TimeZone.getDefault().getID();
+      /*  String tzTime = TimeZone.getDefault().getID();
         TimeZone tz = TimeZone.getTimeZone(tzTime);
 
         Date date = new Date();
         boolean daylight = tz.inDaylightTime(date);
 
         String tzString = TimeZone.getDefault().getDisplayName(daylight, TimeZone.LONG);
+        return tzString;*/
+
+        String tzString = ZoneId.systemDefault().toString();
         return tzString;
     }
 }
