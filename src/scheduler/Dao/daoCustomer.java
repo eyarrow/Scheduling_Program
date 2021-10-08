@@ -2,6 +2,7 @@ package scheduler.Dao;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import scheduler.model.Country;
 import scheduler.model.Customer;
 import scheduler.util.dbOperations;
 
@@ -17,6 +18,7 @@ public abstract class daoCustomer {
     /**
      * Get's all needed values for the customer object, and provides an Observable list for use by
      * the application.
+     *
      * @return An Observable Array List of All Customers.
      * @throws SQLException if an error occurs.
      */
@@ -51,13 +53,39 @@ public abstract class daoCustomer {
     /**
      * Adds a customer to the DB. It is assumed all error checking has already been made against
      * business logic.
+     *
      * @param customer Customer object will all components added.
      */
     public static void addCustomerDAO(Customer customer) {
         String ADD_CUSTOMER = String.format("INSERT INTO CUSTOMERS (Customer_Name, Address, Postal_Code, Phone, Division_ID)\n" +
                 "VALUES ('%s', '%s', '%s', '%s', %x);", customer.getName(), customer.getAddress(), customer.getPostalCode(), customer.getPhoneNumber(), customer.getDivisionID());
-
+        try {
+            dbOperations.dbQuery(ADD_CUSTOMER);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
+
+    public static ObservableList<Country> getAllcountriesDAO() {
+        ObservableList<Country> cList = FXCollections.observableArrayList();
+        String allCountries = "SELECT Country_ID, Country FROM countries;";
+        ResultSet rs;
+        try {
+            rs = dbOperations.dbQuery(allCountries);
+            while (rs.next()) {
+                int country_id = rs.getInt("Country_ID");
+                String name = rs.getString("Country");
+                Country C = new Country(country_id, name);
+                cList.add(C);
+
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return cList;
+    }
+
 
 }
 
