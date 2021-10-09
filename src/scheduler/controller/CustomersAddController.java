@@ -11,6 +11,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import scheduler.model.Country;
+import scheduler.model.Scheduler;
 
 import java.io.IOException;
 import java.net.URL;
@@ -55,7 +57,7 @@ public class CustomersAddController implements Initializable {
     private TextField textFieldPhoneNumber;
 
     @FXML
-    private ComboBox<?> comboCountry;
+    private ComboBox<Country> comboCountry;
 
     @FXML
     private ComboBox<?> comboDivisionID;
@@ -145,6 +147,8 @@ public class CustomersAddController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        comboCountry.setItems(Scheduler.getAllCountries());
+
 
     }
 }

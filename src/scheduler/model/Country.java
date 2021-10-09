@@ -9,6 +9,11 @@ public class Country {
         setName(name);
     }
 
+    @Override
+    public String toString() {
+        return this.getName();
+    }
+
     public int getCountry_id() {
         return Country_id;
     }

@@ -28,7 +28,7 @@ public class Scheduler {
     //Lists to store Observable list of customers and Appointments.
     private static ObservableList<Customer> allCustomers = FXCollections.observableArrayList();
     private static ObservableList<Appointment> allAppointments = FXCollections.observableArrayList();
-    public static ObservableList<Country> allCountries = FXCollections.observableArrayList();
+    //public static ObservableList<Country> allCountries = FXCollections.observableArrayList();
 
     private static TimeZone tz;
 
@@ -118,7 +118,7 @@ public class Scheduler {
         addCustomerDAO(C);
     }
 
-    public static void getAllCountries() {
-        allCountries = getAllcountriesDAO();
+    public static ObservableList<Country> getAllCountries() {
+        return getAllcountriesDAO();
     }
 }
