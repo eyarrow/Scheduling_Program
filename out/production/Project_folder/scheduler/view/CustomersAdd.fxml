@@ -200,7 +200,7 @@
                               <TextField fx:id="textFieldName" styleClass="light-text-box" stylesheets="@/images/style.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
-                        <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                        <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <Button fx:id="buttonCancel" mnemonicParsing="false" onAction="#onClickCancel" style="-fx-border-color: red;" styleClass="light-button" stylesheets="@/images/style.css" text="Cancel" textFill="#ada9a9">
                                  <HBox.margin>

@@ -2,6 +2,7 @@ package scheduler.util;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import scheduler.model.Customer;
 import scheduler.model.Scheduler;
 
 import java.io.IOException;
@@ -76,6 +77,48 @@ public static boolean checkAuthentication(String username, String password) thro
         return false;
     }
     return true;
+}
+
+public static void validationDialogue(String errorList) {
+    Alert alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle("Error");
+    alert.setContentText(errorList);
+    alert.showAndWait();
+
+}
+
+public static boolean validateCustomer(String name, String address, String postal, String phone) {
+    String errorMessage = new String("Please resolve the following issues: ");
+
+    if(name.isEmpty()) {
+        String str1 = new String(errorMessage);
+        errorMessage = str1.concat("* Please enter the full name of the customer ");
+
+    }
+    if(address.isEmpty()) {
+        String str1 = new String(errorMessage);
+        errorMessage = str1.concat("* Please enter the full address of the customer ");
+
+    }
+    if(postal.isEmpty()) {
+        String str1 = new String(errorMessage);
+        errorMessage = str1.concat("* Please enter the full postal code ");
+
+    }
+    if(phone.isEmpty()) {
+        String str1 = new String(errorMessage);
+        errorMessage = str1.concat("* Please enter the full phone number ");
+
+    }
+    else {
+        return true;
+    }
+
+    validationDialogue(errorMessage);
+    return false;
+
+
+
 }
 
 

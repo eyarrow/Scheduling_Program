@@ -1,5 +1,6 @@
 package scheduler.controller;
 
+import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,10 +16,15 @@ import scheduler.model.Country;
 import scheduler.model.Customer;
 import scheduler.model.Division;
 import scheduler.model.Scheduler;
+import scheduler.util.dialogueReturnValues;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static scheduler.util.dialogueHandling.displayDialogue;
+import static scheduler.util.dialogueHandling.validateCustomer;
 
 public class CustomersAddController implements Initializable {
 
@@ -125,25 +131,73 @@ public class CustomersAddController implements Initializable {
 
     @FXML
     void onClickCountryCombo(ActionEvent event) {
+        System.out.println("Action event triggered.");
+        if(!comboCountry.itemsProperty().getValue().isEmpty()) {
+            Country country = comboCountry.getSelectionModel().getSelectedItem();
+            comboDivisionID.setItems(Scheduler.getDivision(country));
+        }
+
 
     }
 
 
 
 
+
+
     @FXML
-    void onClickSave(ActionEvent event) {
+    void selectCountry(ActionEvent event) {
+        comboCountry.getSelectionModel().select(1);
 
-        String name = textFieldName.getText();
-        String address = textfieldAddress.getText();
-        String postal = textfieldPostalCode.getText();
-        String phone = textFieldPhoneNumber.getText();
-        Country country = comboCountry.getValue();
-        int country_id = country.getCountry_id();
-        Division division = comboDivisionID.getValue();
-        int division_id = division.getDivision_id();
+    }
 
-        Customer C = new Customer(name, address, postal, phone, division_id, country_id);
+
+
+
+
+    @FXML
+    void onClickSave(ActionEvent event) throws IOException {
+
+        if(comboCountry.getSelectionModel().isEmpty() ) {
+            displayDialogue(true, dialogueReturnValues.COUNTRY_CODE_BLANK);
+            return;
+        }
+        if(comboDivisionID.getSelectionModel().isEmpty()) {
+            displayDialogue(true, dialogueReturnValues.DIVISION_CODE_BLANK);
+            return;
+        }
+        else {
+            String name = null;
+            String address = null;
+            String postal = null;
+            String phone = null;
+            int country_id = 0;
+            int division_id = 0;
+
+                name = textFieldName.getText();
+                address = textfieldAddress.getText();
+                postal = textfieldPostalCode.getText();
+                phone = textFieldPhoneNumber.getText();
+                Country country = comboCountry.getValue();
+                country_id = country.getCountry_id();
+                Division division = comboDivisionID.getValue();
+                division_id = division.getDivision_id();
+
+                if(validateCustomer(name, address, postal, phone)){
+                    Customer C = new Customer(name, address, postal, phone, division_id, country_id);
+                    Scheduler.addCustomer(C);
+
+                    stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+                    scene = FXMLLoader.load(getClass().getResource("/scheduler/view/CustomersOverview.fxml/"));
+                    stage.setScene(new Scene(scene, 1243, 753));
+                    stage.setTitle("Acme Consulting : Customers Overview");
+                    stage.show();
+            }
+
+        }
+
+
+
 
 
     }

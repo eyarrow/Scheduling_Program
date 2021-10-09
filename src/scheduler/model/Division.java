@@ -2,8 +2,8 @@ package scheduler.model;
 
 public class Division {
 
-    private static int division_id;
-    private static String name;
+    private int division_id;
+    private String name;
 
     public Division(int division, String name) {
         setDivision_id(division);
@@ -15,19 +15,19 @@ public class Division {
         return this.getName();
     }
 
-    public static int getDivision_id() {
+    public int getDivision_id() {
         return division_id;
     }
 
-    public static void setDivision_id(int division_id) {
-        Division.division_id = division_id;
+    public void setDivision_id(int division_id) {
+        this.division_id = division_id;
     }
 
-    public static String getName() {
+    public String getName() {
         return name;
     }
 
-    public static void setName(String name) {
-        Division.name = name;
+    public void setName(String name) {
+        this.name = name;
     }
 }

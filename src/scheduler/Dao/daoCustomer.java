@@ -60,11 +60,7 @@ public abstract class daoCustomer {
     public static void addCustomerDAO(Customer customer) {
         String ADD_CUSTOMER = String.format("INSERT INTO CUSTOMERS (Customer_Name, Address, Postal_Code, Phone, Division_ID)\n" +
                 "VALUES ('%s', '%s', '%s', '%s', %x);", customer.getName(), customer.getAddress(), customer.getPostalCode(), customer.getPhoneNumber(), customer.getDivisionID());
-        try {
-            dbOperations.dbQuery(ADD_CUSTOMER);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+        dbOperations.dbUpdate(ADD_CUSTOMER);
     }
 
     /**
@@ -98,7 +94,7 @@ public abstract class daoCustomer {
      */
     public static ObservableList<Division> getDivisionDAO (Country country_id) {
         ObservableList<Division> cList = FXCollections.observableArrayList();
-        String Division = String.format("select Division_ID, Division from first_level_divisions WHERE Country_ID = %x;", country_id);
+        String Division = String.format("select Division_ID, Division from first_level_divisions WHERE Country_ID = %x;", country_id.getCountry_id());
         ResultSet rs;
 
         try {

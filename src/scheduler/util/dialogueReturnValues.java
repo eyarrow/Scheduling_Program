@@ -9,6 +9,8 @@ public enum dialogueReturnValues {
     /** Error messages **/
     WRONG_PASSWORD("The username and password combination were not found. Please try again."),
     NO_CONTENT("Please make sure all fields are populated."),
+    COUNTRY_CODE_BLANK("Please choose the country, it cannot be blank."),
+    DIVISION_CODE_BLANK("Please choose the Division, it cannot be blank. "),
 
     /** Notifications **/
     APPOINTMENT_NOTIFICATION("Appointment Notification"),
