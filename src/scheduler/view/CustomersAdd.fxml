@@ -189,7 +189,7 @@
                               <TextField fx:id="textfieldAddress" styleClass="light-text-box" stylesheets="@/images/style.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <TextField fx:id="textfieldPostalCode" styleClass="light-text-box" stylesheets="@/images/style.css" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                               <TextField fx:id="textFieldPhoneNumber" styleClass="light-text-box" stylesheets="@/images/style.css" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <ComboBox fx:id="comboCountry" prefHeight="26.0" prefWidth="370.0" promptText="Country" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <ComboBox fx:id="comboCountry" onAction="#onClickCountryCombo" prefHeight="26.0" prefWidth="370.0" promptText="Country" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                               <ComboBox fx:id="comboDivisionID" prefHeight="26.0" prefWidth="372.0" promptText="Division ID" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                               <Label fx:id="labelCustomerID" styleClass="customer-detail-values" stylesheets="@/images/style.css" text="Auto-Generated" GridPane.columnIndex="1">
                                  <padding>

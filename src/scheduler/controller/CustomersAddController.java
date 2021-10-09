@@ -120,12 +120,19 @@ public class CustomersAddController implements Initializable {
     }
 
     @FXML
+    void onClickCountryCombo(ActionEvent event) {
+
+    }
+
+    @FXML
     void onClickSave(ActionEvent event) {
 
         String name = textFieldName.getText();
         String address = textfieldAddress.getText();
         String postal = textfieldPostalCode.getText();
         String phone = textFieldPhoneNumber.getText();
+        Country country = comboCountry.getValue();
+        int country_id = country.getCountry_id();
 
 
     }

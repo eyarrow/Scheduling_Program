@@ -113,12 +113,29 @@ public class Scheduler {
         return allCustomers;
     }
 
+    /**
+     * Adds a customer object
+     * @param C is a customer object
+     */
     public static void addCustomer(Customer C) {
         allCustomers.add(C);
         addCustomerDAO(C);
     }
 
+    /**
+     * Returns a list of all Countries
+     * @return Observable list of all countries
+     */
     public static ObservableList<Country> getAllCountries() {
         return getAllcountriesDAO();
+    }
+
+    /**
+     * Returns a list of division id's based on country id
+     * @param country_id for country for which division is desired
+     * @return Observable list of divisions
+     */
+    public static ObservableList<Division> getDivision(Country country_id) {
+        return getDivisionDAO(country_id);
     }
 }

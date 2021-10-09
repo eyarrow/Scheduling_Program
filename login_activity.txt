@@ -4,3 +4,7 @@ User: 'test', made a login attempt that was Successful on 2021-10-08 at 19:35:20
 User: 'test', made a login attempt that was Successful on 2021-10-08 at 19:45:30.265064 user's system time. 
 User: 'test', made a login attempt that was Successful on 2021-10-08 at 19:53:09.642203100 user's system time. 
 User: 'test', made a login attempt that was Successful on 2021-10-08 at 20:04:10.552387700 user's system time. 
+User: 'test', made a login attempt that was Successful on 2021-10-08 at 20:15:11.492131100 user's system time. 
+User: 'test', made a login attempt that was Unsuccessful on 2021-10-08 at 20:17:32.356216900 user's system time. 
+User: 'test', made a login attempt that was Unsuccessful on 2021-10-08 at 20:17:39.067926 user's system time. 
+User: 'test', made a login attempt that was Successful on 2021-10-08 at 20:17:47.267510600 user's system time. 

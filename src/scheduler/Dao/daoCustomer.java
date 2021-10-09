@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import scheduler.model.Country;
 import scheduler.model.Customer;
+import scheduler.model.Division;
 import scheduler.util.dbOperations;
 
 import java.sql.ResultSet;
@@ -66,6 +67,10 @@ public abstract class daoCustomer {
         }
     }
 
+    /**
+     * Gets a current list of all countries from the database
+     * @return an Observable list of countries
+     */
     public static ObservableList<Country> getAllcountriesDAO() {
         ObservableList<Country> cList = FXCollections.observableArrayList();
         String allCountries = "SELECT Country_ID, Country FROM countries;";
@@ -85,6 +90,31 @@ public abstract class daoCustomer {
 
         return cList;
     }
+
+    /**
+     * Returns an list of Division ID's for the given Country ID
+     * @param country_id of the country for which you would like to obtain division id's
+     * @return an Observable list of Division ID's.
+     */
+    public static ObservableList<Division> getDivisionDAO (Country country_id) {
+        ObservableList<Division> cList = FXCollections.observableArrayList();
+        String Division = String.format("select Division_ID, Division from first_level_divisions WHERE Country_ID = %x;", country_id);
+        ResultSet rs;
+
+        try {
+            rs = dbOperations.dbQuery(Division);
+            while(rs.next()) {
+                int id = rs.getInt("Division_ID");
+                String name = rs.getString("Division");
+                Division D = new Division(id, name);
+                cList.add(D);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return cList;
+    }
+
 
 
 }
