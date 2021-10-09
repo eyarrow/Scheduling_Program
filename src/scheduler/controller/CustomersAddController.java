@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public abstract class CustomersAddController implements Initializable {
+public class CustomersAddController implements Initializable {
 
     Stage stage;
     Parent scene;
@@ -126,7 +126,7 @@ public abstract class CustomersAddController implements Initializable {
 
     }
 
-    /*
+
 
 
     @FXML
@@ -142,7 +142,7 @@ public abstract class CustomersAddController implements Initializable {
 
     }
 
-     */
+
 
     @FXML
     void onClickCancel(ActionEvent event) throws IOException {

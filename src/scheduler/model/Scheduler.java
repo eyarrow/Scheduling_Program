@@ -2,7 +2,6 @@ package scheduler.model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import scheduler.Dao.loginAuthentication;
 import scheduler.util.dialogueHandling;
 import scheduler.util.dialogueReturnValues;
 
@@ -10,12 +9,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.TimeZone;
 
 import static scheduler.Dao.daoCustomer.*;
@@ -26,8 +21,8 @@ import static scheduler.Dao.loginAuthentication.authenticateUser;
  */
 public class Scheduler {
     //Lists to store Observable list of customers and Appointments.
-    private static ObservableList<Customer> allCustomers = FXCollections.observableArrayList();
-    private static ObservableList<Appointment> allAppointments = FXCollections.observableArrayList();
+    //private static ObservableList<Customer> allCustomers = FXCollections.observableArrayList();
+    //private static ObservableList<Appointment> allAppointments = FXCollections.observableArrayList();
     //public static ObservableList<Country> allCountries = FXCollections.observableArrayList();
 
     private static TimeZone tz;
@@ -89,36 +84,24 @@ public class Scheduler {
     }
 
     /**
-     * Populates the Observable list allCustomers, with all of the customers so that that data
-     * can be used by the UI.
+     * Retrieves an list of all Customers
+     * @return an observable list
      */
-    private static void retreiveCustomerList() {
+    public static ObservableList<Customer> retrieveCustomerList() {
         try {
-            allCustomers = getAllCustomersDAO();
+            return getAllCustomersDAO();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        return null;
     }
 
-    /**
-     * Returns the Observable list of Customers (allCustomers) to the application. Whenever this is run
-     * the Observable list is also updated with the most up to date list of customers using retrieveCustomerList()
-     * @return The Observable list of Customers (allCustomers)
-     */
-    public static ObservableList<Customer> getAllCustomers() {
-        //Retrieve an updated version of all the customers
-        retreiveCustomerList();
-
-        //Return the observable list.
-        return allCustomers;
-    }
 
     /**
      * Adds a customer object
      * @param C is a customer object
      */
     public static void addCustomer(Customer C) {
-        allCustomers.add(C);
         addCustomerDAO(C);
     }
 
