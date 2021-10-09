@@ -12,6 +12,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import scheduler.model.Country;
+import scheduler.model.Customer;
+import scheduler.model.Division;
 import scheduler.model.Scheduler;
 
 import java.io.IOException;
@@ -60,7 +62,7 @@ public class CustomersAddController implements Initializable {
     private ComboBox<Country> comboCountry;
 
     @FXML
-    private ComboBox<?> comboDivisionID;
+    private ComboBox<Division> comboDivisionID;
 
     @FXML
     private Label labelCustomerID;
@@ -138,6 +140,10 @@ public class CustomersAddController implements Initializable {
         String phone = textFieldPhoneNumber.getText();
         Country country = comboCountry.getValue();
         int country_id = country.getCountry_id();
+        Division division = comboDivisionID.getValue();
+        int division_id = division.getDivision_id();
+
+        Customer C = new Customer(name, address, postal, phone, division_id, country_id);
 
 
     }

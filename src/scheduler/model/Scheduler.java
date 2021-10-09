@@ -87,7 +87,7 @@ public class Scheduler {
      * Retrieves an list of all Customers
      * @return an observable list
      */
-    public static ObservableList<Customer> retrieveCustomerList() {
+    public static ObservableList<Customer> getAllCustomers() {
         try {
             return getAllCustomersDAO();
         } catch (SQLException throwables) {

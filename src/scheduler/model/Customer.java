@@ -15,7 +15,7 @@ public class Customer {
     private int CountryID;
 
     /**
-     * Constructor for the Customer class
+     * Constructor for the Customer class (Default)
      * @param id refers to the Customer id
      * @param Address is the address string
      * @param PostalCode Postal code
@@ -25,6 +25,25 @@ public class Customer {
      */
     public Customer(int id, String Name, String Address, String PostalCode, String phone, int DivID, int Country) {
         setCustomerID(id);
+        setName(Name);
+        setAddress(Address);
+        setPostalCode(PostalCode);
+        setPhoneNumber(phone);
+        setDivisionID(DivID);
+        setCountryID(Country);
+    }
+
+    /**
+     * Overloaded constructor for adding a new customer. This is currently used in the scenario
+     * where the customer id has yet to be assigned.
+     * @param Name String, full name of customer
+     * @param Address String, Primary address line
+     * @param PostalCode String, Postal code
+     * @param phone String, phone number
+     * @param DivID int, value represents the division id
+     * @param Country int, value represents the country id
+     */
+    public Customer(String Name, String Address, String PostalCode, String phone, int DivID, int Country) {
         setName(Name);
         setAddress(Address);
         setPostalCode(PostalCode);
