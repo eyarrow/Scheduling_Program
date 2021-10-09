@@ -126,6 +126,9 @@ public abstract class CustomersAddController implements Initializable {
 
     }
 
+    /*
+
+
     @FXML
     void onClickSave(ActionEvent event) {
 
@@ -138,6 +141,8 @@ public abstract class CustomersAddController implements Initializable {
 
 
     }
+
+     */
 
     @FXML
     void onClickCancel(ActionEvent event) throws IOException {
