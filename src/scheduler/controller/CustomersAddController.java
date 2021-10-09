@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CustomersAddController implements Initializable {
+public abstract class CustomersAddController implements Initializable {
 
     Stage stage;
     Parent scene;
@@ -73,6 +73,8 @@ public class CustomersAddController implements Initializable {
 
     @FXML
     private Button buttonSave;
+
+
 
     @FXML
     void onClickAppointments(ActionEvent event) throws IOException {
