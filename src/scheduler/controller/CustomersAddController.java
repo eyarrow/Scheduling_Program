@@ -173,7 +173,7 @@ public class CustomersAddController implements Initializable {
                     Customer C = new Customer(name, address, postal, phone, division_id, country_id);
                     Scheduler.addCustomer(C);
 
-                    confirmCustomerAdded(C);
+                    confirmCustomerAdded(name, address, postal, phone, country.getName(), division.getName());
 
                     stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
                     scene = FXMLLoader.load(getClass().getResource("/scheduler/view/CustomersOverview.fxml/"));

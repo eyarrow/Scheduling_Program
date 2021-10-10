@@ -152,14 +152,14 @@ public static boolean checkAuthentication(String username, String password) thro
      * Prints a dialogue that confirms that a customer has been added
      * @param C Represents a new customer record
      */
-    public static void confirmCustomerAdded(Customer C) {
+    public static void confirmCustomerAdded(String name, String address, String postal, String phone, String country, String division) {
         String Header = "Customer Added!";
         String customer = "You have successfully added the following customer: \n" +
-                "Name: " + C.getName() + " \n" +
-                "Address: " + C.getAddress() + ", " + C.getPostalCode() + " \n" +
-                "Phone: " + C.getPhoneNumber() + " \n" +
-                "Country: " + C.getCountryID() + " \n" +
-                "Division ID: " + C.getCountryID() + " \n";
+                "Name: " + name + " \n" +
+                "Address: " + address + ", " + postal + " \n" +
+                "Phone: " + phone + " \n" +
+                "Country ID: " + country + " \n" +
+                "Division ID: " + division + " \n";
 
         confirmationDialogue(Header,customer);
 
