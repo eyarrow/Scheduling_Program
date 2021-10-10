@@ -81,27 +81,42 @@ public class CustomersDetailController implements Initializable {
     private Button buttonReturn;
 
     /**
-     * A customer is passed, and displayed on the Customer detail page.
+     * A customer is passed from the Customers Overview screen, and displayed on the Customer detail page.
      * @param passed a customer object
      */
     public static void passParameters(Customer passed) {
         passedParameters = passed;
     }
 
+    /**
+     * When the "Add new customer" button is clicked it loads the add customer screen
+     * @param event click on add customer button
+     * @throws IOException for exceptions
+     */
     @FXML
-    void onClickAddNewCustomer(ActionEvent event) {
+    void onClickAddNewCustomer(ActionEvent event) throws IOException {
+        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/scheduler/view/CustomersAdd.fxml/"));
+        stage.setScene(new Scene(scene, 1243, 753));
+        stage.setTitle("Acme Consulting : Add Customer");
+        stage.show();
+    }
+
+    /**
+     * Return to the customer overview page when the button is pressed
+     * @param event clicking the "Return to list" button
+     * @throws IOException
+     */
+    @FXML
+    void onClickReturnToList(ActionEvent event) throws IOException {
+        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/scheduler/view/CustomersOverview.fxml/"));
+        stage.setScene(new Scene(scene, 1243, 753));
+        stage.setTitle("Acme Consulting : Customers Overview");
+        stage.show();
 
     }
 
-    @FXML
-    void onClickReturnToList(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onClickSearchCustomers(ActionEvent event) {
-
-    }
 
     @FXML
     void onClickDelete(ActionEvent event) {
@@ -172,7 +187,7 @@ public class CustomersDetailController implements Initializable {
         labelPostalCode.setText(passedParameters.getPostalCode());
         labelPhoneNumber.setText(passedParameters.getPhoneNumber());
         labelCountry.setText(String.valueOf(passedParameters.getCountryID()));
-        labelDivisionID.setText(String.valueOf(passedParameters.returnDivisionIDString()));
+        labelDivisionID.setText(String.valueOf(passedParameters.getCountryID()));
 
     }
 
