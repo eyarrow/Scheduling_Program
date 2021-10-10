@@ -158,8 +158,8 @@ public static boolean checkAuthentication(String username, String password) thro
                 "Name: " + C.getName() + " \n" +
                 "Address: " + C.getAddress() + ", " + C.getPostalCode() + " \n" +
                 "Phone: " + C.getPhoneNumber() + " \n" +
-                "Country: " + C.returnCountryString() + " \n" +
-                "Division ID: " + C.returnDivisionIDString() + " \n";
+                "Country: " + C.getCountryID() + " \n" +
+                "Division ID: " + C.getCountryID() + " \n";
 
         confirmationDialogue(Header,customer);
 
