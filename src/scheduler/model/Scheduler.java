@@ -125,4 +125,14 @@ public class Scheduler {
     public static void deleteCustomer(Customer C) {
         deleteCustomerDAO(C);
     }
+
+    /**
+     * Given country_id will return the associated country object.
+     * @param country_id
+     * @return
+     */
+    public static Country getCountry(int country_id) {
+        Country C = getCountryDAO(country_id);
+        return C;
+    }
 }

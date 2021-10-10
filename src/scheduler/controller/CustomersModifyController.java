@@ -224,6 +224,9 @@ public class CustomersModifyController implements Initializable {
         textfieldPostalCode.setText(passedParameters.getPostalCode());
         textFieldPhoneNumber.setText(passedParameters.getPhoneNumber());
         comboCountry.setItems(Scheduler.getAllCountries());
+        Country C = Scheduler.getCountry(passedParameters.getCountryID());
+        comboCountry.setValue(C);
+
 
 
 

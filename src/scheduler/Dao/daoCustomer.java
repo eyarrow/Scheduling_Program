@@ -88,6 +88,43 @@ public abstract class daoCustomer {
     }
 
     /**
+     * Given a country_id returns the Country object
+     * @param Country_ID Integer, country id
+     * @return Country object associated with the given id
+     */
+    public static Country getCountryDAO(int Country_ID) {
+        String COUNTRY = String.format("SELECT Country_ID, Country FROM countries WHERE Country_ID = '%x';", Country_ID);
+        ResultSet rs;
+        Country country = new Country(0, "NULL");
+
+
+        try {
+            rs = dbOperations.dbQuery(COUNTRY);
+            while(rs.next()) {
+                int country_id = rs.getInt("Country_ID");
+                String name = rs.getString("Country");
+                Country C = new Country(country_id, name);
+                System.out.println("The assignment line is being hit. ");
+                return C;
+            }
+
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return country;
+    }
+
+    /**
+     *
+     * @param division_id
+     * @return
+     */
+    public static Division getDivisionDAO(int division_id) {
+
+    }
+
+    /**
      * Returns an list of Division ID's for the given Country ID
      * @param country_id of the country for which you would like to obtain division id's
      * @return an Observable list of Division ID's.
