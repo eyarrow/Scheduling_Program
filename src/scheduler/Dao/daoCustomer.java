@@ -7,6 +7,7 @@ import scheduler.model.Customer;
 import scheduler.model.Division;
 import scheduler.util.dbOperations;
 
+import javax.xml.transform.Result;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -60,6 +61,7 @@ public abstract class daoCustomer {
     public static void addCustomerDAO(Customer customer) {
         String ADD_CUSTOMER = String.format("INSERT INTO CUSTOMERS (Customer_Name, Address, Postal_Code, Phone, Division_ID)\n" +
                 "VALUES ('%s', '%s', '%s', '%s', %x);", customer.getName(), customer.getAddress(), customer.getPostalCode(), customer.getPhoneNumber(), customer.getDivisionID());
+        System.out.println("Update add customer statement is: " + ADD_CUSTOMER);
         dbOperations.dbUpdate(ADD_CUSTOMER);
     }
 
@@ -104,7 +106,6 @@ public abstract class daoCustomer {
                 int country_id = rs.getInt("Country_ID");
                 String name = rs.getString("Country");
                 Country C = new Country(country_id, name);
-                System.out.println("The assignment line is being hit. ");
                 return C;
             }
 
@@ -116,12 +117,28 @@ public abstract class daoCustomer {
     }
 
     /**
-     *
-     * @param division_id
-     * @return
+     * Given a division ID value, returns a division object
+     * @param division_id id number
+     * @return division object
      */
     public static Division getDivisionDAO(int division_id) {
+        String DIVISION = String.format("select Division_ID, Division from first_level_divisions WHERE Division_ID = %x;", division_id);
+        ResultSet rs;
+        Division D = new Division(0, "NULL");
 
+        try {
+            rs = dbOperations.dbQuery(DIVISION);
+            while(rs.next()) {
+                int id = rs.getInt("Division_ID");
+                String name = rs.getString("Division");
+                D.setName(name);
+                D.setDivision_id(id);
+
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return D;
     }
 
     /**

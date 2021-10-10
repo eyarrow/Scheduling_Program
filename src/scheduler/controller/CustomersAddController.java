@@ -173,6 +173,7 @@ public class CustomersAddController implements Initializable {
                 Division division = comboDivisionID.getValue();
                 division_id = division.getDivision_id();
 
+
                 if(validateCustomer(name, address, postal, phone)){
                     Customer C = new Customer(name, address, postal, phone, division_id, country_id);
                     Scheduler.addCustomer(C);

@@ -132,7 +132,14 @@ public class Scheduler {
      * @return
      */
     public static Country getCountry(int country_id) {
-        Country C = getCountryDAO(country_id);
-        return C;
+        return getCountryDAO(country_id);
+
+    }
+
+    public static Division getDivision(int division_id) {
+        Division D = getDivisionDAO(division_id);
+        System.out.println("Division id from assignment is: (In Scheduler) " + D.getDivision_id());
+        return D;
+
     }
 }

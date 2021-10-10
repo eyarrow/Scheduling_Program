@@ -12,7 +12,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import scheduler.model.Country;
 import scheduler.model.Customer;
+import scheduler.model.Division;
 import scheduler.model.Scheduler;
 import scheduler.util.dialogueHandling;
 import scheduler.util.dialogueReturnValues;
@@ -26,7 +28,7 @@ public class CustomersDetailController implements Initializable {
     Stage stage;
     Parent scene;
 
-    static Customer passedParameters;
+    public static Customer passedParameters;
 
     @FXML
     private Button buttonAddNewCustomer;
@@ -207,8 +209,12 @@ public class CustomersDetailController implements Initializable {
         labelAddress.setText(passedParameters.getAddress());
         labelPostalCode.setText(passedParameters.getPostalCode());
         labelPhoneNumber.setText(passedParameters.getPhoneNumber());
-        labelCountry.setText(String.valueOf(passedParameters.getCountryID()));
-        labelDivisionID.setText(String.valueOf(passedParameters.getCountryID()));
+        Country C = Scheduler.getCountry(passedParameters.getCountryID());
+        labelCountry.setText(C.toString());
+        //System.out.println("Division ID is: " + passedParameters.getDivisionID());
+        //Division D = Scheduler.getDivision(passedParameters.getDivisionID());
+
+        labelDivisionID.setText(String.valueOf(passedParameters.getDivisionID()));
 
     }
 

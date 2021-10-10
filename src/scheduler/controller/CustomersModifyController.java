@@ -226,6 +226,8 @@ public class CustomersModifyController implements Initializable {
         comboCountry.setItems(Scheduler.getAllCountries());
         Country C = Scheduler.getCountry(passedParameters.getCountryID());
         comboCountry.setValue(C);
+        Division D = Scheduler.getDivision(passedParameters.getDivisionID());
+        comboDivisionID.setValue(D);
 
 
 
