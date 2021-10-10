@@ -11,11 +11,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="600.0" style="-fx-background-color: #4c4c4cff#4c4c4cff;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.controller.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="600.0" style="-fx-background-color: #4c4c4cff#4c4c4cff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.controller.LoginController">
    <children>
       <VBox layoutX="2.0" prefHeight="552.0" prefWidth="600.0">
          <children>
@@ -65,6 +66,11 @@
                               <Insets right="30.0" />
                            </GridPane.margin>
                         </PasswordField>
+                        <Button fx:id="buttonExit" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#onClickButtonExit" styleClass="dark-submit-button" stylesheets="@/images/style.css" text="Exit the Application" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="100.0" />
+                           </GridPane.margin>
+                        </Button>
                      </children>
                      <GridPane.margin>
                         <Insets bottom="40.0" top="40.0" />
@@ -82,6 +88,7 @@
                   <Insets bottom="100.0" />
                </padding>
             </Separator>
+            <HBox prefHeight="100.0" prefWidth="200.0" />
             <Label fx:id="labelZoneID" styleClass="dark-text-box-label" stylesheets="@/images/style.css" text="Zone ID: " textFill="WHITE">
                <padding>
                   <Insets bottom="20.0" left="30.0" />

@@ -31,6 +31,9 @@ public class LoginController implements Initializable {
     private TextField textUserID;
 
     @FXML
+    private Button buttonExit;
+
+    @FXML
     private Button buttonSignIn;
 
     @FXML
@@ -63,6 +66,11 @@ public class LoginController implements Initializable {
             stage.setTitle("Acme Consulting : Overview");
             stage.show();
         }
+
+    }
+
+    @FXML
+    void onClickButtonExit(ActionEvent event) {
 
     }
 
