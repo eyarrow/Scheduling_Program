@@ -11,6 +11,7 @@ public enum dialogueReturnValues {
     NO_CONTENT("Please make sure all fields are populated."),
     COUNTRY_CODE_BLANK("Please choose the country, it cannot be blank."),
     DIVISION_CODE_BLANK("Please choose the Division, it cannot be blank. "),
+    NO_CUSTOMER_SELECTED("No customer selected! Please select a customer by clicking on their associated row."),
 
     /** Notifications **/
     APPOINTMENT_NOTIFICATION("Appointment Notification"),

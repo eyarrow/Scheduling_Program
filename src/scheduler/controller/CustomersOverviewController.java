@@ -13,6 +13,8 @@ import javafx.stage.Stage;
 import scheduler.model.Customer;
 import scheduler.model.Scheduler;
 import javafx.beans.property.*;
+import scheduler.util.dialogueHandling;
+import scheduler.util.dialogueReturnValues;
 
 import java.io.IOException;
 import java.net.URL;
@@ -76,6 +78,9 @@ public class CustomersOverviewController implements Initializable {
     private TableColumn<Customer, Integer> labelDivisionID;
 
     @FXML
+    private Label labelNameSelector;
+
+    @FXML
     void onClickCustomerSearch(ActionEvent event) {
 
     }
@@ -134,23 +139,34 @@ public class CustomersOverviewController implements Initializable {
         stage.show();
     }
 
+
     @FXML
     void onClickTableItem(MouseEvent event) throws IOException {
-        System.out.println("fxml event triggered");
-        Customer C = tableAllCustomers.getSelectionModel().getSelectedItem();
-        CustomersDetailController.passParameters(C);
 
-        stage = (Stage)((TableView)event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("/scheduler/view/CustomerDetail.fxml/"));
-        stage.setScene(new Scene(scene, 1243, 753));
-        stage.setTitle("Acme Consulting : Customer Details");
-        stage.show();
     }
+
+
 
     @FXML
-    void onClickButtonOpen(ActionEvent event) {
+    void onClickButtonOpen(ActionEvent event) throws IOException {
+        Customer C = tableAllCustomers.getSelectionModel().getSelectedItem();
+
+        try {
+            C.getName();
+        }
+        catch(NullPointerException e) {
+            dialogueHandling.displayDialogue(true, dialogueReturnValues.NO_CUSTOMER_SELECTED);
+            return;
+        }
+
+        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/scheduler/view/CustomersDetail.fxml/"));
+        stage.setScene(new Scene(scene, 1243, 753));
+        stage.setTitle("Acme Consulting : Customer Detail");
+        stage.show();
 
     }
+
 
     /**
      * Initializes the Customers Overview Controller
@@ -159,18 +175,21 @@ public class CustomersOverviewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        /*
+
         tableAllCustomers.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldSelection, newSelection) -> {
            if(!newSelection.getName().isEmpty()) {
                 Customer C = tableAllCustomers.getSelectionModel().getSelectedItem();
                 CustomersDetailController.passParameters(C);
-                System.out.println("Did a thing");
+                String customer = String.format("Click to view details for: %s", C.getName());
+                labelNameSelector.setText(customer);
 
            }
 
         }));
 
-         */
+
+
+
 
         tableAllCustomers.setItems(Scheduler.getAllCustomers());
 

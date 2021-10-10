@@ -132,8 +132,8 @@
       <GridPane layoutX="246.0" layoutY="136.0" prefHeight="38.0" prefWidth="640.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="57.0" prefWidth="57.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="388.0" minWidth="10.0" prefWidth="388.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="263.0" minWidth="10.0" prefWidth="146.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="388.0" minWidth="10.0" prefWidth="282.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="374.0" minWidth="10.0" prefWidth="281.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -149,6 +149,7 @@
                   <Insets left="20.0" />
                </GridPane.margin>
             </Button>
+            <Label fx:id="labelNameSelector" prefHeight="18.0" prefWidth="312.0" text="Click on a record below to Start..." GridPane.columnIndex="2" />
          </children>
          <padding>
             <Insets left="20.0" />
