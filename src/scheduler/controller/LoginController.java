@@ -1,5 +1,6 @@
 package scheduler.controller;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +15,7 @@ import javafx.stage.Stage;
 import scheduler.model.Scheduler;
 import scheduler.model.TimeManagement;
 import scheduler.util.dialogueHandling;
+import scheduler.util.dialogueReturnValues;
 
 import java.io.IOException;
 import java.net.URL;
@@ -71,6 +73,9 @@ public class LoginController implements Initializable {
 
     @FXML
     void onClickButtonExit(ActionEvent event) {
+        if(dialogueHandling.displayDialogue(false, dialogueReturnValues.APPLICATION_EXIT)) {
+            Platform.exit();
+        }
 
     }
 

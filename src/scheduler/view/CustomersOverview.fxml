@@ -157,13 +157,13 @@
       </GridPane>
       <TableView fx:id="tableAllCustomers" layoutX="246.0" layoutY="179.0" onMouseClicked="#onClickTableItem" prefHeight="585.0" prefWidth="1003.0" stylesheets="@/images/style.css">
         <columns>
-          <TableColumn fx:id="labelCustomerID" prefWidth="126.0" text="Customer ID" />
-          <TableColumn fx:id="labelName" minWidth="0.0" prefWidth="249.0" text="Name" />
-            <TableColumn fx:id="labelAddress" prefWidth="138.0" text="Address" />
-            <TableColumn fx:id="labelPostalCode" prefWidth="101.0" text="Postal Code" />
-            <TableColumn fx:id="labelPhoneNumber" prefWidth="138.0" text="Phone Number" />
-            <TableColumn fx:id="labelCountry" prefWidth="120.0" text="Country" />
-            <TableColumn fx:id="labelDivisionID" prefWidth="129.0" text="Division ID" />
+          <TableColumn fx:id="labelCustomerID" prefWidth="84.0" text="Customer ID" />
+          <TableColumn fx:id="labelName" minWidth="0.0" prefWidth="178.0" text="Name" />
+            <TableColumn fx:id="labelAddress" prefWidth="152.0" text="Address" />
+            <TableColumn fx:id="labelPostalCode" prefWidth="98.0" text="Postal Code" />
+            <TableColumn fx:id="labelPhoneNumber" prefWidth="114.0" text="Phone Number" />
+            <TableColumn fx:id="labelCountry" prefWidth="77.0" text="Country" />
+            <TableColumn fx:id="labelDivisionID" prefWidth="298.0" text="Division ID" />
         </columns>
          <padding>
             <Insets top="15.0" />
