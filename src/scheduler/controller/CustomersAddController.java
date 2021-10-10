@@ -131,23 +131,10 @@ public class CustomersAddController implements Initializable {
 
     @FXML
     void onClickCountryCombo(ActionEvent event) {
-        System.out.println("Action event triggered.");
         if(!comboCountry.itemsProperty().getValue().isEmpty()) {
             Country country = comboCountry.getSelectionModel().getSelectedItem();
             comboDivisionID.setItems(Scheduler.getDivision(country));
         }
-
-
-    }
-
-
-
-
-
-
-    @FXML
-    void selectCountry(ActionEvent event) {
-        comboCountry.getSelectionModel().select(1);
 
     }
 

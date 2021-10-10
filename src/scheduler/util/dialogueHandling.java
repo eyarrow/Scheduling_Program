@@ -87,35 +87,38 @@ public static void validationDialogue(String errorList) {
 
 }
 
+
 public static boolean validateCustomer(String name, String address, String postal, String phone) {
     String errorMessage = new String("Please resolve the following issues: ");
-
+    boolean valid = true;
     if(name.isEmpty()) {
         String str1 = new String(errorMessage);
         errorMessage = str1.concat("* Please enter the full name of the customer ");
-
+        valid = false;
     }
     if(address.isEmpty()) {
         String str1 = new String(errorMessage);
         errorMessage = str1.concat("* Please enter the full address of the customer ");
-
+        valid = false;
     }
     if(postal.isEmpty()) {
         String str1 = new String(errorMessage);
         errorMessage = str1.concat("* Please enter the full postal code ");
-
+        valid = false;
     }
     if(phone.isEmpty()) {
         String str1 = new String(errorMessage);
         errorMessage = str1.concat("* Please enter the full phone number ");
+        valid = false;
+    }
 
+    if(!valid) {
+        validationDialogue(errorMessage);
+        return valid;
     }
     else {
-        return true;
+        return valid;
     }
-
-    validationDialogue(errorMessage);
-    return false;
 
 
 
