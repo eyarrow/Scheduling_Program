@@ -169,7 +169,10 @@ public class CustomersDetailController implements Initializable {
         labelCustomerID.setText(String.valueOf(passedParameters.getCustomerID()));
         labelCustomerName.setText(passedParameters.getName());
         labelAddress.setText(passedParameters.getAddress());
-
+        labelPostalCode.setText(passedParameters.getPostalCode());
+        labelPhoneNumber.setText(passedParameters.getPhoneNumber());
+        labelCountry.setText(String.valueOf(passedParameters.getCountryID()));
+        labelDivisionID.setText(String.valueOf(passedParameters.returnDivisionIDString()));
 
     }
 

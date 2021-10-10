@@ -6,11 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import scheduler.model.Customer;
 import scheduler.model.Scheduler;
@@ -49,6 +47,9 @@ public class CustomersOverviewController implements Initializable {
 
     @FXML
     private Button buttonSearch;
+
+    @FXML
+    private Button buttonOpen;
 
     @FXML
     private TableView<Customer> tableAllCustomers;
@@ -133,7 +134,23 @@ public class CustomersOverviewController implements Initializable {
         stage.show();
     }
 
+    @FXML
+    void onClickTableItem(MouseEvent event) throws IOException {
+        System.out.println("fxml event triggered");
+        Customer C = tableAllCustomers.getSelectionModel().getSelectedItem();
+        CustomersDetailController.passParameters(C);
 
+        stage = (Stage)((TableView)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/scheduler/view/CustomerDetail.fxml/"));
+        stage.setScene(new Scene(scene, 1243, 753));
+        stage.setTitle("Acme Consulting : Customer Details");
+        stage.show();
+    }
+
+    @FXML
+    void onClickButtonOpen(ActionEvent event) {
+
+    }
 
     /**
      * Initializes the Customers Overview Controller
@@ -142,14 +159,18 @@ public class CustomersOverviewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        /*
         tableAllCustomers.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldSelection, newSelection) -> {
            if(!newSelection.getName().isEmpty()) {
                 Customer C = tableAllCustomers.getSelectionModel().getSelectedItem();
                 CustomersDetailController.passParameters(C);
-               System.out.println("Did a thing");
+                System.out.println("Did a thing");
+
            }
 
         }));
+
+         */
 
         tableAllCustomers.setItems(Scheduler.getAllCustomers());
 
