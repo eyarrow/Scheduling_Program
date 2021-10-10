@@ -162,8 +162,8 @@
             <TableColumn fx:id="labelAddress" prefWidth="152.0" text="Address" />
             <TableColumn fx:id="labelPostalCode" prefWidth="98.0" text="Postal Code" />
             <TableColumn fx:id="labelPhoneNumber" prefWidth="114.0" text="Phone Number" />
-            <TableColumn fx:id="labelCountry" prefWidth="77.0" text="Country" />
-            <TableColumn fx:id="labelDivisionID" prefWidth="298.0" text="Division ID" />
+            <TableColumn fx:id="labelCountry" prefWidth="213.0" text="Country" />
+            <TableColumn fx:id="labelDivisionID" prefWidth="162.0" text="Division ID" />
         </columns>
          <padding>
             <Insets top="15.0" />

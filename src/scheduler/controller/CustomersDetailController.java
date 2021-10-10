@@ -139,7 +139,13 @@ public class CustomersDetailController implements Initializable {
     }
 
     @FXML
-    void onClickModify(ActionEvent event) {
+    void onClickModify(ActionEvent event) throws IOException {
+        CustomersModifyController.setPassedParameters(passedParameters);
+        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/scheduler/view/CustomersModify.fxml/"));
+        stage.setScene(new Scene(scene, 1243, 753));
+        stage.setTitle("Acme Consulting : Modify Customer");
+        stage.show();
 
     }
 

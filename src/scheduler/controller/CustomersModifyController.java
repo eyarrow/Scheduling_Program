@@ -11,6 +11,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import scheduler.model.Customer;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,6 +21,8 @@ public class CustomersModifyController implements Initializable {
 
     Stage stage;
     Parent scene;
+
+    static Customer passedParameters;
 
     @FXML
     private Button buttonAddNewCustomer;
@@ -72,13 +75,31 @@ public class CustomersModifyController implements Initializable {
     @FXML
     private Button buttonSave;
 
-    @FXML
-    void onClickAddNewCustomer(ActionEvent event) {
-
+    /**
+     * Function to copy the customer information over to the Modify Screen
+     * @param passed is a customer object.
+     */
+    public static void setPassedParameters(Customer passed) {
+        passedParameters = passed;
     }
 
     @FXML
-    void onClickCancel(ActionEvent event) {
+    void onClickAddNewCustomer(ActionEvent event) throws IOException {
+        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/scheduler/view/CustomersAdd.fxml/"));
+        stage.setScene(new Scene(scene, 1243, 753));
+        stage.setTitle("Acme Consulting : Add Customer");
+        stage.show();
+    }
+
+    @FXML
+    void onClickCancel(ActionEvent event) throws IOException {
+        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/scheduler/view/CustomersOverview.fxml/"));
+        stage.setScene(new Scene(scene, 1243, 753));
+        stage.setTitle("Acme Consulting : Customers Overview");
+        stage.show();
+
 
     }
 
@@ -145,6 +166,12 @@ public class CustomersModifyController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        labelCustomerID.setText(String.valueOf(passedParameters.getCustomerID()));
+        textFieldName.setText(passedParameters.getName());
+        textfieldAddress.setText(passedParameters.getAddress());
+        textfieldPostalCode.setText(passedParameters.getPostalCode());
+        textFieldPhoneNumber.setText(passedParameters.getPhoneNumber());
+
 
     }
 }
