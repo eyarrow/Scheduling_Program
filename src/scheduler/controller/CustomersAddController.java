@@ -128,6 +128,10 @@ public class CustomersAddController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Once a country is picked, the division combo box will be populated with relevant divisions.
+     * @param event combo box click
+     */
     @FXML
     void onClickCountryCombo(ActionEvent event) {
         if(!comboCountry.itemsProperty().getValue().isEmpty()) {

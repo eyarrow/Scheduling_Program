@@ -11,7 +11,10 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import scheduler.model.Country;
 import scheduler.model.Customer;
+import scheduler.model.Division;
+import scheduler.model.Scheduler;
 
 import java.io.IOException;
 import java.net.URL;
@@ -58,10 +61,10 @@ public class CustomersModifyController implements Initializable {
     private TextField textFieldPhoneNumber;
 
     @FXML
-    private ComboBox<?> comboCountry;
+    private ComboBox<Country> comboCountry;
 
     @FXML
-    private ComboBox<?> comboDivisionID;
+    private ComboBox<Division> comboDivisionID;
 
     @FXML
     private Label labelCustomerID;
@@ -194,6 +197,19 @@ public class CustomersModifyController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Once a country is picked, the application with load the applicable division id's that exist within
+     * that country.
+     * @param event combo box click
+     */
+    @FXML
+    void onClickComboCountry(ActionEvent event) {
+        if(!comboCountry.itemsProperty().getValue().isEmpty()) {
+            Country country = comboCountry.getSelectionModel().getSelectedItem();
+            comboDivisionID.setItems(Scheduler.getDivision(country));
+        }
+    }
+
 
     /**
      * Initializes the Customers Modify Controller
@@ -207,6 +223,8 @@ public class CustomersModifyController implements Initializable {
         textfieldAddress.setText(passedParameters.getAddress());
         textfieldPostalCode.setText(passedParameters.getPostalCode());
         textFieldPhoneNumber.setText(passedParameters.getPhoneNumber());
+        comboCountry.setItems(Scheduler.getAllCountries());
+
 
 
     }
