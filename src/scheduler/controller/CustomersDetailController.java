@@ -12,6 +12,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import scheduler.model.Customer;
 
 import java.io.IOException;
 import java.net.URL;
@@ -21,6 +22,8 @@ public class CustomersDetailController implements Initializable {
 
     Stage stage;
     Parent scene;
+
+    static Customer passedParameters;
 
     @FXML
     private Button buttonAddNewCustomer;
@@ -76,6 +79,14 @@ public class CustomersDetailController implements Initializable {
 
     @FXML
     private Button buttonReturn;
+
+    /**
+     * A customer is passed, and displayed on the Customer detail page.
+     * @param passed a customer object
+     */
+    public static void passParameters(Customer passed) {
+        passedParameters = passed;
+    }
 
     @FXML
     void onClickAddNewCustomer(ActionEvent event) {
@@ -155,6 +166,10 @@ public class CustomersDetailController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        labelCustomerID.setText(String.valueOf(passedParameters.getCustomerID()));
+        labelCustomerName.setText(passedParameters.getName());
+        labelAddress.setText(passedParameters.getAddress());
+
 
     }
 

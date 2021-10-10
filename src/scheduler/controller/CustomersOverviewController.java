@@ -14,6 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import scheduler.model.Customer;
 import scheduler.model.Scheduler;
+import javafx.beans.property.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -133,6 +134,7 @@ public class CustomersOverviewController implements Initializable {
     }
 
 
+
     /**
      * Initializes the Customers Overview Controller
      * @param url
@@ -140,6 +142,15 @@ public class CustomersOverviewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        tableAllCustomers.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldSelection, newSelection) -> {
+           if(!newSelection.getName().isEmpty()) {
+                Customer C = tableAllCustomers.getSelectionModel().getSelectedItem();
+                CustomersDetailController.passParameters(C);
+               System.out.println("Did a thing");
+           }
+
+        }));
+
         tableAllCustomers.setItems(Scheduler.getAllCustomers());
 
         labelCustomerID.setCellValueFactory(new PropertyValueFactory<>("CustomerID"));
