@@ -23,8 +23,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static scheduler.util.dialogueHandling.displayDialogue;
-import static scheduler.util.dialogueHandling.validateCustomer;
+import static scheduler.util.dialogueHandling.*;
 
 public class CustomersAddController implements Initializable {
 
@@ -173,6 +172,8 @@ public class CustomersAddController implements Initializable {
                 if(validateCustomer(name, address, postal, phone)){
                     Customer C = new Customer(name, address, postal, phone, division_id, country_id);
                     Scheduler.addCustomer(C);
+
+                    confirmCustomerAdded(C);
 
                     stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
                     scene = FXMLLoader.load(getClass().getResource("/scheduler/view/CustomersOverview.fxml/"));

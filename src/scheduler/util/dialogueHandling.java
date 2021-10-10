@@ -61,6 +61,17 @@ public static boolean informationDialogue(dialogueReturnValues header, dialogueR
         return true;
 }
 
+public static boolean confirmationDialogue(String header, String message) {
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    alert.setTitle("Notification");
+    alert.setHeaderText(header);
+    alert.setContentText(message);
+    Optional<ButtonType> result = alert.showAndWait();
+
+    return true;
+}
+
+
 public static boolean checkAuthentication(String username, String password) throws IOException {
     //checks to make sure user and password are not null. Authenticates if values are present
     //for both fields.
@@ -133,6 +144,24 @@ public static boolean checkAuthentication(String username, String password) thro
         return valid;
     }
 
+
+
+}
+
+    /**
+     * Prints a dialogue that confirms that a customer has been added
+     * @param C Represents a new customer record
+     */
+    public static void confirmCustomerAdded(Customer C) {
+        String Header = "Customer Added!";
+        String customer = "You have successfully added the following customer: \n" +
+                "Name: " + C.getName() + " \n" +
+                "Address: " + C.getAddress() + ", " + C.getPostalCode() + " \n" +
+                "Phone: " + C.getPhoneNumber() + " \n" +
+                "Country: " + C.returnCountryString() + " \n" +
+                "Division ID: " + C.returnDivisionIDString() + " \n";
+
+        confirmationDialogue(Header,customer);
 
 
 }
