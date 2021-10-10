@@ -83,6 +83,11 @@ public class CustomersModifyController implements Initializable {
         passedParameters = passed;
     }
 
+    /**
+     * Clicking on Add new customers loads the Add Customer screen
+     * @param event button click
+     * @throws IOException
+     */
     @FXML
     void onClickAddNewCustomer(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -92,6 +97,11 @@ public class CustomersModifyController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Clicking cancel returns the user to the Customers Overview page.
+     * @param event button click
+     * @throws IOException
+     */
     @FXML
     void onClickCancel(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -103,16 +113,22 @@ public class CustomersModifyController implements Initializable {
 
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     void onClickSave(ActionEvent event) {
 
     }
 
-    @FXML
-    void onClickSearchCustomers(ActionEvent event) {
 
-    }
 
+    /**
+     * Main menu item: Loads the appointments screen
+     * @param event button click
+     * @throws IOException
+     */
     @FXML
     void onClickAppointments(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -122,6 +138,11 @@ public class CustomersModifyController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Main menu item: Loads the Customers screen
+     * @param event button click
+     * @throws IOException
+     */
     @FXML
     void onClickCustomers(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -131,6 +152,11 @@ public class CustomersModifyController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Main menu item: Loads the login screen
+     * @param event button click
+     * @throws IOException
+     */
     @FXML
     void onClickLogOut(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -140,6 +166,11 @@ public class CustomersModifyController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Main menu item: Loads the Overview screen
+     * @param event button click
+     * @throws IOException
+     */
     @FXML
     void onClickOverview(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -149,6 +180,11 @@ public class CustomersModifyController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Main menu item: Loads the report screen
+     * @param event button click
+     * @throws IOException
+     */
     @FXML
     void onClickReports(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
