@@ -13,7 +13,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import scheduler.model.Customer;
+import scheduler.model.Scheduler;
 import scheduler.util.dialogueHandling;
+import scheduler.util.dialogueReturnValues;
 
 import java.io.IOException;
 import java.net.URL;
@@ -120,9 +122,15 @@ public class CustomersDetailController implements Initializable {
 
 
     @FXML
-    void onClickDelete(ActionEvent event) {
+    void onClickDelete(ActionEvent event) throws IOException {
         if(dialogueHandling.confirmDeletionCustomer(passedParameters)) {
-            //proceed with deletion
+            Scheduler.deleteCustomer(passedParameters);
+            dialogueHandling.informationDialogue(dialogueReturnValues.CUSTOMER_DELETED_HEADER, dialogueReturnValues.CUSTOMER_DELETED_BODY);
+            stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+            scene = FXMLLoader.load(getClass().getResource("/scheduler/view/CustomersOverview.fxml/"));
+            stage.setScene(new Scene(scene, 1243, 753));
+            stage.setTitle("Acme Consulting : Customers Overview");
+            stage.show();
         }
         else {
             return;

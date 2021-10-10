@@ -111,6 +111,18 @@ public abstract class daoCustomer {
         return cList;
     }
 
+    /**
+     * Deletes the given customer
+     * @param C is a customer object
+     * @return true after the operation is completed.
+     */
+    public static boolean deleteCustomerDAO(Customer C) {
+        String DELETE_CUSTOMER = String.format("DELETE FROM customers where customer_id = '%x'", C.getCustomerID());
+        dbOperations.dbUpdate(DELETE_CUSTOMER);
+        return true;
+
+    }
+
 
 
 }

@@ -122,7 +122,7 @@ public class Scheduler {
         return getDivisionDAO(country_id);
     }
 
-    public static boolean deleteCustomer(Customer C) {
-
+    public static void deleteCustomer(Customer C) {
+        deleteCustomerDAO(C);
     }
 }
