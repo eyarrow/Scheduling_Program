@@ -79,7 +79,13 @@ public static boolean checkAuthentication(String username, String password) thro
     return true;
 }
 
-public static void validationDialogue(String errorList) {
+    /**
+     * Displays an error dialogue that requires the user to acknowledge the message before continuing.
+     * This is used specifically for issues were errors are more complex, and built strings need
+     * to provide additional information back to the user.
+     * @param errorList is a string that is presented to the user.
+     */
+    public static void validationDialogue(String errorList) {
     Alert alert = new Alert(Alert.AlertType.ERROR);
     alert.setTitle("Error");
     alert.setContentText(errorList);
@@ -87,28 +93,35 @@ public static void validationDialogue(String errorList) {
 
 }
 
-
-public static boolean validateCustomer(String name, String address, String postal, String phone) {
-    String errorMessage = new String("Please resolve the following issues: ");
+    /**
+     * Provides validation that information entered for a customer meets business standards (not null)
+     * @param name String, name of the customer
+     * @param address String, address
+     * @param postal String, postal code
+     * @param phone String, phone number
+     * @return true if the values entered are valid, false if they do not pass validation
+     */
+    public static boolean validateCustomer(String name, String address, String postal, String phone) {
+    String errorMessage = new String("Please resolve the following issues: \n");
     boolean valid = true;
     if(name.isEmpty()) {
         String str1 = new String(errorMessage);
-        errorMessage = str1.concat("* Please enter the full name of the customer ");
+        errorMessage = str1.concat("* Please enter the full name of the customer \n");
         valid = false;
     }
     if(address.isEmpty()) {
         String str1 = new String(errorMessage);
-        errorMessage = str1.concat("* Please enter the full address of the customer ");
+        errorMessage = str1.concat("* Please enter the full address of the customer \n");
         valid = false;
     }
     if(postal.isEmpty()) {
         String str1 = new String(errorMessage);
-        errorMessage = str1.concat("* Please enter the full postal code ");
+        errorMessage = str1.concat("* Please enter the full postal code \n");
         valid = false;
     }
     if(phone.isEmpty()) {
         String str1 = new String(errorMessage);
-        errorMessage = str1.concat("* Please enter the full phone number ");
+        errorMessage = str1.concat("* Please enter the full phone number \n");
         valid = false;
     }
 
