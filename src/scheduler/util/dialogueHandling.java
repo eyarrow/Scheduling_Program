@@ -90,6 +90,25 @@ public static boolean checkAuthentication(String username, String password) thro
     return true;
 }
 
+
+    /**
+     * Solicits feedback from the customer on how to proceed.
+     * @param feedback is a String provided by the calling function
+     * @return a boolean true value if the user clicks "Ok" false if they click cancel
+     */
+    public static boolean confirmationDialogue(String feedback) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, feedback);
+        alert.setTitle("Please confirm?");
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if(result.isPresent() && result.get() == ButtonType.OK) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     /**
      * Displays an error dialogue that requires the user to acknowledge the message before continuing.
      * This is used specifically for issues were errors are more complex, and built strings need
@@ -166,6 +185,21 @@ public static boolean checkAuthentication(String username, String password) thro
 
 }
 
+    public static boolean confirmDeletionCustomer(Customer C) {
+        String message = "Are you sure you want to delete the following customer? This action is not reversable! \n" +
+                "Name: " + C.getName() + " \n" +
+                "Address: " + C.getAddress() + ", " + C.getPostalCode() + " \n" +
+                "Phone: " + C.getPhoneNumber() + " \n" +
+                "Country ID: " + C.getCountryID() + " \n" +
+                "Division ID: " + C.getDivisionID() + " \n";
+
+        if(confirmationDialogue(message)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 
 
 }

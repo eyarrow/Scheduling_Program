@@ -121,4 +121,8 @@ public class Scheduler {
     public static ObservableList<Division> getDivision(Country country_id) {
         return getDivisionDAO(country_id);
     }
+
+    public static boolean deleteCustomer(Customer C) {
+
+    }
 }
