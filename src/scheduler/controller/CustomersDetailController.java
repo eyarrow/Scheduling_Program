@@ -211,10 +211,9 @@ public class CustomersDetailController implements Initializable {
         labelPhoneNumber.setText(passedParameters.getPhoneNumber());
         Country C = Scheduler.getCountry(passedParameters.getCountryID());
         labelCountry.setText(C.toString());
-        //System.out.println("Division ID is: " + passedParameters.getDivisionID());
-        //Division D = Scheduler.getDivision(passedParameters.getDivisionID());
-
-        labelDivisionID.setText(String.valueOf(passedParameters.getDivisionID()));
+        int id = passedParameters.getDivisionID();
+        Division D = Scheduler.getDivision(id);
+        labelDivisionID.setText(D.toString());
 
     }
 

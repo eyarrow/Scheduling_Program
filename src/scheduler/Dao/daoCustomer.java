@@ -122,19 +122,23 @@ public abstract class daoCustomer {
      * @return division object
      */
     public static Division getDivisionDAO(int division_id) {
-        String DIVISION = String.format("select Division_ID, Division from first_level_divisions WHERE Division_ID = %x;", division_id);
+        String DIVISION = String.format("select Division_ID, Division from first_level_divisions WHERE Division_ID = %s;", division_id);
         ResultSet rs;
         Division D = new Division(0, "NULL");
 
         try {
             rs = dbOperations.dbQuery(DIVISION);
-            while(rs.next()) {
+            if(rs.next()) {
                 int id = rs.getInt("Division_ID");
                 String name = rs.getString("Division");
                 D.setName(name);
                 D.setDivision_id(id);
+                System.out.println("Inner loop fired");
+                return D;
+
 
             }
+
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
