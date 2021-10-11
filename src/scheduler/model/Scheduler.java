@@ -161,4 +161,8 @@ public class Scheduler {
     public static ObservableList<Appointment> getAllAppointments() {
         return daoAppointment.getAllAppointmentsDAO();
     }
+
+    public static Contact getContactByID(int id) {
+        return daoAppointment.getContactByIDDAO(id);
+    }
 }

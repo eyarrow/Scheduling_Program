@@ -72,7 +72,7 @@ public class AppointmentsOverviewController implements Initializable {
     private TableColumn<Appointment, Integer> labelAppointmentID;
 
     @FXML
-    private TableColumn<Appointment, Integer> labelName;
+    private TableColumn<Appointment, String> labelName;
 
     @FXML
     private TableColumn<Appointment, String> labelType;
@@ -160,7 +160,6 @@ public class AppointmentsOverviewController implements Initializable {
         tableAllAppointments.setItems(Scheduler.getAllAppointments());
 
         labelAppointmentID.setCellValueFactory(new PropertyValueFactory<>("AppointmentID"));
-        labelName.setCellValueFactory(new PropertyValueFactory<>("ContactID"));
         labelCustomerID.setCellValueFactory(new PropertyValueFactory<>("CustomerID"));
         labelDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
         labelLocation.setCellValueFactory(new PropertyValueFactory<>("location"));
@@ -169,6 +168,7 @@ public class AppointmentsOverviewController implements Initializable {
         labelEndTime.setCellValueFactory(new PropertyValueFactory<>("end"));
         labelUserID.setCellValueFactory(new PropertyValueFactory<>("UserID"));
         labelTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+        labelName.setCellValueFactory(new PropertyValueFactory<>("ContactName"));
 
 
     }

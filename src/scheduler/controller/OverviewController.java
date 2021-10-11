@@ -58,8 +58,8 @@ public class OverviewController implements Initializable {
         scene = FXMLLoader.load(getClass().getResource("/scheduler/view/AppointmentsOverview.fxml/"));
         stage.setScene(new Scene(scene, 1243, 753));
         stage.setTitle("Acme Consulting : Appointments Overview");
-        //scene.getStylesheets().add( getClass().getResource( "/images/style.css" ).toExternalForm() );
         stage.show();
+
     }
 
     @FXML

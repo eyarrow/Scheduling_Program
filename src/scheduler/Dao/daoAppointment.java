@@ -75,4 +75,25 @@ public abstract class daoAppointment {
         return aList;
     }
 
+    public static Contact getContactByIDDAO(int id) {
+        String RETURN_CONTACT = String.format("SELECT Contact_ID, Contact_Name FROM contacts WHERE Contact_ID = %x;", id);
+        ResultSet rs;
+        Contact C = new Contact(0, "NULL");
+
+        try {
+            rs = dbOperations.dbQuery(RETURN_CONTACT);
+            while(rs.next()) {
+                int Cid = rs.getInt("Contact_ID");
+                String CName = rs.getString("Contact_Name");
+                C.setContactID(Cid);
+                C.setContactName(CName);
+            }
+
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return C;
+    }
+
 }

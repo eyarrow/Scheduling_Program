@@ -101,6 +101,7 @@ public class CustomersOverviewController implements Initializable {
         stage.setScene(new Scene(scene, 1243, 753));
         stage.setTitle("Acme Consulting : Appointments Overview");
         stage.show();
+
     }
 
     @FXML

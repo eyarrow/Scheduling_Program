@@ -6,7 +6,6 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -18,7 +17,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="753.0" prefWidth="1243.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.controller.AppointmentsOverviewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="753.0" prefWidth="1243.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.controller.AppointmentsOverviewController">
    <children>
       <AnchorPane layoutX="245.0" prefHeight="135.0" prefWidth="1003.0" styleClass="nav-bar-top" stylesheets="@/images/style.css" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="-5.0">
          <children>
@@ -40,7 +39,7 @@
                         <Insets top="50.0" />
                      </padding>
                   </Label>
-                  <Label styleClass="nav-bar-descrip" stylesheets="@/images/style.css" text="Click on a appointment below to modify the record, delete the record, or get a detailed view." GridPane.rowIndex="1">
+                  <Label styleClass="nav-bar-descrip" stylesheets="@/images/style.css" text="Click on an appointment, and the &quot;Open Appointment Detail&quot; button to view details, modify, or delete the record. " GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="30.0" />
                      </GridPane.margin>
@@ -142,8 +141,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField fx:id="textfieldSearch" promptText="Search by Appointment ID or Customer Name" styleClass="light-text-box" stylesheets="@/images/style.css" GridPane.columnIndex="1" />
-            <Button fx:id="buttonSearch" mnemonicParsing="false" styleClass="light-button" stylesheets="@/images/style.css" text="Search" GridPane.columnIndex="2">
+            <Button fx:id="buttonDetail" mnemonicParsing="false" onAction="#onClickButtonDetail" styleClass="light-button" stylesheets="@/images/style.css" text="Open Appointment Detail" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets left="20.0" />
                </GridPane.margin>
