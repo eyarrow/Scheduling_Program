@@ -16,10 +16,14 @@ import scheduler.model.Country;
 import scheduler.model.Customer;
 import scheduler.model.Division;
 import scheduler.model.Scheduler;
+import scheduler.util.dialogueHandling;
+import scheduler.util.dialogueReturnValues;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static scheduler.util.dialogueHandling.displayDialogue;
 
 public class CustomersModifyController implements Initializable {
 
@@ -123,15 +127,37 @@ public class CustomersModifyController implements Initializable {
      */
     @FXML
     void onClickSave(ActionEvent event) {
+
         String name = textFieldName.getText();
         String address = textfieldAddress.getText();
         String postal = textfieldPostalCode.getText();
         String phone = textFieldPhoneNumber.getText();
-        int country = comboCountry.getSelectionModel().getSelectedItem().getCountry_id();
-        int division = comboDivisionID.getSelectionModel().getSelectedItem().getDivision_id();
+        int country;
+        int division;
+        try {
+            country = comboCountry.getSelectionModel().getSelectedItem().getCountry_id();
 
+        }
+        catch (NullPointerException e) {
+            displayDialogue(true, dialogueReturnValues.COUNTRY_CODE_BLANK);
+            return;
+        }
+
+        try {
+            division = comboDivisionID.getSelectionModel().getSelectedItem().getDivision_id();
+        }
+        catch (NullPointerException e) {
+            displayDialogue(true, dialogueReturnValues.DIVISION_CODE_BLANK);
+            return;
+        }
         Customer C = new Customer(name, address, postal, phone, division, country);
-        Scheduler.updateCustomer(C);
+        if(dialogueHandling.validateCustomer(name, address, postal, phone)) {
+            Scheduler.updateCustomer(C);
+            System.out.println("Yeah I did a thing");
+        }
+
+
+
     }
 
 
