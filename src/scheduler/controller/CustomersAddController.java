@@ -172,6 +172,7 @@ public class CustomersAddController implements Initializable {
                 country_id = country.getCountry_id();
                 Division division = comboDivisionID.getValue();
                 division_id = division.getDivision_id();
+            System.out.println("Division id at assignement is: " + division_id);
 
 
                 if(validateCustomer(name, address, postal, phone)){

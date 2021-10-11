@@ -60,7 +60,7 @@ public abstract class daoCustomer {
      */
     public static void addCustomerDAO(Customer customer) {
         String ADD_CUSTOMER = String.format("INSERT INTO CUSTOMERS (Customer_Name, Address, Postal_Code, Phone, Division_ID)\n" +
-                "VALUES ('%s', '%s', '%s', '%s', %x);", customer.getName(), customer.getAddress(), customer.getPostalCode(), customer.getPhoneNumber(), customer.getDivisionID());
+                "VALUES ('%s', '%s', '%s', '%s', %s);", customer.getName(), customer.getAddress(), customer.getPostalCode(), customer.getPhoneNumber(), customer.getDivisionID());
         System.out.println("Update add customer statement is: " + ADD_CUSTOMER);
         dbOperations.dbUpdate(ADD_CUSTOMER);
     }
@@ -133,7 +133,6 @@ public abstract class daoCustomer {
                 String name = rs.getString("Division");
                 D.setName(name);
                 D.setDivision_id(id);
-                System.out.println("Inner loop fired");
                 return D;
 
 
