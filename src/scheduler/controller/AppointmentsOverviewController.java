@@ -6,18 +6,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import scheduler.model.Appointment;
+import scheduler.model.Customer;
 import scheduler.model.Scheduler;
+import scheduler.util.dialogueHandling;
+import scheduler.util.dialogueReturnValues;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
@@ -99,6 +98,9 @@ public class AppointmentsOverviewController implements Initializable {
     private TableColumn<Appointment, Integer> labelUserID;
 
     @FXML
+    private Label labelAppointmentMessage;
+
+    @FXML
     void onClickAppointments(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("/scheduler/view/AppointmentsOverview.fxml/"));
@@ -144,7 +146,30 @@ public class AppointmentsOverviewController implements Initializable {
     }
 
     @FXML
-    void onClickButtonDetail(ActionEvent event) {
+    void onClickButtonDetail(ActionEvent event) throws IOException, InvocationTargetException {
+
+        Appointment A = tableAllAppointments.getSelectionModel().getSelectedItem();
+
+        try {
+            A.getLocation();
+        }
+        catch(NullPointerException e) {
+            dialogueHandling.displayDialogue(true, dialogueReturnValues.NO_APPOINTMENT_SELECTED);
+            return;
+        }
+
+
+        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/scheduler/view/AppointmentsDetail.fxml/"));
+        stage.setScene(new Scene(scene, 1243, 753));
+        stage.setTitle("Acme Consulting : Appointments Overview");
+        stage.show();
+
+
+
+
+
+
 
     }
 
@@ -156,7 +181,26 @@ public class AppointmentsOverviewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        /**
+         * Lambda Expression - Listener for when a value on the Table View is clicked. When a value is clicked
+         * a label at the top of the page changes to the reflect the Appointment ID. It also sets up
+         * passed parameters for the Appointment object, which can be used to populate that customer's information on
+         * the detail screen.
+         */
+        tableAllAppointments.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldSelection, newSelection) -> {
+            if(!newSelection.getLocation().isEmpty()) {
+                Appointment A = tableAllAppointments.getSelectionModel().getSelectedItem();
+                AppointmentsDetailController.copyPassedParameters(A);
+                String appointment = String.format("Click to view details for Appointment ID: %x", A.getAppointmentID());
+                labelAppointmentMessage.setText(appointment);
 
+                AppointmentsDetailController.copyPassedParameters(A);
+
+            }
+
+        }));
+
+        labelAppointmentMessage.setText("Click on an appointment below to select it...");
         tableAllAppointments.setItems(Scheduler.getAllAppointments());
 
         labelAppointmentID.setCellValueFactory(new PropertyValueFactory<>("AppointmentID"));

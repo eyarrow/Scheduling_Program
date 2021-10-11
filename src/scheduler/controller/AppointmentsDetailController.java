@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import scheduler.model.Appointment;
 
 import java.io.IOException;
 import java.net.URL;
@@ -19,6 +20,8 @@ public class AppointmentsDetailController implements Initializable {
 
     Stage stage;
     Parent scene;
+
+    static Appointment passedParameters;
 
     @FXML
     private Button buttonAddNewAppointment;
@@ -83,6 +86,10 @@ public class AppointmentsDetailController implements Initializable {
     @FXML
     private Button buttonReturn;
 
+    public static void copyPassedParameters(Appointment A) {
+        passedParameters = A;
+    }
+
     @FXML
     void onClickAppointments(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -128,6 +135,25 @@ public class AppointmentsDetailController implements Initializable {
         stage.show();
     }
 
+    @FXML
+    void onClickButtonDelete(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onClickButtonModify(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onClickButtonReturn(ActionEvent event) throws IOException {
+        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/scheduler/view/AppointmentsOverview.fxml/"));
+        stage.setScene(new Scene(scene, 1243, 753));
+        stage.setTitle("Acme Consulting : Appointments Overview");
+        stage.show();
+    }
+
 
     /**
      * Initializes the Appts Detail Controller
@@ -136,6 +162,18 @@ public class AppointmentsDetailController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        labelAppointmentID.setText(String.valueOf(passedParameters.getAppointmentID()));
+        labelAppointmentTitle.setText(passedParameters.getTitle());
+        labelCustomerID.setText(String.valueOf(passedParameters.getCustomerID()));
+        labelContactName.setText(passedParameters.getContactName());
+        labelDescription.setText(passedParameters.getDescription());
+        labelStartTime.setText(String.valueOf(passedParameters.getStart()));
+        labelEndTime.setText(String.valueOf(passedParameters.getEnd()));
+        labelUserID.setText(String.valueOf(passedParameters.getUserID()));
+        labelType.setText(passedParameters.getType());
+
+
 
     }
 }
