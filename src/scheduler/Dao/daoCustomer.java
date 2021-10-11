@@ -10,6 +10,7 @@ import scheduler.util.dbOperations;
 import javax.xml.transform.Result;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.IllegalFormatException;
 
 /**
  * Class that provides functionality on the persistence layer for the "Customer" class that manages business local in the model package.
@@ -185,9 +186,17 @@ public abstract class daoCustomer {
      * @param C Customer object record.
      */
     public static void updateCustomerDAO(Customer C) {
-        String UPDATE_CUSTOMER = String.format("UPDATE Customers\n" +
-                "SET Customer_Name = '%s', Address = '%s', Postal_Code = '%s', Phone = '%s', Division_ID = %s\n" +
-                "WHERE Customer_ID = %s;", C.getName(), C.getAddress(), C.getPostalCode(), C.getPhoneNumber(), C.getDivisionID(), C.getCustomerID());
+        String UPDATE_CUSTOMER = null;
+        try {
+            UPDATE_CUSTOMER = String.format("UPDATE Customers\n" +
+                    "SET Customer_Name = '%s', Address = '%s', Postal_Code = '%s', Phone = '%s', Division_ID = %s\n" +
+                    "WHERE Customer_ID = %s;", C.getName(), C.getAddress(), C.getPostalCode(), C.getPhoneNumber(), C.getDivisionID(), C.getCustomerID());
+        }
+        catch (IllegalFormatException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Generated sql string: " + UPDATE_CUSTOMER);
 
         dbOperations.dbUpdate(UPDATE_CUSTOMER);
     }

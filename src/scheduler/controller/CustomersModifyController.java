@@ -134,6 +134,7 @@ public class CustomersModifyController implements Initializable {
         String phone = textFieldPhoneNumber.getText();
         int country;
         int division;
+        int CustomerID = passedParameters.getCustomerID();
         try {
             country = comboCountry.getSelectionModel().getSelectedItem().getCountry_id();
 
@@ -150,7 +151,7 @@ public class CustomersModifyController implements Initializable {
             displayDialogue(true, dialogueReturnValues.DIVISION_CODE_BLANK);
             return;
         }
-        Customer C = new Customer(name, address, postal, phone, division, country);
+        Customer C = new Customer(CustomerID, name, address, postal, phone, division, country);
         if(dialogueHandling.validateCustomer(name, address, postal, phone)) {
             Scheduler.updateCustomer(C);
             System.out.println("Yeah I did a thing");
