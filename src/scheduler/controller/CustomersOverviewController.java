@@ -175,7 +175,12 @@ public class CustomersOverviewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        /**
+         * Lambda Expression - Listener for when a value on the Table View is clicked. When a value is clicked
+         * a label at the top of the page changes to the reflect the name of the chosen person. It also sets up
+         * passed parameters for the customer object, which can be used to populate that customer's information on
+         * the detail screen.
+         */
         tableAllCustomers.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldSelection, newSelection) -> {
            if(!newSelection.getName().isEmpty()) {
                 Customer C = tableAllCustomers.getSelectionModel().getSelectedItem();

@@ -1,5 +1,6 @@
 package scheduler.controller;
 
+import com.google.protobuf.NullValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -218,6 +219,20 @@ public class CustomersModifyController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        /**
+         * Lamda: Listener for changes to the Country Combo box. If it is modified, the correct list
+         * of divisions are listed, and the value of the division is set to null, so that the incorrect division
+         * is not inadvertantly saved to a country to which it does not belong.
+         */
+        comboCountry.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldSelection, newSelection) -> {
+            if(!comboCountry.itemsProperty().getValue().isEmpty()) {
+                Country country = comboCountry.getSelectionModel().getSelectedItem();
+                comboDivisionID.setItems(Scheduler.getDivision(country));
+                comboDivisionID.setValue(null);
+            }
+        }));
+
+
         labelCustomerID.setText(String.valueOf(passedParameters.getCustomerID()));
         textFieldName.setText(passedParameters.getName());
         textfieldAddress.setText(passedParameters.getAddress());
