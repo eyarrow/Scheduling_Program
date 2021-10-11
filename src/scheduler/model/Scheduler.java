@@ -2,6 +2,7 @@ package scheduler.model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import scheduler.Dao.daoAppointment;
 import scheduler.util.dialogueHandling;
 import scheduler.util.dialogueReturnValues;
 
@@ -153,11 +154,11 @@ public class Scheduler {
      * Returns all contacts back to the UI
      * @return Observable List
      */
-    public static ObservableList<Contact> getAllContacts() {
-        return getAllContacts();
+    public static ObservableList<Contact> getAllContacts() throws SQLException {
+        return daoAppointment.getAllContactsDAO();
     }
 
     public static ObservableList<Appointment> getAllAppointments() {
-
+        return daoAppointment.getAllAppointmentsDAO();
     }
 }

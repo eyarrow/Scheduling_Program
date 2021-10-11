@@ -24,7 +24,7 @@ public abstract class daoAppointment {
     public static ObservableList<Contact> getAllContactsDAO() throws SQLException {
         String ALL_CONTACTS = "SELECT * FROM contacts;";
         ResultSet rs;
-        ObservableList<Contact> cList = FXCollections.observableArrayList();
+        ObservableList<Contact> aList = FXCollections.observableArrayList();
         Contact C;
 
         try {
@@ -33,21 +33,21 @@ public abstract class daoAppointment {
                 int id = rs.getInt("Contact_ID");
                 String name = rs.getString("Contact_Name");
                 C = new Contact(id, name);
-                cList.add(C);
+                aList.add(C);
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return cList;
+        return aList;
 
     }
 
     public static ObservableList<Appointment> getAllAppointmentsDAO() {
         String GET_APPOINTMENTS = "select * from appointments;";
         ResultSet rs;
-        ObservableList<Appointment> cList = FXCollections.observableArrayList();
+        ObservableList<Appointment> aList = FXCollections.observableArrayList();
 
         try {
             rs = dbOperations.dbQuery(GET_APPOINTMENTS);
@@ -58,14 +58,21 @@ public abstract class daoAppointment {
                 String location = rs.getString("Location");
                 int ContactID = rs.getInt("Contact_ID");
                 String type = rs.getString("Type");
-                Timestamp start = rs.getTimestamp("Start");
-                Timestamp end = rs.getTimestamp("End");
+                Timestamp start_time = rs.getTimestamp("Start");
+                LocalDateTime start = start_time.toLocalDateTime();
+                Timestamp end_time = rs.getTimestamp("End");
+                LocalDateTime end = end_time.toLocalDateTime();
+                int CustomerID = rs.getInt("Customer_ID");
+                int UserID = rs.getInt("User_ID");
+
+                Appointment A = new Appointment(id, title, description, location, ContactID, type, start, end, CustomerID, UserID);
+                aList.add(A);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-
+        return aList;
     }
 
 }

@@ -12,7 +12,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import scheduler.model.Appointment;
+import scheduler.model.Scheduler;
 
 import java.io.IOException;
 import java.net.URL;
@@ -59,37 +62,37 @@ public class AppointmentsOverviewController implements Initializable {
     private RadioButton radioMonthly;
 
     @FXML
-    private TableView<?> tableAllAppointments;
+    private TableView<Appointment> tableAllAppointments;
 
     @FXML
-    private TableColumn<?, ?> labelAppointmentID;
+    private TableColumn<Appointment, ?> labelAppointmentID;
 
     @FXML
-    private TableColumn<?, ?> labelName;
+    private TableColumn<Appointment, ?> labelName;
 
     @FXML
-    private TableColumn<?, ?> labelType;
+    private TableColumn<Appointment, ?> labelType;
 
     @FXML
-    private TableColumn<?, ?> labelTitle;
+    private TableColumn<Appointment, ?> labelTitle;
 
     @FXML
-    private TableColumn<?, ?> labelDescription;
+    private TableColumn<Appointment, ?> labelDescription;
 
     @FXML
-    private TableColumn<?, ?> labelLocation;
+    private TableColumn<Appointment, ?> labelLocation;
 
     @FXML
-    private TableColumn<?, ?> labelStartTime;
+    private TableColumn<Appointment, ?> labelStartTime;
 
     @FXML
-    private TableColumn<?, ?> labelEndTime;
+    private TableColumn<Appointment, ?> labelEndTime;
 
     @FXML
-    private TableColumn<?, ?> labelCustomerID;
+    private TableColumn<Appointment, ?> labelCustomerID;
 
     @FXML
-    private TableColumn<?, ?> labelUserID;
+    private TableColumn<Appointment, ?> labelUserID;
 
     @FXML
     void onClickAppointments(ActionEvent event) throws IOException {
@@ -144,6 +147,11 @@ public class AppointmentsOverviewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        tableAllAppointments.setItems(Scheduler.getAllAppointments());
+
+        labelAppointmentID.setCellValueFactory(new PropertyValueFactory<>("AppointmentID"));
+        labelName.setCellValueFactory(new PropertyValueFactory<>(""));
 
     }
 
