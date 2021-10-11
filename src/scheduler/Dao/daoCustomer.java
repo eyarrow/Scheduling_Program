@@ -175,7 +175,7 @@ public abstract class daoCustomer {
      * @return true after the operation is completed.
      */
     public static boolean deleteCustomerDAO(Customer C) {
-        String DELETE_CUSTOMER = String.format("DELETE FROM customers where customer_id = '%x'", C.getCustomerID());
+        String DELETE_CUSTOMER = String.format("DELETE FROM customers where Customer_ID = %s", C.getCustomerID());
         dbOperations.dbUpdate(DELETE_CUSTOMER);
         return true;
 

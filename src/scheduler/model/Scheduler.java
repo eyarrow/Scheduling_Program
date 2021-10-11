@@ -137,9 +137,7 @@ public class Scheduler {
     }
 
     public static Division getDivision(int division_id) {
-        Division D = getDivisionDAO(division_id);
-        System.out.println("Division id from assignment is: (In Scheduler) " + D.getDivision_id());
-        return D;
+        return getDivisionDAO(division_id);
 
     }
 
