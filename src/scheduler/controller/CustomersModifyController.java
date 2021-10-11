@@ -126,7 +126,7 @@ public class CustomersModifyController implements Initializable {
      * @param event
      */
     @FXML
-    void onClickSave(ActionEvent event) {
+    void onClickSave(ActionEvent event) throws IOException {
 
         String name = textFieldName.getText();
         String address = textfieldAddress.getText();
@@ -154,7 +154,14 @@ public class CustomersModifyController implements Initializable {
         Customer C = new Customer(CustomerID, name, address, postal, phone, division, country);
         if(dialogueHandling.validateCustomer(name, address, postal, phone)) {
             Scheduler.updateCustomer(C);
-            System.out.println("Yeah I did a thing");
+            dialogueHandling.confirmCustomerUpdated(C);
+
+            stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+            scene = FXMLLoader.load(getClass().getResource("/scheduler/view/CustomersOverview.fxml/"));
+            stage.setScene(new Scene(scene, 1243, 753));
+            stage.setTitle("Acme Consulting : Customers Overview");
+            stage.show();
+
         }
 
 
