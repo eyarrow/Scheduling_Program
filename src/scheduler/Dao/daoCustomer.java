@@ -180,6 +180,18 @@ public abstract class daoCustomer {
 
     }
 
+    /**
+     * Updates a Customer's information in the Database.
+     * @param C Customer object record.
+     */
+    public static void updateCustomerDAO(Customer C) {
+        String UPDATE_CUSTOMER = String.format("UPDATE Customers\n" +
+                "SET Customer_Name = '%s', Address = '%s', Postal_Code = '%s', Phone = '%s', Division_ID = %s\n" +
+                "WHERE Customer_ID = %s;", C.getName(), C.getAddress(), C.getPostalCode(), C.getPhoneNumber(), C.getDivisionID(), C.getCustomerID());
+
+        dbOperations.dbUpdate(UPDATE_CUSTOMER);
+    }
+
 
 
 }

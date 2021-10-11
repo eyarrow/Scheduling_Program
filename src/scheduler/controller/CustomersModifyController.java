@@ -123,7 +123,15 @@ public class CustomersModifyController implements Initializable {
      */
     @FXML
     void onClickSave(ActionEvent event) {
+        String name = textFieldName.getText();
+        String address = textfieldAddress.getText();
+        String postal = textfieldPostalCode.getText();
+        String phone = textFieldPhoneNumber.getText();
+        int country = comboCountry.getSelectionModel().getSelectedItem().getCountry_id();
+        int division = comboDivisionID.getSelectionModel().getSelectedItem().getDivision_id();
 
+        Customer C = new Customer(name, address, postal, phone, division, country);
+        Scheduler.updateCustomer(C);
     }
 
 

@@ -142,4 +142,12 @@ public class Scheduler {
         return D;
 
     }
+
+    /**
+     * Updates a customer's record in the application. It is assumed that the data has already been validated.
+     * @param C Customer object
+     */
+    public static void updateCustomer(Customer C) {
+        updateCustomerDAO(C);
+    }
 }
