@@ -19,6 +19,7 @@ import scheduler.model.Scheduler;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 public class AppointmentsOverviewController implements Initializable {
@@ -44,6 +45,9 @@ public class AppointmentsOverviewController implements Initializable {
     private Button buttonLogout;
 
     @FXML
+    private Button buttonDetail;
+
+    @FXML
     private TextField textfieldSearch;
 
     @FXML
@@ -65,34 +69,34 @@ public class AppointmentsOverviewController implements Initializable {
     private TableView<Appointment> tableAllAppointments;
 
     @FXML
-    private TableColumn<Appointment, ?> labelAppointmentID;
+    private TableColumn<Appointment, Integer> labelAppointmentID;
 
     @FXML
-    private TableColumn<Appointment, ?> labelName;
+    private TableColumn<Appointment, Integer> labelName;
 
     @FXML
-    private TableColumn<Appointment, ?> labelType;
+    private TableColumn<Appointment, String> labelType;
 
     @FXML
-    private TableColumn<Appointment, ?> labelTitle;
+    private TableColumn<Appointment, String> labelTitle;
 
     @FXML
-    private TableColumn<Appointment, ?> labelDescription;
+    private TableColumn<Appointment, String> labelDescription;
 
     @FXML
-    private TableColumn<Appointment, ?> labelLocation;
+    private TableColumn<Appointment, String> labelLocation;
 
     @FXML
-    private TableColumn<Appointment, ?> labelStartTime;
+    private TableColumn<Appointment, LocalDateTime> labelStartTime;
 
     @FXML
-    private TableColumn<Appointment, ?> labelEndTime;
+    private TableColumn<Appointment, LocalDateTime> labelEndTime;
 
     @FXML
-    private TableColumn<Appointment, ?> labelCustomerID;
+    private TableColumn<Appointment, Integer> labelCustomerID;
 
     @FXML
-    private TableColumn<Appointment, ?> labelUserID;
+    private TableColumn<Appointment, Integer> labelUserID;
 
     @FXML
     void onClickAppointments(ActionEvent event) throws IOException {
@@ -139,6 +143,11 @@ public class AppointmentsOverviewController implements Initializable {
         stage.show();
     }
 
+    @FXML
+    void onClickButtonDetail(ActionEvent event) {
+
+    }
+
 
     /**
      * Initializes the Appts Overview Controller
@@ -151,7 +160,16 @@ public class AppointmentsOverviewController implements Initializable {
         tableAllAppointments.setItems(Scheduler.getAllAppointments());
 
         labelAppointmentID.setCellValueFactory(new PropertyValueFactory<>("AppointmentID"));
-        labelName.setCellValueFactory(new PropertyValueFactory<>(""));
+        labelName.setCellValueFactory(new PropertyValueFactory<>("ContactID"));
+        labelCustomerID.setCellValueFactory(new PropertyValueFactory<>("CustomerID"));
+        labelDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
+        labelLocation.setCellValueFactory(new PropertyValueFactory<>("location"));
+        labelType.setCellValueFactory(new PropertyValueFactory<>("type"));
+        labelStartTime.setCellValueFactory(new PropertyValueFactory<>("start"));
+        labelEndTime.setCellValueFactory(new PropertyValueFactory<>("end"));
+        labelUserID.setCellValueFactory(new PropertyValueFactory<>("UserID"));
+        labelTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+
 
     }
 
