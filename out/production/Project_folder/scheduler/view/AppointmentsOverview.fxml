@@ -58,7 +58,7 @@
                               <Image url="@/images/dark-newappointment.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="buttonAddNewAppointment" mnemonicParsing="false" prefHeight="33.0" prefWidth="184.0" styleClass="light-button" stylesheets="@/images/style.css" text="Add New Appointment" GridPane.columnIndex="1" />
+                        <Button fx:id="buttonAddNewAppointment" mnemonicParsing="false" onAction="#onClickButtonAdd" prefHeight="33.0" prefWidth="184.0" styleClass="light-button" stylesheets="@/images/style.css" text="Add New Appointment" GridPane.columnIndex="1" />
                      </children>
                      <padding>
                         <Insets top="50.0" />

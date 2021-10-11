@@ -167,10 +167,15 @@ public class AppointmentsOverviewController implements Initializable {
 
 
 
+    }
 
-
-
-
+    @FXML
+    void onClickButtonAdd(ActionEvent event) throws IOException {
+        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/scheduler/view/AppointmentsAdd.fxml/"));
+        stage.setScene(new Scene(scene, 1243, 753));
+        stage.setTitle("Acme Consulting : Add an Appointment");
+        stage.show();
     }
 
 

@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="753.0" prefWidth="1243.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.controller.CustomersDetailController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="753.0" prefWidth="1243.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.controller.AppointmentsDetailController">
    <children>
       <AnchorPane layoutX="245.0" prefHeight="135.0" prefWidth="1003.0" styleClass="nav-bar-top" stylesheets="@/images/style.css" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="-5.0">
          <children>
@@ -55,7 +55,7 @@
                               <Image url="@/images/dark-newappointment.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="buttonAddNewAppointment" mnemonicParsing="false" prefHeight="33.0" prefWidth="191.0" styleClass="light-button" stylesheets="@/images/style.css" text="Add New Appointment" GridPane.columnIndex="1" />
+                        <Button fx:id="buttonAddNewAppointment" mnemonicParsing="false" onAction="#onClickButtonAdd" prefHeight="33.0" prefWidth="191.0" styleClass="light-button" stylesheets="@/images/style.css" text="Add New Appointment" GridPane.columnIndex="1" />
                      </children>
                      <padding>
                         <Insets top="50.0" />
@@ -209,17 +209,17 @@
                         </GridPane>
                         <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Button fx:id="buttonDelete" mnemonicParsing="false" style="-fx-border-color: red;" styleClass="light-button" stylesheets="@/images/style.css" text="Delete">
+                              <Button fx:id="buttonDelete" mnemonicParsing="false" onAction="#onClickButtonDelete" style="-fx-border-color: red;" styleClass="light-button" stylesheets="@/images/style.css" text="Delete">
                                  <HBox.margin>
                                     <Insets right="15.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button fx:id="buttonModify" mnemonicParsing="false" styleClass="light-button" stylesheets="@/images/style.css" text="Modify">
+                              <Button fx:id="buttonModify" mnemonicParsing="false" onAction="#onClickButtonModify" styleClass="light-button" stylesheets="@/images/style.css" text="Modify">
                                  <HBox.margin>
                                     <Insets right="15.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button fx:id="buttonReturn" mnemonicParsing="false" styleClass="light-button" stylesheets="@/images/style.css" text="Return to List View" />
+                              <Button fx:id="buttonReturn" mnemonicParsing="false" onAction="#onClickButtonReturn" styleClass="light-button" stylesheets="@/images/style.css" text="Return to List View" />
                            </children>
                            <padding>
                               <Insets right="40.0" top="30.0" />
