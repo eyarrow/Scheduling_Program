@@ -2,6 +2,9 @@ package scheduler.model;
 
 import java.time.LocalDateTime;
 
+/**
+ * A class to manage a singular Appointment object
+ */
 public class Appointment {
     /**
      * Default Constructor for adding a new Appointment
@@ -53,6 +56,86 @@ public class Appointment {
         UserID = userID;
     }
 
+    public int getAppointmentID() {
+        return AppointmentID;
+    }
+
+    public void setAppointmentID(int appointmentID) {
+        AppointmentID = appointmentID;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public int getContactID() {
+        return ContactID;
+    }
+
+    public void setContactID(int contactID) {
+        ContactID = contactID;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public LocalDateTime getStart() {
+        return start;
+    }
+
+    public void setStart(LocalDateTime start) {
+        this.start = start;
+    }
+
+    public LocalDateTime getEnd() {
+        return end;
+    }
+
+    public void setEnd(LocalDateTime end) {
+        this.end = end;
+    }
+
+    public int getCustomerID() {
+        return CustomerID;
+    }
+
+    public void setCustomerID(int customerID) {
+        CustomerID = customerID;
+    }
+
+    public int getUserID() {
+        return UserID;
+    }
+
+    public void setUserID(int userID) {
+        UserID = userID;
+    }
+
     private int AppointmentID;
     private String title;
     private String description;
@@ -63,6 +146,7 @@ public class Appointment {
     private LocalDateTime end;
     private int CustomerID;
     private int UserID;
+
 
 
 }

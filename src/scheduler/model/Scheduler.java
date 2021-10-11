@@ -148,4 +148,16 @@ public class Scheduler {
     public static void updateCustomer(Customer C) {
         updateCustomerDAO(C);
     }
+
+    /**
+     * Returns all contacts back to the UI
+     * @return Observable List
+     */
+    public static ObservableList<Contact> getAllContacts() {
+        return getAllContacts();
+    }
+
+    public static ObservableList<Appointment> getAllAppointments() {
+
+    }
 }

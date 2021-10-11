@@ -2,7 +2,7 @@ package scheduler.model;
 
 /**
  * A class to manage a singular customer object. Maintains the data members that are used
- * througout the program.
+ * throughout the program.
  *
  */
 public class Customer {
