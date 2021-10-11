@@ -135,6 +135,12 @@
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.0em;
 }
+
+.table-view:focused .table-row-cell:selected {
+    -fx-background-color: #c4bad7fc;
+    -fx-table-cell-border-color: #c4bad7fc;
+}
+
 .table-row-cell: even{
     -fx-background-color: #F2F2F2;
     -fx-background-insets: 0, 0 0 1 0;
