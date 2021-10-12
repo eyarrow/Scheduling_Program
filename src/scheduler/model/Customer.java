@@ -52,6 +52,11 @@ public class Customer {
         setCountryID(Country);
     }
 
+    @Override
+    public String toString() {
+        return this.getName();
+    }
+
     /**
      * Displays the user friendly Country name for the associated Customer
      * @return the String value for the Country code associated with the customer

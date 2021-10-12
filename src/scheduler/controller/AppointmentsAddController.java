@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import scheduler.model.Contact;
 import scheduler.model.Customer;
+import scheduler.model.Scheduler;
 
 import java.io.IOException;
 import java.net.URL;
@@ -59,7 +60,7 @@ public class AppointmentsAddController implements Initializable {
     private TextField textFieldName;
 
     @FXML
-    private ComboBox<?> comboType;
+    private ComboBox<String> comboType;
 
     @FXML
     private TextField textFieldLocation;
@@ -171,6 +172,10 @@ public class AppointmentsAddController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        comboBoxContact.setItems(Scheduler.getAllContacts());
+        comboBoxCustomer.setItems(Scheduler.getAllCustomers());
+        comboType
 
     }
 }

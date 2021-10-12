@@ -21,7 +21,7 @@ public abstract class daoAppointment {
      *
      * @return an observable list
      */
-    public static ObservableList<Contact> getAllContactsDAO() throws SQLException {
+    public static ObservableList<Contact> getAllContactsDAO() {
         String ALL_CONTACTS = "SELECT * FROM contacts;";
         ResultSet rs;
         ObservableList<Contact> aList = FXCollections.observableArrayList();

@@ -7,6 +7,11 @@ public class Contact {
     int ContactID;
     String ContactName;
 
+    @Override
+    public String toString() {
+        return this.getContactName();
+    }
+
     public Contact(int contactID, String contactName) {
         ContactID = contactID;
         ContactName = contactName;

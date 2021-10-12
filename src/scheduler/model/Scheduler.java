@@ -154,7 +154,7 @@ public class Scheduler {
      * Returns all contacts back to the UI
      * @return Observable List
      */
-    public static ObservableList<Contact> getAllContacts() throws SQLException {
+    public static ObservableList<Contact> getAllContacts() {
         return daoAppointment.getAllContactsDAO();
     }
 
