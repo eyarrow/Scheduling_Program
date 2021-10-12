@@ -93,6 +93,9 @@ public class AppointmentsAddController implements Initializable {
     private ComboBox<Customer> comboBoxCustomer;
 
     @FXML
+    private ComboBox<String> comboBoxType;
+
+    @FXML
     void onClickAppointments(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("/scheduler/view/AppointmentsOverview.fxml/"));
@@ -153,6 +156,10 @@ public class AppointmentsAddController implements Initializable {
 
     @FXML
     void onClickComboBoxCustomer(ActionEvent event) {
+        if(!comboBoxCustomer.getSelectionModel().isEmpty()) {
+            Customer C = comboBoxCustomer.getSelectionModel().getSelectedItem();
+            labelCustomerID.setText(String.valueOf(C.getCustomerID()));
+        }
 
     }
 
@@ -175,7 +182,7 @@ public class AppointmentsAddController implements Initializable {
 
         comboBoxContact.setItems(Scheduler.getAllContacts());
         comboBoxCustomer.setItems(Scheduler.getAllCustomers());
-        comboType
+        comboBoxType.setItems(Scheduler.returnAppointmentTypes());
 
     }
 }

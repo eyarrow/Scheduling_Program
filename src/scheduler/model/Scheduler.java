@@ -22,10 +22,7 @@ import static scheduler.Dao.loginAuthentication.authenticateUser;
  */
 public class Scheduler {
     //Lists to store Observable list of customers and Appointments.
-    //private static ObservableList<Customer> allCustomers = FXCollections.observableArrayList();
-    //private static ObservableList<Appointment> allAppointments = FXCollections.observableArrayList();
-    //public static ObservableList<Country> allCountries = FXCollections.observableArrayList();
-
+    private static ObservableList <String> AppointmentTypes = FXCollections.observableArrayList("Planning Session", "De-Briefing", "One-on-One", "New Customer Meeting", "General Type");
     private static TimeZone tz;
 
     /**
@@ -164,5 +161,9 @@ public class Scheduler {
 
     public static Contact getContactByID(int id) {
         return daoAppointment.getContactByIDDAO(id);
+    }
+
+    public static ObservableList<String> returnAppointmentTypes() {
+        return AppointmentTypes;
     }
 }
