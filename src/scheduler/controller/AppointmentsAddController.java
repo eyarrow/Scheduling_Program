@@ -13,6 +13,8 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import scheduler.model.Contact;
+import scheduler.model.Customer;
 
 import java.io.IOException;
 import java.net.URL;
@@ -84,6 +86,12 @@ public class AppointmentsAddController implements Initializable {
     private Button buttonSave;
 
     @FXML
+    private ComboBox<Contact> comboBoxContact;
+
+    @FXML
+    private ComboBox<Customer> comboBoxCustomer;
+
+    @FXML
     void onClickAppointments(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("/scheduler/view/AppointmentsOverview.fxml/"));
@@ -127,6 +135,33 @@ public class AppointmentsAddController implements Initializable {
         stage.setTitle("Acme Consulting : Reports");
         stage.show();
     }
+
+    @FXML
+    void onClickSave(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onClickCancel(ActionEvent event) throws IOException {
+        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/scheduler/view/AppointmentsOverview.fxml/"));
+        stage.setScene(new Scene(scene, 1243, 753));
+        stage.setTitle("Acme Consulting : Appointments Overview");
+        stage.show();
+    }
+
+    @FXML
+    void onClickComboBoxCustomer(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onClickComboBoxContact(ActionEvent event) {
+
+    }
+
+
+
 
 
     /**
