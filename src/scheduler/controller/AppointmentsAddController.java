@@ -19,6 +19,7 @@ import scheduler.model.Scheduler;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 public class AppointmentsAddController implements Initializable {
@@ -142,6 +143,15 @@ public class AppointmentsAddController implements Initializable {
 
     @FXML
     void onClickSave(ActionEvent event) {
+        String title = textfieldTitle.getText();
+        String description = textDescription.getText();
+        String location = textDescription.getText();
+        int ContactID = comboBoxContact.getSelectionModel().getSelectedItem().getContactID();
+        String type;
+        LocalDateTime start;
+        LocalDateTime end;
+        int CustomerID = comboBoxCustomer.getSelectionModel().getSelectedItem().getCustomerID();
+        int UserID;
 
     }
 
