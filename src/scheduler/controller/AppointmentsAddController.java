@@ -20,6 +20,7 @@ import scheduler.model.Scheduler;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
 
 public class AppointmentsAddController implements Initializable {
@@ -70,10 +71,10 @@ public class AppointmentsAddController implements Initializable {
     private DatePicker dateDatePicker;
 
     @FXML
-    private ComboBox<String> comboStartTime;
+    private ComboBox<LocalTime> comboStartTime;
 
     @FXML
-    private ComboBox<String> comboEndTime;
+    private ComboBox<LocalTime> comboEndTime;
 
     @FXML
     private Label labelCustomerID;
@@ -194,9 +195,9 @@ public class AppointmentsAddController implements Initializable {
         comboBoxCustomer.setItems(Scheduler.getAllCustomers());
         comboBoxType.setItems(Scheduler.returnAppointmentTypes());
 
-        Scheduler.populateTimes();
-        comboStartTime.setItems(Scheduler.returnTimes());
-        comboEndTime.setItems(Scheduler.returnTimes());
+        Scheduler.populateDateTimes2();
+        comboStartTime.setItems(Scheduler.returnLocalTime());
+        comboEndTime.setItems(Scheduler.returnLocalTime());
 
     }
 }
