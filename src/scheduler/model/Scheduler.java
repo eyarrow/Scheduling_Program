@@ -24,6 +24,16 @@ public class Scheduler {
     //Persistent Observable Lists and data members
     private static ObservableList <String> AppointmentTypes = FXCollections.observableArrayList("Planning Session", "De-Briefing", "One-on-One", "New Customer Meeting", "General Type");
     private static TimeZone tz;
+    //Variable to store User ID:
+    private static int UserID;
+
+    /**
+     * Sets the value of user id to the user who is logged in.
+     * @param user Integer, UserId
+     */
+    public static void setUserID(int user) P{
+
+    }
 
     //Login Functions
     /**

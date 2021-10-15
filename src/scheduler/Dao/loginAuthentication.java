@@ -1,5 +1,6 @@
 package scheduler.Dao;
 
+import scheduler.model.Scheduler;
 import scheduler.util.dbOperations;
 
 import javax.xml.transform.Result;
@@ -26,6 +27,10 @@ public abstract class loginAuthentication {
         ResultSet result = dbOperations.dbQuery(USER_AUTHENTICATE);
         if(!result.next()) {
             return false;
+        }
+        else {
+            int User = result.getInt("User_Name");
+            Scheduler.setUserID(User);
         }
         return true;
     }
