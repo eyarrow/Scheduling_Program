@@ -195,7 +195,7 @@ public class AppointmentsAddController implements Initializable {
         comboBoxCustomer.setItems(Scheduler.getAllCustomers());
         comboBoxType.setItems(Scheduler.returnAppointmentTypes());
 
-        Scheduler.populateDateTimes2();
+        Scheduler.populateDateTimes();
         comboStartTime.setItems(Scheduler.returnLocalTime());
         comboEndTime.setItems(Scheduler.returnLocalTime());
 

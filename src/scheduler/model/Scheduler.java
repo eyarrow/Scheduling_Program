@@ -210,42 +210,14 @@ public class Scheduler {
     }
 
 
-    /**
-     * Populates the time values for the program. Is only required to be run once.
-     */
-    public static void populateTimes() {
-        ObservableList<String> concatTimes = FXCollections.observableArrayList();
-      concatTimes.addAll("00", "01", "02", "03,", "04", "05", "06", "07", "08", "09",
-      "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24");
-
-        for(int i = 0; i < 24; ++i) {
-            String time1 = concatTimes.get(i) + ":00";
-            String time2 = concatTimes.get(i) + ":15";
-            String time3 = concatTimes.get(i) + ":30";
-            String time4 = concatTimes.get(i) + ":45";
-            times.addAll(time1, time2, time3, time4);
-        }
-
-        //Add the 24th hour
-        String time5 = concatTimes.get(24) + ":00";
-        times.add(time5);
-    }
 
     /**
-     * Returns the list of times for appointment dropdown boxes
-     * @return Observable list of times.
+     * Populates an Observable list with valid Appointment times for display.
      */
-    public static ObservableList<String> returnTimes() {
-        return times;
-    }
-
-    /**
-     * Observable list LocalTime version
-     */
-    public static void populateDateTimes2() {
+    public static void populateDateTimes() {
 
         ObservableList<String> concatTimes = FXCollections.observableArrayList();
-        concatTimes.addAll("00", "01", "02", "03,", "04", "05", "06", "07", "08", "09",
+        concatTimes.addAll("00", "01", "02", "03", "04", "05", "06", "07", "08", "09",
                 "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24");
         for(int i = 0; i < 24; ++i) {
             LocalTime time1 = LocalTime.of(Integer.parseInt(concatTimes.get(i)), 00);
@@ -254,8 +226,13 @@ public class Scheduler {
             LocalTime time4 = LocalTime.of(Integer.parseInt(concatTimes.get(i)), 45);
             hour_picker.addAll(time1, time2, time3, time4);
         }
+
     }
 
+    /**
+     * Returns the list of times.
+     * @return an Observable list of LocalTime objects
+     */
     public static ObservableList<LocalTime> returnLocalTime() {
         return hour_picker;
     }
