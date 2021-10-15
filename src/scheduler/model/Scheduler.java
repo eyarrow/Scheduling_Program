@@ -230,7 +230,7 @@ public class Scheduler {
 
        */
 
-        for(int i = 0; i < 23; ++i) {
+        for(int i = 0; i < 24; ++i) {
             String time1 = concatTimes.get(i) + ":00";
             String time2 = concatTimes.get(i) + ":15";
             String time3 = concatTimes.get(i) + ":30";
@@ -239,7 +239,7 @@ public class Scheduler {
         }
 
         //Add the 24th hour
-        String time5 = concatTimes.get(23) + ":00";
+        String time5 = concatTimes.get(24) + ":00";
         times.add(time5);
     }
 
