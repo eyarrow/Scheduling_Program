@@ -217,6 +217,9 @@ public class Scheduler {
       concatTimes.addAll("00", "01", "02", "03,", "04", "05", "06", "07", "08", "09",
       "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24");
 
+      /*
+
+
         for(String hours : concatTimes) {
             String time1 = hours + ":00";
             String time2 = hours + ":15";
@@ -224,6 +227,20 @@ public class Scheduler {
             String time4 = hours + ":45";
             times.addAll(time1, time2, time3, time4);
         }
+
+       */
+
+        for(int i = 0; i < 23; ++i) {
+            String time1 = concatTimes.get(i) + ":00";
+            String time2 = concatTimes.get(i) + ":15";
+            String time3 = concatTimes.get(i) + ":30";
+            String time4 = concatTimes.get(i) + ":45";
+            times.addAll(time1, time2, time3, time4);
+        }
+
+        //Add the 24th hour
+        String time5 = concatTimes.get(23) + ":00";
+        times.add(time5);
     }
 
     /**
