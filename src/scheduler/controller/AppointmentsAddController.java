@@ -70,10 +70,10 @@ public class AppointmentsAddController implements Initializable {
     private DatePicker dateDatePicker;
 
     @FXML
-    private ComboBox<?> comboStartTime;
+    private ComboBox<String> comboStartTime;
 
     @FXML
-    private ComboBox<?> comboEndTime;
+    private ComboBox<String> comboEndTime;
 
     @FXML
     private Label labelCustomerID;
@@ -193,6 +193,10 @@ public class AppointmentsAddController implements Initializable {
         comboBoxContact.setItems(Scheduler.getAllContacts());
         comboBoxCustomer.setItems(Scheduler.getAllCustomers());
         comboBoxType.setItems(Scheduler.returnAppointmentTypes());
+
+        Scheduler.populateTimes();
+        comboStartTime.setItems(Scheduler.returnTimes());
+        comboEndTime.setItems(Scheduler.returnTimes());
 
     }
 }

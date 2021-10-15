@@ -24,6 +24,7 @@ public class Scheduler {
     //Persistent Observable Lists and data members
     private static ObservableList <String> AppointmentTypes = FXCollections.observableArrayList("Planning Session", "De-Briefing", "One-on-One", "New Customer Meeting", "General Type");
     private static TimeZone tz;
+    private static ObservableList <String> times = FXCollections.observableArrayList();
     //Variable to store User ID:
     private static int UserID;
 
@@ -33,7 +34,6 @@ public class Scheduler {
      */
     public static void setUserID(int user) {
         UserID = user;
-        System.out.println("User ID is: " + UserID);
     }
 
     //Login Functions
@@ -206,5 +206,31 @@ public class Scheduler {
      */
     public static ObservableList<String> returnAppointmentTypes() {
         return AppointmentTypes;
+    }
+
+
+    /**
+     * Populates the time values for the program. Is only required to be run once.
+     */
+    public static void populateTimes() {
+        ObservableList<String> concatTimes = FXCollections.observableArrayList();
+      concatTimes.addAll("00", "01", "02", "03,", "04", "05", "06", "07", "08", "09",
+      "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24");
+
+        for(String hours : concatTimes) {
+            String time1 = hours + ":00";
+            String time2 = hours + ":15";
+            String time3 = hours + ":30";
+            String time4 = hours + ":45";
+            times.addAll(time1, time2, time3, time4);
+        }
+    }
+
+    /**
+     * Returns the list of times for appointment dropdown boxes
+     * @return Observable list of times.
+     */
+    public static ObservableList<String> returnTimes() {
+        return times;
     }
 }
