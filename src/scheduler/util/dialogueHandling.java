@@ -8,6 +8,9 @@ import scheduler.model.Scheduler;
 import java.io.IOException;
 import java.util.Optional;
 
+/**
+ * Displays alert, error, and confirmation dialogues to the end user. Does some logical error checking.
+ */
 public abstract class dialogueHandling {
 
     /**
@@ -18,7 +21,7 @@ public abstract class dialogueHandling {
      * @param error a true value will display an "Error" dialogue. A false value will result
      *              in a "Confirmation" dialogue being displayed.
      * @param code  an enum value that will be used to display the correct feedback in the dialogue
-     *              box. It is used to insert the appropriate string
+     *              box. It is used to insert the appropriate string. Parameter must be from dialogueReturnValues.
      * @return boolean is set to true if the user responded with "Ok" in the confirmation dialogue. A true
      * value indicates that the user was passed a confirmation dialogue, and pressed the button to proceed.
      * Both error dialogue and cancel responses for a confirmation dialogue will return a false boolean.
@@ -46,7 +49,15 @@ public abstract class dialogueHandling {
         }
 }
 
-public static boolean informationDialogue(dialogueReturnValues header, dialogueReturnValues content) {
+
+    /**
+     * Displays an Information dialogue. The pop-up dialogue uses a descriptive header in combination
+     * with the actual end user response.
+     * @param header reflects the overall subject of the dialogue. Accepts a dialogueReturnValues enum value.
+     * @param content informational dialogue content. Accepts a dialogueReturnValues enum value.
+     * @return
+     */
+    public static boolean informationDialogue(dialogueReturnValues header, dialogueReturnValues content) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
     alert.setTitle("Notification");
     alert.setHeaderText(header.toString());
@@ -61,18 +72,39 @@ public static boolean informationDialogue(dialogueReturnValues header, dialogueR
         return true;
 }
 
-public static boolean confirmationDialogue(String header, String message) {
+
+    /**
+     * Provides a confirmation dialogue to the user, with a header.
+     * @param header is a String that is topical to the confirmation
+     * @param message is a String that queries the user as to whether the operation should be continued.
+     * @return true if the user confirms, false if they click cancel
+     */
+    public static boolean confirmationDialogue(String header, String message) {
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
     alert.setTitle("Notification");
     alert.setHeaderText(header);
     alert.setContentText(message);
     Optional<ButtonType> result = alert.showAndWait();
 
-    return true;
+        if(result.isPresent() && result.get() == ButtonType.OK) {
+            return true;
+        }
+        else {
+            return false;
+        }
+
 }
 
 
-public static boolean checkAuthentication(String username, String password) throws IOException {
+    /**
+     * Does rudimentary authentication for login. Checks to make sure neither user name or password are null.
+     * Calls the logLoginAttempt function to log the login attempt in the persistent log.
+     * @param username String, user name entered by the user.
+     * @param password String, password entered by the user.
+     * @return true if the user name and password pass initial validity checks. False if they do not.
+     * @throws IOException
+     */
+    public static boolean checkAuthentication(String username, String password) throws IOException {
     //checks to make sure user and password are not null. Authenticates if values are present
     //for both fields.
     if(username.isEmpty() || password.isEmpty() ) {
@@ -92,7 +124,7 @@ public static boolean checkAuthentication(String username, String password) thro
 
 
     /**
-     * Solicits feedback from the customer on how to proceed.
+     * Solicits feedback from the customer on how to proceed. See: confirmationDialogue if  a header is needed.
      * @param feedback is a String provided by the calling function
      * @return a boolean true value if the user clicks "Ok" false if they click cancel
      */
@@ -109,6 +141,7 @@ public static boolean checkAuthentication(String username, String password) thro
         }
     }
 
+
     /**
      * Displays an error dialogue that requires the user to acknowledge the message before continuing.
      * This is used specifically for issues were errors are more complex, and built strings need
@@ -122,6 +155,7 @@ public static boolean checkAuthentication(String username, String password) thro
     alert.showAndWait();
 
 }
+
 
     /**
      * Provides validation that information entered for a customer meets business standards (not null)
@@ -167,6 +201,7 @@ public static boolean checkAuthentication(String username, String password) thro
 
 }
 
+
     /**
      * Prints a dialogue that confirms that a customer has been added
      * @param C Represents a new customer record
@@ -206,6 +241,12 @@ public static boolean checkAuthentication(String username, String password) thro
 
     }
 
+
+    /**
+     * Prints a dialogue that confirms whether or not the user truly wants to delete a customer record.
+     * @param C The customer object that is ready to be deleted
+     * @return true, if the end user confirmed the deletion. False if these chose "Cancel".
+     */
     public static boolean confirmDeletionCustomer(Customer C) {
         String message = "Are you sure you want to delete the following customer? This action is not reversable! \n" +
                 "Name: " + C.getName() + " \n" +

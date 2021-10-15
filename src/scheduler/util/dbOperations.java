@@ -2,11 +2,11 @@ package scheduler.util;
 
 import java.sql.*;
 
+/**
+ * Manages all direct connections with the database.
+ */
 public abstract class dbOperations {
 
-    //dbConnect - connects to the database
-    //dbDisconnect - disconnects from the database
-    //dbQuery - passes a query to the database
 
     private static final String protocol = "jdbc";
     private static final String vendor = ":mysql:";
@@ -35,6 +35,7 @@ public abstract class dbOperations {
             }
         }
 
+
     /**
      *
      * Returns the current open connection for use in queries
@@ -44,7 +45,8 @@ public abstract class dbOperations {
         return connection;
    }
 
-    /**
+
+   /**
      * Closes the connection to the application database
      */
         public static void closeConnection() {
@@ -57,6 +59,7 @@ public abstract class dbOperations {
                 //do nothing. At this point the program is closing, this is not an actionable error.
             }
         }
+
 
     /**
      *
@@ -74,6 +77,7 @@ public abstract class dbOperations {
         }
         return null;
     }
+
 
     /**
      *

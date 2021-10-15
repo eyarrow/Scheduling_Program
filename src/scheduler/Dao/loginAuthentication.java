@@ -7,12 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Class that manages login and authentication, on the data persistance layer.
+ * Class that manages login and authentication, on the data persistence layer.
  */
 public abstract class loginAuthentication {
 
-    //static String USER_AUTHENTICATE = String.format("select * from users where User_Name = '%s' AND Password = '%s'", this.userName, this.password);
-    //change this to the correct string after testing.
+
 
     /**
      * Determines if the name and password exist in the application database, and that they match.

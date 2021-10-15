@@ -26,6 +26,7 @@ public enum dialogueReturnValues {
 
     private String message;
 
+
     /**
      * Constructor for the dialogueReturnValues enumeration class that accepts a String as a parameter.
      * The String corresponds to a notification, error, or confirmation message that will be displayed
@@ -35,6 +36,7 @@ public enum dialogueReturnValues {
     private dialogueReturnValues(String mess) {
         this.message = mess;
     }
+
 
     /**
      * Overrides the .toString() function, so that it returns the string associated with the enumeration.

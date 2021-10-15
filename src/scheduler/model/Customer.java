@@ -6,6 +6,7 @@ package scheduler.model;
  *
  */
 public class Customer {
+    //Data members
     private int CustomerID;
     private String Name ;
     private String Address;
@@ -16,12 +17,12 @@ public class Customer {
 
     /**
      * Constructor for the Customer class (Default)
-     * @param id refers to the Customer id
-     * @param Address is the address string
-     * @param PostalCode Postal code
-     * @param phone Customer's phone number
-     * @param DivID The Division ID as an integer
-     * @param Country The country ID as an integer
+     * @param id Integer, refers to the Customer id
+     * @param Address String, is the address string
+     * @param PostalCode String, Postal code
+     * @param phone String, Customer's phone number
+     * @param DivID Integer, The Division ID
+     * @param Country Integer, The country ID
      */
     public Customer(int id, String Name, String Address, String PostalCode, String phone, int DivID, int Country) {
         setCustomerID(id);
@@ -52,28 +53,16 @@ public class Customer {
         setCountryID(Country);
     }
 
+    /**
+     * Overrides .toString() so that Customer name is used to represent the Object in human readalbe form.
+     * @return String, Customer name
+     */
     @Override
     public String toString() {
         return this.getName();
     }
 
-    /**
-     * Displays the user friendly Country name for the associated Customer
-     * @return the String value for the Country code associated with the customer
-     */
-    public String returnCountryString () {
 
-        return "TBD";
-    }
-
-    /**
-     * Displays the user friendly Division name for the customer
-     * @return The string value for the Division ID code associated with the customer.
-     */
-    public String returnDivisionIDString () {
-
-        return "TBD";
-    }
 
     /**
      * Get the Customer ID
@@ -100,6 +89,7 @@ public class Customer {
         return Address;
     }
 
+
     /**
      * Set an address for the customer.
      * @param address String for the address. Note: The Country and Division information should
@@ -109,6 +99,7 @@ public class Customer {
         Address = address;
     }
 
+
     /**
      * Return the postal code
      * @return value is a string
@@ -116,6 +107,7 @@ public class Customer {
     public String getPostalCode() {
         return PostalCode;
     }
+
 
     /**
      * Set the postal code
@@ -125,6 +117,7 @@ public class Customer {
         PostalCode = postalCode;
     }
 
+
     /**
      * Returns the Customer's Phone number
      * @return a String that corresponds to the customer's phone number.
@@ -132,6 +125,7 @@ public class Customer {
     public String getPhoneNumber() {
         return PhoneNumber;
     }
+
 
     /**
      * Add the phone number
@@ -141,6 +135,7 @@ public class Customer {
         PhoneNumber = phoneNumber;
     }
 
+
     /**
      * Return the Division ID
      * @return Division ID in it's integer value.
@@ -148,6 +143,7 @@ public class Customer {
     public int getDivisionID() {
         return DivisionID;
     }
+
 
     /**
      * Set the division id
@@ -157,6 +153,7 @@ public class Customer {
         DivisionID = divisionID;
     }
 
+
     /**
      * Return the country ID
      * @return integer value that corresponds with the assigned integer id.
@@ -164,6 +161,7 @@ public class Customer {
     public int getCountryID() {
         return CountryID;
     }
+
 
     /**
      * Set the country id
@@ -173,6 +171,7 @@ public class Customer {
         CountryID = countryID;
     }
 
+
     /**
      * Get the name of the customer
      * @return string will full name
@@ -180,6 +179,7 @@ public class Customer {
     public String getName() {
         return Name;
     }
+
 
     /**
      * Set name for the customer

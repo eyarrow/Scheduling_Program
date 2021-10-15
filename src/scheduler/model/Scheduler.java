@@ -21,10 +21,11 @@ import static scheduler.Dao.loginAuthentication.authenticateUser;
  * The Scheduler object manages business layer functionality for the overall application.
  */
 public class Scheduler {
-    //Lists to store Observable list of customers and Appointments.
+    //Persistent Observable Lists and data members
     private static ObservableList <String> AppointmentTypes = FXCollections.observableArrayList("Planning Session", "De-Briefing", "One-on-One", "New Customer Meeting", "General Type");
     private static TimeZone tz;
 
+    //Login Functions
     /**
      * Authenticates a user based on their username and password. Uses the DAO package to handle
      * backend operations. Displays Appointment alerts or error messaging as appropriate.
@@ -54,14 +55,12 @@ public class Scheduler {
      * Writes to the log file whenever a login attempt is made. Writes the following to the log:
      * Username, date and timestamp, and whether or not the login attempt was successful.
      * Username is recorded as "Unknown" if the username field was left blank during the login attempt.
-     * @param user
-     * @param success
+     * Called by checkAuthentication in the dialogueHandling class.
+     * @param user the user name
+     * @param success a boolean that represents whether a login attempt was successful. True = Successful attempt.
+     *                False = Unsuccessful Login attempt.
      */
     public void logLoginAttempt(String user, boolean success) throws IOException {
-        //Date date = new Date();
-        //DateFormat formatted = new SimpleDateFormat("yyyy-mm-dd");
-        //String dateString = formatted.format(date);
-        //System.out.println(dateString);
 
         LocalDate date = LocalDate.now();
         LocalTime time = LocalTime.now();
@@ -81,9 +80,10 @@ public class Scheduler {
         pw.close();
     }
 
+    //Customer Functions
     /**
      * Retrieves an list of all Customers
-     * @return an observable list
+     * @return an observable list of all customers
      */
     public static ObservableList<Customer> getAllCustomers() {
         try {
@@ -96,13 +96,33 @@ public class Scheduler {
 
 
     /**
-     * Adds a customer object
-     * @param C is a customer object
+     * Adds a new customer.
+     * @param C is the customer object to be added.
      */
     public static void addCustomer(Customer C) {
         addCustomerDAO(C);
     }
 
+    /**
+     * Deletes a Customer.
+     * @param C is the customer object to be deleted.
+     */
+    public static void deleteCustomer(Customer C) {
+        deleteCustomerDAO(C);
+    }
+
+
+    /**
+     * Updates a customer's record in the application. It is assumed that the data has already been validated.
+     * @param C Customer object
+     */
+    public static void updateCustomer(Customer C) {
+        updateCustomerDAO(C);
+    }
+
+
+
+    //Countries & Divisions
     /**
      * Returns a list of all Countries
      * @return Observable list of all countries
@@ -120,9 +140,6 @@ public class Scheduler {
         return getDivisionDAO(country_id);
     }
 
-    public static void deleteCustomer(Customer C) {
-        deleteCustomerDAO(C);
-    }
 
     /**
      * Given country_id will return the associated country object.
@@ -134,18 +151,18 @@ public class Scheduler {
 
     }
 
+    /**
+     * Given a Division ID, will return the associated Division object
+     * @param division_id
+     * @return
+     */
     public static Division getDivision(int division_id) {
         return getDivisionDAO(division_id);
 
     }
 
-    /**
-     * Updates a customer's record in the application. It is assumed that the data has already been validated.
-     * @param C Customer object
-     */
-    public static void updateCustomer(Customer C) {
-        updateCustomerDAO(C);
-    }
+
+    //Appointments
 
     /**
      * Returns all contacts back to the UI
@@ -155,14 +172,27 @@ public class Scheduler {
         return daoAppointment.getAllContactsDAO();
     }
 
+    /**
+     * Returns all Appointments to the UI
+     * @return Observable list of all appointments.
+     */
     public static ObservableList<Appointment> getAllAppointments() {
         return daoAppointment.getAllAppointmentsDAO();
     }
 
+    /**
+     * Returns a Contact object, given their Contact ID
+     * @param id, Integer contact ID
+     * @return Contact object
+     */
     public static Contact getContactByID(int id) {
         return daoAppointment.getContactByIDDAO(id);
     }
 
+    /**
+     * Returns a list of allowable appointment types
+     * @return Observable list of appointment types
+     */
     public static ObservableList<String> returnAppointmentTypes() {
         return AppointmentTypes;
     }

@@ -44,6 +44,10 @@ public abstract class daoAppointment {
 
     }
 
+    /**
+     * Returns all appointments that currently exist
+     * @return
+     */
     public static ObservableList<Appointment> getAllAppointmentsDAO() {
         String GET_APPOINTMENTS = "select * from appointments;";
         ResultSet rs;
@@ -75,6 +79,11 @@ public abstract class daoAppointment {
         return aList;
     }
 
+    /**
+     * Returns a contact object, given their ID
+     * @param id Integer, ContactID
+     * @return Corresponding Contact object
+     */
     public static Contact getContactByIDDAO(int id) {
         String RETURN_CONTACT = String.format("SELECT Contact_ID, Contact_Name FROM contacts WHERE Contact_ID = %x;", id);
         ResultSet rs;
