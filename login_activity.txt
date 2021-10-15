@@ -235,3 +235,12 @@ User: 'test', made a login attempt that was Successful on 2021-10-11 at 21:24:56
 User: 'test', made a login attempt that was Successful on 2021-10-11 at 21:27:35.257410700 user's system time. 
 User: 'test', made a login attempt that was Successful on 2021-10-11 at 21:29:26.069415200 user's system time. 
 User: 'test', made a login attempt that was Successful on 2021-10-11 at 21:32:32.964104700 user's system time. 
+User: 'cat', made a login attempt that was Unsuccessful on 2021-10-11 at 21:59:40.769636 user's system time. 
+User: 'test', made a login attempt that was Unsuccessful on 2021-10-11 at 22:00:05.184564800 user's system time. 
+User: 'Unknown', made a login attempt that was Unsuccessful on 2021-10-11 at 22:00:12.868192900 user's system time. 
+User: 'test', made a login attempt that was Successful on 2021-10-11 at 22:00:32.034872900 user's system time. 
+User: 'test', made a login attempt that was Successful on 2021-10-15 at 16:07:11.702407800 user's system time. 
+User: 'test', made a login attempt that was Successful on 2021-10-15 at 16:18:26.196968500 user's system time. 
+User: 'test', made a login attempt that was Successful on 2021-10-15 at 16:19:15.843681200 user's system time. 
+User: 'dog', made a login attempt that was Unsuccessful on 2021-10-15 at 16:19:34.753125 user's system time. 
+User: 'admin', made a login attempt that was Successful on 2021-10-15 at 16:19:41.538818700 user's system time. 

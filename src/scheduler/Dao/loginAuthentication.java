@@ -29,7 +29,7 @@ public abstract class loginAuthentication {
             return false;
         }
         else {
-            int User = result.getInt("User_Name");
+            int User = result.getInt("User_ID");
             Scheduler.setUserID(User);
         }
         return true;

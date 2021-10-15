@@ -31,8 +31,9 @@ public class Scheduler {
      * Sets the value of user id to the user who is logged in.
      * @param user Integer, UserId
      */
-    public static void setUserID(int user) P{
-
+    public static void setUserID(int user) {
+        UserID = user;
+        System.out.println("User ID is: " + UserID);
     }
 
     //Login Functions
