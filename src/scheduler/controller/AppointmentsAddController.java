@@ -147,7 +147,7 @@ public class AppointmentsAddController implements Initializable {
     }
 
     /**
-     * Controls what happens when the "save" button is depressed. Values are used to create an object
+     * Controls what happens when the "save" button is clicked. Values are used to create an object
      * of Appointment type. Validation is run, and if the input validates then the record is saved.
      * @param event "Save" button is clicked.
      */
@@ -179,10 +179,7 @@ public class AppointmentsAddController implements Initializable {
             return;
         }
 
-
-
-
-
+        //Pull Values
         String title = textfieldTitle.getText();
         String description = textDescription.getText();
         String location = textDescription.getText();
@@ -191,13 +188,13 @@ public class AppointmentsAddController implements Initializable {
         int CustomerID = comboBoxCustomer.getSelectionModel().getSelectedItem().getCustomerID();
         int UserID = Scheduler.getUserID();
 
-
+        //Validation of String values
+        if(!dialogueHandling.validateAppointment(title, description, location)) {
+            return;
+        }
 
         //managing Date entry
         LocalDate appointment_date = dateDatePicker.getValue();
-
-
-
         LocalTime start_time = comboStartTime.getSelectionModel().getSelectedItem();
         LocalTime end_time = comboEndTime.getSelectionModel().getSelectedItem();
         LocalDateTime start;
@@ -211,7 +208,7 @@ public class AppointmentsAddController implements Initializable {
             return;
         }
 
-
+        // Time & Date validation
         if(TimeManagement.validateBusinessHours(start, end)) {
             System.out.println("All validation passed on time.");
         }

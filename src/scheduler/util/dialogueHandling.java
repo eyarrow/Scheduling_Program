@@ -264,4 +264,31 @@ public abstract class dialogueHandling {
     }
 
 
+    public static boolean validateAppointment(String title, String description, String location) {
+        boolean valid = true;
+        String errMessage = "Please resolve the following issues: \n";
+        if(title.isEmpty()) {
+            String strNew = errMessage;
+            errMessage = strNew.concat("* Please enter a title \n");
+            valid = false;
+        }
+        if(description.isEmpty()) {
+            String strNew = errMessage;
+            errMessage = strNew.concat("* Please enter a description \n");
+            valid = false
+        }
+        if(location.isEmpty()) {
+            String strNew = errMessage;
+            errMessage = strNew.concat("* Please enter a location \n");
+            valid = false;
+        }
+
+        if(!valid) {
+            validationDialogue(errMessage);
+        }
+
+        return valid;
+    }
+
+
 }
