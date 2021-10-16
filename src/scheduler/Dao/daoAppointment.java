@@ -119,8 +119,8 @@ public abstract class daoAppointment {
         ZonedDateTime endA = A.getEnd().withZoneSameInstant(ZoneOffset.UTC);
 
         //Convert to Local Time
-        LocalDateTime start = A.getStart().toLocalDateTime();
-        LocalDateTime end = A.getEnd().toLocalDateTime();
+        LocalDateTime start =startA.toLocalDateTime();
+        LocalDateTime end = endA.toLocalDateTime();
 
         //Convert to Timestamp
         Timestamp start_time = Timestamp.valueOf(start);
@@ -129,8 +129,10 @@ public abstract class daoAppointment {
         String timeStart = start_time.toString();
         String timeEnd = end_time.toString();
 
-        System.out.println("Start time is " + timeStart);
-        System.out.println("End time is " + timeEnd);
+        //System.out.println("Start time is " + timeStart);
+        //System.out.println("End time is " + timeEnd);
+
+
 
     }
 
