@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import scheduler.model.Appointment;
 import scheduler.model.Contact;
+import scheduler.model.TimeManagement;
 import scheduler.util.dbOperations;
 
 import java.sql.ResultSet;
@@ -11,6 +12,8 @@ import java.sql.SQLException;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
 /**
  * Class that provides functionality on the persistence layer for the "Appointment" class where business logic is implemented.
@@ -64,12 +67,14 @@ public abstract class daoAppointment {
                 String type = rs.getString("Type");
                 Timestamp start_time = rs.getTimestamp("Start");
                 LocalDateTime start = start_time.toLocalDateTime();
+                ZonedDateTime startZoned = ZonedDateTime.of(start, ZoneId.systemDefault());
                 Timestamp end_time = rs.getTimestamp("End");
                 LocalDateTime end = end_time.toLocalDateTime();
+                ZonedDateTime endZoned = ZonedDateTime.of(end, ZoneId.systemDefault());
                 int CustomerID = rs.getInt("Customer_ID");
                 int UserID = rs.getInt("User_ID");
 
-                Appointment A = new Appointment(id, title, description, location, ContactID, type, start, end, CustomerID, UserID);
+                Appointment A = new Appointment(id, title, description, location, ContactID, type, startZoned, endZoned, CustomerID, UserID);
                 aList.add(A);
             }
         } catch (SQLException e) {

@@ -88,7 +88,7 @@ public abstract class TimeManagement {
      * Checks the following: Whether appointment occurs within allowable business hours.
      * Business hours are currently defined as 8:00 AM EST - 10 PM EST Monday - Sunday. Also checks
      * to see if the end date is before the start date in LocalTime. Displays an error dialogue if errors
-     * are present. 
+     * are present.
      * @param start Local Date, Requested Start date / time
      * @param end Local Date, Requested end time /date
      * @return true, if times pass validation. false if they do not.

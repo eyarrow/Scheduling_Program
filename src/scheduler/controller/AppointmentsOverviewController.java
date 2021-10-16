@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.util.ResourceBundle;
 
 public class AppointmentsOverviewController implements Initializable {
@@ -86,10 +87,10 @@ public class AppointmentsOverviewController implements Initializable {
     private TableColumn<Appointment, String> labelLocation;
 
     @FXML
-    private TableColumn<Appointment, LocalDateTime> labelStartTime;
+    private TableColumn<Appointment, ZonedDateTime> labelStartTime;
 
     @FXML
-    private TableColumn<Appointment, LocalDateTime> labelEndTime;
+    private TableColumn<Appointment, ZonedDateTime> labelEndTime;
 
     @FXML
     private TableColumn<Appointment, Integer> labelCustomerID;
