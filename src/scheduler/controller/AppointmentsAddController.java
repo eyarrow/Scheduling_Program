@@ -156,11 +156,11 @@ public class AppointmentsAddController implements Initializable {
         String description = textDescription.getText();
         String location = textDescription.getText();
         int ContactID = comboBoxContact.getSelectionModel().getSelectedItem().getContactID();
-        String type = comboType.getSelectionModel().getSelectedItem();
+        String type = comboBoxType.getSelectionModel().getSelectedItem();
         int CustomerID = comboBoxCustomer.getSelectionModel().getSelectedItem().getCustomerID();
         int UserID = Scheduler.getUserID();
 
-         
+
 
         //managing Date entry
         LocalDate appointment_date = dateDatePicker.getValue();
