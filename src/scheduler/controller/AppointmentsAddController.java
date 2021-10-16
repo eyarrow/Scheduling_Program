@@ -177,7 +177,7 @@ public class AppointmentsAddController implements Initializable {
         //Pull Values
         String title = textfieldTitle.getText();
         String description = textDescription.getText();
-        String location = textDescription.getText();
+        String location = textFieldLocation.getText();
         int ContactID = comboBoxContact.getSelectionModel().getSelectedItem().getContactID();
         String type = comboBoxType.getSelectionModel().getSelectedItem();
         int CustomerID = comboBoxCustomer.getSelectionModel().getSelectedItem().getCustomerID();
