@@ -179,7 +179,9 @@ public class AppointmentsAddController implements Initializable {
             return;
         }
 
-        
+
+
+
 
         String title = textfieldTitle.getText();
         String description = textDescription.getText();
@@ -192,7 +194,15 @@ public class AppointmentsAddController implements Initializable {
 
 
         //managing Date entry
-        LocalDate appointment_date = dateDatePicker.getValue();
+        LocalDate appointment_date;
+        try {
+            appointment_date = dateDatePicker.getValue();
+        }
+        catch(NullPointerException e) {
+            dialogueHandling.displayDialogue(true, dialogueReturnValues.DATE_BLANK);
+            return;
+        }
+
         LocalTime start_time = comboStartTime.getSelectionModel().getSelectedItem();
         LocalTime end_time = comboEndTime.getSelectionModel().getSelectedItem();
         LocalDateTime start = start_time.atDate(appointment_date);
