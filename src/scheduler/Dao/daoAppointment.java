@@ -115,8 +115,8 @@ public abstract class daoAppointment {
      */
     public static void addAppointmentDAO(Appointment A) {
         //Convert to UTC time
-        //ZonedDateTime startA = A.getEnd().withZoneSameInstant(ZoneOffset.UTC);
-        //ZonedDateTime endA = A.getEnd().withZoneSameInstant(ZoneOffset.UTC);
+        ZonedDateTime startA = A.getStart().withZoneSameInstant(ZoneOffset.UTC);
+        ZonedDateTime endA = A.getEnd().withZoneSameInstant(ZoneOffset.UTC);
 
         //Convert to Local Time
         LocalDateTime start = A.getStart().toLocalDateTime();
