@@ -167,13 +167,7 @@ public class AppointmentsAddController implements Initializable {
         LocalTime start_time = comboStartTime.getSelectionModel().getSelectedItem();
         LocalTime end_time = comboEndTime.getSelectionModel().getSelectedItem();
         LocalDateTime start = start_time.atDate(appointment_date);
-        LocalDateTime end;
-        if(end_time.isBefore(start_time)) {
-            end = end_time.atDate(appointment_date.plusDays(1));
-        }
-        else {
-            end = end_time.atDate(appointment_date);
-        }
+        LocalDateTime end = end_time.atDate(appointment_date);
 
         if(TimeManagement.validateBusinessHours(start, end)) {
             System.out.println("All validation passed on time.");
