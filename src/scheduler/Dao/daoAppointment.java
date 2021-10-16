@@ -132,6 +132,12 @@ public abstract class daoAppointment {
         //System.out.println("Start time is " + timeStart);
         //System.out.println("End time is " + timeEnd);
 
+        String addAppointment = String.format("INSERT INTO appointments (Title, Description, Location, Type, Start, End, Customer_ID, User_ID, Contact_ID)\n" +
+                "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', %x, %x, %x);", A.getTitle(), A.getDescription(), A.getLocation(), A.getType(), timeStart, timeEnd, A.getCustomerID(), A.getUserID(), A.getContactID());
+
+        dbOperations.dbUpdate(addAppointment);
+
+
 
 
     }
