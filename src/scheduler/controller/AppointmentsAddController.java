@@ -147,7 +147,7 @@ public class AppointmentsAddController implements Initializable {
      * @param event "Save" button is clicked.
      */
     @FXML
-    void onClickSave(ActionEvent event) {
+    void onClickSave(ActionEvent event) throws IOException {
         //Check if combo boxes have values
         if(comboBoxContact.getSelectionModel().isEmpty()) {
             dialogueHandling.displayDialogue(true, dialogueReturnValues.CONTACT_ID_BLANK);
