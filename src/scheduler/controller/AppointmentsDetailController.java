@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import scheduler.model.Appointment;
+import scheduler.model.Scheduler;
 
 import java.io.IOException;
 import java.net.URL;
@@ -76,6 +77,9 @@ public class AppointmentsDetailController implements Initializable {
 
     @FXML
     private Label labelUserID;
+
+    @FXML
+    private Label labelCustomerName;
 
     @FXML
     private Button buttonDelete;
@@ -181,6 +185,7 @@ public class AppointmentsDetailController implements Initializable {
         labelEndTime.setText(passedParameters.getFormattedEnd());
         labelUserID.setText(String.valueOf(passedParameters.getUserID()));
         labelType.setText(passedParameters.getType());
+        labelCustomerName.setText(Scheduler.returnCustomerName(passedParameters.getCustomerID()));
 
 
 

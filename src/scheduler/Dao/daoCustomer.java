@@ -201,6 +201,27 @@ public abstract class daoCustomer {
         dbOperations.dbUpdate(UPDATE_CUSTOMER);
     }
 
+    /**
+     * Returns the Name of a customer given a customer id
+     * @param CustID Integer, Customer ID
+     * @return String, customer name
+     */
+    public static String returnCustomerNameDAO(int CustID) {
+        String getCustomer = String.format("select Customer_Name from customers where Customer_ID = %s", CustID);
+        ResultSet rs;
+        String name = "NULL";
+
+        try {
+            rs = dbOperations.dbQuery(getCustomer);
+            name = rs.getString("Customer_Name");
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return name;
+    }
+
 
 
 }

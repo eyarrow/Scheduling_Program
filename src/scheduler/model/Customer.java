@@ -1,5 +1,7 @@
 package scheduler.model;
 
+import scheduler.Dao.daoCustomer;
+
 /**
  * A class to manage a singular customer object. Maintains the data members that are used
  * throughout the program.
@@ -188,4 +190,7 @@ public class Customer {
     public void setName(String name) {
         Name = name;
     }
+
+
+
 }

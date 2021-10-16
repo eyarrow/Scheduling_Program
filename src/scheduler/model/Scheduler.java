@@ -3,6 +3,7 @@ package scheduler.model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import scheduler.Dao.daoAppointment;
+import scheduler.Dao.daoCustomer;
 import scheduler.util.dialogueHandling;
 import scheduler.util.dialogueReturnValues;
 
@@ -224,6 +225,13 @@ public class Scheduler {
         daoAppointment.addAppointmentDAO(A);
     }
 
-
+    /**
+     * Returns the Name of the Customer with the given ID
+     * @param CustID Integer
+     * @return String, Customer name
+     */
+    public static String returnCustomerName(int CustID) {
+        return daoCustomer.returnCustomerNameDAO(CustID);
+    }
 
 }
