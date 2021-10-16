@@ -187,7 +187,6 @@
                                  </padding>
                               </Label>
                               <Label styleClass="customer-detail-labels" stylesheets="@/images/style.css" text="Customer Name" GridPane.rowIndex="1" />
-                              <TextField fx:id="textFieldName" styleClass="light-text-box" stylesheets="@/images/style.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <Label styleClass="customer-detail-labels" stylesheets="@/images/style.css" text="End Time" GridPane.rowIndex="8" />
                               <Label styleClass="customer-detail-labels" stylesheets="@/images/style.css" text="Customer ID" GridPane.rowIndex="9" />
                               <Label styleClass="customer-detail-labels" stylesheets="@/images/style.css" text="User ID" GridPane.rowIndex="10" />
@@ -199,11 +198,12 @@
                               <ComboBox fx:id="comboEndTime" prefHeight="35.0" prefWidth="667.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                               <Label fx:id="labelCustomerID" styleClass="customer-detail-values" stylesheets="@/images/style.css" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="9" />
                               <Label fx:id="labelUserID" styleClass="customer-detail-values" stylesheets="@/images/style.css" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                              <ComboBox fx:id="comboCustomerName" onAction="#onClickCustomerName" prefHeight="32.0" prefWidth="664.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
                         <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Button fx:id="buttonCancel" mnemonicParsing="false" style="-fx-border-color: red;" styleClass="light-button" stylesheets="@/images/style.css" text="Cancel" textFill="#ada9a9">
+                              <Button fx:id="buttonCancel" mnemonicParsing="false" onAction="#onClickCancel" style="-fx-border-color: red;" styleClass="light-button" stylesheets="@/images/style.css" text="Cancel" textFill="#ada9a9">
                                  <HBox.margin>
                                     <Insets right="15.0" />
                                  </HBox.margin>

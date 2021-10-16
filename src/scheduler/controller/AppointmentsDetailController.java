@@ -179,6 +179,8 @@ public class AppointmentsDetailController implements Initializable {
     }
 
 
+
+
     /**
      * Initializes the Appts Detail Controller
      * @param url

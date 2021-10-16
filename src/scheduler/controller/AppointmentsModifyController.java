@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import scheduler.model.Appointment;
+import scheduler.model.Customer;
 import scheduler.model.Scheduler;
 import scheduler.model.TimeManagement;
 
@@ -92,6 +93,9 @@ public class AppointmentsModifyController implements Initializable {
     @FXML
     private Button buttonSave;
 
+    @FXML
+    private ComboBox<Customer> comboCustomerName;
+
     public static void copyPassedParameters(Appointment A) {
         passedParameters = A;
     }
@@ -151,6 +155,21 @@ public class AppointmentsModifyController implements Initializable {
         stage.show();
     }
 
+    @FXML
+    void onClickCancel(ActionEvent event) throws IOException {
+        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/scheduler/view/AppointmentsOverview.fxml/"));
+        stage.setScene(new Scene(scene, 1243, 753));
+        stage.setTitle("Acme Consulting : Appointments Overview");
+        stage.show();
+    }
+
+    @FXML
+    void onClickCustomerName(ActionEvent event) {
+        comboCustomerName.getSelectionModel().
+
+    }
+
 
     /**
      * Initializes the Appts Modify Controller
@@ -165,9 +184,12 @@ public class AppointmentsModifyController implements Initializable {
         textDescription.setText(passedParameters.getDescription());
         textFieldLocation.setText(passedParameters.getLocation());
         textfieldTitle.setText(passedParameters.getTitle());
+
         comboType.setItems(Scheduler.returnAppointmentTypes());
         comboStartTime.setItems(TimeManagement.returnLocalTime());
         comboEndTime.setItems(TimeManagement.returnLocalTime());
+        comboCustomerName.setItems(Scheduler.getAllCustomers());
+        comboCustomerName.setValue(Scheduler.getAllCustomers().);
 
         comboType.setValue(passedParameters.getType());
         LocalTime start = passedParameters.getStart().toLocalDateTime().toLocalTime();

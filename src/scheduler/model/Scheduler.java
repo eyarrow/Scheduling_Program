@@ -234,4 +234,8 @@ public class Scheduler {
         return daoCustomer.returnCustomerNameDAO(CustID);
     }
 
+    public static Customer returnCustomerObject(int CustID) {
+
+    }
+
 }
