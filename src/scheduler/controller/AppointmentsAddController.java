@@ -151,7 +151,7 @@ public class AppointmentsAddController implements Initializable {
      */
     @FXML
     void onClickSave(ActionEvent event) {
-        /*
+
         String title = textfieldTitle.getText();
         String description = textDescription.getText();
         String location = textDescription.getText();
@@ -160,7 +160,7 @@ public class AppointmentsAddController implements Initializable {
         int CustomerID = comboBoxCustomer.getSelectionModel().getSelectedItem().getCustomerID();
         int UserID = Scheduler.getUserID();
 
-         */
+         
 
         //managing Date entry
         LocalDate appointment_date = dateDatePicker.getValue();
