@@ -24,7 +24,6 @@ public class Scheduler {
     //Persistent Observable Lists and data members
     private static ObservableList <String> AppointmentTypes = FXCollections.observableArrayList("Planning Session", "De-Briefing", "One-on-One", "New Customer Meeting", "General Type");
     private static TimeZone tz;
-    private static ObservableList <String> times = FXCollections.observableArrayList();
     private static ObservableList<LocalTime> hour_picker = FXCollections.observableArrayList();
     //Variable to store User ID:
     private static int UserID;
@@ -35,6 +34,14 @@ public class Scheduler {
      */
     public static void setUserID(int user) {
         UserID = user;
+    }
+
+    /**
+     * Returns the user id of the user who logged in
+     * @return Integer, user id
+     */
+    public static int getUserID() {
+        return UserID;
     }
 
     //Login Functions
@@ -211,29 +218,4 @@ public class Scheduler {
 
 
 
-    /**
-     * Populates an Observable list with valid Appointment times for display.
-     */
-    public static void populateDateTimes() {
-
-        ObservableList<String> concatTimes = FXCollections.observableArrayList();
-        concatTimes.addAll("00", "01", "02", "03", "04", "05", "06", "07", "08", "09",
-                "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24");
-        for(int i = 0; i < 24; ++i) {
-            LocalTime time1 = LocalTime.of(Integer.parseInt(concatTimes.get(i)), 00);
-            LocalTime time2 = LocalTime.of(Integer.parseInt(concatTimes.get(i)), 15);
-            LocalTime time3 = LocalTime.of(Integer.parseInt(concatTimes.get(i)), 30);
-            LocalTime time4 = LocalTime.of(Integer.parseInt(concatTimes.get(i)), 45);
-            hour_picker.addAll(time1, time2, time3, time4);
-        }
-
-    }
-
-    /**
-     * Returns the list of times.
-     * @return an Observable list of LocalTime objects
-     */
-    public static ObservableList<LocalTime> returnLocalTime() {
-        return hour_picker;
-    }
 }

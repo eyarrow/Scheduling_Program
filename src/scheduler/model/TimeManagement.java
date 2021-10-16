@@ -1,7 +1,10 @@
 package scheduler.model;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.sql.Time;
-import java.time.ZoneId;
+import java.time.*;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -10,6 +13,7 @@ import java.util.TimeZone;
  */
 public abstract class TimeManagement {
 
+    private static ObservableList<LocalTime> hour_picker = FXCollections.observableArrayList();
 
     /**
      * Get the timezone of the user's system.
@@ -47,5 +51,87 @@ public abstract class TimeManagement {
 
         String tzString = ZoneId.systemDefault().toString();
         return tzString;
+    }
+
+
+
+
+    /**
+     * Populates an Observable list with valid Appointment times for display.
+     */
+    public static void populateDateTimes() {
+
+        ObservableList<String> concatTimes = FXCollections.observableArrayList();
+        concatTimes.addAll("00", "01", "02", "03", "04", "05", "06", "07", "08", "09",
+                "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24");
+        for(int i = 0; i < 24; ++i) {
+            LocalTime time1 = LocalTime.of(Integer.parseInt(concatTimes.get(i)), 00);
+            LocalTime time2 = LocalTime.of(Integer.parseInt(concatTimes.get(i)), 15);
+            LocalTime time3 = LocalTime.of(Integer.parseInt(concatTimes.get(i)), 30);
+            LocalTime time4 = LocalTime.of(Integer.parseInt(concatTimes.get(i)), 45);
+            hour_picker.addAll(time1, time2, time3, time4);
+        }
+
+    }
+
+    /**
+     * Returns the list of times.
+     * @return an Observable list of LocalTime objects
+     */
+    public static ObservableList<LocalTime> returnLocalTime() {
+        return hour_picker;
+    }
+
+    /**
+     * Checks the following: Whether appointment occurs within allowable business hours.
+     * Business hours are currently defined as 8:00 AM EST - 10 PM EST Monday - Sunday. If the end
+     * date is less than the start date, the date is updated to reflect the next day.
+     * @param start Local Date, Requested Start date / time
+     * @param end Local Date, Requested end time /date
+     * @return true, if times pass validation. false if they do not.
+     */
+    public static boolean validateBusinessHours(LocalDateTime start, LocalDateTime end) {
+        //create zoned time for start time
+        ZonedDateTime localZonedStart = ZonedDateTime.of(start.toLocalDate(), start.toLocalTime(), ZoneId.of(returnTimeZoneID()));
+        ZonedDateTime localZonedEnd = ZonedDateTime.of(end.toLocalDate(), end.toLocalTime(), ZoneId.of(returnTimeZoneID()));
+
+        //setting valid start
+        LocalTime validStartTime = LocalTime.of(8, 00);
+        LocalDate validStartDate = start.toLocalDate();
+        ZoneId eastern = ZoneId.of("America/New_York");
+        ZonedDateTime validStartZoned = ZonedDateTime.of(validStartDate, validStartTime, eastern);
+
+        //setting valid end
+        LocalTime validEndTime = LocalTime.of(22, 00);
+        LocalDate validEndDate = end.toLocalDate();
+        ZonedDateTime validEndZoned = ZonedDateTime.of(validEndDate, validEndTime, eastern);
+
+        //Convert inputs into UTC
+        Instant UTC_start = localZonedStart.toInstant();
+        Instant UTC_end = localZonedEnd.toInstant();
+
+
+        //Convert valid times into UTC
+        Instant UTC_valid_start = validStartZoned.toInstant();
+        Instant UTC_valid_end = validEndZoned.toInstant();
+
+        if(UTC_start.isBefore(UTC_valid_start) || UTC_start.isAfter(UTC_valid_end)) {
+            System.out.println("Start time ain't valid");
+            return false;
+        }
+        else if(UTC_end.isAfter(UTC_valid_end) || UTC_end.isBefore(UTC_valid_start)) {
+            System.out.println("End time ain't valid");
+            return false;
+        }
+
+
+        return true;
+
+
+
+
+
+
+
     }
 }

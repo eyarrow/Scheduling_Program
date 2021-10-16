@@ -16,9 +16,11 @@ import javafx.stage.Stage;
 import scheduler.model.Contact;
 import scheduler.model.Customer;
 import scheduler.model.Scheduler;
+import scheduler.model.TimeManagement;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ResourceBundle;
@@ -142,17 +144,41 @@ public class AppointmentsAddController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Controls what happens when the "save" button is depressed. Values are used to create an object
+     * of Appointment type. Validation is run, and if the input validates then the record is saved.
+     * @param event "Save" button is clicked.
+     */
     @FXML
     void onClickSave(ActionEvent event) {
         String title = textfieldTitle.getText();
         String description = textDescription.getText();
         String location = textDescription.getText();
         int ContactID = comboBoxContact.getSelectionModel().getSelectedItem().getContactID();
-        String type;
-        LocalDateTime start;
-        LocalDateTime end;
+        String type = comboType.getSelectionModel().getSelectedItem();
         int CustomerID = comboBoxCustomer.getSelectionModel().getSelectedItem().getCustomerID();
-        int UserID;
+        int UserID = Scheduler.getUserID();
+
+        //managing Date entry
+        LocalDate appointment_date = dateDatePicker.getValue();
+        LocalTime start_time = comboStartTime.getSelectionModel().getSelectedItem();
+        LocalTime end_time = comboEndTime.getSelectionModel().getSelectedItem();
+        LocalDateTime start = start_time.atDate(appointment_date);
+        LocalDateTime end;
+        if(end_time.isBefore(start_time)) {
+            end = end_time.atDate(appointment_date.plusDays(1));
+        }
+        else {
+            end = end_time.atDate(appointment_date);
+        }
+
+        if(TimeManagement.validateBusinessHours(start, end)) {
+            System.out.println("All validation passed on time.");
+        }
+        else {
+            return;
+        }
+
 
     }
 
@@ -195,9 +221,9 @@ public class AppointmentsAddController implements Initializable {
         comboBoxCustomer.setItems(Scheduler.getAllCustomers());
         comboBoxType.setItems(Scheduler.returnAppointmentTypes());
 
-        Scheduler.populateDateTimes();
-        comboStartTime.setItems(Scheduler.returnLocalTime());
-        comboEndTime.setItems(Scheduler.returnLocalTime());
+        TimeManagement.populateDateTimes();
+        comboStartTime.setItems(TimeManagement.returnLocalTime());
+        comboEndTime.setItems(TimeManagement.returnLocalTime());
 
     }
 }
