@@ -232,7 +232,7 @@ public abstract class daoCustomer {
      * @return Customer object
      */
     public static Customer returnCustomerDAO(int id) {
-        String getCustomer = String.format("SELECT Customer_Name, Address, Postal_Code, Phone, Division_ID FROM customers WHERE Customer_ID = %s;", id);
+        String getCustomer = String.format("SELECT c.Customer_ID, c.Customer_Name, c.Address, c.Postal_Code, c.Phone, d.Division_ID, r.Country_ID FROM CUSTOMERS c INNER JOIN first_level_divisions d ON c.Division_ID = d.Division_ID INNER JOIN countries r ON d.Country_ID = r.Country_ID WHERE Customer_ID = %s;", id);
         ResultSet rs;
         Customer C = new Customer(0, "NULL", "NULL", "NULL", "NULL", 0, 0);
 
