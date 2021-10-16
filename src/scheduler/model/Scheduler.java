@@ -234,8 +234,14 @@ public class Scheduler {
         return daoCustomer.returnCustomerNameDAO(CustID);
     }
 
-    public static Customer returnCustomerObject(int CustID) {
 
+    /**
+     * Given a particular customer id, returns the whole customer object
+     * @param CustID Integer, Customer ID
+     * @return Customer object
+     */
+    public static Customer returnCustomer(int CustID) {
+        return returnCustomerDAO(CustID);
     }
 
 }

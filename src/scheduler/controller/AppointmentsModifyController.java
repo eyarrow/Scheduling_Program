@@ -189,7 +189,7 @@ public class AppointmentsModifyController implements Initializable {
         comboStartTime.setItems(TimeManagement.returnLocalTime());
         comboEndTime.setItems(TimeManagement.returnLocalTime());
         comboCustomerName.setItems(Scheduler.getAllCustomers());
-        comboCustomerName.setValue(Scheduler.getAllCustomers().);
+        comboCustomerName.setValue(Scheduler.returnCustomer(passedParameters.getCustomerID()));
 
         comboType.setValue(passedParameters.getType());
         LocalTime start = passedParameters.getStart().toLocalDateTime().toLocalTime();

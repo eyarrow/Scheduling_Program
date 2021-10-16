@@ -225,6 +225,41 @@ public abstract class daoCustomer {
         return name;
     }
 
+    /**
+     * Given a customer id returns a customer object
+     * @param id Integer, customer id
+     * @return Customer object
+     */
+    public static Customer returnCustomerDAO(int id) {
+        String getCustomer = String.format("SELECT Customer_Name, Address, Postal_Code, Phone, Division_ID FROM customers WHERE Customer_ID = %s", id);
+        ResultSet rs;
+        Customer C;
+
+        try {
+            rs = dbOperations.dbQuery(getCustomer);
+            while(rs.next()) {
+                int CustID = rs.getInt("Customer_ID");
+                String name = rs.getString("Customer_Name");
+                String address = rs.getString("Address");
+                String postal = rs.getString("Postal_Code");
+                String phone = rs.getString("Phone");
+                int div = rs.getInt("Division_ID");
+                int country = rs.getInt("Country_ID");
+
+                C.setCustomerID(CustID);
+                C.setName(name);
+                C.setAddress(address);
+                C.setPostalCode(postal);
+                C.setPhoneNumber(phone);
+                C.setDivisionID(div);
+                C.setCountryID(country);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return C;
+    }
+
 
 
 }
