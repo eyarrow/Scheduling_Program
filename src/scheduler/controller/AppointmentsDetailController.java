@@ -149,7 +149,7 @@ public class AppointmentsDetailController implements Initializable {
      * @param event Click the Modify button
      */
     @FXML
-    void onClickButtonModify(ActionEvent event) {
+    void onClickButtonModify(ActionEvent event) throws IOException {
 
         AppointmentsModifyController.copyPassedParameters(passedParameters);
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
