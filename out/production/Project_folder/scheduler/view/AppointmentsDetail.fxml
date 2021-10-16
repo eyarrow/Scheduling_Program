@@ -199,8 +199,8 @@
                               <Label prefHeight="38.0" prefWidth="140.0" styleClass="customer-detail-labels" stylesheets="@/images/style.css" text="User ID" GridPane.rowIndex="9" />
                               <Label fx:id="labelCustomerID" styleClass="customer-detail-values" stylesheets="@/images/style.css" text="00000" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                               <Label fx:id="labelUserID" styleClass="customer-detail-values" stylesheets="@/images/style.css" text="00000" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                              <Label text="Customer Name" GridPane.rowIndex="8" />
-                              <Label fx:id="labelCustomerName" text="Name" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                              <Label text="Customer Name" styleClass="customer-detail-values" stylesheets="@/images/style.css" GridPane.rowIndex="8" />
+                              <Label fx:id="labelCustomerName" styleClass="customer-detail-values" stylesheets="@/images/style.css" text="Name" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                            </children>
                         </GridPane>
                         <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
