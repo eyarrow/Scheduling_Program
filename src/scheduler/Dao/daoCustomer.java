@@ -213,7 +213,10 @@ public abstract class daoCustomer {
 
         try {
             rs = dbOperations.dbQuery(getCustomer);
-            name = rs.getString("Customer_Name");
+            while(rs.next()) {
+                name = rs.getString("Customer_Name");
+            }
+
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
