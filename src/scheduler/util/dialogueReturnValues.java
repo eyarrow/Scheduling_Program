@@ -16,6 +16,12 @@ public enum dialogueReturnValues {
     START_NOT_VALID("The start date that you have entered is not valid. Please note that appointments can only be scheduled between 8 AM and 10 PM EST"),
     END_NOT_VALID("The end date you have entered is not valid. Please note that appointments can only be scheduled between 8 AM and 10 PM EST"),
     END_BEFORE_START("Please adjust your requested times. An appointment cannot end before it begins."),
+    CONTACT_ID_BLANK("Please choose the Contact from the list, it cannot be blank."),
+    TYPE_BLANK("Please choose an Appointment type from the list, it cannot be blank."),
+    CUSTOMER_BLANK("Please choose a Customer from the list, it cannot be blank."),
+    START_TIME_BLANK("Please choose a Start time from the list, it cannot be blank"),
+    END_TIME_BLANK("Please choose an End time from the list, it cannot be blank"),
+    DATE_BLANK("Please choose a Date from the list, it cannot be blank."),
 
     /** Notifications **/
     APPOINTMENT_NOTIFICATION("Appointment Notification"),

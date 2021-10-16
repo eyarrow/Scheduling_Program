@@ -17,6 +17,8 @@ import scheduler.model.Contact;
 import scheduler.model.Customer;
 import scheduler.model.Scheduler;
 import scheduler.model.TimeManagement;
+import scheduler.util.dialogueHandling;
+import scheduler.util.dialogueReturnValues;
 
 import java.io.IOException;
 import java.net.URL;
@@ -151,6 +153,33 @@ public class AppointmentsAddController implements Initializable {
      */
     @FXML
     void onClickSave(ActionEvent event) {
+        //Check if combo boxes have values
+        if(comboBoxContact.getSelectionModel().isEmpty()) {
+            dialogueHandling.displayDialogue(true, dialogueReturnValues.CONTACT_ID_BLANK);
+            return;
+        }
+
+        if(comboBoxType.getSelectionModel().isEmpty()) {
+            dialogueHandling.displayDialogue(true, dialogueReturnValues.TYPE_BLANK);
+            return;
+        }
+
+        if(comboBoxCustomer.getSelectionModel().isEmpty()) {
+            dialogueHandling.displayDialogue(true, dialogueReturnValues.CUSTOMER_BLANK);
+            return;
+        }
+
+        if(comboStartTime.getSelectionModel().isEmpty()) {
+            dialogueHandling.displayDialogue(true, dialogueReturnValues.START_TIME_BLANK);
+            return;
+        }
+
+        if(comboEndTime.getSelectionModel().isEmpty()) {
+            dialogueHandling.displayDialogue(true, dialogueReturnValues.END_TIME_BLANK);
+            return;
+        }
+
+        //if(dateDatePicker.getValue())
 
         String title = textfieldTitle.getText();
         String description = textDescription.getText();
