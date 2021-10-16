@@ -275,7 +275,7 @@ public abstract class dialogueHandling {
         if(description.isEmpty()) {
             String strNew = errMessage;
             errMessage = strNew.concat("* Please enter a description \n");
-            valid = false
+            valid = false;
         }
         if(location.isEmpty()) {
             String strNew = errMessage;
