@@ -179,7 +179,7 @@ public class AppointmentsAddController implements Initializable {
             return;
         }
 
-        //if(dateDatePicker.getValue())
+        
 
         String title = textfieldTitle.getText();
         String description = textDescription.getText();
