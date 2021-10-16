@@ -214,8 +214,8 @@ public class AppointmentsOverviewController implements Initializable {
         labelDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
         labelLocation.setCellValueFactory(new PropertyValueFactory<>("location"));
         labelType.setCellValueFactory(new PropertyValueFactory<>("type"));
-        labelStartTime.setCellValueFactory(new PropertyValueFactory<>("start"));
-        labelEndTime.setCellValueFactory(new PropertyValueFactory<>("end"));
+        labelStartTime.setCellValueFactory(new PropertyValueFactory<>("FormattedStart"));
+        labelEndTime.setCellValueFactory(new PropertyValueFactory<>("FormattedEnd"));
         labelUserID.setCellValueFactory(new PropertyValueFactory<>("UserID"));
         labelTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
         labelName.setCellValueFactory(new PropertyValueFactory<>("ContactName"));

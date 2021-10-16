@@ -1,7 +1,9 @@
 package scheduler.model;
 
+import java.text.Normalizer;
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * A class to manage a singular Appointment object
@@ -32,6 +34,8 @@ public class Appointment {
         CustomerID = customerID;
         UserID = userID;
         this.ContactName = Scheduler.getContactByID(ContactID).getContactName();
+        setFormattedStart(start);
+        setFormattedEnd(end);
 
     }
 
@@ -59,6 +63,8 @@ public class Appointment {
         CustomerID = customerID;
         UserID = userID;
         this.ContactName = Scheduler.getContactByID(ContactID).getContactName();
+        setFormattedStart(start);
+        setFormattedEnd(end);
 
     }
 
@@ -163,12 +169,14 @@ public class Appointment {
     }
 
     /**
-     * Return the start date/time
+     * Return the start date/time.
      * @return LocalDateTime, start date and time
      */
     public ZonedDateTime getStart() {
+
         return start;
     }
+
 
     /**
      * Set the start date/time
@@ -242,6 +250,43 @@ public class Appointment {
         ContactName = contactName;
     }
 
+
+    /**
+     * Creates a String based human readable version of the start time for the UI
+     * @param time Zoned Date time
+     */
+    public void setFormattedStart(ZonedDateTime time) {
+        DateTimeFormatter SFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        FormattedStart = SFormat.format(time);
+    }
+
+    /**
+     * Creates a string based human readlable version of the end time for the UI
+     * @param time Zoned Date Time
+     */
+   public void setFormattedEnd(ZonedDateTime time) {
+       DateTimeFormatter SFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+       FormattedEnd = SFormat.format(time);
+
+   }
+
+    /**
+     * Return a formatted string for displaying start time
+     * @return String
+     */
+   public String getFormattedStart() {
+       return FormattedStart;
+   }
+
+
+    /**
+     * Return a formatted string for displaying end time
+     * @return String
+     */
+   public String getFormattedEnd() {
+       return FormattedEnd;
+   }
+
 //Class Data Members
     private int AppointmentID;
     private String title;
@@ -254,6 +299,8 @@ public class Appointment {
     private int CustomerID;
     private int UserID;
     private String ContactName;
+    private String FormattedStart;
+    private String FormattedEnd;
 
 
 
