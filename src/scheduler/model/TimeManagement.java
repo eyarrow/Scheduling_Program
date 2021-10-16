@@ -119,10 +119,18 @@ public abstract class TimeManagement {
             System.out.println("Start time ain't valid");
             return false;
         }
-        else if(UTC_end.isAfter(UTC_valid_end) || UTC_end.isBefore(UTC_valid_start)) {
+
+        if(UTC_end.isAfter(UTC_valid_end) || UTC_end.isBefore(UTC_valid_start)) {
             System.out.println("End time ain't valid");
             return false;
         }
+
+        if(localZonedEnd.isBefore(localZonedStart)) {
+            System.out.println("Your end time must be after your beginning time");
+            return false;
+        }
+
+
 
 
         return true;
