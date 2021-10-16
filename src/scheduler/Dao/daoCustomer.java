@@ -234,7 +234,7 @@ public abstract class daoCustomer {
     public static Customer returnCustomerDAO(int id) {
         String getCustomer = String.format("SELECT Customer_Name, Address, Postal_Code, Phone, Division_ID FROM customers WHERE Customer_ID = %s", id);
         ResultSet rs;
-        Customer C = new Customer();
+        Customer C = new Customer(0, "NULL", "NULL", "NULL", "NULL", 0, 0);
 
         try {
             rs = dbOperations.dbQuery(getCustomer);
@@ -248,7 +248,7 @@ public abstract class daoCustomer {
                 int country = rs.getInt("Country_ID");
 
                 Customer query = new Customer(CustID, name, address, postal, phone, div, country);
-                return query;
+                C = query;
 
             }
         } catch (SQLException e) {
