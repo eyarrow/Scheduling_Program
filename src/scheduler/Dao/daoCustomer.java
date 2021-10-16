@@ -18,6 +18,7 @@ import java.util.IllegalFormatException;
  */
 public abstract class daoCustomer {
 
+
     /**
      * Get's all needed values for the customer object, and provides an Observable list for use by
      * the application.
@@ -233,7 +234,7 @@ public abstract class daoCustomer {
     public static Customer returnCustomerDAO(int id) {
         String getCustomer = String.format("SELECT Customer_Name, Address, Postal_Code, Phone, Division_ID FROM customers WHERE Customer_ID = %s", id);
         ResultSet rs;
-        Customer C;
+        Customer C = new Customer();
 
         try {
             rs = dbOperations.dbQuery(getCustomer);
@@ -246,13 +247,9 @@ public abstract class daoCustomer {
                 int div = rs.getInt("Division_ID");
                 int country = rs.getInt("Country_ID");
 
-                C.setCustomerID(CustID);
-                C.setName(name);
-                C.setAddress(address);
-                C.setPostalCode(postal);
-                C.setPhoneNumber(phone);
-                C.setDivisionID(div);
-                C.setCountryID(country);
+                Customer query = new Customer(CustID, name, address, postal, phone, div, country);
+                return query;
+
             }
         } catch (SQLException e) {
             e.printStackTrace();

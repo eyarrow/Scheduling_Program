@@ -166,7 +166,7 @@ public class AppointmentsModifyController implements Initializable {
 
     @FXML
     void onClickCustomerName(ActionEvent event) {
-        comboCustomerName.getSelectionModel().
+        //comboCustomerName.getSelectionModel().
 
     }
 
