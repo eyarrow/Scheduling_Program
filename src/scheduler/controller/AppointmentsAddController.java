@@ -194,19 +194,23 @@ public class AppointmentsAddController implements Initializable {
 
 
         //managing Date entry
-        LocalDate appointment_date;
+        LocalDate appointment_date = dateDatePicker.getValue();
+
+
+
+        LocalTime start_time = comboStartTime.getSelectionModel().getSelectedItem();
+        LocalTime end_time = comboEndTime.getSelectionModel().getSelectedItem();
+        LocalDateTime start;
+        LocalDateTime end;
         try {
-            appointment_date = dateDatePicker.getValue();
+            start = start_time.atDate(appointment_date);
+            end = end_time.atDate(appointment_date);
         }
         catch(NullPointerException e) {
             dialogueHandling.displayDialogue(true, dialogueReturnValues.DATE_BLANK);
             return;
         }
 
-        LocalTime start_time = comboStartTime.getSelectionModel().getSelectedItem();
-        LocalTime end_time = comboEndTime.getSelectionModel().getSelectedItem();
-        LocalDateTime start = start_time.atDate(appointment_date);
-        LocalDateTime end = end_time.atDate(appointment_date);
 
         if(TimeManagement.validateBusinessHours(start, end)) {
             System.out.println("All validation passed on time.");
