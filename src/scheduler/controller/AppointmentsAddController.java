@@ -216,7 +216,16 @@ public class AppointmentsAddController implements Initializable {
 
         Appointment A = new Appointment(title, description, location, ContactID, type, startZoned, endZoned, CustomerID, Scheduler.getUserID());
         Scheduler.addAppointment(A);
+
+        //Confirmation Dialogue
         dialogueHandling.confirmAppointmentAdded(A);
+
+        //Load Appointment Overview
+        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/scheduler/view/AppointmentsOverview.fxml/"));
+        stage.setScene(new Scene(scene, 1243, 753));
+        stage.setTitle("Acme Consulting : Appointments Overview");
+        stage.show();
 
     }
 
