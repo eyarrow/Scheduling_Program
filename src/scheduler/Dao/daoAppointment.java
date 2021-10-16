@@ -11,9 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.time.*;
 
 /**
  * Class that provides functionality on the persistence layer for the "Appointment" class where business logic is implemented.
@@ -108,6 +106,32 @@ public abstract class daoAppointment {
             throwables.printStackTrace();
         }
         return C;
+    }
+
+    /**
+     * Adds an appointment to the database. Assumes validation has been completed and that this is
+     * not a duplicate of another appointment.
+     * @param A appointment object.
+     */
+    public static void addAppointmentDAO(Appointment A) {
+        //Convert to UTC time
+        ZonedDateTime startA = A.getEnd().withZoneSameInstant(ZoneOffset.UTC);
+        ZonedDateTime endA = A.getEnd().withZoneSameInstant(ZoneOffset.UTC);
+
+        //Convert to Local Time
+        LocalDateTime start = startA.toLocalDateTime();
+        LocalDateTime end = endA.toLocalDateTime();
+
+        //Convert to Timestamp
+        Timestamp start_time = Timestamp.valueOf(start);
+        Timestamp end_time = Timestamp.valueOf(end);
+
+        String timeStart = start_time.toString();
+        String timeEnd = end_time.toString();
+
+        System.out.println("Start time is " + timeStart);
+        System.out.println("End time is " + timeEnd);
+
     }
 
 }

@@ -216,6 +216,14 @@ public class Scheduler {
         return AppointmentTypes;
     }
 
+    /**
+     * Adds a new appointment to the application. Assumes error validation has already been completed.
+     * @param A Appointment object
+     */
+    public static void addAppointment(Appointment A) {
+        daoAppointment.addAppointmentDAO(A);
+    }
+
 
 
 }

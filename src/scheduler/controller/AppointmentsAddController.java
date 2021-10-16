@@ -13,18 +13,13 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import scheduler.model.Contact;
-import scheduler.model.Customer;
-import scheduler.model.Scheduler;
-import scheduler.model.TimeManagement;
+import scheduler.model.*;
 import scheduler.util.dialogueHandling;
 import scheduler.util.dialogueReturnValues;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
+import java.time.*;
 import java.util.ResourceBundle;
 
 public class AppointmentsAddController implements Initializable {
@@ -216,7 +211,11 @@ public class AppointmentsAddController implements Initializable {
             return;
         }
 
+        ZonedDateTime startZoned = ZonedDateTime.of(start, ZoneId.systemDefault());
+        ZonedDateTime endZoned = ZonedDateTime.of(end, ZoneId.systemDefault());
 
+        Appointment A = new Appointment(title, description, location, ContactID, type, startZoned, endZoned, CustomerID, Scheduler.getUserID());
+        Scheduler.addAppointment(A);
     }
 
     @FXML
