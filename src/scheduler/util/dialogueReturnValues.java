@@ -13,6 +13,9 @@ public enum dialogueReturnValues {
     DIVISION_CODE_BLANK("Please choose the Division, it cannot be blank. "),
     NO_CUSTOMER_SELECTED("No customer selected! Please select a customer by clicking on their associated row."),
     NO_APPOINTMENT_SELECTED("No Appointment selected! Please select an appointment by clicking on it's associated row"),
+    START_NOT_VALID("The start date that you have entered is not valid. Please note that appointments can only be scheduled between 8 AM and 10 PM EST"),
+    END_NOT_VALID("The end date you have entered is not valid. Please note that appointments can only be scheduled between 8 AM and 10 PM EST"),
+    END_BEFORE_START("Please adjust your requested times. An appointment cannot end before it begins."),
 
     /** Notifications **/
     APPOINTMENT_NOTIFICATION("Appointment Notification"),

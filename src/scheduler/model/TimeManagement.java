@@ -2,6 +2,8 @@ package scheduler.model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import scheduler.util.dialogueHandling;
+import scheduler.util.dialogueReturnValues;
 
 import java.sql.Time;
 import java.time.*;
@@ -84,8 +86,9 @@ public abstract class TimeManagement {
 
     /**
      * Checks the following: Whether appointment occurs within allowable business hours.
-     * Business hours are currently defined as 8:00 AM EST - 10 PM EST Monday - Sunday. If the end
-     * date is less than the start date, the date is updated to reflect the next day.
+     * Business hours are currently defined as 8:00 AM EST - 10 PM EST Monday - Sunday. Also checks
+     * to see if the end date is before the start date in LocalTime. Displays an error dialogue if errors
+     * are present. 
      * @param start Local Date, Requested Start date / time
      * @param end Local Date, Requested end time /date
      * @return true, if times pass validation. false if they do not.
@@ -116,17 +119,17 @@ public abstract class TimeManagement {
         Instant UTC_valid_end = validEndZoned.toInstant();
 
         if(UTC_start.isBefore(UTC_valid_start) || UTC_start.isAfter(UTC_valid_end)) {
-            System.out.println("Start time ain't valid");
+            dialogueHandling.displayDialogue(true, dialogueReturnValues.START_NOT_VALID);
             return false;
         }
 
         if(UTC_end.isAfter(UTC_valid_end) || UTC_end.isBefore(UTC_valid_start)) {
-            System.out.println("End time ain't valid");
+            dialogueHandling.displayDialogue(true, dialogueReturnValues.END_NOT_VALID);
             return false;
         }
 
         if(localZonedEnd.isBefore(localZonedStart)) {
-            System.out.println("Your end time must be after your beginning time");
+            dialogueHandling.displayDialogue(true, dialogueReturnValues.END_BEFORE_START);
             return false;
         }
 
