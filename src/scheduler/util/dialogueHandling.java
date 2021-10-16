@@ -2,6 +2,7 @@ package scheduler.util;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import scheduler.model.Appointment;
 import scheduler.model.Customer;
 import scheduler.model.Scheduler;
 
@@ -288,6 +289,25 @@ public abstract class dialogueHandling {
         }
 
         return valid;
+    }
+
+    /**
+     * Displays a dialogue that confirms that an appointment has been added successfully
+     * @param A, The appointment that has been added.
+     */
+    public static void confirmAppointmentAdded (Appointment A) {
+        String header = (dialogueReturnValues.APPT_ADDED_SUCCESSFULLY).toString();
+        String message = "You have successfully added the following customer: \n" +
+                "Title: " + A.getTitle() + "\n" +
+                "Description: " + A.getDescription() + "\n" +
+                "Location: " + A.getLocation() + "\n" +
+                "Contact Name: " + A.getContactName() + "\n" +
+                "Customer Name: " + Scheduler.returnCustomerName(A.getCustomerID()) + "\n" +
+                "Start Time: " + A.getFormattedStart() + "\n" +
+                "End Time: " + A.getFormattedEnd() + "\n";
+
+        dialogueHandling.confirmationDialogue(header, message);
+
     }
 
 

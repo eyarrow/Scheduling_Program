@@ -216,6 +216,8 @@ public class AppointmentsAddController implements Initializable {
 
         Appointment A = new Appointment(title, description, location, ContactID, type, startZoned, endZoned, CustomerID, Scheduler.getUserID());
         Scheduler.addAppointment(A);
+        dialogueHandling.confirmAppointmentAdded(A);
+
     }
 
     @FXML
