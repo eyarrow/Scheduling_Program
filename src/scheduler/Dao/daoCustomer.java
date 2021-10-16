@@ -232,14 +232,14 @@ public abstract class daoCustomer {
      * @return Customer object
      */
     public static Customer returnCustomerDAO(int id) {
-        String getCustomer = String.format("SELECT Customer_Name, Address, Postal_Code, Phone, Division_ID FROM customers WHERE Customer_ID = %s", id);
+        String getCustomer = String.format("SELECT Customer_Name, Address, Postal_Code, Phone, Division_ID FROM customers WHERE Customer_ID = %s;", id);
         ResultSet rs;
         Customer C = new Customer(0, "NULL", "NULL", "NULL", "NULL", 0, 0);
 
         try {
             rs = dbOperations.dbQuery(getCustomer);
             while(rs.next()) {
-                int CustID = rs.getInt("Customer_ID");
+                int CustID = id;
                 String name = rs.getString("Customer_Name");
                 String address = rs.getString("Address");
                 String postal = rs.getString("Postal_Code");
@@ -248,7 +248,7 @@ public abstract class daoCustomer {
                 int country = rs.getInt("Country_ID");
 
                 Customer query = new Customer(CustID, name, address, postal, phone, div, country);
-                C = query;
+                return query;
 
             }
         } catch (SQLException e) {
