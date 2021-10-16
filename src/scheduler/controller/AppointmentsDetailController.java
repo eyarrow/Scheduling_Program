@@ -144,8 +144,19 @@ public class AppointmentsDetailController implements Initializable {
 
     }
 
+    /**
+     * Sends the Appointment object being referenced on the detail page to the Modify Appointment Conroller
+     * @param event Click the Modify button
+     */
     @FXML
     void onClickButtonModify(ActionEvent event) {
+
+        AppointmentsModifyController.copyPassedParameters(passedParameters);
+        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/scheduler/view/AppointmentsModify.fxml/"));
+        stage.setScene(new Scene(scene, 1243, 753));
+        stage.setTitle("Acme Consulting : Appointments Overview");
+        stage.show();
 
     }
 

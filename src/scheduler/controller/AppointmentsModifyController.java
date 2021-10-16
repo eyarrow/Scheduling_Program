@@ -12,15 +12,22 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import scheduler.model.Appointment;
+import scheduler.model.Scheduler;
+import scheduler.model.TimeManagement;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalTime;
+import java.time.ZonedDateTime;
 import java.util.ResourceBundle;
 
 public class AppointmentsModifyController implements Initializable {
 
     Stage stage;
     Parent scene;
+
+    private static Appointment passedParameters;
 
     @FXML
     private Button buttonAddNewAppointment;
@@ -59,7 +66,7 @@ public class AppointmentsModifyController implements Initializable {
     private TextField textFieldName;
 
     @FXML
-    private ComboBox<?> comboType;
+    private ComboBox<String> comboType;
 
     @FXML
     private TextField textFieldLocation;
@@ -68,10 +75,10 @@ public class AppointmentsModifyController implements Initializable {
     private DatePicker dateDatePicker;
 
     @FXML
-    private ComboBox<?> comboStartTime;
+    private ComboBox<LocalTime> comboStartTime;
 
     @FXML
-    private ComboBox<?> comboEndTime;
+    private ComboBox<LocalTime> comboEndTime;
 
     @FXML
     private Label labelCustomerID;
@@ -84,6 +91,10 @@ public class AppointmentsModifyController implements Initializable {
 
     @FXML
     private Button buttonSave;
+
+    public static void copyPassedParameters(Appointment A) {
+        passedParameters = A;
+    }
 
     @FXML
     void onClickAppointments(ActionEvent event) throws IOException {
@@ -148,7 +159,22 @@ public class AppointmentsModifyController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        labelAppointmentID.setText(String.valueOf(passedParameters.getAppointmentID()));
+        labelCustomerID.setText(String.valueOf(passedParameters.getCustomerID()));
+        labelUserID.setText(String.valueOf(passedParameters.getUserID()));
+        textDescription.setText(passedParameters.getDescription());
+        textFieldLocation.setText(passedParameters.getLocation());
+        textfieldTitle.setText(passedParameters.getTitle());
+        comboType.setItems(Scheduler.returnAppointmentTypes());
+        comboStartTime.setItems(TimeManagement.returnLocalTime());
+        comboEndTime.setItems(TimeManagement.returnLocalTime());
 
+        comboType.setValue(passedParameters.getType());
+        LocalTime start = passedParameters.getStart().toLocalDateTime().toLocalTime();
+        comboStartTime.setValue(start);
+        LocalTime end = passedParameters.getEnd().toLocalDateTime().toLocalTime();
+        comboEndTime.setValue(end);
+        dateDatePicker.setValue(passedParameters.getStart().toLocalDate());
     }
 
 
