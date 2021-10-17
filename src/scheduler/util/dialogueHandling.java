@@ -368,7 +368,7 @@ public abstract class dialogueHandling {
                 "* Start Time: %s \n" +
                 "* End Time: %s \n", Scheduler.returnCustomerName(existing.getCustomerID()), existing.getAppointmentID(),
                 existing.getTitle(), existing.getFormattedStart(), existing.getFormattedEnd(), proposed.getAppointmentID(),
-                proposed.getTitle(), proposed.getFormattedStart(), proposed.getFormattedEnd())
+                proposed.getTitle(), proposed.getFormattedStart(), proposed.getFormattedEnd());
 
                 validationDialogue(SCHEDULING_CONFLICT);
     }

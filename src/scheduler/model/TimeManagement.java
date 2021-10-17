@@ -159,11 +159,11 @@ public abstract class TimeManagement {
         }
         else {
             for(Appointment appt : customerAppointments) {
-                if(appt.getStart().isAfter(ChronoZonedDateTime.from(start)) || appt.getEnd().isBefore(ChronoZonedDateTime.from(end))) {
+                if(appt.getStart().toLocalDateTime().isAfter(start) || appt.getEnd().toLocalDateTime().isBefore(end)) {
                     return appt;
                 }
 
-                if(appt.getStart().isEqual(ChronoZonedDateTime.from(start)) || appt.getEnd().isEqual(ChronoZonedDateTime.from(end))) {
+                if(appt.getStart().toLocalDateTime().isEqual(start) || appt.getEnd().toLocalDateTime().isEqual(end)) {
                     return appt;
                 }
             }
