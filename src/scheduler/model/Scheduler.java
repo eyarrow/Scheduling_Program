@@ -249,6 +249,7 @@ public class Scheduler {
      * @param A in appointment object.
      */
     public static void modifyAppointment(Appointment A) {
+        System.out.println("modify called");
         daoAppointment.modifyAppointmentDAO(A);
     }
 

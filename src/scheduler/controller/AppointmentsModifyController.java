@@ -218,6 +218,7 @@ public class AppointmentsModifyController implements Initializable {
         String type = comboType.getSelectionModel().getSelectedItem();
         int CustomerID = comboCustomerName.getSelectionModel().getSelectedItem().getCustomerID();
         int UserID = Scheduler.getUserID();
+        int AppointmentID
 
         //Validation of String values
         if(!dialogueHandling.validateAppointment(title, description, location)) {
