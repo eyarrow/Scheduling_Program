@@ -218,7 +218,7 @@ public class AppointmentsModifyController implements Initializable {
         String type = comboType.getSelectionModel().getSelectedItem();
         int CustomerID = comboCustomerName.getSelectionModel().getSelectedItem().getCustomerID();
         int UserID = Scheduler.getUserID();
-        int AppointmentID
+        int AppointmentID = passedParameters.getAppointmentID();
 
         //Validation of String values
         if(!dialogueHandling.validateAppointment(title, description, location)) {
@@ -250,7 +250,7 @@ public class AppointmentsModifyController implements Initializable {
 
 
 
-        Appointment A = new Appointment(title, description, location, ContactID, type, startZoned, endZoned, CustomerID, Scheduler.getUserID());
+        Appointment A = new Appointment(AppointmentID, title, description, location, ContactID, type, startZoned, endZoned, CustomerID, Scheduler.getUserID());
 
         //Verify the modification
         if(!dialogueHandling.confirmAppointmentModification(A)) {
