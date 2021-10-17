@@ -7,7 +7,9 @@ import scheduler.util.dialogueReturnValues;
 
 import java.sql.Time;
 import java.time.*;
+import java.time.chrono.ChronoZonedDateTime;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.TimeZone;
 
 /**
@@ -134,15 +136,38 @@ public abstract class TimeManagement {
         }
 
 
-
-
         return true;
 
 
 
+    }
 
+    /**
+     * Checks whether new appointment time conflicts with an already scheduled appointment with the same customer.
+     * @param CustomerID Integer, Customer ID
+     * @param start LocalDateTime, the start time proposed for the new appointment
+     * @param end LocalDateTime, the end time proposed for the new appointment
+     * @return The appointment which has a conflict. If there is no conflict the Appointment Object
+     * that is returned is populated with null values, and a appointment id # of 0.
+     */
+    public static Appointment checkAppointmentTimeOverlap(int CustomerID, LocalDateTime start, LocalDateTime end) {
+        LinkedList<Appointment> customerAppointments = Scheduler.allAppointmentsByCustomer(CustomerID);
+        Appointment A = new Appointment(0, "NULL", "NULL", "NULL", 0, "NULL", ZonedDateTime.now(), ZonedDateTime.now(), 0, 0);
 
+        if(customerAppointments.isEmpty()) {
+            return A; //no appointments
+        }
+        else {
+            for(Appointment appt : customerAppointments) {
+                if(appt.getStart().isAfter(ChronoZonedDateTime.from(start)) || appt.getEnd().isBefore(ChronoZonedDateTime.from(end))) {
+                    return appt;
+                }
 
-
+                if(appt.getStart().isEqual(ChronoZonedDateTime.from(start)) || appt.getEnd().isEqual(ChronoZonedDateTime.from(end))) {
+                    return appt;
+                }
+            }
+        }
+        return A;
     }
 }

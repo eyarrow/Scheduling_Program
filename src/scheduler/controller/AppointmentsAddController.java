@@ -213,6 +213,14 @@ public class AppointmentsAddController implements Initializable {
         ZonedDateTime endZoned = ZonedDateTime.of(end, ZoneId.systemDefault());
 
         Appointment A = new Appointment(title, description, location, ContactID, type, startZoned, endZoned, CustomerID, Scheduler.getUserID());
+
+        //Confirm there are no overlaps
+        Appointment Overlap = TimeManagement.checkAppointmentTimeOverlap(CustomerID, startZoned.toLocalDateTime(), endZoned.toLocalDateTime());
+        if(Overlap.getAppointmentID() != 0) {
+            dialogueHandling.appointmentSchedulingConflict(Overlap, A);
+            return;
+        }
+
         Scheduler.addAppointment(A);
 
         //Confirmation Dialogue
