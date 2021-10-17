@@ -172,6 +172,8 @@ public abstract class daoAppointment {
      * @param A is an appointment record to delete.
      */
     public static void deleteAppointmentDAO(Appointment A) {
+        String DELETE_APPOINTMENT = String.format("DELETE FROM appointments where Appointment_ID = %s", A.getAppointmentID());
+        dbOperations.dbUpdate(DELETE_APPOINTMENT);
 
     }
 
