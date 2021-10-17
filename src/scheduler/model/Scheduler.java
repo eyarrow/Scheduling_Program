@@ -252,4 +252,13 @@ public class Scheduler {
         daoAppointment.modifyAppointmentDAO(A);
     }
 
+
+    /**
+     * Delete an existing Appointment record.
+     * @param A the appointment object that is the record to be deleted.
+     */
+    public static void deleteAppointment(Appointment A) {
+        daoAppointment.deleteAppointmentDAO(A);
+    }
+
 }

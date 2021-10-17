@@ -181,11 +181,11 @@ public class AppointmentsModifyController implements Initializable {
 
     /**
      * Runs validation when the save button is clicked. If validated, confirms the changes with
-     * the customer and updates the record if the change in confirmed.
+     * the user and updates the record if the change in confirmed.
      * @param event
      */
     @FXML
-    void onClickButtonSave(ActionEvent event) {
+    void onClickButtonSave(ActionEvent event) throws IOException {
         //Check if combo boxes have values
         if(comboBoxContact.getSelectionModel().isEmpty()) {
             dialogueHandling.displayDialogue(true, dialogueReturnValues.CONTACT_ID_BLANK);
@@ -263,8 +263,14 @@ public class AppointmentsModifyController implements Initializable {
         Scheduler.modifyAppointment(A);
 
         //Post verification dialogue
+        dialogueHandling.confirmationDialogue(dialogueReturnValues.CONFIRM_APPT_MOD_HEADER.toString(), dialogueReturnValues.CONFIRM_APPT_MOD_MESSAGE.toString());
 
         //Load Appointment Overview
+        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/scheduler/view/AppointmentsOverview.fxml/"));
+        stage.setScene(new Scene(scene, 1243, 753));
+        stage.setTitle("Acme Consulting : Appointments Overview");
+        stage.show();
 
     }
 

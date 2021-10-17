@@ -209,14 +209,14 @@ public abstract class dialogueHandling {
      */
     public static void confirmCustomerAdded(Customer C) {
         String Header = "Customer Added!";
-        String customer = "You have successfully added the following customer: \n" +
+        String CUSTOMER_ADDED = "You have successfully added the following customer: \n" +
                 "Name: " + C.getName() + " \n" +
                 "Address: " + C.getAddress() + ", " + C.getPostalCode() + " \n" +
                 "Phone: " + C.getPhoneNumber() + " \n" +
                 "Country ID: " + Scheduler.getCountry(C.getCountryID()).getName() + " \n" +
                 "Division ID: " + Scheduler.getDivision(C.getDivisionID()).getName() + " \n";
 
-        confirmationDialogue(Header,customer);
+        confirmationDialogue(Header, CUSTOMER_ADDED);
 
 
 }
@@ -230,14 +230,14 @@ public abstract class dialogueHandling {
     public static void confirmCustomerUpdated(Customer C) {
         String Header = "Customer Updated!";
 
-        String customer = "You have successfully Updated the following customer: \n" +
+        String CUSTOMER_UPDATED = "You have successfully Updated the following customer: \n" +
                 "Name: " + C.getName() + " \n" +
                 "Address: " + C.getAddress() + ", " + C.getPostalCode() + " \n" +
                 "Phone: " + C.getPhoneNumber() + " \n" +
                 "Country ID: " + Scheduler.getCountry(C.getCountryID()).getName() + " \n" +
                 "Division ID: " + Scheduler.getDivision(C.getDivisionID()).getName() + " \n";
 
-        confirmationDialogue(Header,customer);
+        confirmationDialogue(Header, CUSTOMER_UPDATED);
 
 
     }
@@ -249,19 +249,18 @@ public abstract class dialogueHandling {
      * @return true, if the end user confirmed the deletion. False if these chose "Cancel".
      */
     public static boolean confirmDeletionCustomer(Customer C) {
-        String message = "Are you sure you want to delete the following customer? This action is not reversable! \n" +
+        String CONFIRM_DELETION = "Are you sure you want to delete the following customer? This action is not reversable! \n" +
                 "Name: " + C.getName() + " \n" +
                 "Address: " + C.getAddress() + ", " + C.getPostalCode() + " \n" +
                 "Phone: " + C.getPhoneNumber() + " \n" +
                 "Country ID: " + Scheduler.getCountry(C.getCountryID()).getName() + " \n" +
                 "Division ID: " + Scheduler.getDivision(C.getDivisionID()).getName() + " \n";
 
-        if(confirmationDialogue(message)) {
+        if(confirmationDialogue(CONFIRM_DELETION)) {
             return true;
         }
-        else {
-            return false;
-        }
+
+        return false;
     }
 
 
@@ -297,7 +296,7 @@ public abstract class dialogueHandling {
      */
     public static void confirmAppointmentAdded (Appointment A) {
         String header = (dialogueReturnValues.APPT_ADDED_SUCCESSFULLY).toString();
-        String message = "You have successfully added the following customer: \n" +
+        String APPOINTMENT_ADDED_DETAIL = "You have successfully added the following customer: \n" +
                 "Title: " + A.getTitle() + "\n" +
                 "Description: " + A.getDescription() + "\n" +
                 "Location: " + A.getLocation() + "\n" +
@@ -306,14 +305,14 @@ public abstract class dialogueHandling {
                 "Start Time: " + A.getFormattedStart() + "\n" +
                 "End Time: " + A.getFormattedEnd() + "\n";
 
-        dialogueHandling.confirmationDialogue(header, message);
+        dialogueHandling.confirmationDialogue(header, APPOINTMENT_ADDED_DETAIL);
 
     }
 
 
     public static boolean confirmAppointmentModification(Appointment A) {
 
-        String message = "Please confirm that you would like to make the following changes? \n" +
+        String CONFIRM_MODIFICATION = "Please confirm that you would like to make the following changes? \n" +
                 "Title: " + A.getTitle() + "\n" +
                 "Description: " + A.getDescription() + "\n" +
                 "Location: " + A.getLocation() + "\n" +
@@ -321,12 +320,32 @@ public abstract class dialogueHandling {
                 "Customer Name: " + Scheduler.returnCustomerName(A.getCustomerID()) + "\n" +
                 "Start Time: " + A.getFormattedStart() + "\n" +
                 "End Time: " + A.getFormattedEnd() + "\n";
-        if(confirmationDialogue(message)) {
+        if(confirmationDialogue(CONFIRM_MODIFICATION)) {
             return true;
         }
 
         return false;
 
+    }
+
+    /**
+     * Dialogue to confirm whether the user would like to proceed with deleting an appointment record
+     * @param A Appointment object to delete
+     * @return boolean true if the user clicks "Ok", false, if they click on "Cancel"
+     */
+    public static boolean confirmAppointmentDeletion(Appointment A) {
+        String DELETION_CONFIRMATION = "Please confirm if you would like to continue and delete the following record? \n" +
+                "Title: " + A.getTitle() + "\n" +
+                "Description: " + A.getDescription() + "\n" +
+                "Location: " + A.getLocation() + "\n" +
+                "Contact Name: " + A.getContactName() + "\n" +
+                "Customer Name: " + Scheduler.returnCustomerName(A.getCustomerID()) + "\n" +
+                "Start Time: " + A.getFormattedStart() + "\n" +
+                "End Time: " + A.getFormattedEnd() + "\n";
+        if(confirmationDialogue(DELETION_CONFIRMATION)) {
+            return true;
+        }
+        return false;
     }
 
 

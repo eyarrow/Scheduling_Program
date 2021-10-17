@@ -34,8 +34,8 @@ public enum dialogueReturnValues {
 
     /** Confirmations **/
     APPLICATION_EXIT("Are you sure you would like to exit the program?"),
-    CONFIRM_APPT_MOD("Confirmation Appointment Change");
-
+    CONFIRM_APPT_MOD_HEADER("Appointment Updated!"),
+    CONFIRM_APPT_MOD_MESSAGE("The appointment was modified");
 
     private String message;
 

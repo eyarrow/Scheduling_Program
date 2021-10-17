@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import scheduler.model.Appointment;
 import scheduler.model.Scheduler;
+import scheduler.util.dialogueHandling;
 
 import java.io.IOException;
 import java.net.URL;
@@ -141,6 +142,11 @@ public class AppointmentsDetailController implements Initializable {
 
     @FXML
     void onClickButtonDelete(ActionEvent event) {
+        if(!dialogueHandling.confirmAppointmentDeletion(passedParameters)) {
+            return; //user cancelled
+        }
+
+        Scheduler.deleteAppointment(passedParameters);
 
     }
 

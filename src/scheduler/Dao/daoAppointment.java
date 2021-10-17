@@ -166,4 +166,13 @@ public abstract class daoAppointment {
         dbOperations.dbUpdate(MOD_APPOINTMENT);
     }
 
+
+    /**
+     * Delete an appointment record
+     * @param A is an appointment record to delete.
+     */
+    public static void deleteAppointmentDAO(Appointment A) {
+
+    }
+
 }
