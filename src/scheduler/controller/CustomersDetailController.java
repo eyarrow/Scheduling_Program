@@ -126,6 +126,7 @@ public class CustomersDetailController implements Initializable {
     @FXML
     void onClickDelete(ActionEvent event) throws IOException {
         if(dialogueHandling.confirmDeletionCustomer(passedParameters)) {
+            Scheduler.cascadingDeleteAppointmentByCustomer(passedParameters.getCustomerID());
             Scheduler.deleteCustomer(passedParameters);
             dialogueHandling.informationDialogue(dialogueReturnValues.CUSTOMER_DELETED_HEADER, dialogueReturnValues.CUSTOMER_DELETED_BODY);
             stage = (Stage)((Button)event.getSource()).getScene().getWindow();

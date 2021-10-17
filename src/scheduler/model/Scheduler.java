@@ -264,30 +264,31 @@ public class Scheduler {
     }
 
     /**
-     *
-     * @param CustID
+     * Returns a linked list of all appointments associated with the given customer.
+     * @param CustomerID, Integer customer id
+     * @return Linked List of appointment objects.
      */
-    public static void cascadingDeleteAppointmentByCustomer(int CustID) {
-
+    public static LinkedList<Appointment> allAppointmentsByCustomer(int CustomerID) {
+        return daoAppointment.allAppointmentsByCustomerDAO(CustomerID);
     }
 
 
     /**
-     * Testing purposes only - remove once validated
-     * @param CustID
-     *
+     * Deletes all appointments associated with a customer. Takes no action if there are no associated
+     * appointments.
+     * @param CustID, Integer customer ID
      */
-    public static void linkedListTest(int CustID) {
-        LinkedList<Appointment> appointmentsByCustomer = daoAppointment.allAppointmentsByCustomer(CustID);
-        if(appointmentsByCustomer.isEmpty()) {
-            System.out.println("The list was empty!");
-        }
-        else {
-            for(int i = 0; i < appointmentsByCustomer.size(); i++) {
-                System.out.println("Appointments are: " + appointmentsByCustomer.get(i).getDescription() + "\n" );
+    public static void cascadingDeleteAppointmentByCustomer(int CustID) {
+        LinkedList <Appointment> customersAppointments = allAppointmentsByCustomer(CustID);
+        if(!customersAppointments.isEmpty()) {
+            for(int i = 0; i < customersAppointments.size(); ++i) {
+                deleteAppointment(customersAppointments.get(i));
             }
         }
     }
+
+
+
 
 }
 

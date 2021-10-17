@@ -156,8 +156,6 @@ public class CustomersModifyController implements Initializable {
             Scheduler.updateCustomer(C);
             dialogueHandling.confirmCustomerUpdated(C);
 
-            //temporary
-            Scheduler.linkedListTest(CustomerID);
 
             stage = (Stage)((Button)event.getSource()).getScene().getWindow();
             scene = FXMLLoader.load(getClass().getResource("/scheduler/view/CustomersOverview.fxml/"));

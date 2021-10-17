@@ -249,7 +249,7 @@ public abstract class dialogueHandling {
      * @return true, if the end user confirmed the deletion. False if these chose "Cancel".
      */
     public static boolean confirmDeletionCustomer(Customer C) {
-        String CONFIRM_DELETION = "Are you sure you want to delete the following customer? This action is not reversable! \n" +
+        String CONFIRM_DELETION = "Are you sure you want to delete the following customer? This action is not reversible, and all appointments associated with this customer will be deleted! \n" +
                 "Name: " + C.getName() + " \n" +
                 "Address: " + C.getAddress() + ", " + C.getPostalCode() + " \n" +
                 "Phone: " + C.getPhoneNumber() + " \n" +

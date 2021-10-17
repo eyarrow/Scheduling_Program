@@ -184,7 +184,7 @@ public abstract class daoAppointment {
      * @param CustomerID, Integer Customer ID
      * @return Linked list of Appointment objects. If the linked list is empty there were no results.
      */
-    public static LinkedList<Appointment> allAppointmentsByCustomer(int CustomerID) {
+    public static LinkedList<Appointment> allAppointmentsByCustomerDAO(int CustomerID) {
         LinkedList<Appointment> AppointmentsByCustomer = new LinkedList();
         String APPOINTMENTS_BY_CUSTOMER = String.format("SELECT * FROM appointments where Customer_ID = %s;", CustomerID);
         ResultSet rs;
