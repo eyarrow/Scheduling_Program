@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import scheduler.model.Appointment;
 import scheduler.model.Scheduler;
 import scheduler.util.dialogueHandling;
+import scheduler.util.dialogueReturnValues;
 
 import java.io.IOException;
 import java.net.URL;
@@ -147,6 +148,13 @@ public class AppointmentsDetailController implements Initializable {
         }
 
         Scheduler.deleteAppointment(passedParameters);
+        dialogueHandling.displayDialogue(false, dialogueReturnValues.APPT_DELETED);
+
+        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/scheduler/view/AppointmentsOverview.fxml/"));
+        stage.setScene(new Scene(scene, 1243, 753));
+        stage.setTitle("Acme Consulting : Appointments Overview");
+        stage.show();
 
     }
 

@@ -30,12 +30,14 @@ public enum dialogueReturnValues {
     CUSTOMER_DELETED_HEADER("Customer deleted"),
     CUSTOMER_DELETED_BODY("The customer has been deleted from the application successfully."),
     APPT_ADDED_SUCCESSFULLY("Appointment Added"),
+    APPT_DELETED("The appointment has been deleted."),
 
 
     /** Confirmations **/
     APPLICATION_EXIT("Are you sure you would like to exit the program?"),
     CONFIRM_APPT_MOD_HEADER("Appointment Updated!"),
     CONFIRM_APPT_MOD_MESSAGE("The appointment was modified");
+
 
     private String message;
 
