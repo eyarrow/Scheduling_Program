@@ -204,12 +204,10 @@ public class AppointmentsAddController implements Initializable {
         }
 
         // Time & Date validation
-        if(TimeManagement.validateBusinessHours(start, end)) {
-            System.out.println("All validation passed on time.");
-        }
-        else {
+        if(!TimeManagement.validateBusinessHours(start, end)) {
             return;
         }
+
 
         ZonedDateTime startZoned = ZonedDateTime.of(start, ZoneId.systemDefault());
         ZonedDateTime endZoned = ZonedDateTime.of(end, ZoneId.systemDefault());

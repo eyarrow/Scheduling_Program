@@ -29,10 +29,13 @@ public enum dialogueReturnValues {
     NO_APPT_NEXT_15MINUTES("You do not have any appointments in the next 15 minutes"),
     CUSTOMER_DELETED_HEADER("Customer deleted"),
     CUSTOMER_DELETED_BODY("The customer has been deleted from the application successfully."),
-    APPT_ADDED_SUCCESSFULLY("The Appointment has been added!"),
+    APPT_ADDED_SUCCESSFULLY("Appointment Added"),
+
 
     /** Confirmations **/
-    APPLICATION_EXIT("Are you sure you would like to exit the program?");
+    APPLICATION_EXIT("Are you sure you would like to exit the program?"),
+    CONFIRM_APPT_MOD("Confirmation Appointment Change");
+
 
     private String message;
 

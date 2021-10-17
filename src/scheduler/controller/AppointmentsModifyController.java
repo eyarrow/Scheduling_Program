@@ -12,15 +12,13 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import scheduler.model.Appointment;
-import scheduler.model.Customer;
-import scheduler.model.Scheduler;
-import scheduler.model.TimeManagement;
+import scheduler.model.*;
+import scheduler.util.dialogueHandling;
+import scheduler.util.dialogueReturnValues;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalTime;
-import java.time.ZonedDateTime;
+import java.time.*;
 import java.util.ResourceBundle;
 
 public class AppointmentsModifyController implements Initializable {
@@ -96,6 +94,9 @@ public class AppointmentsModifyController implements Initializable {
     @FXML
     private ComboBox<Customer> comboCustomerName;
 
+    @FXML
+    private ComboBox<Contact> comboBoxContact;
+
     public static void copyPassedParameters(Appointment A) {
         passedParameters = A;
     }
@@ -164,9 +165,106 @@ public class AppointmentsModifyController implements Initializable {
         stage.show();
     }
 
+
+    /**
+     * If the user updates the Customer name combo box, the Customer ID field is also updated.
+     * @param event click on Customer name combo box.
+     */
     @FXML
     void onClickCustomerName(ActionEvent event) {
-        //comboCustomerName.getSelectionModel().
+        if(!comboCustomerName.getSelectionModel().getSelectedItem().getName().isEmpty()) {
+            labelCustomerID.setText(String.valueOf(comboCustomerName.getSelectionModel().getSelectedItem().getCustomerID()));
+        }
+
+    }
+
+
+    /**
+     * Runs validation when the save button is clicked. If validated, confirms the changes with
+     * the customer and updates the record if the change in confirmed.
+     * @param event
+     */
+    @FXML
+    void onClickButtonSave(ActionEvent event) {
+        //Check if combo boxes have values
+        if(comboBoxContact.getSelectionModel().isEmpty()) {
+            dialogueHandling.displayDialogue(true, dialogueReturnValues.CONTACT_ID_BLANK);
+            return;
+        }
+
+        if(comboType.getSelectionModel().isEmpty()) {
+            dialogueHandling.displayDialogue(true, dialogueReturnValues.TYPE_BLANK);
+            return;
+        }
+
+        if(comboCustomerName.getSelectionModel().isEmpty()) {
+            dialogueHandling.displayDialogue(true, dialogueReturnValues.CUSTOMER_BLANK);
+            return;
+        }
+
+        if(comboStartTime.getSelectionModel().isEmpty()) {
+            dialogueHandling.displayDialogue(true, dialogueReturnValues.START_TIME_BLANK);
+            return;
+        }
+
+        if(comboEndTime.getSelectionModel().isEmpty()) {
+            dialogueHandling.displayDialogue(true, dialogueReturnValues.END_TIME_BLANK);
+            return;
+        }
+
+        //Pull Values
+        String title = textfieldTitle.getText();
+        String description = textDescription.getText();
+        String location = textFieldLocation.getText();
+        int ContactID = comboBoxContact.getSelectionModel().getSelectedItem().getContactID();
+        String type = comboType.getSelectionModel().getSelectedItem();
+        int CustomerID = comboCustomerName.getSelectionModel().getSelectedItem().getCustomerID();
+        int UserID = Scheduler.getUserID();
+
+        //Validation of String values
+        if(!dialogueHandling.validateAppointment(title, description, location)) {
+            return;
+        }
+
+        //managing Date entry
+        LocalDate appointment_date = dateDatePicker.getValue();
+        LocalTime start_time = comboStartTime.getSelectionModel().getSelectedItem();
+        LocalTime end_time = comboEndTime.getSelectionModel().getSelectedItem();
+        LocalDateTime start;
+        LocalDateTime end;
+        try {
+            start = start_time.atDate(appointment_date);
+            end = end_time.atDate(appointment_date);
+        }
+        catch(NullPointerException e) {
+            dialogueHandling.displayDialogue(true, dialogueReturnValues.DATE_BLANK);
+            return;
+        }
+
+        // Time & Date validation
+        if(!TimeManagement.validateBusinessHours(start, end)) {
+            return;
+        }
+
+        ZonedDateTime startZoned = ZonedDateTime.of(start, ZoneId.systemDefault());
+        ZonedDateTime endZoned = ZonedDateTime.of(end, ZoneId.systemDefault());
+
+
+
+        Appointment A = new Appointment(title, description, location, ContactID, type, startZoned, endZoned, CustomerID, Scheduler.getUserID());
+
+        //Verify the modification
+        if(!dialogueHandling.confirmAppointmentModification(A)) {
+            //User pressed cancel
+            return;
+        }
+
+        //Save the modified record
+        Scheduler.modifyAppointment(A);
+
+        //Post verification dialogue
+
+        //Load Appointment Overview
 
     }
 
@@ -190,7 +288,8 @@ public class AppointmentsModifyController implements Initializable {
         comboEndTime.setItems(TimeManagement.returnLocalTime());
         comboCustomerName.setItems(Scheduler.getAllCustomers());
         comboCustomerName.setValue(Scheduler.returnCustomer(passedParameters.getCustomerID()));
-
+        comboBoxContact.setItems(Scheduler.getAllContacts());
+        comboBoxContact.setValue(Scheduler.getContactByID(passedParameters.getContactID()));
         comboType.setValue(passedParameters.getType());
         LocalTime start = passedParameters.getStart().toLocalDateTime().toLocalTime();
         comboStartTime.setValue(start);

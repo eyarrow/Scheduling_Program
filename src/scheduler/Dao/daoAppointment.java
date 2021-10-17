@@ -129,17 +129,41 @@ public abstract class daoAppointment {
         String timeStart = start_time.toString();
         String timeEnd = end_time.toString();
 
-        //System.out.println("Start time is " + timeStart);
-        //System.out.println("End time is " + timeEnd);
 
         String addAppointment = String.format("INSERT INTO appointments (Title, Description, Location, Type, Start, End, Customer_ID, User_ID, Contact_ID)\n" +
                 "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', %s, %s, %s);", A.getTitle(), A.getDescription(), A.getLocation(), A.getType(), timeStart, timeEnd, A.getCustomerID(), A.getUserID(), A.getContactID());
 
         dbOperations.dbUpdate(addAppointment);
 
+    }
 
+    /**
+     * Modifies an existing Appointment record
+     * @param A, an appointment object.
+     */
+    public static void modifyAppointmentDAO(Appointment A) {
+        //Convert to UTC time
+        ZonedDateTime startA = A.getStart().withZoneSameInstant(ZoneOffset.UTC);
+        ZonedDateTime endA = A.getEnd().withZoneSameInstant(ZoneOffset.UTC);
 
+        //Convert to Local Time
+        LocalDateTime start =startA.toLocalDateTime();
+        LocalDateTime end = endA.toLocalDateTime();
 
+        //Convert to Timestamp
+        Timestamp start_time = Timestamp.valueOf(start);
+        Timestamp end_time = Timestamp.valueOf(end);
+
+        String timeStart = start_time.toString();
+        String timeEnd = end_time.toString();
+
+        String MOD_APPOINTMENT = String.format("UPDATE Appointments \n" +
+                "SET Title = '%s', Description = '%s', Location = '%s', Type = '%s'," +
+                "Start = '%s', End = '%s', Customer_ID = %s, User_ID = '%s', Contact_ID = '%s' \n" +
+                "WHERE Appointment_ID = %s;", A.getTitle(), A.getDescription(),A.getLocation(), A.getType(),
+                timeStart, timeEnd, A.getCustomerID(), A.getUserID(), A.getContactID(), A.getAppointmentID());
+
+        dbOperations.dbUpdate(MOD_APPOINTMENT);
     }
 
 }

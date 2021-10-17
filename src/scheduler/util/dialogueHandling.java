@@ -311,4 +311,23 @@ public abstract class dialogueHandling {
     }
 
 
+    public static boolean confirmAppointmentModification(Appointment A) {
+
+        String message = "Please confirm that you would like to make the following changes? \n" +
+                "Title: " + A.getTitle() + "\n" +
+                "Description: " + A.getDescription() + "\n" +
+                "Location: " + A.getLocation() + "\n" +
+                "Contact Name: " + A.getContactName() + "\n" +
+                "Customer Name: " + Scheduler.returnCustomerName(A.getCustomerID()) + "\n" +
+                "Start Time: " + A.getFormattedStart() + "\n" +
+                "End Time: " + A.getFormattedEnd() + "\n";
+        if(confirmationDialogue(message)) {
+            return true;
+        }
+
+        return false;
+
+    }
+
+
 }

@@ -244,4 +244,12 @@ public class Scheduler {
         return returnCustomerDAO(CustID);
     }
 
+    /**
+     * Modify an already established Appointment record
+     * @param A in appointment object.
+     */
+    public static void modifyAppointment(Appointment A) {
+        daoAppointment.modifyAppointmentDAO(A);
+    }
+
 }
