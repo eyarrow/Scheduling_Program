@@ -263,6 +263,14 @@ public class Scheduler {
         daoAppointment.deleteAppointmentDAO(A);
     }
 
+    /**
+     *
+     * @param CustID
+     */
+    public static void cascadingDeleteAppointmentByCustomer(int CustID) {
+
+    }
+
 
     /**
      * Testing purposes only - remove once validated
@@ -270,13 +278,13 @@ public class Scheduler {
      *
      */
     public static void linkedListTest(int CustID) {
-        LinkedList appointmentsByCustomer = daoAppointment.allAppointmentsByCustomer(CustID);
+        LinkedList<Appointment> appointmentsByCustomer = daoAppointment.allAppointmentsByCustomer(CustID);
         if(appointmentsByCustomer.isEmpty()) {
             System.out.println("The list was empty!");
         }
         else {
             for(int i = 0; i < appointmentsByCustomer.size(); i++) {
-                System.out.println("Appointments are: " + appointmentsByCustomer.get(i) + "\n" );
+                System.out.println("Appointments are: " + appointmentsByCustomer.get(i).getDescription() + "\n" );
             }
         }
     }
