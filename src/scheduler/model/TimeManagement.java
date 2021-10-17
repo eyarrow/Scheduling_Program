@@ -159,7 +159,7 @@ public abstract class TimeManagement {
         }
         else {
             for(Appointment appt : customerAppointments) {
-                if(appt.getStart().toLocalDateTime().isAfter(start) || appt.getEnd().toLocalDateTime().isBefore(end)) {
+                if(appt.getStart().toLocalDateTime().isAfter(start) && appt.getEnd().toLocalDateTime().isBefore(end)) {
                     return appt;
                 }
 
