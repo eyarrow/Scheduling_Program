@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.*;
+import java.util.LinkedList;
 
 /**
  * Class that provides functionality on the persistence layer for the "Appointment" class where business logic is implemented.
@@ -174,6 +175,48 @@ public abstract class daoAppointment {
     public static void deleteAppointmentDAO(Appointment A) {
         String DELETE_APPOINTMENT = String.format("DELETE FROM appointments where Appointment_ID = %s", A.getAppointmentID());
         dbOperations.dbUpdate(DELETE_APPOINTMENT);
+
+    }
+
+
+    /**
+     * Returns a linked list of all the appointments that belong to a specific customer
+     * @param CustomerID, Integer Customer ID
+     * @return Linked list of Appointment objects. If the linked list is empty there were no results.
+     */
+    public static LinkedList allAppointmentsByCustomer(int CustomerID) {
+        LinkedList AppointmentsByCustomer = new LinkedList();
+        String APPOINTMENTS_BY_CUSTOMER = String.format("SELECT * FROM appointments where Appointment_ID = %s;", CustomerID);
+        ResultSet rs;
+
+
+            try {
+                rs = dbOperations.dbQuery(APPOINTMENTS_BY_CUSTOMER);
+                while(rs.next()) {
+                    int id = rs.getInt("Appointment_ID");
+                    String title = rs.getString("Title");
+                    String description = rs.getString("Description");
+                    String location = rs.getString("Location");
+                    int ContactID = rs.getInt("Contact_ID");
+                    String type = rs.getString("Type");
+                    Timestamp start_time = rs.getTimestamp("Start");
+                    LocalDateTime start = start_time.toLocalDateTime();
+                    ZonedDateTime startZoned = ZonedDateTime.of(start, ZoneId.systemDefault());
+                    Timestamp end_time = rs.getTimestamp("End");
+                    LocalDateTime end = end_time.toLocalDateTime();
+                    ZonedDateTime endZoned = ZonedDateTime.of(end, ZoneId.systemDefault());
+                    int UserID = rs.getInt("User_ID");
+
+                    Appointment A = new Appointment(id, title, description, location, ContactID, type, startZoned, endZoned, CustomerID, UserID);
+                    AppointmentsByCustomer.add(A);
+                }
+
+
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            return AppointmentsByCustomer;
+        }
 
     }
 

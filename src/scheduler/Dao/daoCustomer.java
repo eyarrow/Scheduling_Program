@@ -11,6 +11,7 @@ import javax.xml.transform.Result;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.IllegalFormatException;
+import java.util.LinkedList;
 
 /**
  * Class that provides functionality on the persistence layer for the "Customer" class that manages business local in the model package.
@@ -256,6 +257,9 @@ public abstract class daoCustomer {
         }
         return C;
     }
+
+
+
 
 
 

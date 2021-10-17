@@ -143,13 +143,16 @@ public class AppointmentsDetailController implements Initializable {
 
     @FXML
     void onClickButtonDelete(ActionEvent event) throws IOException {
+        //Post confirmation dialogue. Return if the user cancels.
         if(!dialogueHandling.confirmAppointmentDeletion(passedParameters)) {
             return; //user cancelled
         }
 
+        //Delete appointment. Dialogue confirmation of deletion
         Scheduler.deleteAppointment(passedParameters);
         dialogueHandling.displayDialogue(false, dialogueReturnValues.APPT_DELETED);
 
+        //Load Appointment stage
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("/scheduler/view/AppointmentsOverview.fxml/"));
         stage.setScene(new Scene(scene, 1243, 753));

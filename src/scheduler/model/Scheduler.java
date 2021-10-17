@@ -13,6 +13,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.LinkedList;
 import java.util.TimeZone;
 
 import static scheduler.Dao.daoCustomer.*;
@@ -262,4 +263,24 @@ public class Scheduler {
         daoAppointment.deleteAppointmentDAO(A);
     }
 
+
+    /**
+     * Testing purposes only - remove once validated
+     * @param CustID
+     *
+     */
+    public static void linkedListTest(int CustID) {
+        LinkedList appointmentsByCustomer = daoAppointment.allAppointmentsByCustomer(CustID);
+        if(appointmentsByCustomer.isEmpty()) {
+            System.out.println("The list was empty!");
+        }
+        else {
+            for(int i = 0; i < appointmentsByCustomer.size(); i++) {
+                System.out.println("Appointments are: " + appointmentsByCustomer.get(i) + "\n" );
+            }
+        }
+    }
+
 }
+
+
