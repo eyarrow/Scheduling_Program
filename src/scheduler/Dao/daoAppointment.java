@@ -186,7 +186,7 @@ public abstract class daoAppointment {
      */
     public static LinkedList allAppointmentsByCustomer(int CustomerID) {
         LinkedList AppointmentsByCustomer = new LinkedList();
-        String APPOINTMENTS_BY_CUSTOMER = String.format("SELECT * FROM appointments where Appointment_ID = %s;", CustomerID);
+        String APPOINTMENTS_BY_CUSTOMER = String.format("SELECT * FROM appointments where Customer_ID = %s;", CustomerID);
         ResultSet rs;
 
 
@@ -220,4 +220,3 @@ public abstract class daoAppointment {
 
     }
 
-}
