@@ -187,30 +187,28 @@ public class AppointmentsModifyController implements Initializable {
     @FXML
     void onClickButtonSave(ActionEvent event) throws IOException {
         //Check if combo boxes have values
-        if(comboBoxContact.getSelectionModel().isEmpty()) {
+
+        try {
+            comboBoxContact.getSelectionModel().getSelectedItem().getContactID();
+        }
+        catch(NullPointerException e) {
             dialogueHandling.displayDialogue(true, dialogueReturnValues.CONTACT_ID_BLANK);
-            return;
         }
 
-        if(comboType.getSelectionModel().isEmpty()) {
+        try {
+            comboType.getSelectionModel().getSelectedItem().toLowerCase();
+        }
+        catch(NullPointerException e) {
             dialogueHandling.displayDialogue(true, dialogueReturnValues.TYPE_BLANK);
-            return;
         }
 
-        if(comboCustomerName.getSelectionModel().isEmpty()) {
+        try {
+            comboCustomerName.getSelectionModel().getSelectedItem().getName();
+        }
+        catch (NullPointerException e) {
             dialogueHandling.displayDialogue(true, dialogueReturnValues.CUSTOMER_BLANK);
-            return;
         }
 
-        if(comboStartTime.getSelectionModel().isEmpty()) {
-            dialogueHandling.displayDialogue(true, dialogueReturnValues.START_TIME_BLANK);
-            return;
-        }
-
-        if(comboEndTime.getSelectionModel().isEmpty()) {
-            dialogueHandling.displayDialogue(true, dialogueReturnValues.END_TIME_BLANK);
-            return;
-        }
 
         //Pull Values
         String title = textfieldTitle.getText();
