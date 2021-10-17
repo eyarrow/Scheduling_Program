@@ -197,6 +197,7 @@ public class AppointmentsDetailController implements Initializable {
 
         labelAppointmentID.setText(String.valueOf(passedParameters.getAppointmentID()));
         labelAppointmentTitle.setText(passedParameters.getTitle());
+        labelLocation.setText(passedParameters.getLocation());
         labelCustomerID.setText(String.valueOf(passedParameters.getCustomerID()));
         labelContactName.setText(passedParameters.getContactName());
         labelDescription.setText(passedParameters.getDescription());
