@@ -142,7 +142,7 @@ public class AppointmentsDetailController implements Initializable {
     }
 
     @FXML
-    void onClickButtonDelete(ActionEvent event) {
+    void onClickButtonDelete(ActionEvent event) throws IOException {
         if(!dialogueHandling.confirmAppointmentDeletion(passedParameters)) {
             return; //user cancelled
         }
