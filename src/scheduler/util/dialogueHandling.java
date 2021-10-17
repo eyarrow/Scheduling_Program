@@ -297,7 +297,7 @@ public abstract class dialogueHandling {
      */
     public static void confirmAppointmentAdded(Appointment A) {
         String header = (dialogueReturnValues.APPT_ADDED_SUCCESSFULLY).toString();
-        String APPOINTMENT_ADDED_DETAIL = "You have successfully added the following customer: \n" +
+        String APPOINTMENT_ADDED_DETAIL = "You have successfully added the following appointment: \n" +
                 "Title: " + A.getTitle() + "\n" +
                 "Description: " + A.getDescription() + "\n" +
                 "Location: " + A.getLocation() + "\n" +
