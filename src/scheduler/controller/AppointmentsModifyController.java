@@ -297,8 +297,10 @@ public class AppointmentsModifyController implements Initializable {
         comboBoxContact.setValue(Scheduler.getContactByID(passedParameters.getContactID()));
         comboType.setValue(passedParameters.getType());
         LocalTime start = passedParameters.getStart().toLocalDateTime().toLocalTime();
+        comboStartTime.setItems(TimeManagement.returnLocalTime());
         comboStartTime.setValue(start);
         LocalTime end = passedParameters.getEnd().toLocalDateTime().toLocalTime();
+        comboEndTime.setItems(TimeManagement.returnLocalTime());
         comboEndTime.setValue(end);
         dateDatePicker.setValue(passedParameters.getStart().toLocalDate());
     }

@@ -253,13 +253,20 @@ public abstract class daoAppointment {
                 int CustomerID = rs.getInt("Customer_ID");
                 int UserID = rs.getInt("User_ID");
 
-                LocalDateTime currentTime = LocalDateTime.now();
-                if(currentTime.isAfter(start)) {
-                    long timeDifferential = ChronoUnit.MINUTES.between(currentTime, start);
-                    System.out.println("time differential is" + timeDifferential);
-                    System.out.println("Apt ID is " + id);
+                ZonedDateTime currentTime = ZonedDateTime.now();
+                if(startZoned.isAfter(currentTime)) {
+                    System.out.println("Appointment " + id + " qualified.");
 
+                    long differential = ChronoUnit.MINUTES.between(currentTime, startZoned);
+                    if(Math.abs(differential) < 15) {
+                        System.out.println("Appointment ID: " + id + "Is Less than 15 minutes away. ");
+                    }
+                    else {
+                        System.out.println("Appointment ID: " + id + "is Greater than 15 minutes away");
+                    }
                 }
+
+
 
 
             }
