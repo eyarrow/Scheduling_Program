@@ -100,6 +100,14 @@ public class ReportsController implements Initializable {
                 scene.getStylesheets().add( getClass().getResource( "/images/style.css" ).toExternalForm() );
                 stage.show();
             }
+            else {
+                stage = (Stage) ((ComboBox) event.getSource()).getScene().getWindow();
+                scene = FXMLLoader.load(getClass().getResource("/scheduler/view/ReportsApptByContact.fxml/"));
+                stage.setScene(new Scene(scene, 1243, 753));
+                stage.setTitle("Acme Consulting : View Appointments by Contact");
+                scene.getStylesheets().add(getClass().getResource("/images/style.css").toExternalForm());
+                stage.show();
+            }
 
         }
 

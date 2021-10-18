@@ -130,6 +130,20 @@ public class ReportsApptByContactController implements Initializable {
         stage.show();
     }
 
+    @FXML
+    void onClickReports(ActionEvent event) throws IOException {
+        if (!comboReportType.getSelectionModel().getSelectedItem().isEmpty()) {
+            if (comboReportType.getSelectionModel().getSelectedItem().startsWith("Number of Appointments")) {
+                stage = (Stage) ((ComboBox) event.getSource()).getScene().getWindow();
+                scene = FXMLLoader.load(getClass().getResource("/scheduler/view/ReportsBreakdown.fxml/"));
+                stage.setScene(new Scene(scene, 1243, 753));
+                stage.setTitle("Acme Consulting : View by Type and Month");
+                scene.getStylesheets().add(getClass().getResource("/images/style.css").toExternalForm());
+                stage.show();
+            }
+
+        }
+    }
 
     @FXML
     void onClickReportType(ActionEvent event) throws IOException {

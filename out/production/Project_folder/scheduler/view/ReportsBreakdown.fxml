@@ -48,11 +48,6 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label styleClass="nav-bar-descrip" stylesheets="@/images/style.css" text="Choose another report from the dropdown box to view another report type.">
-                           <GridPane.margin>
-                              <Insets left="30.0" />
-                           </GridPane.margin>
-                        </Label>
                         <Label styleClass="customer-detail-labels" stylesheets="@/images/style.css" text="Choose Report Type:" GridPane.rowIndex="2">
                            <padding>
                               <Insets right="10.0" top="10.0" />
