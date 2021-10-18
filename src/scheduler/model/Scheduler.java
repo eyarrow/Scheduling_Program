@@ -11,6 +11,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.LinkedList;
@@ -60,7 +61,7 @@ public class Scheduler {
         boolean success = authenticateUser(username, password);
 
         if(success) {
-            dialogueHandling.informationDialogue(dialogueReturnValues.APPOINTMENT_NOTIFICATION, dialogueReturnValues.NO_APPT_NEXT_15MINUTES);
+            TimeManagement.appointmentWithinFifteen();
             logLoginAttempt(username, true);
             return true;
         }

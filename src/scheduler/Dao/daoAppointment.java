@@ -12,7 +12,10 @@ import java.sql.SQLException;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.*;
+import java.time.temporal.ChronoUnit;
 import java.util.LinkedList;
+
+
 
 /**
  * Class that provides functionality on the persistence layer for the "Appointment" class where business logic is implemented.
@@ -216,6 +219,54 @@ public abstract class daoAppointment {
                 throwables.printStackTrace();
             }
             return AppointmentsByCustomer;
+        }
+
+
+    /**
+     * Queries the database to see if there are any upcoming appointments within the next 15 minutes.
+     * If it finds an appointment that occurs within 15 minutes, it will return the first appointment it
+     * finds that meets the criteria. Note: there is the possibility that there could be more than one appointment
+     * coming up in the next 15 minutes. This only reports the first found result.
+     * @return An appointment object. Will return an appointment object with Appointment ID of 0 if
+     * a upcoming appointment is not found
+     */
+    public static Appointment appointmentWithinFifteenDAO() {
+        Appointment A = new Appointment();
+        String GET_APPOINTMENTS = "select * from appointments;";
+        ResultSet rs;
+
+        try {
+            rs = dbOperations.dbQuery(GET_APPOINTMENTS);
+            while(rs.next()) {
+                int id = rs.getInt("Appointment_ID");
+                String title = rs.getString("Title");
+                String description = rs.getString("Description");
+                String location = rs.getString("Location");
+                int ContactID = rs.getInt("Contact_ID");
+                String type = rs.getString("Type");
+                Timestamp start_time = rs.getTimestamp("Start");
+                LocalDateTime start = start_time.toLocalDateTime();
+                ZonedDateTime startZoned = ZonedDateTime.of(start, ZoneId.systemDefault());
+                Timestamp end_time = rs.getTimestamp("End");
+                LocalDateTime end = end_time.toLocalDateTime();
+                ZonedDateTime endZoned = ZonedDateTime.of(end, ZoneId.systemDefault());
+                int CustomerID = rs.getInt("Customer_ID");
+                int UserID = rs.getInt("User_ID");
+
+                LocalDateTime currentTime = LocalDateTime.now();
+                long timeDifferential = ChronoUnit.MINUTES.between(currentTime, start);
+                if(timeDifferential < 15) {
+                    Appointment match = new Appointment(id, title, description, location, ContactID, type, startZoned, endZoned, CustomerID, UserID);
+                    return match;
+                }
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+            return A;
         }
 
     }

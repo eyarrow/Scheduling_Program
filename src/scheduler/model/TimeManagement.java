@@ -2,6 +2,7 @@ package scheduler.model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import scheduler.Dao.daoAppointment;
 import scheduler.util.dialogueHandling;
 import scheduler.util.dialogueReturnValues;
 
@@ -152,7 +153,7 @@ public abstract class TimeManagement {
      */
     public static Appointment checkAppointmentTimeOverlap(int CustomerID, LocalDateTime start, LocalDateTime end) {
         LinkedList<Appointment> customerAppointments = Scheduler.allAppointmentsByCustomer(CustomerID);
-        Appointment A = new Appointment(0, "NULL", "NULL", "NULL", 0, "NULL", ZonedDateTime.now(), ZonedDateTime.now(), 0, 0);
+        Appointment A = new Appointment();
 
         if(customerAppointments.isEmpty()) {
             return A; //no appointments
@@ -160,8 +161,8 @@ public abstract class TimeManagement {
         else {
             for(Appointment appt : customerAppointments) {
 
-                //if new start (12:30) is after original start (12:00) but before original end (13) = problem
-                //if new end (14) is after original start(13:30) but not after original end 14:30 = problem
+                //if new start is after original start but before original end = problem
+                //if new end is after original start but not after original end  = problem
                 if(start.isAfter(appt.getStart().toLocalDateTime()) && start.isBefore(appt.getEnd().toLocalDateTime())) {
                     return appt;
                 }
@@ -176,5 +177,23 @@ public abstract class TimeManagement {
             }
         }
         return A;
+    }
+
+    /**
+     * Checks to see if there is an appointment in the next fifteen minutes (as of customer's local time). If there is a dialogue is
+     * displayed to the user when this function is ran, Detailing Appointment ID, Date and time of upcoming
+     * appointment.
+     */
+    public static void appointmentWithinFifteen() {
+        Appointment upcoming = daoAppointment.appointmentWithinFifteenDAO();
+        if(upcoming.getAppointmentID() == 0) {
+            //Nothing coming up in 15 minutes
+            dialogueHandling.informationDialogue(dialogueReturnValues.APPOINTMENT_NOTIFICATION, dialogueReturnValues.NO_APPT_NEXT_15MINUTES);
+        }
+        else {
+            dialogueHandling.appointmentWithinFifteen(upcoming);
+        }
+
+
     }
 }

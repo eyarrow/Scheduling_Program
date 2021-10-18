@@ -355,22 +355,38 @@ public abstract class dialogueHandling {
 
     public static void appointmentSchedulingConflict(Appointment existing, Appointment proposed) {
         String SCHEDULING_CONFLICT = String.format("There is a conflict between the appointment you are trying " +
-                "to schedule with %s, and an already existing appointment. Please address this " +
-                "before continuing: \n" +
-                "Existing Appointment: \n" +
-                "* Appointment ID: %s \n" +
-                "* Title: %s \n" +
-                "* Start Time: %s \n" +
-                "* End Time: %s \n" + "\n" +
-                "Proposed Appointment: \n" +
-                "* Title: %s \n" +
-                "* Start Time: %s \n" +
-                "* End Time: %s \n", Scheduler.returnCustomerName(existing.getCustomerID()), existing.getAppointmentID(),
+                        "to schedule with %s, and an already existing appointment. Please address this " +
+                        "before continuing: \n" +
+                        "Existing Appointment: \n" +
+                        "* Appointment ID: %s \n" +
+                        "* Title: %s \n" +
+                        "* Start Time: %s \n" +
+                        "* End Time: %s \n" + "\n" +
+                        "Proposed Appointment: \n" +
+                        "* Title: %s \n" +
+                        "* Start Time: %s \n" +
+                        "* End Time: %s \n", Scheduler.returnCustomerName(existing.getCustomerID()), existing.getAppointmentID(),
                 existing.getTitle(), existing.getFormattedStart(), existing.getFormattedEnd(),
                 proposed.getTitle(), proposed.getFormattedStart(), proposed.getFormattedEnd());
 
-                validationDialogue(SCHEDULING_CONFLICT);
+        validationDialogue(SCHEDULING_CONFLICT);
     }
+
+
+    /**
+     * Displays a dialogue to the user when there is another appointment starting within 15 minutes.
+     *
+     * @param upcomingAppointment Appointment object, upcoming appointment
+     */
+    public static void appointmentWithinFifteen(Appointment upcomingAppointment) {
+        String HEADER = "Appointment coming up in the next 15 minutes!";
+        String APPOINTMENT_DETAIL = String.format("An Appointment with the Title %s, is coming up soon! Here are the details: \n" +
+                        "* Appointment ID: %s \n" +
+                        "* Start Date / Time: %s \n" +
+                        "* End Date / Time: %s \n", upcomingAppointment.getTitle(),
+                upcomingAppointment.getAppointmentID(), upcomingAppointment.getFormattedStart(), upcomingAppointment.getFormattedEnd());
+
+        confirmationDialogue(HEADER, APPOINTMENT_DETAIL);
+    }
+
 }
-
-
