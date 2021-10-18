@@ -288,6 +288,19 @@ public class Scheduler {
         }
     }
 
+    /**
+     * Returns appointment view of appointments with start dates in the next x days.
+     * @param interval Number of days in the future in which the appointment should occur. Starts with
+     *                 the value of now()
+     * @return Observable list of appointments. Returns an empty list if there are no appointments in
+     * the time period.
+     */
+    public static ObservableList<Appointment> returnAppointmentsByDayInterval(int interval) {
+        return daoAppointment.returnAppointmentsByDayIntervalDAO(interval);
+    }
+
+
+
 
 
 

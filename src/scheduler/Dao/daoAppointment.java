@@ -279,5 +279,49 @@ public abstract class daoAppointment {
             return A;
         }
 
+
+    /**
+     * Returns a view of appointments with start dates in the next x days.
+     * @param interval the number of days in the future you would like to view appointments for. Calculation is
+     *                 now + interval of day provided
+     * @return Observable list of appointments. Returns an empty list if there are no upcoming appointments
+     * in the stated time period.
+     */
+    public static ObservableList<Appointment> returnAppointmentsByDayIntervalDAO(int interval) {
+        ObservableList <Appointment> aList = FXCollections.observableArrayList();
+        ResultSet rs;
+        String RETURN_APPOINTMENT_BY_WEEK = "select * from appointments where Start between now() AND date_add(now(), interval 7 day);";
+
+        try {
+            rs = dbOperations.dbQuery(RETURN_APPOINTMENT_BY_WEEK);
+            while(rs.next()) {
+                int id = rs.getInt("Appointment_ID");
+                String title = rs.getString("Title");
+                String description = rs.getString("Description");
+                String location = rs.getString("Location");
+                int ContactID = rs.getInt("Contact_ID");
+                String type = rs.getString("Type");
+                Timestamp start_time = rs.getTimestamp("Start");
+                LocalDateTime start = start_time.toLocalDateTime();
+                ZonedDateTime startZoned = ZonedDateTime.of(start, ZoneId.systemDefault());
+                Timestamp end_time = rs.getTimestamp("End");
+                LocalDateTime end = end_time.toLocalDateTime();
+                ZonedDateTime endZoned = ZonedDateTime.of(end, ZoneId.systemDefault());
+                int CustomerID = rs.getInt("Customer_ID");
+                int UserID = rs.getInt("User_ID");
+
+                Appointment A = new Appointment(id, title, description, location, ContactID, type, startZoned, endZoned, CustomerID, UserID);
+                aList.add(A);
+            }
+        }
+        catch(SQLException e) {
+            e.printStackTrace();
+        }
+
+
+
+        return aList;
+        }
+
     }
 

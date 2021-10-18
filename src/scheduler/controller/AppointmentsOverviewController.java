@@ -179,6 +179,54 @@ public class AppointmentsOverviewController implements Initializable {
         stage.show();
     }
 
+    @FXML
+    void onClickRadioAll(ActionEvent event) {
+        tableAllAppointments.setItems(Scheduler.getAllAppointments());
+
+        labelAppointmentID.setCellValueFactory(new PropertyValueFactory<>("AppointmentID"));
+        labelCustomerID.setCellValueFactory(new PropertyValueFactory<>("CustomerID"));
+        labelDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
+        labelLocation.setCellValueFactory(new PropertyValueFactory<>("location"));
+        labelType.setCellValueFactory(new PropertyValueFactory<>("type"));
+        labelStartTime.setCellValueFactory(new PropertyValueFactory<>("FormattedStart"));
+        labelEndTime.setCellValueFactory(new PropertyValueFactory<>("FormattedEnd"));
+        labelUserID.setCellValueFactory(new PropertyValueFactory<>("UserID"));
+        labelTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+        labelName.setCellValueFactory(new PropertyValueFactory<>("ContactName"));
+    }
+
+    @FXML
+    void onClickRadioMonth(ActionEvent event) {
+        tableAllAppointments.setItems(Scheduler.returnAppointmentsByDayInterval(30));
+
+        labelAppointmentID.setCellValueFactory(new PropertyValueFactory<>("AppointmentID"));
+        labelCustomerID.setCellValueFactory(new PropertyValueFactory<>("CustomerID"));
+        labelDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
+        labelLocation.setCellValueFactory(new PropertyValueFactory<>("location"));
+        labelType.setCellValueFactory(new PropertyValueFactory<>("type"));
+        labelStartTime.setCellValueFactory(new PropertyValueFactory<>("FormattedStart"));
+        labelEndTime.setCellValueFactory(new PropertyValueFactory<>("FormattedEnd"));
+        labelUserID.setCellValueFactory(new PropertyValueFactory<>("UserID"));
+        labelTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+        labelName.setCellValueFactory(new PropertyValueFactory<>("ContactName"));
+    }
+
+    @FXML
+    void onClickRadioWeek(ActionEvent event) {
+        tableAllAppointments.setItems(Scheduler.returnAppointmentsByDayInterval(7));
+
+        labelAppointmentID.setCellValueFactory(new PropertyValueFactory<>("AppointmentID"));
+        labelCustomerID.setCellValueFactory(new PropertyValueFactory<>("CustomerID"));
+        labelDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
+        labelLocation.setCellValueFactory(new PropertyValueFactory<>("location"));
+        labelType.setCellValueFactory(new PropertyValueFactory<>("type"));
+        labelStartTime.setCellValueFactory(new PropertyValueFactory<>("FormattedStart"));
+        labelEndTime.setCellValueFactory(new PropertyValueFactory<>("FormattedEnd"));
+        labelUserID.setCellValueFactory(new PropertyValueFactory<>("UserID"));
+        labelTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+        labelName.setCellValueFactory(new PropertyValueFactory<>("ContactName"));
+    }
+
 
     /**
      * Initializes the Appts Overview Controller
