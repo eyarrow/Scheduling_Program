@@ -23,4 +23,14 @@ public class Reports {
         }
         return results;
     }
+
+    /**
+     * Returns a list of appointments associated with a specific Contact.
+     * @param ContactID Integer, ID of the desired contact.
+     * @return An Observable list of appointments associated with the contact. List will be empty if
+     * there are no associated appointments.
+     */
+    public static ObservableList<Appointment> appointmentByContact(int ContactID) {
+        return daoReports.appointmentByContactDAO(ContactID);
+    }
 }
