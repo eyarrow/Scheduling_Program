@@ -288,6 +288,8 @@ public class AppointmentsModifyController implements Initializable {
         textFieldLocation.setText(passedParameters.getLocation());
         textfieldTitle.setText(passedParameters.getTitle());
 
+        TimeManagement.populateDateTimes();
+
         comboType.setItems(Scheduler.returnAppointmentTypes());
         comboStartTime.setItems(TimeManagement.returnLocalTime());
         comboEndTime.setItems(TimeManagement.returnLocalTime());
