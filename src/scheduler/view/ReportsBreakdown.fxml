@@ -139,13 +139,13 @@
                   <Label text="View by Type" />
                </children>
             </HBox>
-            <TableView prefHeight="387.0" prefWidth="300.0" GridPane.rowIndex="1">
+            <TableView fx:id="tableTypeView" prefHeight="387.0" prefWidth="300.0" GridPane.rowIndex="1">
               <columns>
                 <TableColumn fx:id="columnAppointmentType" prefWidth="202.0" text="Appointment Type" />
                 <TableColumn fx:id="columnNumOfAppointments" prefWidth="228.0" text="Number of Appointments" />
               </columns>
             </TableView>
-            <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TableView fx:id="tableMonthView" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
               <columns>
                 <TableColumn prefWidth="214.0" text="Month" />
                 <TableColumn prefWidth="215.0" text="Number of Appointments" />
