@@ -254,7 +254,7 @@ public abstract class daoAppointment {
                 int UserID = rs.getInt("User_ID");
 
                 LocalDateTime currentTime = LocalDateTime.now();
-                long timeDifferential = ChronoUnit.MINUTES.between(currentTime, start);
+                long timeDifferential = ChronoUnit.MINUTES.between(start, currentTime);
                 if(timeDifferential < 15) {
                     Appointment match = new Appointment(id, title, description, location, ContactID, type, startZoned, endZoned, CustomerID, UserID);
                     return match;
