@@ -161,7 +161,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <RadioButton fx:id="radioAll" mnemonicParsing="false" selected="true" stylesheets="@/images/style.css" text="All">
+                  <RadioButton fx:id="radioAll" mnemonicParsing="false" onAction="#onClickRadioAll" selected="true" stylesheets="@/images/style.css" text="All">
                      <padding>
                         <Insets right="30.0" />
                      </padding>
@@ -169,12 +169,12 @@
                         <ToggleGroup fx:id="View_by" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton fx:id="radioWeekly" mnemonicParsing="false" stylesheets="@/images/style.css" text="Weekly" toggleGroup="$View_by">
+                  <RadioButton fx:id="radioWeekly" mnemonicParsing="false" onAction="#onClickRadioWeek" stylesheets="@/images/style.css" text="Weekly" toggleGroup="$View_by">
                      <padding>
                         <Insets right="18.0" />
                      </padding>
                   </RadioButton>
-                  <RadioButton fx:id="radioMonthly" alignment="CENTER_RIGHT" mnemonicParsing="false" stylesheets="@/images/style.css" text="Monthly" toggleGroup="$View_by" />
+                  <RadioButton fx:id="radioMonthly" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#onClickRadioMonth" stylesheets="@/images/style.css" text="Monthly" toggleGroup="$View_by" />
                </children>
                <GridPane.margin>
                   <Insets right="30.0" />
