@@ -8,6 +8,10 @@ import scheduler.util.dbOperations;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
 public class daoReports {
 
@@ -48,10 +52,34 @@ public class daoReports {
      * empty if there are no associated appointments.
      */
     public static ObservableList<Appointment> appointmentByContactDAO(int ContactID) {
-        Appointment A = new Appointment();
         ObservableList<Appointment> appointmentsByContact = FXCollections.observableArrayList();
         ResultSet rs;
-        String APPOINTMENT_BY_CONTACT = String.format("select * from appointments where ")
+        String APPOINTMENT_BY_CONTACT = String.format("select * from appointments where Contact_ID = %s;", ContactID);
+
+        try {
+            rs = dbOperations.dbQuery(APPOINTMENT_BY_CONTACT);
+            while(rs.next()) {
+                int id = rs.getInt("Appointment_ID");
+                String title = rs.getString("Title");
+                String description = rs.getString("Description");
+                String location = rs.getString("Location");
+                String type = rs.getString("Type");
+                Timestamp start_time = rs.getTimestamp("Start");
+                LocalDateTime start = start_time.toLocalDateTime();
+                ZonedDateTime startZoned = ZonedDateTime.of(start, ZoneId.systemDefault());
+                Timestamp end_time = rs.getTimestamp("End");
+                LocalDateTime end = end_time.toLocalDateTime();
+                ZonedDateTime endZoned = ZonedDateTime.of(end, ZoneId.systemDefault());
+                int CustomerID = rs.getInt("Customer_ID");
+                int UserID = rs.getInt("User_ID");
+
+                Appointment A = new Appointment(id, title, description, location, ContactID, type, startZoned, endZoned, CustomerID, UserID);
+                appointmentsByContact.add(A);
+            }
+        }
+        catch(SQLException e) {
+            e.printStackTrace();
+        }
 
         return appointmentsByContact;
     }
