@@ -159,7 +159,14 @@ public abstract class TimeManagement {
         }
         else {
             for(Appointment appt : customerAppointments) {
-                if(appt.getStart().toLocalDateTime().isAfter(start) && appt.getEnd().toLocalDateTime().isBefore(end)) {
+
+                //if new start (12:30) is after original start (12:00) but before original end (13) = problem
+                //if new end (14) is after original start(13:30) but not after original end 14:30 = problem
+                if(start.isAfter(appt.getStart().toLocalDateTime()) && start.isBefore(appt.getEnd().toLocalDateTime())) {
+                    return appt;
+                }
+
+                if(end.isAfter(appt.getStart().toLocalDateTime()) && !end.isAfter(appt.getEnd().toLocalDateTime())) {
                     return appt;
                 }
 
