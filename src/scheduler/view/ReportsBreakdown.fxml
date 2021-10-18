@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,7 +15,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="753.0" prefWidth="1243.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.controller.ReportsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="753.0" prefWidth="1243.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.controller.ReportsBreakdownController">
    <children>
       <AnchorPane layoutX="245.0" prefHeight="135.0" prefWidth="1003.0" styleClass="nav-bar-top" stylesheets="@/images/style.css" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="-5.0">
          <children>
@@ -27,7 +29,7 @@
                 <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label styleClass="nav-bar-top" stylesheets="@/images/style.css" text="REPORTS">
+                  <Label styleClass="nav-bar-top" stylesheets="@/images/style.css" text="REPORTS &gt; Appointment Number by Type / Month">
                      <GridPane.margin>
                         <Insets left="30.0" />
                      </GridPane.margin>
@@ -35,7 +37,7 @@
                         <Insets top="50.0" />
                      </padding>
                   </Label>
-                  <Label styleClass="nav-bar-descrip" stylesheets="@/images/style.css" text="Select the type of report to run from the dropdown box. " GridPane.rowIndex="1">
+                  <Label styleClass="nav-bar-descrip" stylesheets="@/images/style.css" text="Choose another report from the dropdown box to view another report type." GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="30.0" />
                      </GridPane.margin>
@@ -47,7 +49,7 @@
                               <Insets right="10.0" top="10.0" />
                            </padding>
                         </Label>
-                        <ComboBox fx:id="comboReportType" onAction="#onClickReportType" prefHeight="35.0" prefWidth="268.0" />
+                        <ComboBox fx:id="comboReportType" onAction="#clickComboReportType" prefHeight="35.0" prefWidth="268.0" />
                      </children>
                   </HBox>
                </children>
@@ -116,5 +118,40 @@
             </GridPane>
          </center>
       </BorderPane>
+      <GridPane layoutX="274.0" layoutY="161.0" prefHeight="530.0" prefWidth="861.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="182.0" minHeight="0.0" prefHeight="116.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="461.0" minHeight="10.0" prefHeight="388.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <children>
+                  <Label alignment="TOP_LEFT" text="View by Month" />
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="View by Type" />
+               </children>
+            </HBox>
+            <TableView prefHeight="387.0" prefWidth="300.0" GridPane.rowIndex="1">
+              <columns>
+                <TableColumn fx:id="columnAppointmentType" prefWidth="202.0" text="Appointment Type" />
+                <TableColumn fx:id="columnNumOfAppointments" prefWidth="228.0" text="Number of Appointments" />
+              </columns>
+            </TableView>
+            <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <columns>
+                <TableColumn prefWidth="214.0" text="Month" />
+                <TableColumn prefWidth="215.0" text="Number of Appointments" />
+              </columns>
+            </TableView>
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>

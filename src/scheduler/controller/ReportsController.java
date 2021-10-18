@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
+import scheduler.model.Reports;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,7 +21,7 @@ public class ReportsController implements Initializable {
     Parent scene;
 
     @FXML
-    private ComboBox<?> comboReportType;
+    private ComboBox<String> comboReportType;
 
     @FXML
     private Button buttonOverview;
@@ -88,6 +89,23 @@ public class ReportsController implements Initializable {
     }
 
 
+    @FXML
+    void onClickReportType(ActionEvent event) throws IOException {
+        if(!comboReportType.getSelectionModel().getSelectedItem().isEmpty()) {
+            if(comboReportType.getSelectionModel().getSelectedItem().startsWith("Number of Appointments")) {
+                stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+                scene = FXMLLoader.load(getClass().getResource("/scheduler/view/ReportsBreakdown.fxml/"));
+                stage.setScene(new Scene(scene, 1243, 753));
+                stage.setTitle("Acme Consulting : View by Type and Month");
+                scene.getStylesheets().add( getClass().getResource( "/images/style.css" ).toExternalForm() );
+                stage.show();
+            }
+
+        }
+
+    }
+
+
     /**
      * Initializes the Reports Controller
      * @param url
@@ -95,6 +113,8 @@ public class ReportsController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        comboReportType.setItems(Reports.returnListOfReportTypes());
 
     }
 }
