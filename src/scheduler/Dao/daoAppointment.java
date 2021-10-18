@@ -232,7 +232,7 @@ public abstract class daoAppointment {
      */
     public static Appointment appointmentWithinFifteenDAO() {
         Appointment A = new Appointment();
-        String GET_APPOINTMENTS = "select * from appointments;";
+        String GET_APPOINTMENTS = "select * from appointments where Start between now() AND date_add(now(), interval 15 minute);";
         ResultSet rs;
 
         try {
@@ -252,23 +252,8 @@ public abstract class daoAppointment {
                 ZonedDateTime endZoned = ZonedDateTime.of(end, ZoneId.systemDefault());
                 int CustomerID = rs.getInt("Customer_ID");
                 int UserID = rs.getInt("User_ID");
-
-                ZonedDateTime currentTime = ZonedDateTime.now();
-                if(startZoned.isAfter(currentTime)) {
-                    System.out.println("Appointment " + id + " qualified.");
-
-                    long differential = ChronoUnit.MINUTES.between(currentTime, startZoned);
-                    if(Math.abs(differential) < 15) {
-                        System.out.println("Appointment ID: " + id + "Is Less than 15 minutes away. ");
-                    }
-                    else {
-                        System.out.println("Appointment ID: " + id + "is Greater than 15 minutes away");
-                    }
-                }
-
-
-
-
+                Appointment Appt = new Appointment(id, title, description, location, ContactID, type, startZoned, endZoned, CustomerID, UserID);
+                return Appt;
             }
         }
         catch (SQLException e) {
@@ -290,10 +275,10 @@ public abstract class daoAppointment {
     public static ObservableList<Appointment> returnAppointmentsByDayIntervalDAO(int interval) {
         ObservableList <Appointment> aList = FXCollections.observableArrayList();
         ResultSet rs;
-        String RETURN_APPOINTMENT_BY_WEEK = String.format("select * from appointments where Start between now() AND date_add(now(), interval %s day);", interval);
+        String RETURN_APPOINTMENTS = String.format("select * from appointments where Start between now() AND date_add(now(), interval %s day);", interval);
 
         try {
-            rs = dbOperations.dbQuery(RETURN_APPOINTMENT_BY_WEEK);
+            rs = dbOperations.dbQuery(RETURN_APPOINTMENTS);
             while(rs.next()) {
                 int id = rs.getInt("Appointment_ID");
                 String title = rs.getString("Title");
