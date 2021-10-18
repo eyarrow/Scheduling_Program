@@ -7,7 +7,7 @@ import scheduler.Dao.daoReports;
 public class Reports {
 
     private static ObservableList<String> reportTypes = FXCollections.observableArrayList("Number of Appointments by Type / Month",
-            "Contact Schedules", "Somethin' Else");
+            "Contact Schedules");
 
     public static ObservableList<String> returnListOfReportTypes () {
         return reportTypes;

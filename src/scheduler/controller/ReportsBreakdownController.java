@@ -55,8 +55,18 @@ public class ReportsBreakdownController implements Initializable {
     private TableView<Type> tableTypeView;
 
     @FXML
-    void clickComboReportType(ActionEvent event) {
+    void clickComboReportType(ActionEvent event) throws IOException {
+        if (!comboReportType.getSelectionModel().getSelectedItem().isEmpty()) {
+            if (comboReportType.getSelectionModel().getSelectedItem().startsWith("Contact Schedules")) {
+                stage = (Stage) ((ComboBox) event.getSource()).getScene().getWindow();
+                scene = FXMLLoader.load(getClass().getResource("/scheduler/view/ReportsApptByContact.fxml/"));
+                stage.setScene(new Scene(scene, 1243, 753));
+                stage.setTitle("Acme Consulting : View Appointments by Contact");
+                scene.getStylesheets().add(getClass().getResource("/images/style.css").toExternalForm());
+                stage.show();
+            }
 
+        }
     }
 
     @FXML
