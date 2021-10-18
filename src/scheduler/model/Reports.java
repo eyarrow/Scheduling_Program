@@ -14,6 +14,13 @@ public class Reports {
     }
 
     public static ObservableList<Type> returnTypeAggregates() {
-        return daoReports.returnTypeAggregatesDAO();
+
+        //return daoReports.returnTypeAggregatesDAO();
+        ObservableList<Type> results = daoReports.returnTypeAggregatesDAO();
+
+        for(Type items : results) {
+            System.out.println(items.toString());
+        }
+        return results;
     }
 }

@@ -52,6 +52,9 @@ public class ReportsBreakdownController implements Initializable {
     private TableView<Type> tableMonthView;
 
     @FXML
+    private TableView<Type> tableTypeView;
+
+    @FXML
     void clickComboReportType(ActionEvent event) {
 
     }
@@ -109,7 +112,7 @@ public class ReportsBreakdownController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         comboReportType.setItems(Reports.returnListOfReportTypes());
-        tableMonthView.setItems(Reports.returnTypeAggregates());
+        tableTypeView.setItems(Reports.returnTypeAggregates());
 
         columnAppointmentType.setCellValueFactory(new PropertyValueFactory<>("typeDescription"));
         columnNumOfAppointments.setCellValueFactory(new PropertyValueFactory<>("numberOfOccurences"));
