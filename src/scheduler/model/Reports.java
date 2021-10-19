@@ -33,4 +33,8 @@ public class Reports {
     public static ObservableList<Appointment> appointmentByContact(int ContactID) {
         return daoReports.appointmentByContactDAO(ContactID);
     }
+
+    public static int returnNumberOfAppointmentsToday() {
+        return daoReports.returnNumberOfAppointmentsTodayDAO();
+    }
 }

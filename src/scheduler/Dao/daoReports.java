@@ -9,9 +9,7 @@ import scheduler.util.dbOperations;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.time.*;
 
 public class daoReports {
 
@@ -83,4 +81,43 @@ public class daoReports {
 
         return appointmentsByContact;
     }
+
+    public static int returnNumberOfAppointmentsTodayDAO() {
+        //from now to end of business day
+        //Create end of business day timestamp
+        LocalDate today = LocalDate.now();
+        LocalTime endOfDay = LocalTime.of(22, 0);
+        ZonedDateTime Z = ZonedDateTime.of(today, endOfDay, ZoneId.systemDefault());
+        ZonedDateTime Z_UTC = Z.withZoneSameInstant(ZoneOffset.UTC);
+
+        LocalDateTime end = Z_UTC.toLocalDateTime();
+        Timestamp endTime = Timestamp.valueOf(end);
+        String APPOINTMENTS_TODAY = String.format("select count(*) from appointments where Start between now() and %s;", endTime);
+        ResultSet rs;
+        int count = 0;
+
+        try {
+            rs = dbOperations.dbQuery(APPOINTMENTS_TODAY);
+            while(rs.next()) {
+                count = rs.getInt("count(*)");
+            }
+        }
+        catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
+
+    }
+
+    public static int returnNumberOfAppointmentsTomorrowDAO() {
+        //number of appointments from 8:00 am - 10:00 pm EST following business day.
+        return 0;
+    }
+
+    public static int returnNumberOfAppointmentsThisWeek() {
+        //returns number of appointments over the next 7 days
+        return 0;
+    }
+
+
 }
