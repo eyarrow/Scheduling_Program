@@ -180,18 +180,18 @@
             <Insets left="20.0" />
          </padding>
       </GridPane>
-      <TableView fx:id="tableAllAppointments" layoutX="246.0" layoutY="191.0" prefHeight="573.0" prefWidth="965.0" stylesheets="@/images/style.css">
+      <TableView fx:id="tableAllAppointments" layoutX="274.0" layoutY="191.0" prefHeight="559.0" prefWidth="937.0" stylesheets="@/images/style.css">
         <columns>
           <TableColumn fx:id="labelAppointmentID" maxWidth="-Infinity" minWidth="108.0" prefWidth="108.0" text="Appointment ID" />
           <TableColumn fx:id="labelName" maxWidth="-Infinity" minWidth="100.0" prefWidth="100.0" text="Contact Name" />
             <TableColumn fx:id="labelType" maxWidth="56.0" minWidth="51.0" prefWidth="51.0" text="Type" />
             <TableColumn fx:id="labelTitle" maxWidth="165.0" minWidth="50.0" prefWidth="135.0" text="Title" />
-            <TableColumn fx:id="labelDescription" maxWidth="249.0" minWidth="91.0" prefWidth="150.0" text="Description" />
-            <TableColumn fx:id="labelLocation" maxWidth="252.0" minWidth="79.0" prefWidth="102.0" text="Location" />
-            <TableColumn fx:id="labelStartTime" maxWidth="209.0" minWidth="76.0" prefWidth="78.0" text="Start Time" />
-            <TableColumn fx:id="labelEndTime" maxWidth="285.0" minWidth="73.0" prefWidth="73.0" text="End Time" />
-            <TableColumn fx:id="labelCustomerID" maxWidth="287.0" minWidth="73.0" prefWidth="76.0" text="Customer ID" />
-            <TableColumn fx:id="labelUserID" maxWidth="251.0" minWidth="59.0" prefWidth="92.0" text="User ID" />
+            <TableColumn fx:id="labelDescription" maxWidth="249.0" minWidth="91.0" prefWidth="112.0" text="Description" />
+            <TableColumn fx:id="labelLocation" maxWidth="252.0" minWidth="79.0" prefWidth="79.0" text="Location" />
+            <TableColumn fx:id="labelStartTime" maxWidth="209.0" minWidth="74.0" prefWidth="74.0" text="Start Time" />
+            <TableColumn fx:id="labelEndTime" maxWidth="285.0" minWidth="59.0" prefWidth="69.0" text="End Time" />
+            <TableColumn fx:id="labelCustomerID" maxWidth="287.0" minWidth="67.0" prefWidth="67.0" text="Customer ID" />
+            <TableColumn fx:id="labelUserID" maxWidth="251.0" minWidth="59.0" prefWidth="140.0" text="User ID" />
         </columns>
          <padding>
             <Insets top="15.0" />
