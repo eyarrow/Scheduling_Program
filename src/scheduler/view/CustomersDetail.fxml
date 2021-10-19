@@ -184,7 +184,7 @@
                               <Label fx:id="labelDivisionID" styleClass="customer-detail-values" stylesheets="@/images/style.css" text="Value" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                            </children>
                         </GridPane>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="870.0">
                            <children>
                               <Button fx:id="buttonDelete" mnemonicParsing="false" onAction="#onClickDelete" style="-fx-border-color: red;" styleClass="light-button" stylesheets="@/images/style.css" text="Delete">
                                  <HBox.margin>

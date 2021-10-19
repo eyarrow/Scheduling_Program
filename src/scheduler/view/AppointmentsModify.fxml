@@ -154,7 +154,7 @@
                <children>
                   <VBox layoutY="-53.0" prefHeight="624.0" prefWidth="983.0">
                      <children>
-                        <GridPane prefHeight="445.0" prefWidth="865.0">
+                        <GridPane prefHeight="506.0" prefWidth="868.0">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="319.0" minWidth="10.0" prefWidth="178.0" />
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="665.0" minWidth="10.0" prefWidth="665.0" />
@@ -200,7 +200,7 @@
                               <Label fx:id="labelCustomerID" styleClass="customer-detail-values" stylesheets="@/images/style.css" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="10" />
                               <Label fx:id="labelUserID" styleClass="customer-detail-values" stylesheets="@/images/style.css" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="11" />
                               <ComboBox fx:id="comboCustomerName" onAction="#onClickCustomerName" prefHeight="32.0" prefWidth="664.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <Label text="Contact Name" styleClass="customer-detail-labels" stylesheets="@/images/style.css" GridPane.rowIndex="1" />
+                              <Label styleClass="customer-detail-labels" stylesheets="@/images/style.css" text="Contact Name" GridPane.rowIndex="1" />
                               <ComboBox fx:id="comboBoxContact" prefHeight="31.0" prefWidth="665.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
