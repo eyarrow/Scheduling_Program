@@ -8,6 +8,7 @@ import scheduler.util.dbOperations;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.*;
 
@@ -82,9 +83,12 @@ public class daoReports {
         return appointmentsByContact;
     }
 
+    /**
+     * Returns the sum of appointments that have start times that fall between the current time, and the end
+     * of the current business day.
+     * @return Integer, number of appointments left in the business day.
+     */
     public static int returnNumberOfAppointmentsTodayDAO() {
-        //from now to end of business day
-        //Create end of business day timestamp
         LocalDate today = LocalDate.now();
         LocalTime endOfDay = LocalTime.of(22, 0);
         ZonedDateTime Z = ZonedDateTime.of(today, endOfDay, ZoneId.systemDefault());
@@ -113,7 +117,32 @@ public class daoReports {
 
     public static int returnNumberOfAppointmentsTomorrowDAO() {
         //number of appointments from 8:00 am - 10:00 pm EST following business day.
-        return 0;
+        LocalDate tomorrowsDate = LocalDate.now().plusDays(1);
+        LocalTime startOfDay = LocalTime.of(8,0);
+        LocalTime endOfDay = LocalTime.of(22,00);
+        ZonedDateTime zonedStart = ZonedDateTime.of(tomorrowsDate, startOfDay, ZoneId.systemDefault());
+        ZonedDateTime zonedEnd = ZonedDateTime.of(tomorrowsDate, endOfDay, ZoneId.systemDefault());
+        ZonedDateTime zonedStartUTC = zonedStart.withZoneSameInstant(ZoneOffset.UTC);
+        ZonedDateTime zonedEndUTC = zonedEnd.withZoneSameInstant(ZoneOffset.UTC);
+        LocalDateTime start = zonedStartUTC.toLocalDateTime();
+        LocalDateTime end = zonedEndUTC.toLocalDateTime();
+        Timestamp startTime = Timestamp.valueOf(start);
+        Timestamp endTime = Timestamp.valueOf(end);
+        String APPOINTMENT_TOMORROW = String.format("select count(*) from appointments where Start between '%s' and '%s';", startTime, endTime);
+        ResultSet rs;
+        int sum = 0;
+
+        try {
+            rs = dbOperations.dbQuery(APPOINTMENT_TOMORROW);
+            while(rs.next()) {
+                sum = rs.getInt("count(*)");
+            }
+        }
+        catch(SQLException e) {
+            e.printStackTrace();
+        }
+
+        return sum;
     }
 
     public static int returnNumberOfAppointmentsThisWeek() {

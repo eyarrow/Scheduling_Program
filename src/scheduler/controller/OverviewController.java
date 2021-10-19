@@ -111,6 +111,7 @@ public class OverviewController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         labelApptToday.setText(String.valueOf(Reports.returnNumberOfAppointmentsToday()));
+        labelAppointTomorrow.setText(String.valueOf(Reports.returnNumberOfAppointmentsTomorrow()));
 
 
     }

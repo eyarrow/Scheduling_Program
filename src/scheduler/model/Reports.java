@@ -34,7 +34,18 @@ public class Reports {
         return daoReports.appointmentByContactDAO(ContactID);
     }
 
+
+    /**
+     * Returns the sum of appointments that have start times that fall between the current time, and the end
+     * of the current business day.
+     * @return Integer, number of appointments left in the business day.
+     */
     public static int returnNumberOfAppointmentsToday() {
         return daoReports.returnNumberOfAppointmentsTodayDAO();
+    }
+
+
+    public static int returnNumberOfAppointmentsTomorrow() {
+        return daoReports.returnNumberOfAppointmentsTomorrowDAO();
     }
 }
