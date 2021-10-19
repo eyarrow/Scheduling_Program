@@ -55,7 +55,7 @@
                               <Insets left="30.0" />
                            </GridPane.margin>
                         </Label>
-                        <ComboBox fx:id="comboReportType" onAction="#onClickReportType" prefHeight="26.0" prefWidth="391.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="comboReportType" onAction="#onClickReportType" prefHeight="26.0" prefWidth="437.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                </children>
@@ -124,7 +124,7 @@
             </GridPane>
          </center>
       </BorderPane>
-      <GridPane layoutX="272.0" layoutY="222.0" prefHeight="473.0" prefWidth="835.0">
+      <GridPane layoutX="272.0" layoutY="224.0" prefHeight="471.0" prefWidth="883.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
         </columnConstraints>
@@ -144,9 +144,9 @@
                 <TableColumn fx:id="columnTitle" prefWidth="169.0" text="Title" />
                   <TableColumn fx:id="columnType" prefWidth="119.0" text="Type" />
                   <TableColumn fx:id="columnDescription" prefWidth="140.0" text="Description" />
-                  <TableColumn fx:id="columnStart" prefWidth="85.0" text="Start" />
-                  <TableColumn fx:id="columnEnd" prefWidth="85.0" text="End" />
-                  <TableColumn fx:id="columnCustomerID" prefWidth="114.0" text="Customer ID" />
+                  <TableColumn fx:id="columnStart" prefWidth="97.0" text="Start" />
+                  <TableColumn fx:id="columnEnd" prefWidth="101.0" text="End" />
+                  <TableColumn fx:id="columnCustomerID" prefWidth="133.0" text="Customer ID" />
               </columns>
             </TableView>
          </children>
