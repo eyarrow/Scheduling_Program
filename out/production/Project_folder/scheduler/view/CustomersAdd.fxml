@@ -180,14 +180,14 @@
                               <TextField fx:id="textFieldName" styleClass="light-text-box" stylesheets="@/images/style.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Button fx:id="buttonCancel" mnemonicParsing="false" onAction="#onClickCancel" style="-fx-border-color: red;" styleClass="light-button" stylesheets="@/images/style.css" text="Cancel" textFill="#ada9a9">
+                              <Button fx:id="buttonCancel" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#onClickCancel" style="-fx-border-color: red;" styleClass="light-button" stylesheets="@/images/style.css" text="Cancel" textFill="#ada9a9">
                                  <HBox.margin>
                                     <Insets right="15.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button fx:id="buttonSave" mnemonicParsing="false" onAction="#onClickSave" styleClass="light-button" stylesheets="@/images/style.css" text="Save" />
+                              <Button fx:id="buttonSave" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#onClickSave" styleClass="light-button" stylesheets="@/images/style.css" text="Save" />
                            </children>
                            <padding>
                               <Insets top="30.0" />
