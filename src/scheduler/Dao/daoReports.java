@@ -92,7 +92,7 @@ public class daoReports {
     public static int returnNumberOfAppointmentsTodayDAO() {
         LocalDate today = LocalDate.now();
         LocalTime endOfDay = LocalTime.of(22, 0);
-        ZonedDateTime Z = ZonedDateTime.of(today, endOfDay, ZoneId.systemDefault());
+        ZonedDateTime Z = ZonedDateTime.of(today, endOfDay, ZoneId.of("America/New_York"));
         ZonedDateTime Z_UTC = Z.withZoneSameInstant(ZoneOffset.UTC);
 
         LocalDateTime end = Z_UTC.toLocalDateTime();
@@ -125,8 +125,8 @@ public class daoReports {
         LocalDate tomorrowsDate = LocalDate.now().plusDays(1);
         LocalTime startOfDay = LocalTime.of(8,0);
         LocalTime endOfDay = LocalTime.of(22,00);
-        ZonedDateTime zonedStart = ZonedDateTime.of(tomorrowsDate, startOfDay, ZoneId.systemDefault());
-        ZonedDateTime zonedEnd = ZonedDateTime.of(tomorrowsDate, endOfDay, ZoneId.systemDefault());
+        ZonedDateTime zonedStart = ZonedDateTime.of(tomorrowsDate, startOfDay, ZoneId.of("America/New_York"));
+        ZonedDateTime zonedEnd = ZonedDateTime.of(tomorrowsDate, endOfDay, ZoneId.of("America/New_York"));
         ZonedDateTime zonedStartUTC = zonedStart.withZoneSameInstant(ZoneOffset.UTC);
         ZonedDateTime zonedEndUTC = zonedEnd.withZoneSameInstant(ZoneOffset.UTC);
         LocalDateTime start = zonedStartUTC.toLocalDateTime();
