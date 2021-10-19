@@ -6,6 +6,7 @@ import scheduler.model.Appointment;
 import scheduler.model.Type;
 import scheduler.util.dbOperations;
 
+import javax.xml.transform.Result;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
@@ -115,6 +116,10 @@ public class daoReports {
 
     }
 
+    /**
+     * Returns the number of appointments that are scheduled for the next business day.
+     * @return Integer, sum of appointments.
+     */
     public static int returnNumberOfAppointmentsTomorrowDAO() {
         //number of appointments from 8:00 am - 10:00 pm EST following business day.
         LocalDate tomorrowsDate = LocalDate.now().plusDays(1);
@@ -145,9 +150,28 @@ public class daoReports {
         return sum;
     }
 
-    public static int returnNumberOfAppointmentsThisWeek() {
+
+    /**
+     * Returns the sum of appointments that's start time falls in the next 7 calendar days.
+     * @return Integer, number of appointments.
+     */
+    public static int returnNumberOfAppointmentsThisWeekDAO() {
         //returns number of appointments over the next 7 days
-        return 0;
+        int sum = 0;
+        ResultSet rs;
+        String NEXT_SEVEN_DAYS = "select count(*) from appointments where Start between now() AND date_add(now(), interval 7 day);";
+
+        try {
+            rs = dbOperations.dbQuery(NEXT_SEVEN_DAYS);
+            while(rs.next()) {
+                sum = rs.getInt("count(*)");
+            }
+        }
+        catch(SQLException e) {
+            e.printStackTrace();
+        }
+
+        return sum;
     }
 
 

@@ -45,7 +45,20 @@ public class Reports {
     }
 
 
+    /**
+     * Returns the number of appointments that are scheduled for the next business day.
+     * @return Integer, sum of appointments.
+     */
     public static int returnNumberOfAppointmentsTomorrow() {
         return daoReports.returnNumberOfAppointmentsTomorrowDAO();
+    }
+
+
+    /**
+     * Returns the sum of appointments that's start time falls in the next 7 calendar days.
+     * @return Integer, number of appointments.
+     */
+    public static int returnNumberOfAppointmentsThisWeekDAO() {
+        return daoReports.returnNumberOfAppointmentsThisWeekDAO();
     }
 }

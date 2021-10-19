@@ -112,7 +112,7 @@ public class OverviewController implements Initializable {
 
         labelApptToday.setText(String.valueOf(Reports.returnNumberOfAppointmentsToday()));
         labelAppointTomorrow.setText(String.valueOf(Reports.returnNumberOfAppointmentsTomorrow()));
-
+        labelAppointThisWeek.setText(String.valueOf(Reports.returnNumberOfAppointmentsThisWeekDAO()));
 
     }
 
