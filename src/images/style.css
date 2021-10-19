@@ -100,6 +100,9 @@
 	
 }
 
+.table-row-cell {
+    -fx-cell-size: 50px;
+}
 
 .table-view .column-header-background .filler {
     -fx-background-color: transparent;
@@ -142,7 +145,7 @@
 }
 
 .table-row-cell: even{
-    -fx-background-color: #F2F2F2;
+    -fx-background-color: WHITE;
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.0em;
 }
