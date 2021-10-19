@@ -92,7 +92,7 @@ public class daoReports {
 
         LocalDateTime end = Z_UTC.toLocalDateTime();
         Timestamp endTime = Timestamp.valueOf(end);
-        String APPOINTMENTS_TODAY = String.format("select count(*) from appointments where Start between now() and %s;", endTime);
+        String APPOINTMENTS_TODAY = String.format("select count(*) from appointments where Start between now() and '%s';", endTime);
         ResultSet rs;
         int count = 0;
 
@@ -101,10 +101,12 @@ public class daoReports {
             while(rs.next()) {
                 count = rs.getInt("count(*)");
             }
+
         }
         catch(SQLException e) {
             e.printStackTrace();
         }
+
         return count;
 
     }
