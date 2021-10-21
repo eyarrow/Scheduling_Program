@@ -231,8 +231,11 @@ public abstract class daoAppointment {
      * a upcoming appointment is not found
      */
     public static Appointment appointmentWithinFifteenDAO() {
+        ZonedDateTime currentTime = ZonedDateTime.now();
+        LocalDateTime current = currentTime.toLocalDateTime();
+        Timestamp isNow = Timestamp.valueOf(current);
         Appointment A = new Appointment();
-        String GET_APPOINTMENTS = "select * from appointments where Start between now() AND date_add(now(), interval 15 minute);";
+        String GET_APPOINTMENTS = String.format("select * from appointments where Start between '%s' AND date_add('%s', interval 15 minute);", isNow, isNow);
         ResultSet rs;
 
         try {
