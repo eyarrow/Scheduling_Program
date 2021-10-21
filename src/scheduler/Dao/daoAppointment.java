@@ -231,7 +231,7 @@ public abstract class daoAppointment {
      * a upcoming appointment is not found
      */
     public static Appointment appointmentWithinFifteenDAO() {
-        ZonedDateTime currentTime = ZonedDateTime.now();
+        ZonedDateTime currentTime = ZonedDateTime.now().withZoneSameInstant(ZoneOffset.UTC);
         LocalDateTime current = currentTime.toLocalDateTime();
         Timestamp isNow = Timestamp.valueOf(current);
         Appointment A = new Appointment();
