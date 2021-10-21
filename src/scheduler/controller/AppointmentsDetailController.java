@@ -172,7 +172,7 @@ public class AppointmentsDetailController implements Initializable {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("/scheduler/view/AppointmentsModify.fxml/"));
         stage.setScene(new Scene(scene, 1243, 753));
-        stage.setTitle("Acme Consulting : Appointments Overview");
+        stage.setTitle("Acme Consulting : Modify Appointment");
         stage.show();
 
     }

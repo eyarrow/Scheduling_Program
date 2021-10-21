@@ -28,7 +28,7 @@ public class daoReports {
         ResultSet rs;
 
         for(String type: Type.returnTypes()) {
-            String TYPE_SUM_QUERY = String.format("select count(*) from appointments where monthname(Start) = '%s' AND Type = '%s';", type);
+            String TYPE_SUM_QUERY = String.format("select count(*) from appointments where monthname(Start) = '%s' AND Type = '%s';", month,  type);
             try {
                 rs = dbOperations.dbQuery(TYPE_SUM_QUERY);
                 while(rs.next()) {

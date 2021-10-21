@@ -139,10 +139,7 @@ public class ReportsBreakdownController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         comboMonthPicker.setItems(Reports.returnMonths());
         comboReportType.setItems(Reports.returnListOfReportTypes());
-        tableTypeView.setItems(Reports.returnTypeAggregates());
-
-        columnAppointmentType.setCellValueFactory(new PropertyValueFactory<>("typeDescription"));
-        columnNumOfAppointments.setCellValueFactory(new PropertyValueFactory<>("numberOfOccurences"));
+        
 
     }
 
