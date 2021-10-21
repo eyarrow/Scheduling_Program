@@ -163,7 +163,8 @@ public class daoReports {
         //returns number of appointments over the next 7 days
         int sum = 0;
         ResultSet rs;
-        String NEXT_SEVEN_DAYS = "select count(*) from appointments where Start between now() AND date_add(now(), interval 7 day);";
+        Timestamp isNow = TimeManagement.calculateNow();
+        String NEXT_SEVEN_DAYS = String.format("select count(*) from appointments where Start between '%s' AND date_add('%s', interval 7 day);", isNow, isNow);
 
         try {
             rs = dbOperations.dbQuery(NEXT_SEVEN_DAYS);

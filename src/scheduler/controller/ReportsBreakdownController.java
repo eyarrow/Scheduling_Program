@@ -72,6 +72,12 @@ public class ReportsBreakdownController implements Initializable {
         }
     }
 
+
+    /**
+     * Event handler for the Month Picker combo box. Loads the appropriate report based on the month
+     * entered by the user
+     * @param event combo button click
+     */
     @FXML
     void onClickMonthPicker(ActionEvent event) {
 
@@ -80,7 +86,6 @@ public class ReportsBreakdownController implements Initializable {
             columnAppointmentType.setCellValueFactory(new PropertyValueFactory<>("typeDescription"));
             columnNumOfAppointments.setCellValueFactory(new PropertyValueFactory<>("numberOfOccurences"));
         }
-
 
 
     }

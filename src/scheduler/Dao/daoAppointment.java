@@ -276,7 +276,8 @@ public abstract class daoAppointment {
     public static ObservableList<Appointment> returnAppointmentsByDayIntervalDAO(int interval) {
         ObservableList <Appointment> aList = FXCollections.observableArrayList();
         ResultSet rs;
-        String RETURN_APPOINTMENTS = String.format("select * from appointments where Start between now() AND date_add(now(), interval %s day);", interval);
+        Timestamp isNow = TimeManagement.calculateNow();
+        String RETURN_APPOINTMENTS = String.format("select * from appointments where Start between '%s' AND date_add('%s', interval %s day);", isNow, isNow, interval);
 
         try {
             rs = dbOperations.dbQuery(RETURN_APPOINTMENTS);
