@@ -3,6 +3,7 @@ package scheduler.Dao;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import scheduler.model.Appointment;
+import scheduler.model.TimeManagement;
 import scheduler.model.Type;
 import scheduler.util.dbOperations;
 
@@ -19,14 +20,15 @@ public class daoReports {
      * Returns the number of appointments sorted by Type of appointment. Result is returned as an Observable
      * list of "Type" objects, which consist of The type description string, and the the aggregate number
      * of appointments of that type.
+     * @param month, String representing the month being reported on
      * @return Observable list, Type objects
      */
-    public static ObservableList<Type> returnTypeAggregatesDAO() {
+    public static ObservableList<Type> returnTypeAggregatesDAO(String month) {
         ObservableList<Type> aggregate = FXCollections.observableArrayList();
         ResultSet rs;
 
         for(String type: Type.returnTypes()) {
-            String TYPE_SUM_QUERY = String.format("select count(*) from appointments where Type = '%s';", type);
+            String TYPE_SUM_QUERY = String.format("select count(*) from appointments where monthname(Start) = '%s' AND Type = '%s';", type);
             try {
                 rs = dbOperations.dbQuery(TYPE_SUM_QUERY);
                 while(rs.next()) {
@@ -97,7 +99,9 @@ public class daoReports {
 
         LocalDateTime end = Z_UTC.toLocalDateTime();
         Timestamp endTime = Timestamp.valueOf(end);
-        String APPOINTMENTS_TODAY = String.format("select count(*) from appointments where Start between now() and '%s';", endTime);
+
+        Timestamp isNow = TimeManagement.calculateNow();
+        String APPOINTMENTS_TODAY = String.format("select count(*) from appointments where Start between '%s' and '%s';", isNow, endTime);
         ResultSet rs;
         int count = 0;
 

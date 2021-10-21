@@ -7,6 +7,7 @@ import scheduler.util.dialogueHandling;
 import scheduler.util.dialogueReturnValues;
 
 import java.sql.Time;
+import java.sql.Timestamp;
 import java.time.*;
 import java.time.chrono.ChronoZonedDateTime;
 import java.util.Date;
@@ -195,5 +196,18 @@ public abstract class TimeManagement {
         }
 
 
+    }
+
+    /**
+     * Calculates what "now" is from the perspective of the local machine. This is used instead of now()
+     * in sql for testing purposes, as this application is tested outside of business hours. Returns a Timestamp
+     * that represents the current user's system time, translated into UTC and returned as a timestamp.
+     * @return a Timestamp that reflects current system time in UTC.
+     */
+    public static Timestamp calculateNow() {
+        ZonedDateTime currentTime = ZonedDateTime.now().withZoneSameInstant(ZoneOffset.UTC);
+        LocalDateTime current = currentTime.toLocalDateTime();
+        Timestamp isNow = Timestamp.valueOf(current);
+        return isNow;
     }
 }

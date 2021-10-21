@@ -55,6 +55,9 @@ public class ReportsBreakdownController implements Initializable {
     private TableView<Type> tableTypeView;
 
     @FXML
+    private ComboBox<String> comboMonthPicker;
+
+    @FXML
     void clickComboReportType(ActionEvent event) throws IOException {
         if (!comboReportType.getSelectionModel().getSelectedItem().isEmpty()) {
             if (comboReportType.getSelectionModel().getSelectedItem().startsWith("Contact Schedules")) {
@@ -67,6 +70,19 @@ public class ReportsBreakdownController implements Initializable {
             }
 
         }
+    }
+
+    @FXML
+    void onClickMonthPicker(ActionEvent event) {
+
+        if(!comboMonthPicker.getSelectionModel().isEmpty()) {
+            tableTypeView.setItems(Reports.returnTypeAggregates(comboMonthPicker.getSelectionModel().getSelectedItem()));
+            columnAppointmentType.setCellValueFactory(new PropertyValueFactory<>("typeDescription"));
+            columnNumOfAppointments.setCellValueFactory(new PropertyValueFactory<>("numberOfOccurences"));
+        }
+
+
+
     }
 
     @FXML
@@ -121,6 +137,7 @@ public class ReportsBreakdownController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        comboMonthPicker.setItems(Reports.returnMonths());
         comboReportType.setItems(Reports.returnListOfReportTypes());
         tableTypeView.setItems(Reports.returnTypeAggregates());
 

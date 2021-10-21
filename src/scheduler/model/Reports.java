@@ -9,14 +9,17 @@ public class Reports {
     private static ObservableList<String> reportTypes = FXCollections.observableArrayList("Number of Appointments by Type / Month",
             "Contact Schedules");
 
+    private static ObservableList<String> months = FXCollections.observableArrayList("January", "February", "March", "April",
+            "May", "June", "July", "August", "September", "October", "November", "December");
+
     public static ObservableList<String> returnListOfReportTypes () {
         return reportTypes;
     }
 
-    public static ObservableList<Type> returnTypeAggregates() {
+    public static ObservableList<Type> returnTypeAggregates(String month) {
 
         //return daoReports.returnTypeAggregatesDAO();
-        ObservableList<Type> results = daoReports.returnTypeAggregatesDAO();
+        ObservableList<Type> results = daoReports.returnTypeAggregatesDAO(month);
 
         for(Type items : results) {
             System.out.println(items.toString());
@@ -60,5 +63,9 @@ public class Reports {
      */
     public static int returnNumberOfAppointmentsThisWeekDAO() {
         return daoReports.returnNumberOfAppointmentsThisWeekDAO();
+    }
+
+    public static ObservableList<String> returnMonths() {
+        return months;
     }
 }
