@@ -250,7 +250,16 @@ public class AppointmentsModifyController implements Initializable {
 
 
 
+
+
         Appointment A = new Appointment(AppointmentID, title, description, location, ContactID, type, startZoned, endZoned, CustomerID, Scheduler.getUserID());
+
+        //Confirm there are no overlaps
+        Appointment Overlap = TimeManagement.checkAppointmentTimeOverlap(CustomerID, startZoned.toLocalDateTime(), endZoned.toLocalDateTime());
+        if(Overlap.getAppointmentID() != 0) {
+            dialogueHandling.appointmentSchedulingConflict(Overlap, A);
+            return;
+        }
 
         //Verify the modification
         if(!dialogueHandling.confirmAppointmentModification(A)) {
