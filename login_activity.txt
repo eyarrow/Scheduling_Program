@@ -389,3 +389,7 @@ User: 'test', made a login attempt that was Successful on 2021-10-21 at 15:55:01
 User: 'test', made a login attempt that was Successful on 2021-10-21 at 17:19:14.695571800 user's system time. 
 User: 'Unknown', made a login attempt that was Unsuccessful on 2021-10-21 at 17:45:05.472370700 user's system time. 
 User: 'test', made a login attempt that was Successful on 2021-10-21 at 17:48:47.608163 user's system time. 
+User: 'test', made a login attempt that was Unsuccessful on 2021-10-21 at 18:02:50.425462800 user's system time. 
+User: 'cat', made a login attempt that was Unsuccessful on 2021-10-21 at 18:03:04.693135800 user's system time. 
+User: 'test', made a login attempt that was Successful on 2021-10-21 at 18:03:30.602070300 user's system time. 
+User: 'test', made a login attempt that was Successful on 2021-10-21 at 18:10:36.767656900 user's system time. 
