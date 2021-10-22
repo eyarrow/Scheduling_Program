@@ -90,7 +90,7 @@ public class LoginController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ResourceBundle rb = ResourceBundle.getBundle("scheduler/NaturalLanguage", Locale.getDefault());
+        ResourceBundle rb = ResourceBundle.getBundle("scheduler/Nat", Locale.getDefault());
         if(Locale.getDefault().getLanguage().equals("fr")) {
             buttonSignIn.setText(rb.getString("Sign in"));
         }
