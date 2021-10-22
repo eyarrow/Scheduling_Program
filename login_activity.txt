@@ -396,3 +396,6 @@ User: 'test', made a login attempt that was Successful on 2021-10-21 at 18:10:36
 User: 'Unknown', made a login attempt that was Unsuccessful on 2021-10-22 at 06:40:30.382950100 user's system time. 
 User: 'cat', made a login attempt that was Unsuccessful on 2021-10-22 at 06:40:39.545492400 user's system time. 
 User: 'test', made a login attempt that was Successful on 2021-10-22 at 06:40:46.955008200 user's system time. 
+User: 'Unknown', made a login attempt that was Unsuccessful on 2021-10-22 at 06:43:52.059553400 user's system time. 
+User: 'dog', made a login attempt that was Unsuccessful on 2021-10-22 at 06:43:58.135971300 user's system time. 
+User: 'test', made a login attempt that was Successful on 2021-10-22 at 06:48:06.061310300 user's system time. 
