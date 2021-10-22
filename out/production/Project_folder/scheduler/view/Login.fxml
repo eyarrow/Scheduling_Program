@@ -47,8 +47,8 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label styleClass="dark-text-box-label" stylesheets="@/images/style.css" text="User Name" textFill="WHITE" />
-                        <Label styleClass="dark-text-box-label" stylesheets="@/images/style.css" text="Password" textFill="#813b3b" GridPane.rowIndex="1" />
+                        <Label fx:id="labelUserName" styleClass="dark-text-box-label" stylesheets="@/images/style.css" text="User Name" textFill="WHITE" />
+                        <Label fx:id="labelPassword" styleClass="dark-text-box-label" stylesheets="@/images/style.css" text="Password" textFill="#813b3b" GridPane.rowIndex="1" />
                         <TextField fx:id="textUserID" prefHeight="30.0" prefWidth="259.0" styleClass="dark-text-box" stylesheets="@/images/style.css" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets right="30.0" />

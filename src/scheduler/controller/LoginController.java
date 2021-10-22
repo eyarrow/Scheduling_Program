@@ -96,14 +96,18 @@ public class LoginController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        String ZoneIDText = "Zone ID:";
         ResourceBundle rb = ResourceBundle.getBundle("scheduler/Nat", Locale.getDefault());
         if(Locale.getDefault().getLanguage().equals("fr")) {
             labelPassword.setText(rb.getString("Password"));
+            labelUserName.setText(rb.getString("UserName"));
+            buttonExit.setText(rb.getString("ExittheApplication"));
+            buttonSignIn.setText(rb.getString("Signin"));
+            ZoneIDText = rb.getString("ZoneID");
 
         }
 
-        String zoneID = String.format("Zone ID: %s", TimeManagement.returnZoneIDString());
+        String zoneID = String.format("%s: %s", ZoneIDText, TimeManagement.returnZoneIDString());
         labelZoneID.setText(zoneID);
     }
 }
