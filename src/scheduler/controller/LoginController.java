@@ -46,6 +46,12 @@ public class LoginController implements Initializable {
     private Label labelZoneID;
 
     @FXML
+    private Label labelUserName;
+
+    @FXML
+    private Label labelPassword;
+
+    @FXML
     void onActionLogin(ActionEvent event) throws SQLException, IOException {
         //Capture user name and password from fields
         String user = textUserID.getText();
@@ -93,7 +99,8 @@ public class LoginController implements Initializable {
 
         ResourceBundle rb = ResourceBundle.getBundle("scheduler/Nat", Locale.getDefault());
         if(Locale.getDefault().getLanguage().equals("fr")) {
-            buttonSignIn.setText(rb.getString("Sign in"));
+            labelPassword.setText(rb.getString("Password"));
+
         }
 
         String zoneID = String.format("Zone ID: %s", TimeManagement.returnZoneIDString());
