@@ -8,6 +8,9 @@ import javafx.stage.Stage;
 import scheduler.model.Scheduler;
 import scheduler.util.dbOperations;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 public class Main extends Application {
 
 
@@ -26,6 +29,8 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
+        Locale.setDefault(Locale.forLanguageTag("fr"));
+
 
 
         dbOperations.closeConnection();

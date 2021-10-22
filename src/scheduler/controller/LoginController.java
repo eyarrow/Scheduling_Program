@@ -20,6 +20,7 @@ import scheduler.util.dialogueReturnValues;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
@@ -89,6 +90,10 @@ public class LoginController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ResourceBundle rb = ResourceBundle.getBundle("scheduler/NaturalLanguage", Locale.getDefault());
+        if(Locale.getDefault().getLanguage().equals("fr")) {
+            buttonSignIn.setText(rb.getString("Sign in"));
+        }
 
         String zoneID = String.format("Zone ID: %s", TimeManagement.returnZoneIDString());
         labelZoneID.setText(zoneID);
