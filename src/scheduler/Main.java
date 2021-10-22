@@ -29,7 +29,7 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-        Locale.setDefault(Locale.forLanguageTag("fr"));
+        //Locale.setDefault(Locale.forLanguageTag("fr"));
 
 
 

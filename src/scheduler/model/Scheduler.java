@@ -15,6 +15,8 @@ import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.LinkedList;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.TimeZone;
 
 import static scheduler.Dao.daoCustomer.*;
@@ -59,14 +61,21 @@ public class Scheduler {
      */
     public boolean loginToApplication (String username, String password) throws SQLException, IOException {
         boolean success = authenticateUser(username, password);
-
+        ResourceBundle rb = ResourceBundle.getBundle("scheduler/Nat", Locale.getDefault());
         if(success) {
             TimeManagement.appointmentWithinFifteen();
             logLoginAttempt(username, true);
             return true;
         }
         else {
-            dialogueHandling.displayDialogue(true, dialogueReturnValues.WRONG_PASSWORD);
+            if(Locale.getDefault().getLanguage().equals("fr")) {
+                String err = rb.getString("Theusernameandpasswordcombinationwerenotfound.Pleasetryagain");
+                dialogueHandling.validationDialogue(err);
+            }
+            else {
+                dialogueHandling.displayDialogue(true, dialogueReturnValues.WRONG_PASSWORD);
+            }
+
             logLoginAttempt(username, false);
             return false;
 

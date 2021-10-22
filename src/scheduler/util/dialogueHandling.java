@@ -7,7 +7,9 @@ import scheduler.model.Customer;
 import scheduler.model.Scheduler;
 
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
 /**
  * Displays alert, error, and confirmation dialogues to the end user. Does some logical error checking.
@@ -107,8 +109,16 @@ public abstract class dialogueHandling {
     public static boolean checkAuthentication(String username, String password) throws IOException {
         //checks to make sure user and password are not null. Authenticates if values are present
         //for both fields.
+        ResourceBundle rb = ResourceBundle.getBundle("scheduler/Nat", Locale.getDefault());
         if (username.isEmpty() || password.isEmpty()) {
-            dialogueHandling.displayDialogue(true, dialogueReturnValues.NO_CONTENT);
+            if(Locale.getDefault().getLanguage().equals("fr")) {
+                String err = rb.getString("Pleasemakesureallfieldsarepopulated");
+                dialogueHandling.validationDialogue(err);
+            }
+            else {
+                dialogueHandling.displayDialogue(true, dialogueReturnValues.NO_CONTENT);
+            }
+
             Scheduler sched = new Scheduler();
             if (!username.isEmpty()) {
                 sched.logLoginAttempt(username, false);
