@@ -277,6 +277,7 @@ public class AppointmentsAddController implements Initializable {
         TimeManagement.populateDateTimes();
         comboStartTime.setItems(TimeManagement.returnLocalTime());
         comboEndTime.setItems(TimeManagement.returnLocalTime());
+        labelUserID.setText(String.valueOf(Scheduler.getUserID()));
 
     }
 }
