@@ -12,7 +12,6 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import scheduler.model.Reports;
 import scheduler.model.Scheduler;
-import scheduler.util.MainMenuHelper;
 import scheduler.util.dialogueHandling;
 import scheduler.util.dialogueReturnValues;
 
@@ -20,14 +19,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static scheduler.util.MainMenuHelper.logoutMenu;
+
 
 
 public class OverviewController implements Initializable {
     Stage stage;
     Parent scene;
 
-    MainMenuHelper menu = new MainMenuHelper();
+
 
     @FXML
     private Button buttonOverview;

@@ -40,7 +40,7 @@ public class Appointment {
     }
 
     /**
-     * Default construtor with no parameters. This populates null values to an empty appointment object
+     * Default constructor with no parameters. This populates null values to an empty appointment object
      * which can be initialized later.
      */
     public Appointment() {

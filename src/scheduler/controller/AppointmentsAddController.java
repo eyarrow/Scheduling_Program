@@ -22,6 +22,9 @@ import java.net.URL;
 import java.time.*;
 import java.util.ResourceBundle;
 
+/**
+ * Class to Manage the UI of the "Appointments : Add" screen
+ */
 public class AppointmentsAddController implements Initializable {
 
     Stage stage;
@@ -96,6 +99,11 @@ public class AppointmentsAddController implements Initializable {
     @FXML
     private ComboBox<String> comboBoxType;
 
+    /**
+     * Navigates the user to the Appointments screen when they click on the APPOINTMENT button on the main menu
+     * @param event button click
+     * @throws IOException
+     */
     @FXML
     void onClickAppointments(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -105,6 +113,11 @@ public class AppointmentsAddController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Customers screen when they click on the CUSTOMER button on the main menu
+     * @param event button click
+     * @throws IOException
+     */
     @FXML
     void onClickCustomers(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -114,6 +127,11 @@ public class AppointmentsAddController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Login page where they are automatically logged out, when they click on the LOGOUT button on the main menu. They can choose to either login again, or exit the application from the login screen.
+     * @param event button click
+     * @throws IOException
+     */
     @FXML
     void onClickLogOut(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -123,6 +141,11 @@ public class AppointmentsAddController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Overview page, when they click on the OVERVIEW button on the main menu.
+     * @param event button click
+     * @throws IOException
+     */
     @FXML
     void onClickOverview(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -132,6 +155,11 @@ public class AppointmentsAddController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Reports page, when they click on the REPORTS button on the main menu.
+     * @param event button click
+     * @throws IOException
+     */
     @FXML
     void onClickReports(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -235,6 +263,11 @@ public class AppointmentsAddController implements Initializable {
 
     }
 
+    /**
+     * Loads the Appointment overview screen when the user cancels
+     * @param event button click
+     * @throws IOException
+     */
     @FXML
     void onClickCancel(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -244,6 +277,10 @@ public class AppointmentsAddController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Sets the label value for customer id when the user selects or updates the Customer name from the dropdown box.
+     * @param event combo box click
+     */
     @FXML
     void onClickComboBoxCustomer(ActionEvent event) {
         if(!comboBoxCustomer.getSelectionModel().isEmpty()) {
@@ -255,7 +292,7 @@ public class AppointmentsAddController implements Initializable {
 
     @FXML
     void onClickComboBoxContact(ActionEvent event) {
-
+        //currently not in use
     }
 
 

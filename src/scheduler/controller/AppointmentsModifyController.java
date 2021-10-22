@@ -21,6 +21,9 @@ import java.net.URL;
 import java.time.*;
 import java.util.ResourceBundle;
 
+/**
+ * Controller for the Appointments: Modify screen
+ */
 public class AppointmentsModifyController implements Initializable {
 
     Stage stage;
@@ -97,10 +100,19 @@ public class AppointmentsModifyController implements Initializable {
     @FXML
     private ComboBox<Contact> comboBoxContact;
 
+    /**
+     * Copies Appointment fields over to the controller from the calling function
+     * @param A an appointment
+     */
     public static void copyPassedParameters(Appointment A) {
         passedParameters = A;
     }
 
+    /**
+     * Navigates the user to the Appointments screen when they click on the APPOINTMENT button on the main menu
+     * @param event button click
+     * @throws IOException
+     */
     @FXML
     void onClickAppointments(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -110,6 +122,11 @@ public class AppointmentsModifyController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Customers screen when they click on the CUSTOMER button on the main menu
+     * @param event button click
+     * @throws IOException
+     */
     @FXML
     void onClickCustomers(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -119,6 +136,11 @@ public class AppointmentsModifyController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Login page where they are automatically logged out, when they click on the LOGOUT button on the main menu. They can choose to either login again, or exit the application from the login screen.
+     * @param event button click
+     * @throws IOException
+     */
     @FXML
     void onClickLogOut(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -128,6 +150,11 @@ public class AppointmentsModifyController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Overview page, when they click on the OVERVIEW button on the main menu.
+     * @param event button click
+     * @throws IOException
+     */
     @FXML
     void onClickOverview(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -137,6 +164,11 @@ public class AppointmentsModifyController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Reports page, when they click on the REPORTS button on the main menu.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickReports(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -147,6 +179,11 @@ public class AppointmentsModifyController implements Initializable {
     }
 
 
+    /**
+     * Loads the Appointment add screen with the ADD APPOINTMENT button is clicked
+     * @param event button click
+     * @throws IOException
+     */
     @FXML
     void onClickButtonAdd(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -156,6 +193,11 @@ public class AppointmentsModifyController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Returns to the appointment overview page when the CANCEL button is clicked.
+     * @param event button click
+     * @throws IOException
+     */
     @FXML
     void onClickCancel(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -182,7 +224,7 @@ public class AppointmentsModifyController implements Initializable {
     /**
      * Runs validation when the save button is clicked. If validated, confirms the changes with
      * the user and updates the record if the change in confirmed.
-     * @param event
+     * @param event button click
      */
     @FXML
     void onClickButtonSave(ActionEvent event) throws IOException {

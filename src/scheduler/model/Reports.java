@@ -65,6 +65,10 @@ public class Reports {
         return daoReports.returnNumberOfAppointmentsThisWeekDAO();
     }
 
+    /**
+     * Returns a list of the 12 months of the year.
+     * @return Observable list of months.
+     */
     public static ObservableList<String> returnMonths() {
         return months;
     }

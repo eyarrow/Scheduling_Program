@@ -25,6 +25,9 @@ import java.util.ResourceBundle;
 
 import static scheduler.util.dialogueHandling.displayDialogue;
 
+/**
+ * Controller for the Modify Customer UI
+ */
 public class CustomersModifyController implements Initializable {
 
     Stage stage;
@@ -122,7 +125,7 @@ public class CustomersModifyController implements Initializable {
     }
 
     /**
-     *
+     * Validates entry and saves record as appropriate when the SAVE button is clicked.
      * @param event
      */
     @FXML
@@ -265,7 +268,8 @@ public class CustomersModifyController implements Initializable {
         /**
          * Lamda: Listener for changes to the Country Combo box. If it is modified, the correct list
          * of divisions are listed, and the value of the division is set to null, so that the incorrect division
-         * is not inadvertantly saved to a country to which it does not belong.
+         * is not inadvertantly saved to a country to which it does not belong. Justification: This is a key control
+         * function that disallows invalid input
          */
         comboCountry.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldSelection, newSelection) -> {
             if(!comboCountry.itemsProperty().getValue().isEmpty()) {

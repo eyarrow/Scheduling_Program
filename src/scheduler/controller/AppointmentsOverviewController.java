@@ -22,6 +22,9 @@ import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.util.ResourceBundle;
 
+/**
+ * UI for the Appointment Overview controller
+ */
 public class AppointmentsOverviewController implements Initializable {
     Stage stage;
     Parent scene;
@@ -101,6 +104,11 @@ public class AppointmentsOverviewController implements Initializable {
     @FXML
     private Label labelAppointmentMessage;
 
+    /**
+     * Navigates the user to the Appointments screen when they click on the APPOINTMENT button on the main menu
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickAppointments(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -110,6 +118,11 @@ public class AppointmentsOverviewController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Customers screen when they click on the CUSTOMER button on the main menu
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickCustomers(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -119,6 +132,11 @@ public class AppointmentsOverviewController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Login page where they are automatically logged out, when they click on the LOGOUT button on the main menu. They can choose to either login again, or exit the application from the login screen.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickLogOut(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -128,6 +146,11 @@ public class AppointmentsOverviewController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Overview page, when they click on the OVERVIEW button on the main menu.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickOverview(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -137,6 +160,11 @@ public class AppointmentsOverviewController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Reports page, when they click on the REPORTS button on the main menu.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickReports(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -146,6 +174,13 @@ public class AppointmentsOverviewController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Handler for the VIEW APPOINTMENT DETAILS button. Posts a dialogue to the user if an appointment is not
+     * selected. Else, loads the appropriate details page.
+     * @param event
+     * @throws IOException
+     * @throws InvocationTargetException
+     */
     @FXML
     void onClickButtonDetail(ActionEvent event) throws IOException, InvocationTargetException {
 
@@ -170,6 +205,11 @@ public class AppointmentsOverviewController implements Initializable {
 
     }
 
+    /**
+     * Loads the Add appointments screen when the ADD APPOINTMENT button is clicked
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickButtonAdd(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -179,6 +219,10 @@ public class AppointmentsOverviewController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Loads all records when the ALL radio button is clicked
+     * @param event
+     */
     @FXML
     void onClickRadioAll(ActionEvent event) {
         tableAllAppointments.setItems(Scheduler.getAllAppointments());
@@ -195,6 +239,10 @@ public class AppointmentsOverviewController implements Initializable {
         labelName.setCellValueFactory(new PropertyValueFactory<>("ContactName"));
     }
 
+    /**
+     * Loads a month view of appointments when the MONTHLY radio button is clicked.
+     * @param event
+     */
     @FXML
     void onClickRadioMonth(ActionEvent event) {
         tableAllAppointments.setItems(Scheduler.returnAppointmentsByDayInterval(30));
@@ -211,6 +259,10 @@ public class AppointmentsOverviewController implements Initializable {
         labelName.setCellValueFactory(new PropertyValueFactory<>("ContactName"));
     }
 
+    /**
+     * Loads a week view of appointments when the WEEKLY radio button is clicked
+     * @param event
+     */
     @FXML
     void onClickRadioWeek(ActionEvent event) {
         tableAllAppointments.setItems(Scheduler.returnAppointmentsByDayInterval(7));
@@ -239,7 +291,8 @@ public class AppointmentsOverviewController implements Initializable {
          * Lambda Expression - Listener for when a value on the Table View is clicked. When a value is clicked
          * a label at the top of the page changes to the reflect the Appointment ID. It also sets up
          * passed parameters for the Appointment object, which can be used to populate that customer's information on
-         * the detail screen.
+         * the detail screen. Justification: This is used to make it clear to the user which record they are
+         * opening before they click the associated button.
          */
         tableAllAppointments.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldSelection, newSelection) -> {
             if(!newSelection.getLocation().isEmpty()) {

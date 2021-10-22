@@ -23,6 +23,9 @@ import java.sql.SQLException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+/**
+ * Controller for the Login UI
+ */
 public class LoginController implements Initializable {
 
     //JavaFX objects for stage and scene
@@ -51,6 +54,13 @@ public class LoginController implements Initializable {
     @FXML
     private Label labelPassword;
 
+    /**
+     * Handler for when the LOG IN button is clicked. User name / password are validated, and any errors
+     * are returned to the user via a dialogue.
+     * @param event
+     * @throws SQLException
+     * @throws IOException
+     */
     @FXML
     void onActionLogin(ActionEvent event) throws SQLException, IOException {
         //Capture user name and password from fields
@@ -78,6 +88,10 @@ public class LoginController implements Initializable {
 
     }
 
+    /**
+     * Exits the application when the EXIT THE APPLICATION button is clicked
+     * @param event
+     */
     @FXML
     void onClickButtonExit(ActionEvent event) {
         if(dialogueHandling.displayDialogue(false, dialogueReturnValues.APPLICATION_EXIT)) {

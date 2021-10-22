@@ -19,6 +19,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * UI controller for the Appointments : Detail screen.
+ */
 public class AppointmentsDetailController implements Initializable {
 
     Stage stage;
@@ -92,10 +95,19 @@ public class AppointmentsDetailController implements Initializable {
     @FXML
     private Button buttonReturn;
 
+    /**
+     * Copies Appointment passed from the calling function to the Appointments Add controlller
+     * @param A an appointment
+     */
     public static void copyPassedParameters(Appointment A) {
         passedParameters = A;
     }
 
+    /**
+     * Navigates the user to the Appointments screen when they click on the APPOINTMENT button on the main menu
+     * @param event button click
+     * @throws IOException
+     */
     @FXML
     void onClickAppointments(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -105,6 +117,11 @@ public class AppointmentsDetailController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Customers screen when they click on the CUSTOMER button on the main menu
+     * @param event button click
+     * @throws IOException
+     */
     @FXML
     void onClickCustomers(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -114,6 +131,11 @@ public class AppointmentsDetailController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Login page where they are automatically logged out, when they click on the LOGOUT button on the main menu. They can choose to either login again, or exit the application from the login screen.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickLogOut(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -123,6 +145,11 @@ public class AppointmentsDetailController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Overview page, when they click on the OVERVIEW button on the main menu.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickOverview(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -132,6 +159,11 @@ public class AppointmentsDetailController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Reports page, when they click on the REPORTS button on the main menu.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickReports(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -141,6 +173,12 @@ public class AppointmentsDetailController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Handler for what occurs when the user clicks the delete button. Posts a confirmation dialogue
+     * the UI before proceeding
+     * @param event button click
+     * @throws IOException
+     */
     @FXML
     void onClickButtonDelete(ActionEvent event) throws IOException {
         //Post confirmation dialogue. Return if the user cancels.
@@ -177,6 +215,11 @@ public class AppointmentsDetailController implements Initializable {
 
     }
 
+    /**
+     * Returns the user to the Appointment Overview screen when they click the RETURN TO LIST VIEW button
+     * @param event button click
+     * @throws IOException
+     */
     @FXML
     void onClickButtonReturn(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -186,6 +229,11 @@ public class AppointmentsDetailController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Routes user to the Appointments : Add screen, when the ADD APPOINTMENT button is clicked
+     * @param event button click
+     * @throws IOException
+     */
     @FXML
     void onClickButtonAdd(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();

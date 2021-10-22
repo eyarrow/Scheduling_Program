@@ -21,6 +21,9 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+/**
+ * Controller for the Overview screen
+ */
 public class CustomersOverviewController implements Initializable {
 
     Stage stage;
@@ -82,9 +85,14 @@ public class CustomersOverviewController implements Initializable {
 
     @FXML
     void onClickCustomerSearch(ActionEvent event) {
-
+        //not currently implemented
     }
 
+    /**
+     * Loads the Add customer screen when the ADD CUSTOMER button is clicked.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickAddNewCustomer(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -94,6 +102,11 @@ public class CustomersOverviewController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Appointments screen when they click on the APPOINTMENT button on the main menu
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickAppointments(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -104,6 +117,11 @@ public class CustomersOverviewController implements Initializable {
 
     }
 
+    /**
+     * Navigates the user to the Customers screen when they click on the CUSTOMER button on the main menu
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickCustomers(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -113,6 +131,11 @@ public class CustomersOverviewController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Login page where they are automatically logged out, when they click on the LOGOUT button on the main menu. They can choose to either login again, or exit the application from the login screen.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickLogOut(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -122,6 +145,11 @@ public class CustomersOverviewController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Overview page, when they click on the OVERVIEW button on the main menu.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickOverview(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -131,6 +159,11 @@ public class CustomersOverviewController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Reports page, when they click on the REPORTS button on the main menu.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickReports(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -143,11 +176,16 @@ public class CustomersOverviewController implements Initializable {
 
     @FXML
     void onClickTableItem(MouseEvent event) throws IOException {
-
+        //not currently in use
     }
 
 
-
+    /**
+     * Handler for the GET CUSTOMER DETAIL button. Validates that a customer has been selected,
+     * passes the customer object to the Customer Modify screen, and loads it.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickButtonOpen(ActionEvent event) throws IOException {
         Customer C = tableAllCustomers.getSelectionModel().getSelectedItem();

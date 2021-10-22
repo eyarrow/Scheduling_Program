@@ -51,7 +51,7 @@ public abstract class daoAppointment {
 
     /**
      * Returns all appointments that currently exist
-     * @return
+     * @return Observable list of all appointments
      */
     public static ObservableList<Appointment> getAllAppointmentsDAO() {
         String GET_APPOINTMENTS = "select * from appointments;";

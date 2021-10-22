@@ -8,7 +8,11 @@ public class Country {
     private int Country_id;
     private String name;
 
-    //Constructor
+    /**
+     * Constructor.
+     * @param country_id Country id
+     * @param name Country name
+     */
     public Country(int country_id, String name) {
         setCountry_id(country_id);
         setName(name);

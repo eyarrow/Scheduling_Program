@@ -15,6 +15,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller for the Reports Overview UI
+ */
 public class ReportsController implements Initializable {
 
     Stage stage;
@@ -38,6 +41,11 @@ public class ReportsController implements Initializable {
     @FXML
     private Button buttonLogout;
 
+    /**
+     * Navigates the user to the Appointments screen when they click on the APPOINTMENT button on the main menu
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickAppointments(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -48,6 +56,11 @@ public class ReportsController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Customers screen when they click on the CUSTOMER button on the main menu
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickCustomers(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -58,6 +71,11 @@ public class ReportsController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Login page where they are automatically logged out, when they click on the LOGOUT button on the main menu. They can choose to either login again, or exit the application from the login screen.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickLogOut(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -68,6 +86,11 @@ public class ReportsController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Overview page, when they click on the OVERVIEW button on the main menu.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickOverview(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -78,6 +101,11 @@ public class ReportsController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Reports page, when they click on the REPORTS button on the main menu.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickReports(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -88,7 +116,11 @@ public class ReportsController implements Initializable {
         stage.show();
     }
 
-
+    /**
+     * Loads the appropriate report type when the combo box is clicked. 
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickReportType(ActionEvent event) throws IOException {
         if(!comboReportType.getSelectionModel().getSelectedItem().isEmpty()) {

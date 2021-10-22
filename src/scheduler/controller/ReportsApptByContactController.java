@@ -22,6 +22,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller for the Report by Contact UI
+ */
 public class ReportsApptByContactController implements Initializable {
 
     Stage stage;
@@ -73,6 +76,10 @@ public class ReportsApptByContactController implements Initializable {
     @FXML
     private TableColumn<Appointment, Integer> columnCustomerID;
 
+    /**
+     * Populates appointments by Contact when a contact is chosen from the combo box.
+     * @param event
+     */
     @FXML
     void clickComboContacts(ActionEvent event) {
         if(!comboContacts.getSelectionModel().isEmpty()) {
@@ -90,6 +97,11 @@ public class ReportsApptByContactController implements Initializable {
         }
     }
 
+    /**
+     * Navigates the user to the Appointments screen when they click on the APPOINTMENT button on the main menu
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickAppointments(ActionEvent event) throws IOException {
         stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
@@ -100,6 +112,11 @@ public class ReportsApptByContactController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Customers screen when they click on the CUSTOMER button on the main menu
+      * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickCustomers(ActionEvent event) throws IOException {
         stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
@@ -110,6 +127,11 @@ public class ReportsApptByContactController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Login page where they are automatically logged out, when they click on the LOGOUT button on the main menu. They can choose to either login again, or exit the application from the login screen.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickLogOut(ActionEvent event) throws IOException {
         stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
@@ -120,6 +142,11 @@ public class ReportsApptByContactController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Overview page, when they click on the OVERVIEW button on the main menu.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickOverview(ActionEvent event) throws IOException {
         stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
@@ -130,6 +157,11 @@ public class ReportsApptByContactController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Reports page, when they click on the REPORTS button on the main menu.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickReports(ActionEvent event) throws IOException {
         if (!comboReportType.getSelectionModel().getSelectedItem().isEmpty()) {
@@ -145,6 +177,11 @@ public class ReportsApptByContactController implements Initializable {
         }
     }
 
+    /**
+     * Updates report type if appropriate when the Report type combo box is clicked
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickReportType(ActionEvent event) throws IOException {
         if (!comboReportType.getSelectionModel().getSelectedItem().isEmpty()) {

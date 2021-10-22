@@ -273,7 +273,14 @@ public abstract class dialogueHandling {
         return false;
     }
 
-
+    /**
+     * Runs validation on appointment fields to make sure they are not empty. If they are, a custom
+     * error message is returned to the user, including the specifics of what needs to be updated
+     * @param title String, title of the appointment
+     * @param description String, description of the appointment
+     * @param location String, location of the appointment
+     * @return
+     */
     public static boolean validateAppointment(String title, String description, String location) {
         boolean valid = true;
         String errMessage = "Please resolve the following issues: \n";
@@ -320,7 +327,11 @@ public abstract class dialogueHandling {
 
     }
 
-
+    /**
+     * Requests confirmation from the user that they would like to modify an appointment
+     * @param A an appointment
+     * @return true if the user chooses to proceed, false, if they choose to cancel
+     */
     public static boolean confirmAppointmentModification(Appointment A) {
 
         String CONFIRM_MODIFICATION = "Please confirm that you would like to make the following changes? \n" +
@@ -362,7 +373,12 @@ public abstract class dialogueHandling {
         return false;
     }
 
-
+    /**
+     * Dialogue to inform the user that they are attempting to schedule an appointment for a customer
+     * that conflicts with an appointment that is already existing.
+     * @param existing Details of current appointment
+     * @param proposed Details of the new proposed appointment
+     */
     public static void appointmentSchedulingConflict(Appointment existing, Appointment proposed) {
         String SCHEDULING_CONFLICT = String.format("There is a conflict between the appointment you are trying " +
                         "to schedule with %s, and an already existing appointment. Please address this " +

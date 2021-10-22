@@ -14,6 +14,9 @@ import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.*;
 
+/**
+ * Class to manage all report level DAO functions
+ */
 public class daoReports {
 
     /**

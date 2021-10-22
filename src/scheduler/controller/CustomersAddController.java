@@ -25,6 +25,9 @@ import java.util.ResourceBundle;
 
 import static scheduler.util.dialogueHandling.*;
 
+/**
+ * Controller for the Add Customer UI
+ */
 public class CustomersAddController implements Initializable {
 
     Stage stage;
@@ -82,7 +85,11 @@ public class CustomersAddController implements Initializable {
     private Button buttonSave;
 
 
-
+    /**
+     * Navigates the user to the Appointments screen when they click on the APPOINTMENT button on the main menu
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickAppointments(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -92,6 +99,11 @@ public class CustomersAddController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Customers screen when they click on the CUSTOMER button on the main menu
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickCustomers(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -101,6 +113,11 @@ public class CustomersAddController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Login page where they are automatically logged out, when they click on the LOGOUT button on the main menu. They can choose to either login again, or exit the application from the login screen.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickLogOut(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -110,6 +127,11 @@ public class CustomersAddController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Overview page, when they click on the OVERVIEW button on the main menu.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickOverview(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -119,6 +141,11 @@ public class CustomersAddController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Navigates the user to the Reports page, when they click on the REPORTS button on the main menu.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickReports(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
@@ -142,9 +169,12 @@ public class CustomersAddController implements Initializable {
     }
 
 
-
-
-
+    /**
+     * Event handler for when the SAVE button is clicked. Displays errors that occur during validation
+     * and requests confirmation as appropriate.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickSave(ActionEvent event) throws IOException {
 
@@ -197,7 +227,11 @@ public class CustomersAddController implements Initializable {
     }
 
 
-
+    /**
+     * Loads the Customers Overview page when the CANCEL button is clicked.
+      * @param event
+     * @throws IOException
+     */
     @FXML
     void onClickCancel(ActionEvent event) throws IOException {
         stage = (Stage)((Button)event.getSource()).getScene().getWindow();
