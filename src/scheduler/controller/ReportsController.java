@@ -117,7 +117,7 @@ public class ReportsController implements Initializable {
     }
 
     /**
-     * Loads the appropriate report type when the combo box is clicked. 
+     * Loads the appropriate report type when the combo box is clicked.
      * @param event
      * @throws IOException
      */
