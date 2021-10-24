@@ -11,6 +11,11 @@ import scheduler.util.dbOperations;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+/**
+ * Main File for application.
+ * Author: Elizabeth Yarrow
+ * Assignment: WGU C195
+ */
 public class Main extends Application {
 
 

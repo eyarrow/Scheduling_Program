@@ -281,7 +281,7 @@ public class AppointmentsOverviewController implements Initializable {
 
 
     /**
-     * Initializes the Appts Overview Controller
+     * Initializes the Appointments Overview Controller. Contains a Lambda expression that is a Listener for when a value on the Table View is clicked. When a value is clicked a label at the top of the page changes to the reflect the Appointment ID. It also sets up passed parameters for the Appointment object, which can be used to populate that customer's information on the detail screen. Justification: This is used to make it clear to the user which record they are opening before they click the associated button.
      * @param url
      * @param resourceBundle
      */

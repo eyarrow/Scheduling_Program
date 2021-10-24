@@ -259,7 +259,9 @@ public class CustomersModifyController implements Initializable {
 
 
     /**
-     * Initializes the Customers Modify Controller
+     * Initializes the Customers Modify Controller. Lamda: Listener for changes to the Country Combo box. If it is modified, the correct list
+     * of divisions are listed, and the value of the division is set to null, so that the incorrect division
+     * is not inadvertantly saved to a country to which it does not belong. Justification: This is a key control function that disallows invalid input
      * @param url
      * @param resourceBundle
      */
