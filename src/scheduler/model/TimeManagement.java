@@ -138,13 +138,14 @@ public abstract class TimeManagement {
 
     /**
      * Checks whether new appointment time conflicts with an already scheduled appointment with the same customer.
+     * @param AppointmentID Integer, Appointment ID. Should be 0 for a new appointment.
      * @param CustomerID Integer, Customer ID
      * @param start LocalDateTime, the start time proposed for the new appointment
      * @param end LocalDateTime, the end time proposed for the new appointment
      * @return The appointment which has a conflict. If there is no conflict the Appointment Object
      * that is returned is populated with null values, and a appointment id # of 0.
      */
-    public static Appointment checkAppointmentTimeOverlap(int CustomerID, LocalDateTime start, LocalDateTime end) {
+    public static Appointment checkAppointmentTimeOverlap(int AppointmentID, int CustomerID, LocalDateTime start, LocalDateTime end) {
         LinkedList<Appointment> customerAppointments = Scheduler.allAppointmentsByCustomer(CustomerID);
         Appointment A = new Appointment();
 
@@ -157,15 +158,33 @@ public abstract class TimeManagement {
                 //if new start is after original start but before original end = problem
                 //if new end is after original start but not after original end  = problem
                 if(start.isAfter(appt.getStart().toLocalDateTime()) && start.isBefore(appt.getEnd().toLocalDateTime())) {
-                    return appt;
+                   if(appt.getAppointmentID() == AppointmentID) {
+                       //appointment being modified is the current appointment - overlaps allowed
+                   }
+                   else {
+                       return appt;
+                   }
+
                 }
 
                 if(end.isAfter(appt.getStart().toLocalDateTime()) && !end.isAfter(appt.getEnd().toLocalDateTime())) {
-                    return appt;
+                    if(appt.getAppointmentID() == AppointmentID) {
+                        //appointment being modified is the current appointment - overlaps allowed
+                    }
+                    else {
+                        return appt;
+                    }
+
                 }
 
                 if(appt.getStart().toLocalDateTime().isEqual(start) || appt.getEnd().toLocalDateTime().isEqual(end)) {
-                    return appt;
+                    if(appt.getAppointmentID() == AppointmentID) {
+                        //appointment being modified is the current appointment - overlaps allowed
+                    }
+                    else {
+                        return appt;
+                    }
+
                 }
             }
         }
