@@ -10,6 +10,7 @@ import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.*;
 import java.time.chrono.ChronoZonedDateTime;
+import java.time.temporal.ChronoField;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.TimeZone;
@@ -60,8 +61,28 @@ public abstract class TimeManagement {
     public static void populateDateTimes() {
 
         ObservableList<String> concatTimes = FXCollections.observableArrayList();
-        concatTimes.addAll("00", "01", "02", "03", "04", "05", "06", "07", "08", "09",
+
+        //Get start and end of business day in UTC
+        Instant start = returnOperatingStartHourUTC();
+        Instant end = returnOperatingEndHourUTC();
+
+        //Get Zoned version of these times, reflecting user's default time.
+        ZonedDateTime startTime = start.atZone(ZoneId.systemDefault());
+        ZonedDateTime endTime = end.atZone(ZoneId.systemDefault());
+
+        //return the first hour of the day and the last hour of the day in the user's default timezone
+        int startValue = startTime.get(ChronoField.HOUR_OF_DAY);
+        int endValue = endTime.get(ChronoField.HOUR_OF_DAY);
+
+        for(int i = startValue; i < endValue; ++i) {
+            concatTimes.add(String.valueOf(i));
+        }
+        /*
+                 concatTimes.addAll("00", "01", "02", "03", "04", "05", "06", "07", "08", "09",
                 "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24");
+         */
+        
+
         for(int i = 0; i < 24; ++i) {
             LocalTime time1 = LocalTime.of(Integer.parseInt(concatTimes.get(i)), 00);
             LocalTime time2 = LocalTime.of(Integer.parseInt(concatTimes.get(i)), 15);
@@ -71,6 +92,41 @@ public abstract class TimeManagement {
         }
 
     }
+
+    /**
+     * Returns the Instant that corresponds to the beginning of the businesses Operating hours
+     * in UTC. (8:00 AM Eastern -> UTC)
+     * @return Instant, Start of business day in UTC
+     */
+    private static Instant returnOperatingStartHourUTC() {
+        LocalTime validStartTime = LocalTime.of(8, 00);
+        LocalDate validStartDate = LocalDate.now();
+        ZoneId eastern = ZoneId.of("America/New_York");
+        ZonedDateTime validStartZoned = ZonedDateTime.of(validStartDate, validStartTime, eastern);
+
+        //Convert to UTC
+        Instant UTC_valid_start = validStartZoned.toInstant();
+        return UTC_valid_start;
+
+    }
+
+    /**
+     * Returns the instant that corresponds to the end of the businesses Operating hours in UTC.
+     * (10:00 Pm Eastern -> UTC)
+     * @return Instant, end of business day in UTC
+     */
+    private static Instant returnOperatingEndHourUTC() {
+        LocalTime validEndTime = LocalTime.of(22, 00);
+        LocalDate validEndDate = LocalDate.now();
+        ZoneId eastern = ZoneId.of("America/New_York");
+        ZonedDateTime validEndZoned = ZonedDateTime.of(validEndDate, validEndTime, eastern);
+
+        //Convert to UTC
+        Instant UTC_valid_end = validEndZoned.toInstant();
+        return UTC_valid_end;
+    }
+
+
 
     /**
      * Returns the list of times.
@@ -90,12 +146,13 @@ public abstract class TimeManagement {
      * @return true, if times pass validation. false if they do not.
      */
     public static boolean validateBusinessHours(LocalDateTime start, LocalDateTime end) {
-        //create zoned time for start time
+        //create zoned time for start and end time requested.
         ZonedDateTime localZonedStart = ZonedDateTime.of(start.toLocalDate(), start.toLocalTime(), ZoneId.of(returnTimeZoneID()));
         ZonedDateTime localZonedEnd = ZonedDateTime.of(end.toLocalDate(), end.toLocalTime(), ZoneId.of(returnTimeZoneID()));
 
         //setting valid start
-        LocalTime validStartTime = LocalTime.of(8, 00);
+        /*
+         LocalTime validStartTime = LocalTime.of(8, 00);
         LocalDate validStartDate = start.toLocalDate();
         ZoneId eastern = ZoneId.of("America/New_York");
         ZonedDateTime validStartZoned = ZonedDateTime.of(validStartDate, validStartTime, eastern);
@@ -105,14 +162,22 @@ public abstract class TimeManagement {
         LocalDate validEndDate = end.toLocalDate();
         ZonedDateTime validEndZoned = ZonedDateTime.of(validEndDate, validEndTime, eastern);
 
+         */
+
+
         //Convert inputs into UTC
         Instant UTC_start = localZonedStart.toInstant();
         Instant UTC_end = localZonedEnd.toInstant();
 
-
-        //Convert valid times into UTC
+        /*
+             //Convert valid times into UTC
         Instant UTC_valid_start = validStartZoned.toInstant();
         Instant UTC_valid_end = validEndZoned.toInstant();
+         */
+
+        Instant UTC_valid_start = returnOperatingStartHourUTC();
+        Instant UTC_valid_end = returnOperatingEndHourUTC();
+
 
         if(UTC_start.isBefore(UTC_valid_start) || UTC_start.isAfter(UTC_valid_end)) {
             dialogueHandling.displayDialogue(true, dialogueReturnValues.START_NOT_VALID);
