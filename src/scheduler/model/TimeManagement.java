@@ -60,7 +60,7 @@ public abstract class TimeManagement {
      */
     public static void populateDateTimes() {
 
-        ObservableList<String> concatTimes = FXCollections.observableArrayList();
+        ObservableList<Integer> concatTimes = FXCollections.observableArrayList();
 
         //Get start and end of business day in UTC
         Instant start = returnOperatingStartHourUTC();
@@ -75,7 +75,7 @@ public abstract class TimeManagement {
         int endValue = endTime.get(ChronoField.HOUR_OF_DAY);
 
         for(int i = startValue; i < endValue; ++i) {
-            concatTimes.add(String.valueOf(i));
+            concatTimes.add(i);
         }
         /*
                  concatTimes.addAll("00", "01", "02", "03", "04", "05", "06", "07", "08", "09",
@@ -83,11 +83,11 @@ public abstract class TimeManagement {
          */
         
 
-        for(int i = 0; i < 24; ++i) {
-            LocalTime time1 = LocalTime.of(Integer.parseInt(concatTimes.get(i)), 00);
-            LocalTime time2 = LocalTime.of(Integer.parseInt(concatTimes.get(i)), 15);
-            LocalTime time3 = LocalTime.of(Integer.parseInt(concatTimes.get(i)), 30);
-            LocalTime time4 = LocalTime.of(Integer.parseInt(concatTimes.get(i)), 45);
+        for(int value : concatTimes) {
+            LocalTime time1 = LocalTime.of(concatTimes.get(value), 00);
+            LocalTime time2 = LocalTime.of(concatTimes.get(value), 15);
+            LocalTime time3 = LocalTime.of(concatTimes.get(value), 30);
+            LocalTime time4 = LocalTime.of(concatTimes.get(value), 45);
             hour_picker.addAll(time1, time2, time3, time4);
         }
 
