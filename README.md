@@ -166,6 +166,22 @@ Tomorrow: The number of appointments that occur on the next business day, betwee
 
 This week: The number of appointments that occur in the next 7 days. 
 
+## Type of Project
+
+School / Solo Project
+
+## Tools
+
+### Software
+
+IntelliJ Idea Community Edition, Scene Builder by Gluon Software, MySQL
+
+### Languages
+
+Java, JavaFX, SQL
+
+
+
 
 
 
