@@ -89,6 +89,12 @@ JavaFX: JavaFX 11.0.2
 
 MySQL Connector Driver: MySQL Connector 8.0.25
 
+Database ERD:
+
+![image](https://user-images.githubusercontent.com/12164300/179379593-20bcedaf-bed4-4681-9353-9a86cdd24945.png)
+
+
+
 
 ### Usage Instructions
 --------------------------------------------------------------------------------------
